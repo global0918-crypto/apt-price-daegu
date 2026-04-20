@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+.env
+
+# 일별 스냅샷 (마스터 파일만 보존)
+data/아파트실거래_2*.xlsx
+
+# 로그 및 임시 파일
+*.log
+*.txt
+err.txt
+null
+*.lnk
