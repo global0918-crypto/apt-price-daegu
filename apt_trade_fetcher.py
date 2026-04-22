@@ -5,7 +5,7 @@ from openpyxl.styles import Font, PatternFill, Alignment
 from datetime import datetime
 import os
 
-API_KEY = os.environ.get("API_KEY", "c0fb777201beb56b4c5e333b94b2e0d3771cfd15247049464ed6161eb19ee6b3")
+API_KEY = os.environ.get("API_KEY", "cad2afdb0f315b4ef965de57205ab4711e2b0ee7788caf4387c5edcd6820c430")
 API_URL = "https://apis.data.go.kr/1613000/RTMSDataSvcAptTrade/getRTMSDataSvcAptTrade"
 EMAIL_TO = "global0918@gmail.com"
 MASTER_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data", "아파트실거래_마스터.xlsx")

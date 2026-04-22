@@ -456,9 +456,79 @@ def generate_html(excel_path, output_path):
     .quick-dates {{ gap: 3px; }}
     .quick-btn {{ padding: 4px 8px; font-size: 11px; }}
   }}
+
+  /* ── 신고가 카드 ── */
+  .new-high {{ border: 2px solid #e74c3c !important; box-shadow: 0 0 0 4px rgba(231,76,60,.1), 0 1px 4px rgba(0,0,0,.05); }}
+  .new-high-badge {{ display: inline-block; background: #e74c3c; color: #fff; font-size: 10px; font-weight: 700; padding: 2px 6px; border-radius: 5px; margin-left: 5px; vertical-align: middle; }}
+
+  /* ── 랜딩 오버레이 ── */
+  .landing-overlay {{ position: fixed; inset: 0; background: #f4f4f4; z-index: 2000; display: flex; flex-direction: column; overflow-y: auto; }}
+  .landing-inner {{ max-width: 680px; width: 100%; margin: 0 auto; padding: 40px 24px 60px; }}
+  .landing-hd {{ text-align: center; margin-bottom: 36px; }}
+  .landing-hd h1 {{ font-size: 22px; font-weight: 800; color: #111; margin-bottom: 6px; }}
+  .landing-hd p {{ font-size: 13px; color: #888; }}
+  .landing-sec {{ margin-bottom: 28px; }}
+  .landing-sec-title {{ font-size: 13px; font-weight: 700; color: #888; margin-bottom: 12px; text-transform: uppercase; letter-spacing: .3px; }}
+  .ld-date-chips {{ display: flex; flex-wrap: wrap; gap: 6px; }}
+  .ld-date-chip {{
+    padding: 9px 13px; border-radius: 10px; border: 1.5px solid #ddd;
+    background: #fff; font-size: 13px; font-weight: 500; cursor: pointer;
+    transition: all .15s; color: #444; text-align: center; line-height: 1.3; min-width: 58px;
+  }}
+  .ld-date-chip .chip-sub {{ font-size: 10px; color: #bbb; display: block; margin-top: 1px; }}
+  .ld-date-chip.today {{ border-color: #333; font-weight: 700; }}
+  .ld-date-chip.today .chip-sub {{ color: #666; }}
+  .ld-date-chip.active {{ background: #03c75a; color: #fff; border-color: #03c75a; }}
+  .ld-date-chip.active .chip-sub {{ color: rgba(255,255,255,.7); }}
+  .ld-date-chip:hover:not(.active):not([disabled]) {{ border-color: #03c75a; color: #03c75a; }}
+  .ld-date-chip[disabled] {{ background: #f5f5f5; color: #ccc; border-color: #ebebeb; cursor: not-allowed; pointer-events: none; }}
+  .ld-date-chip[disabled] .chip-sub {{ color: #ccc; }}
+  .ld-gugun-chips {{ display: flex; flex-wrap: wrap; gap: 7px; }}
+  .ld-gugun-chip {{
+    padding: 9px 20px; border-radius: 24px; border: 1.5px solid #ddd;
+    background: #fff; font-size: 13px; font-weight: 500; cursor: pointer;
+    transition: all .15s; color: #555;
+  }}
+  .ld-gugun-chip.active {{ background: #03c75a; color: #fff; border-color: #03c75a; }}
+  .ld-gugun-chip:hover:not(.active) {{ border-color: #03c75a; color: #03c75a; }}
+  .ld-info {{ text-align: center; font-size: 12px; color: #aaa; margin-top: 12px; }}
+  .ld-info b {{ color: #333; }}
+  .ld-submit {{
+    width: 100%; padding: 16px; background: #03c75a; color: #fff;
+    border: none; border-radius: 12px; font-size: 16px; font-weight: 700;
+    cursor: pointer; margin-top: 8px; transition: background .15s;
+    box-shadow: 0 4px 18px rgba(3,199,90,.3);
+  }}
+  .ld-submit:hover {{ background: #02a84b; }}
+  @media (max-width: 640px) {{
+    .landing-inner {{ padding: 28px 16px 48px; }}
+    .landing-hd h1 {{ font-size: 19px; }}
+    .ld-date-chip {{ padding: 8px 10px; font-size: 12px; min-width: 50px; }}
+    .ld-gugun-chip {{ padding: 8px 14px; font-size: 12px; }}
+  }}
 </style>
 </head>
 <body>
+
+<!-- 랜딩 오버레이 -->
+<div id="landingOverlay" class="landing-overlay">
+  <div class="landing-inner">
+    <div class="landing-hd">
+      <h1>🏢 대구 아파트 실거래 현황</h1>
+      <p>국토교통부 실거래가 공개시스템</p>
+    </div>
+    <div class="landing-sec">
+      <div class="landing-sec-title">📅 조회 날짜</div>
+      <div class="ld-date-chips" id="ldDateChips"></div>
+      <div class="ld-info" id="ldInfo"></div>
+    </div>
+    <div class="landing-sec">
+      <div class="landing-sec-title">📍 구군 선택</div>
+      <div class="ld-gugun-chips" id="ldGugunChips"></div>
+    </div>
+    <button class="ld-submit" onclick="applyLanding()">조회하기</button>
+  </div>
+</div>
 
 <header>
   <h1>🏢 아파트 실거래 현황</h1>
@@ -654,6 +724,9 @@ function renderVisible() {{
     const allPrices  = allTrades.map(t => t.v).filter(v => v > 0);
     const athVal     = allPrices.length ? Math.max(...allPrices) : 0;
     const athDiff    = athVal ? d.amount_raw - athVal : 0;
+    const prevPrices = allTrades.filter(t => t.d < d.date).map(t => t.v).filter(v => v > 0);
+    const prevAth    = prevPrices.length ? Math.max(...prevPrices) : 0;
+    const isNewHigh  = prevAth > 0 && d.amount_raw > prevAth;
     const athDiffStr = athDiff === 0 ? '전고점' :
                        (athDiff > 0 ? `+${{fmtPriceMini(athDiff)}}` : `${{fmtPriceMini(athDiff)}}`);
     const athClass   = athDiff > 0 ? 'plus' : athDiff < 0 ? 'minus' : '';
@@ -669,10 +742,10 @@ function renderVisible() {{
     </a>`;
 
     return `
-    <div class="card ${{d.tier}}" onclick="openModal('${{encodeURIComponent(d.apt_name)}}','${{encodeURIComponent(d.gugun)}}','${{encodeURIComponent(d.area_key)}}','${{encodeURIComponent(d.date)}}','${{d.amount_raw}}')">
+    <div class="card ${{d.tier}}${{isNewHigh ? ' new-high' : ''}}" onclick="openModal('${{encodeURIComponent(d.apt_name)}}','${{encodeURIComponent(d.gugun)}}','${{encodeURIComponent(d.area_key)}}','${{encodeURIComponent(d.date)}}','${{d.amount_raw}}')">
       <div class="card-header">
         <div class="card-header-top">
-          <div class="apt-name">${{d.apt_name}}</div>
+          <div class="apt-name">${{d.apt_name}}${{isNewHigh ? '<span class="new-high-badge">신고가</span>' : ''}}</div>
           ${{reviewBadge}}
         </div>
         <div class="location">${{d.sido}} ${{d.gugun}} ${{d.dong}}</div>
@@ -1287,8 +1360,84 @@ function downloadExcel() {{
   document.body.removeChild(a); URL.revokeObjectURL(url);
 }}
 
+/* ── 랜딩 ── */
+let _ldDate  = '';
+let _ldGugun = '';
+
+function fmtD(dt) {{
+  return `${{dt.getFullYear()}}.${{String(dt.getMonth()+1).padStart(2,'0')}}.${{String(dt.getDate()).padStart(2,'0')}}`;
+}}
+function prevDay(dateStr) {{
+  const [y, m, d] = dateStr.split('.').map(Number);
+  const dt = new Date(y, m - 1, d);
+  dt.setDate(dt.getDate() - 1);
+  return fmtD(dt);
+}}
+
+function initLanding() {{
+  const today    = new Date();
+  const todayStr = fmtD(today);
+  _ldDate = todayStr;
+
+  const year = today.getFullYear(), month = today.getMonth();
+  const dim  = new Date(year, month + 1, 0).getDate();
+
+  let html = '';
+  for (let day = 1; day <= dim; day++) {{
+    const dt      = new Date(year, month, day);
+    const dtStr   = fmtD(dt);
+    const isToday  = dtStr === todayStr;
+    const isFuture = dt > today;
+    const isActive = dtStr === _ldDate;
+    const sub      = isToday ? '오늘' : isFuture ? '비활성' : '';
+    html += `<button
+      class="ld-date-chip${{isToday ? ' today' : ''}}${{isActive ? ' active' : ''}}"
+      data-date="${{dtStr}}"
+      ${{isFuture ? 'disabled' : `onclick="selectLdDate('${{dtStr}}')"`}}
+    >${{month + 1}}월 ${{day}}일<span class="chip-sub">${{sub}}</span></button>`;
+  }}
+  document.getElementById('ldDateChips').innerHTML = html;
+
+  const guguns = [...new Set(DATA.map(d => d.gugun))].sort();
+  let gh = `<button class="ld-gugun-chip active" onclick="selectLdGugun(this,'')">전체</button>`;
+  guguns.forEach(g => {{
+    gh += `<button class="ld-gugun-chip" onclick="selectLdGugun(this,'${{g}}')">${{g}}</button>`;
+  }});
+  document.getElementById('ldGugunChips').innerHTML = gh;
+  updateLdInfo();
+}}
+
+function selectLdDate(dateStr) {{
+  _ldDate = dateStr;
+  document.querySelectorAll('.ld-date-chip').forEach(b => b.classList.toggle('active', b.dataset.date === dateStr));
+  updateLdInfo();
+}}
+
+function selectLdGugun(el, g) {{
+  _ldGugun = g;
+  document.querySelectorAll('.ld-gugun-chip').forEach(b => b.classList.remove('active'));
+  el.classList.add('active');
+}}
+
+function updateLdInfo() {{
+  const contract = prevDay(_ldDate);
+  const el = document.getElementById('ldInfo');
+  if (el) el.innerHTML = `<b>${{_ldDate}}</b> 선택 → <b>${{contract}}</b> 체결된 실거래가 표시`;
+}}
+
+function applyLanding() {{
+  const contract = prevDay(_ldDate);
+  const iso      = contract.replace(/\./g, '-');
+  document.getElementById('dateFrom').value = iso;
+  document.getElementById('dateTo').value   = iso;
+  _activeGugun = _ldGugun;
+  document.querySelectorAll('.gugun-chip').forEach(c => c.classList.toggle('active', c.dataset.g === _ldGugun));
+  document.getElementById('landingOverlay').style.display = 'none';
+  applyFilter();
+}}
+
 buildSelects();
-applyFilter();
+initLanding();
 </script>
 </body>
 </html>"""

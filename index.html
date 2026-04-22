@@ -1,0 +1,1246 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover">
+<title>대구 아파트 실거래가 · 대구 부동산 나눔 그룹</title>
+<meta name="description" content="대구 아파트 실거래가 조회 · 신고가 알림 · 대구 부동산 나눔 그룹 카페 연동">
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css">
+<style>
+/* ── CSS 변수 ──────────────────────────────────────────── */
+:root{
+  --green:#03c75a; --green-d:#02a84b; --green-bg:#f0fdf6;
+  --red:#e84c3d;   --red-bg:#fff5f4;
+  --bg:#f2f3f5;    --bg2:#fafafa;
+  --card:#fff;
+  --b1:#111; --b2:#333; --b3:#666; --b4:#999; --b5:#bbb;
+  --border:#e8e8e8; --border2:#f0f0f0;
+  --radius:14px;
+  --shadow:0 2px 8px rgba(0,0,0,.08);
+  --tab-h:60px;
+  --hdr-h:54px;
+  --safe-b:env(safe-area-inset-bottom,0px);
+}
+
+/* ── Reset ─────────────────────────────────────────────── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;-webkit-tap-highlight-color:transparent}
+body{
+  font-family:'Pretendard',-apple-system,'Noto Sans KR',sans-serif;
+  background:var(--bg);color:var(--b1);
+  padding-bottom:calc(var(--tab-h) + var(--safe-b));
+  font-size:14px;line-height:1.5;
+}
+button{font-family:inherit;cursor:pointer;border:none;background:none}
+a{text-decoration:none;color:inherit}
+svg{display:block}
+
+/* ── Header ─────────────────────────────────────────────── */
+.hdr{
+  position:sticky;top:0;z-index:200;
+  background:#fff;border-bottom:1px solid var(--border);
+  box-shadow:0 1px 4px rgba(0,0,0,.06);
+  height:var(--hdr-h);
+}
+.hdr-inner{
+  display:flex;align-items:center;gap:10px;
+  height:100%;padding:0 14px;max-width:600px;margin:0 auto;
+}
+.hdr-menu{
+  padding:6px;border-radius:8px;color:var(--b3);font-size:18px;
+  transition:background .15s;line-height:1;
+}
+.hdr-menu:hover{background:var(--bg)}
+.hdr-center{flex:1;min-width:0}
+.hdr-title{font-size:15px;font-weight:800;color:var(--b1);letter-spacing:-.3px}
+.hdr-cafe{
+  display:inline-flex;align-items:center;gap:3px;
+  font-size:10px;color:var(--green);font-weight:600;
+  background:var(--green-bg);border-radius:4px;
+  padding:2px 6px;margin-top:2px;
+}
+.hdr-search-btn{
+  padding:6px;border-radius:8px;color:var(--b3);font-size:18px;
+  transition:background .15s;line-height:1;
+}
+.hdr-search-btn:hover{background:var(--bg)}
+
+/* ── Bottom tab bar ─────────────────────────────────────── */
+.tab-bar{
+  position:fixed;bottom:0;left:0;right:0;z-index:200;
+  height:calc(var(--tab-h) + var(--safe-b));
+  background:#fff;border-top:1px solid var(--border);
+  display:flex;
+  padding-bottom:var(--safe-b);
+  box-shadow:0 -1px 6px rgba(0,0,0,.06);
+}
+.tab-btn{
+  flex:1;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  gap:3px;padding:6px 4px;
+  color:var(--b4);transition:color .15s;font-size:11px;font-weight:500;
+}
+.tab-btn .t-icon{font-size:20px;line-height:1}
+.tab-btn.active{color:var(--green)}
+.tab-btn:hover{color:var(--b2)}
+
+/* ── Pages ──────────────────────────────────────────────── */
+.page{max-width:600px;margin:0 auto;padding-bottom:20px}
+
+/* ── Date strip ─────────────────────────────────────────── */
+.date-strip{
+  background:#fff;border-bottom:1px solid var(--border);
+  padding:14px 16px 12px;
+  display:flex;flex-direction:column;align-items:center;gap:6px;
+  user-select:none;
+}
+.date-nav-row{display:flex;align-items:center;justify-content:center;gap:14px}
+.date-arr{
+  width:36px;height:36px;border-radius:10px;
+  border:1.5px solid var(--border);background:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-size:14px;color:var(--b3);transition:all .15s;
+  flex-shrink:0;
+}
+.date-arr:hover:not(:disabled){border-color:var(--green);color:var(--green)}
+.date-arr:disabled{color:var(--b5);border-color:#f0f0f0;cursor:not-allowed}
+.date-main{font-size:22px;font-weight:800;color:var(--b1);letter-spacing:-.5px;min-width:190px;text-align:center}
+.date-sub{font-size:11px;color:var(--b4);text-align:center}
+.date-sub b{color:var(--b2);font-weight:600}
+
+/* ── District chips ─────────────────────────────────────── */
+.dist-wrap{
+  background:#fff;border-bottom:1px solid var(--border);
+  padding:10px 0;
+}
+.dist-scroll{
+  display:flex;gap:7px;overflow-x:auto;
+  padding:2px 14px 4px;
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
+}
+.dist-scroll::-webkit-scrollbar{display:none}
+.dist-chip{
+  flex-shrink:0;display:flex;flex-direction:column;align-items:center;
+  padding:7px 13px 5px;border-radius:20px;
+  border:1.5px solid var(--border);background:#fff;
+  font-size:13px;font-weight:600;color:var(--b3);
+  transition:all .15s;position:relative;white-space:nowrap;
+}
+.dist-chip .dc-cnt{font-size:10px;font-weight:500;color:var(--b4);margin-top:1px}
+.dist-chip.active{background:var(--b1);color:#fff;border-color:var(--b1)}
+.dist-chip.active .dc-cnt{color:rgba(255,255,255,.6)}
+.dist-chip:hover:not(.active){border-color:var(--b2);color:var(--b2)}
+.dist-chip .nh-dot{
+  position:absolute;top:5px;right:7px;
+  width:6px;height:6px;background:var(--red);border-radius:50%;
+}
+
+/* ── Sort toolbar ───────────────────────────────────────── */
+.sort-bar{
+  display:flex;align-items:center;gap:6px;
+  padding:10px 14px;border-bottom:1px solid var(--border2);
+  background:var(--bg2);overflow-x:auto;
+  scrollbar-width:none;
+}
+.sort-bar::-webkit-scrollbar{display:none}
+.sort-btn{
+  flex-shrink:0;padding:5px 12px;border-radius:20px;
+  border:1.5px solid var(--border);background:#fff;
+  font-size:12px;font-weight:600;color:var(--b3);transition:all .15s;
+}
+.sort-btn.active{background:var(--green);color:#fff;border-color:var(--green)}
+.sort-btn:hover:not(.active){border-color:var(--b2);color:var(--b2)}
+.sort-sep{flex-shrink:0;color:var(--border);font-size:16px}
+.toggle-nh{
+  flex-shrink:0;margin-left:auto;padding:5px 12px;border-radius:20px;
+  border:1.5px solid var(--border);background:#fff;
+  font-size:12px;font-weight:600;color:var(--b3);transition:all .15s;
+  display:flex;align-items:center;gap:5px;
+}
+.toggle-nh.active{background:var(--red-bg);color:var(--red);border-color:var(--red)}
+
+/* ── Summary strip ──────────────────────────────────────── */
+.summary-strip{
+  display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+  padding:8px 14px;font-size:12px;color:var(--b4);
+  background:var(--bg2);
+}
+.sum-item b{font-weight:700;color:var(--b1)}
+.sum-item b.red{color:var(--red)}
+.sum-item b.grn{color:var(--green)}
+.sum-dot{color:var(--border);font-size:14px}
+
+/* ── Card list ──────────────────────────────────────────── */
+.card-list{display:flex;flex-direction:column;gap:0}
+
+/* ── Transaction card ───────────────────────────────────── */
+.tx-card{
+  background:var(--card);
+  border-bottom:1px solid var(--border2);
+  padding:14px 16px;cursor:pointer;
+  transition:background .12s;
+  position:relative;
+}
+.tx-card:active{background:#fafafa}
+.tx-card.new-high{border-left:3px solid var(--red)}
+
+/* 신고가 뱃지 */
+.nh-banner{
+  display:inline-flex;align-items:center;gap:5px;
+  background:var(--red-bg);color:var(--red);
+  font-size:11px;font-weight:700;
+  padding:3px 8px;border-radius:6px;margin-bottom:8px;
+}
+
+/* 아파트명 + 스파크라인 */
+.card-top-row{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:4px}
+.card-apt-name{font-size:16px;font-weight:800;color:var(--b1);flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.spark-wrap{flex-shrink:0;margin-top:2px}
+
+/* 가격 */
+.card-price{font-size:24px;font-weight:900;color:var(--b1);letter-spacing:-.5px;margin-bottom:6px;line-height:1.2}
+.card-price.p-high{color:#c0392b}
+.card-prevhi{font-size:11px;color:var(--b4);margin-bottom:8px}
+.card-prevhi .ph-val{font-weight:700}
+.card-prevhi .ph-up{color:var(--red)}
+.card-prevhi .ph-dn{color:var(--green)}
+.card-prevhi .ph-eq{color:var(--b3)}
+
+/* 메타 정보 */
+.card-meta{display:flex;flex-wrap:wrap;gap:4px 10px;font-size:12px;color:var(--b3);margin-bottom:10px}
+.card-meta span::before{content:'';display:inline-block}
+.card-meta .sep{color:var(--border)}
+
+/* 하단 액션 */
+.card-actions{display:flex;gap:7px;align-items:center;margin-bottom:10px}
+.cafe-btn{
+  flex:1;display:flex;align-items:center;justify-content:center;gap:5px;
+  padding:8px 10px;border-radius:8px;
+  background:var(--green-bg);color:var(--green);
+  font-size:12px;font-weight:700;border:1px solid #c3f0d8;
+  transition:all .15s;
+}
+.cafe-btn:active{background:#d4f7e5}
+.fav-btn-card{
+  padding:8px 12px;border-radius:8px;
+  border:1.5px solid var(--border);background:#fff;
+  font-size:14px;transition:all .15s;line-height:1;
+}
+.fav-btn-card:active{transform:scale(1.2)}
+.fav-btn-card.on{border-color:#ffd700;background:#fffde8}
+
+/* 푸터 */
+.card-footer{
+  display:flex;align-items:center;gap:8px;
+  font-size:11px;color:var(--b4);border-top:1px solid var(--border2);
+  padding-top:8px;flex-wrap:wrap;
+}
+.card-footer .cf-item{display:flex;align-items:center;gap:3px}
+.card-footer .cf-sep{color:var(--border)}
+
+/* ── Loading / Error / Empty ─────────────────────────────── */
+.state-box{text-align:center;padding:60px 16px;color:var(--b4)}
+.spinner{
+  display:inline-block;width:24px;height:24px;
+  border:3px solid var(--border);border-top-color:var(--green);
+  border-radius:50%;animation:spin .7s linear infinite;
+  vertical-align:middle;margin-right:8px;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+.err-box{text-align:center;padding:60px 16px;color:var(--red);line-height:1.8}
+.err-box code{background:#fee;padding:2px 6px;border-radius:4px;font-size:12px}
+
+/* ── Load more ──────────────────────────────────────────── */
+.more-wrap{padding:16px;text-align:center}
+.more-btn{
+  width:100%;padding:14px;border-radius:12px;
+  background:var(--green);color:#fff;
+  font-size:14px;font-weight:700;
+  box-shadow:0 3px 10px rgba(3,199,90,.25);
+  transition:background .15s;
+}
+.more-btn:active{background:var(--green-d)}
+
+/* ── Bottom sheet ───────────────────────────────────────── */
+.sheet-overlay{
+  position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:500;
+  opacity:0;pointer-events:none;transition:opacity .25s;
+}
+.sheet-overlay.open{opacity:1;pointer-events:all}
+.bottom-sheet{
+  position:fixed;bottom:0;left:0;right:0;z-index:510;
+  background:#fff;border-radius:20px 20px 0 0;
+  max-height:80vh;overflow-y:auto;
+  transform:translateY(100%);transition:transform .3s cubic-bezier(.32,1,.23,1);
+  padding:0 0 calc(16px + var(--safe-b));
+  max-width:600px;margin:0 auto;
+}
+.bottom-sheet.open{transform:translateY(0)}
+.sheet-handle{width:36px;height:4px;background:var(--border);border-radius:2px;margin:12px auto 16px}
+.sheet-title{font-size:15px;font-weight:700;padding:0 18px 12px;color:var(--b1)}
+.sheet-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:0 14px}
+.sheet-chip{
+  display:flex;flex-direction:column;align-items:center;
+  padding:10px 8px 8px;border-radius:12px;
+  border:1.5px solid var(--border);background:#fff;
+  font-size:14px;font-weight:600;color:var(--b2);
+  transition:all .15s;position:relative;
+}
+.sheet-chip .sc-cnt{font-size:11px;color:var(--b4);margin-top:2px}
+.sheet-chip.active{background:var(--b1);color:#fff;border-color:var(--b1)}
+.sheet-chip.active .sc-cnt{color:rgba(255,255,255,.6)}
+.sheet-chip .sc-dot{position:absolute;top:8px;right:8px;width:6px;height:6px;background:var(--red);border-radius:50%}
+.sheet-close{
+  display:block;width:calc(100% - 28px);margin:14px auto 0;
+  padding:14px;border-radius:12px;
+  background:var(--bg);color:var(--b2);
+  font-size:14px;font-weight:700;
+}
+
+/* ── Detail panel ───────────────────────────────────────── */
+.detail-overlay{
+  position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:600;
+  opacity:0;pointer-events:none;transition:opacity .25s;
+}
+.detail-overlay.open{opacity:1;pointer-events:all}
+.detail-panel{
+  position:fixed;bottom:0;left:0;right:0;z-index:610;
+  background:#fff;border-radius:20px 20px 0 0;
+  max-height:92vh;display:flex;flex-direction:column;
+  transform:translateY(100%);transition:transform .3s cubic-bezier(.32,1,.23,1);
+  max-width:600px;margin:0 auto;
+}
+.detail-panel.open{transform:translateY(0)}
+.detail-hdr{
+  padding:0 18px;flex-shrink:0;
+}
+.detail-hdr .dh-handle{width:36px;height:4px;background:var(--border);border-radius:2px;margin:12px auto 14px}
+.detail-title{font-size:17px;font-weight:800;color:var(--b1)}
+.detail-sub{font-size:12px;color:var(--b4);margin-top:2px;margin-bottom:14px}
+.detail-close{
+  position:absolute;top:16px;right:16px;
+  width:32px;height:32px;border-radius:50%;
+  background:var(--bg);color:var(--b3);font-size:16px;
+  display:flex;align-items:center;justify-content:center;
+}
+/* 면적 탭 */
+.area-tabs{display:flex;gap:6px;overflow-x:auto;padding:0 18px 14px;scrollbar-width:none;flex-shrink:0}
+.area-tabs::-webkit-scrollbar{display:none}
+.area-tab{
+  flex-shrink:0;padding:5px 12px;border-radius:20px;
+  border:1.5px solid var(--border);background:#fff;
+  font-size:12px;font-weight:600;color:var(--b3);transition:all .15s;
+}
+.area-tab.active{background:var(--green);color:#fff;border-color:var(--green)}
+/* 거래 테이블 */
+.detail-body{overflow-y:auto;padding:0 16px 20px}
+.trade-tbl{width:100%;border-collapse:collapse;font-size:13px}
+.trade-tbl th{
+  background:var(--bg2);padding:8px 10px;
+  text-align:left;color:var(--b4);font-weight:500;
+  border-bottom:1px solid var(--border);position:sticky;top:0;
+}
+.trade-tbl td{padding:9px 10px;border-bottom:1px solid var(--border2);color:var(--b2)}
+.trade-tbl .td-price{font-weight:800;color:var(--b1);text-align:right}
+.trade-tbl .td-nh{color:var(--red)}
+.trade-tbl .td-lo{color:var(--green)}
+
+/* ── Favorites page ─────────────────────────────────────── */
+.fav-search-box{
+  background:#fff;border-bottom:1px solid var(--border);
+  padding:12px 14px;position:relative;
+}
+.fav-inp{
+  width:100%;padding:10px 14px;border-radius:10px;
+  border:1.5px solid var(--border);font-size:14px;
+  outline:none;font-family:inherit;transition:border .15s;
+}
+.fav-inp:focus{border-color:var(--green)}
+.ac-list{
+  position:absolute;left:14px;right:14px;top:100%;margin-top:2px;
+  background:#fff;border:1px solid var(--border);border-radius:12px;
+  box-shadow:0 8px 24px rgba(0,0,0,.12);z-index:300;
+  max-height:240px;overflow-y:auto;display:none;
+}
+.ac-item{padding:11px 14px;font-size:13px;cursor:pointer;border-bottom:1px solid var(--border2);transition:background .1s}
+.ac-item:last-child{border-bottom:none}
+.ac-item:hover,.ac-item.focused{background:var(--green-bg)}
+.ac-item b{color:var(--green)}
+.fav-grid{display:flex;flex-direction:column;gap:0}
+.fav-card{background:#fff;border-bottom:1px solid var(--border2);padding:14px 16px;cursor:pointer}
+.fav-card-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+.fav-card-name{font-size:15px;font-weight:700;color:var(--b1)}
+.fav-del{font-size:18px;color:var(--b5);padding:2px 4px;line-height:1}
+.fav-del:hover{color:var(--red)}
+.fav-trades{display:flex;flex-direction:column;gap:5px}
+.fav-tr{display:flex;justify-content:space-between;align-items:center;font-size:12px;gap:8px}
+.fav-tr-date{color:var(--b4);flex-shrink:0}
+.fav-tr-price{font-weight:700;color:var(--b1)}
+.fav-tr-info{color:var(--b5);font-size:11px;flex:1;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.fav-empty{text-align:center;padding:60px 16px;color:var(--b4);line-height:1.8}
+
+/* ── Search page ─────────────────────────────────────────── */
+.search-page{padding:14px}
+.search-wrap{position:relative;margin-bottom:14px}
+.search-inp{
+  width:100%;padding:12px 16px 12px 42px;border-radius:12px;
+  border:1.5px solid var(--border);font-size:15px;
+  outline:none;font-family:inherit;transition:border .15s;
+  background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23999' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.099zm-5.44 1.398a5.5 5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11z'/%3E%3C/svg%3E") no-repeat 14px center;
+}
+.search-inp:focus{border-color:var(--green)}
+.search-results{display:flex;flex-direction:column;gap:0}
+
+/* ── Settings page ───────────────────────────────────────── */
+.settings-page{padding:14px}
+.setting-section{background:#fff;border-radius:var(--radius);margin-bottom:12px;overflow:hidden;box-shadow:var(--shadow)}
+.setting-row{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 16px;border-bottom:1px solid var(--border2);
+  font-size:14px;color:var(--b1);
+}
+.setting-row:last-child{border-bottom:none}
+.setting-row-label{font-weight:600}
+.setting-row-val{font-size:13px;color:var(--b4)}
+.setting-inp{
+  width:200px;padding:6px 10px;border-radius:8px;
+  border:1.5px solid var(--border);font-size:13px;
+  outline:none;font-family:inherit;text-align:right;
+}
+.setting-inp:focus{border-color:var(--green)}
+.setting-save{
+  padding:6px 14px;border-radius:8px;
+  background:var(--green);color:#fff;
+  font-size:13px;font-weight:700;
+}
+.setting-badge{font-size:12px;color:var(--b4);padding:4px 10px;background:var(--bg);border-radius:6px}
+
+/* ── Toast ───────────────────────────────────────────────── */
+.toast{
+  position:fixed;bottom:calc(var(--tab-h) + var(--safe-b) + 12px);
+  left:50%;transform:translateX(-50%) translateY(10px);
+  background:rgba(0,0,0,.82);color:#fff;
+  font-size:13px;font-weight:600;padding:10px 18px;
+  border-radius:24px;white-space:nowrap;
+  opacity:0;transition:opacity .2s,transform .2s;
+  pointer-events:none;z-index:900;
+}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* ── Cafe 인기글 placeholder ─────────────────────────────── */
+.cafe-section{
+  margin:14px 14px 0;background:#fff;border-radius:var(--radius);
+  box-shadow:var(--shadow);overflow:hidden;
+}
+.cafe-section-hdr{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:12px 14px;border-bottom:1px solid var(--border2);
+}
+.cafe-section-title{font-size:13px;font-weight:700;color:var(--b1)}
+.cafe-section-link{font-size:11px;color:var(--green);font-weight:600}
+.cafe-coming{
+  padding:20px;text-align:center;color:var(--b5);font-size:12px;
+}
+
+/* ── Desktop ─────────────────────────────────────────────── */
+@media(min-width:480px){
+  .card-list{gap:0}
+  .tx-card{padding:16px 20px}
+  .detail-panel,.bottom-sheet{
+    left:50%;right:auto;width:100%;max-width:600px;
+    transform:translateX(-50%) translateY(100%);
+  }
+  .detail-panel.open,.bottom-sheet.open{
+    transform:translateX(-50%) translateY(0);
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- ── Header ─────────────────────────────────────────────── -->
+<header class="hdr">
+  <div class="hdr-inner">
+    <button class="hdr-menu" onclick="openMenu()" aria-label="메뉴">☰</button>
+    <div class="hdr-center">
+      <div class="hdr-title">대구 아파트 실거래가</div>
+      <a class="hdr-cafe" id="cafeLink" href="#" target="_blank" rel="noopener">
+        대구 부동산 나눔 그룹 ↗
+      </a>
+    </div>
+    <button class="hdr-search-btn" onclick="goTab('search')" aria-label="검색">🔍</button>
+  </div>
+</header>
+
+<!-- ── Pages ──────────────────────────────────────────────── -->
+
+<!-- HOME -->
+<div class="page" id="page-home">
+  <div id="loadEl" class="state-box"><span class="spinner"></span>데이터 로딩 중…</div>
+  <div id="errEl" class="err-box" style="display:none"></div>
+
+  <div id="homeMain" style="display:none">
+    <!-- 날짜 스트립 -->
+    <div class="date-strip" id="dateStrip">
+      <div class="date-nav-row">
+        <button class="date-arr" id="prevBtn" onclick="changeDate(-1)" aria-label="이전 날짜">◀</button>
+        <div>
+          <div class="date-main" id="dateLabel">-</div>
+        </div>
+        <button class="date-arr" id="nextBtn" onclick="changeDate(1)" aria-label="다음 날짜">▶</button>
+      </div>
+      <div class="date-sub" id="dateSubLabel"></div>
+    </div>
+
+    <!-- 구군 칩 -->
+    <div class="dist-wrap">
+      <div class="dist-scroll" id="distScroll"></div>
+    </div>
+
+    <!-- 정렬 툴바 -->
+    <div class="sort-bar">
+      <button class="sort-btn active" data-sort="date" onclick="setSort(this,'date')">최신순</button>
+      <button class="sort-btn"        data-sort="price_d" onclick="setSort(this,'price_d')">가격 높은순</button>
+      <button class="sort-btn"        data-sort="price_a" onclick="setSort(this,'price_a')">가격 낮은순</button>
+      <span class="sort-sep">|</span>
+      <button class="toggle-nh" id="toggleNh" onclick="toggleNhOnly()">🔴 신고가만</button>
+    </div>
+
+    <!-- 요약 -->
+    <div class="summary-strip" id="summaryStrip"></div>
+
+    <!-- 카드 리스트 -->
+    <div class="card-list" id="cardList"></div>
+    <div class="more-wrap" style="display:none" id="moreWrap">
+      <button class="more-btn" onclick="loadMore()">더보기</button>
+    </div>
+
+    <!-- 카페 인기글 (추후 연동) -->
+    <div class="cafe-section">
+      <div class="cafe-section-hdr">
+        <span class="cafe-section-title">☕ 카페 인기글</span>
+        <a class="cafe-section-link" id="cafeSectionLink" href="#" target="_blank">카페 바로가기 ↗</a>
+      </div>
+      <div class="cafe-coming">카페 인기글 연동 준비 중</div>
+    </div>
+  </div>
+</div>
+
+<!-- FAVORITES -->
+<div class="page" id="page-fav" style="display:none">
+  <div class="fav-search-box">
+    <input class="fav-inp" id="favInp" placeholder="아파트명으로 검색…"
+      oninput="onFavInput()" onkeydown="onFavKey(event)" autocomplete="off">
+    <div class="ac-list" id="acList"></div>
+  </div>
+  <div class="fav-grid" id="favGrid"></div>
+</div>
+
+<!-- SEARCH -->
+<div class="page search-page" id="page-search" style="display:none">
+  <div class="search-wrap">
+    <input class="search-inp" id="searchInp" placeholder="아파트명 검색…"
+      oninput="onGlobalSearch()" autocomplete="off">
+  </div>
+  <div class="search-results" id="searchResults"></div>
+</div>
+
+<!-- SETTINGS -->
+<div class="page settings-page" id="page-settings" style="display:none">
+  <div class="setting-section">
+    <div class="setting-row">
+      <span class="setting-row-label">네이버 카페 URL</span>
+    </div>
+    <div class="setting-row">
+      <input class="setting-inp" id="cafeUrlInp" placeholder="https://cafe.naver.com/...">
+      <button class="setting-save" onclick="saveCafeUrl()">저장</button>
+    </div>
+  </div>
+  <div class="setting-section">
+    <div class="setting-row">
+      <span class="setting-row-label">데이터 기준</span>
+      <span class="setting-row-val" id="dataGenAt">-</span>
+    </div>
+    <div class="setting-row">
+      <span class="setting-row-label">총 거래 수</span>
+      <span class="setting-row-val" id="dataTotalCnt">-</span>
+    </div>
+    <div class="setting-row">
+      <span class="setting-row-label">API 모드</span>
+      <span class="setting-badge" id="apiModeLabel">-</span>
+    </div>
+  </div>
+</div>
+
+<!-- Bottom tab bar -->
+<nav class="tab-bar">
+  <button class="tab-btn active" data-tab="home"     onclick="goTab('home')">
+    <span class="t-icon">🏠</span><span>홈</span>
+  </button>
+  <button class="tab-btn"        data-tab="fav"      onclick="goTab('fav')">
+    <span class="t-icon">⭐</span><span>관심</span>
+  </button>
+  <button class="tab-btn"        data-tab="search"   onclick="goTab('search')">
+    <span class="t-icon">🔍</span><span>검색</span>
+  </button>
+  <button class="tab-btn"        data-tab="settings" onclick="goTab('settings')">
+    <span class="t-icon">⚙️</span><span>설정</span>
+  </button>
+</nav>
+
+<!-- District bottom sheet -->
+<div class="sheet-overlay" id="sheetOverlay" onclick="closeDistSheet()"></div>
+<div class="bottom-sheet" id="distSheet">
+  <div class="sheet-handle"></div>
+  <div class="sheet-title">구/군 선택</div>
+  <div class="sheet-grid" id="sheetGrid"></div>
+  <button class="sheet-close" onclick="closeDistSheet()">닫기</button>
+</div>
+
+<!-- Apartment detail panel -->
+<div class="detail-overlay" id="detailOverlay" onclick="closeDetail()"></div>
+<div class="detail-panel" id="detailPanel">
+  <div class="detail-hdr" style="position:relative">
+    <div class="dh-handle"></div>
+    <div class="detail-title" id="detailTitle">-</div>
+    <div class="detail-sub"   id="detailSub">-</div>
+    <button class="detail-close" onclick="closeDetail()">✕</button>
+  </div>
+  <div class="area-tabs" id="areaTabs"></div>
+  <div class="detail-body">
+    <table class="trade-tbl">
+      <thead><tr>
+        <th>계약일</th><th>층</th><th>면적</th><th style="text-align:right">금액</th>
+      </tr></thead>
+      <tbody id="detailTbody"></tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<script>
+/* ══════════════════════════════════════════════════════════
+   상수 & 전역 상태
+══════════════════════════════════════════════════════════ */
+const DISTRICTS = ['전체','중구','동구','서구','남구','북구','수성구','달서구','달성군','군위군'];
+const WEEKDAYS  = ['일','월','화','수','목','금','토'];
+const MAX_BACK  = 90;
+const PAGE      = 40;
+
+let DB         = null;
+let _tab       = 'home';
+let _selDate   = '';
+let _targetKey = '';    // 표시할 날짜 (신고일 or 계약일)
+let _district  = '';
+let _sort      = 'date';
+let _nhOnly    = false;
+let _filtered  = [];
+let _visible   = PAGE;
+let _sparkCache = {};
+let _useRgst   = false; // Dev API 사용 여부 (rgst_date 존재 여부)
+
+// 세팅
+let CAFE_URL   = localStorage.getItem('cafeUrl') || '';
+
+/* ══════════════════════════════════════════════════════════
+   유틸
+══════════════════════════════════════════════════════════ */
+function pad(n){ return String(n).padStart(2,'0'); }
+function todayISO(){ const d=new Date(); return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`; }
+function addDays(iso,n){ const d=new Date(iso+'T00:00:00'); d.setDate(d.getDate()+n); const r=new Date(d); return `${r.getFullYear()}-${pad(r.getMonth()+1)}-${pad(r.getDate())}`; }
+function weekday(iso){ return WEEKDAYS[new Date(iso+'T00:00:00').getDay()]; }
+
+function fmtAmt(v){
+  if(!v) return '-';
+  const a=Math.abs(v), s=v<0?'-':'';
+  if(a>=10000){
+    const uk=Math.floor(a/10000), rem=a%10000;
+    return s+(rem?`${uk}억 ${rem.toLocaleString()}만`:`${uk}억`);
+  }
+  return s+a.toLocaleString()+'만원';
+}
+function fmtArea(a){ if(!a) return '-'; const p=Math.round(a*1.32/3.305785); return `${Math.round(a)}㎡(${p}평)`; }
+function areaKey(a){ return `${Math.round(a)}㎡`; }
+function priceCls(amt){ return amt>=100000?'p-high':''; }
+function esc(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+function showToast(msg){
+  const el=document.getElementById('toast');
+  el.textContent=msg;
+  el.classList.add('show');
+  clearTimeout(el._t);
+  el._t=setTimeout(()=>el.classList.remove('show'),2200);
+}
+
+function cafeSearchUrl(aptName){
+  if(!CAFE_URL) return null;
+  return `${CAFE_URL.replace(/\/$/,'')}?iframe_url=/ArticleSearchList.nhn%3Fsearch.query=${encodeURIComponent(aptName)}`;
+}
+
+/* ══════════════════════════════════════════════════════════
+   데이터 로드
+══════════════════════════════════════════════════════════ */
+async function init(){
+  updateCafeLinks();
+  document.getElementById('cafeUrlInp').value = CAFE_URL;
+
+  try{
+    const res=await fetch('data/transactions.json');
+    if(!res.ok) throw new Error(`HTTP ${res.status}`);
+    DB=await res.json();
+    _useRgst = DB.transactions.some(t=>t.rgst_date);
+    onLoaded();
+  }catch(e){
+    document.getElementById('loadEl').style.display='none';
+    document.getElementById('errEl').style.display='block';
+    document.getElementById('errEl').innerHTML=
+      `데이터 로드 실패: <b>${e.message}</b><br>
+       <small style="color:#aaa">로컬 테스트 시 <code>python -m http.server</code> 실행 후 접속</small>`;
+  }
+}
+
+function onLoaded(){
+  document.getElementById('loadEl').style.display='none';
+  document.getElementById('homeMain').style.display='block';
+
+  // 설정 탭 정보
+  document.getElementById('dataGenAt').textContent  = (DB.generated_at||'-').replace('T',' ');
+  document.getElementById('dataTotalCnt').textContent = (DB.total||0).toLocaleString()+'건';
+  document.getElementById('apiModeLabel').textContent = _useRgst?'Dev API (신고일 포함)':'Standard API (계약일 기준)';
+
+  _selDate = todayISO();
+  buildDistChips();
+  applyFilter();
+
+  // 스와이프 제스처
+  const strip=document.getElementById('dateStrip');
+  let tx=0;
+  strip.addEventListener('touchstart',e=>{tx=e.changedTouches[0].screenX;},{passive:true});
+  strip.addEventListener('touchend',e=>{
+    const dx=e.changedTouches[0].screenX-tx;
+    if(Math.abs(dx)>50) changeDate(dx<0?1:-1);
+  },{passive:true});
+}
+
+/* ══════════════════════════════════════════════════════════
+   날짜 네비게이터
+══════════════════════════════════════════════════════════ */
+function dateField(t){ return _useRgst ? t.rgst_date : t.deal_date; }
+
+function getTargetKey(selDate){
+  if(!DB?.transactions?.length) return null;
+  const cutoff=addDays(selDate,-1);
+  const dates=[...new Set(DB.transactions.map(t=>dateField(t)).filter(Boolean))].sort();
+  let target=null;
+  for(const d of dates) if(d<=cutoff) target=d;
+  return target;
+}
+
+function updateDateUI(){
+  const today=todayISO(), minDate=addDays(today,-MAX_BACK);
+  document.getElementById('dateLabel').textContent=`${_selDate} (${weekday(_selDate)})`;
+  document.getElementById('prevBtn').disabled=_selDate<=minDate;
+  document.getElementById('nextBtn').disabled=_selDate>=today;
+
+  _targetKey=getTargetKey(_selDate);
+  const sub=document.getElementById('dateSubLabel');
+  if(_targetKey){
+    const label=_useRgst?'신고일':'계약일';
+    sub.innerHTML=`${label} <b>${_targetKey}</b> 기준 데이터`;
+  } else {
+    sub.textContent='해당 기간 데이터 없음';
+  }
+}
+
+function changeDate(delta){
+  const today=todayISO(), minDate=addDays(today,-MAX_BACK);
+  const next=addDays(_selDate,delta);
+  if(next>today||next<minDate) return;
+  _selDate=next; applyFilter();
+}
+
+function goToday(){ _selDate=todayISO(); applyFilter(); }
+
+/* ══════════════════════════════════════════════════════════
+   구군 필터
+══════════════════════════════════════════════════════════ */
+function calcDistStats(){
+  // 현재 날짜의 전체(구 미적용) 거래에서 통계 계산
+  if(!DB||!_targetKey) return {counts:{},highs:{}};
+  const base=DB.transactions.filter(t=>dateField(t)===_targetKey);
+  const counts={}, highs={};
+  base.forEach(t=>{
+    counts[t.gugun]=(counts[t.gugun]||0)+1;
+    if(isNewHigh(t)) highs[t.gugun]=true;
+  });
+  return {counts,highs};
+}
+
+function buildDistChips(){
+  const {counts,highs}=calcDistStats();
+  const scroll=document.getElementById('distScroll');
+  scroll.innerHTML=DISTRICTS.map(d=>{
+    const val=d==='전체'?'':d;
+    const cnt=d==='전체'
+      ? Object.values(counts).reduce((s,v)=>s+v,0)
+      : (counts[val]||0);
+    const hasHigh=d==='전체'
+      ? Object.values(highs).some(Boolean)
+      : highs[val];
+    const dot=hasHigh?'<span class="nh-dot"></span>':'';
+    return `<button class="dist-chip${val===_district?' active':''}"
+      data-v="${val}" onclick="selDist(this,'${val}')">
+      ${dot}${esc(d)}<span class="dc-cnt">${cnt||'-'}</span>
+    </button>`;
+  }).join('');
+}
+
+function selDist(el,val){
+  _district=val;
+  document.querySelectorAll('.dist-chip').forEach(b=>b.classList.toggle('active',b.dataset.v===val));
+  // 바텀시트 연동
+  document.querySelectorAll('.sheet-chip').forEach(b=>b.classList.toggle('active',b.dataset.v===val));
+  applyFilter();
+}
+
+/* 바텀시트 */
+function openDistSheet(){
+  const {counts,highs}=calcDistStats();
+  document.getElementById('sheetGrid').innerHTML=DISTRICTS.map(d=>{
+    const val=d==='전체'?'':d;
+    const cnt=d==='전체'
+      ? Object.values(counts).reduce((s,v)=>s+v,0)
+      : (counts[val]||0);
+    const hasHigh=d==='전체'?Object.values(highs).some(Boolean):highs[val];
+    const dot=hasHigh?'<span class="sc-dot"></span>':'';
+    return `<button class="sheet-chip${val===_district?' active':''}"
+      data-v="${val}" onclick="selDistSheet(this,'${val}')">
+      ${dot}${esc(d)}<span class="sc-cnt">${cnt||'-'}</span>
+    </button>`;
+  }).join('');
+  document.getElementById('sheetOverlay').classList.add('open');
+  document.getElementById('distSheet').classList.add('open');
+}
+
+function selDistSheet(el,val){
+  selDist(document.querySelector(`.dist-chip[data-v="${val}"]`)||el, val);
+  closeDistSheet();
+}
+
+function closeDistSheet(){
+  document.getElementById('sheetOverlay').classList.remove('open');
+  document.getElementById('distSheet').classList.remove('open');
+}
+
+/* ══════════════════════════════════════════════════════════
+   정렬 / 필터
+══════════════════════════════════════════════════════════ */
+function setSort(el,sort){
+  _sort=sort;
+  document.querySelectorAll('.sort-btn').forEach(b=>b.classList.toggle('active',b.dataset.sort===sort));
+  applyFilter();
+}
+
+function toggleNhOnly(){
+  _nhOnly=!_nhOnly;
+  document.getElementById('toggleNh').classList.toggle('active',_nhOnly);
+  applyFilter();
+}
+
+/* ══════════════════════════════════════════════════════════
+   신고가 판별
+══════════════════════════════════════════════════════════ */
+function isNewHigh(t){
+  if(!DB?.historical_highs||!t.amount) return false;
+  const k=`${t.apt_name}|${areaKey(t.area)}`;
+  const prev=DB.historical_highs[k]||0;
+  return prev>0 && t.amount>prev;
+}
+
+function prevHighDiff(t){
+  if(!DB?.historical_highs||!t.amount) return null;
+  const k=`${t.apt_name}|${areaKey(t.area)}`;
+  const prev=DB.historical_highs[k]||0;
+  if(!prev) return null;
+  return t.amount-prev;
+}
+
+/* ══════════════════════════════════════════════════════════
+   스파크라인 SVG
+══════════════════════════════════════════════════════════ */
+function getSparkPts(aptName,ak){
+  const ck=`${aptName}|${ak}`;
+  if(_sparkCache[ck]) return _sparkCache[ck];
+  const pts=(DB?.transactions||[])
+    .filter(t=>t.apt_name===aptName && areaKey(t.area)===ak && t.amount>0)
+    .sort((a,b)=>a.deal_date.localeCompare(b.deal_date))
+    .map(t=>t.amount);
+  _sparkCache[ck]=pts;
+  return pts;
+}
+
+function makeSpark(aptName,ak,W=72,H=28){
+  const pts=getSparkPts(aptName,ak);
+  if(pts.length<2) return `<svg width="${W}" height="${H}"><line x1="0" y1="${H/2}" x2="${W}" y2="${H/2}" stroke="#e0e0e0" stroke-width="1.5"/></svg>`;
+  const min=Math.min(...pts), max=Math.max(...pts), range=max-min||1;
+  const pd=3;
+  const coords=pts.map((v,i)=>{
+    const x=pd+(i/(pts.length-1))*(W-pd*2);
+    const y=pd+(1-(v-min)/range)*(H-pd*2);
+    return `${x.toFixed(1)},${y.toFixed(1)}`;
+  });
+  const last=pts[pts.length-1];
+  const lx=(W-pd).toFixed(1), ly=(pd+(1-(last-min)/range)*(H-pd*2)).toFixed(1);
+  const fill=[`${pd},${H}`,...coords,`${lx},${H}`].join(' ');
+  const c='#03c75a';
+  return `<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">
+    <polygon points="${fill}" fill="${c}22"/>
+    <polyline points="${coords.join(' ')}" fill="none" stroke="${c}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="${lx}" cy="${ly}" r="2.5" fill="${c}" stroke="#fff" stroke-width="1"/>
+  </svg>`;
+}
+
+/* ══════════════════════════════════════════════════════════
+   필터링 & 렌더
+══════════════════════════════════════════════════════════ */
+function applyFilter(){
+  updateDateUI();
+  buildDistChips();
+
+  if(!DB||!_targetKey){ _filtered=[]; renderCards(); renderSummary(); return; }
+
+  let list=DB.transactions.filter(t=>
+    dateField(t)===_targetKey && (!_district||t.gugun===_district)
+  );
+
+  if(_nhOnly) list=list.filter(t=>isNewHigh(t));
+
+  list.sort((a,b)=>{
+    if(_sort==='price_d') return b.amount-a.amount;
+    if(_sort==='price_a') return a.amount-b.amount;
+    return b.deal_date.localeCompare(a.deal_date);
+  });
+
+  _filtered=list;
+  _visible=PAGE;
+  renderSummary();
+  renderCards();
+}
+
+function renderSummary(){
+  const total=_filtered.length;
+  const nhCnt=_filtered.filter(t=>isNewHigh(t)).length;
+  const avg=trg=>{ const a=_filtered.filter(t=>t.area&&Math.abs(t.area-trg)<5&&t.amount>0); return a.length?Math.round(a.reduce((s,t)=>s+t.amount,0)/a.length):null; };
+  const a59=avg(59), a84=avg(84);
+  document.getElementById('summaryStrip').innerHTML=
+    `<span class="sum-item">신고 <b>${total.toLocaleString()}</b>건</span>
+     <span class="sum-dot">·</span>
+     <span class="sum-item">신고가 <b class="red">${nhCnt}</b>건</span>
+     <span class="sum-dot">·</span>
+     <span class="sum-item">59㎡ <b class="grn">${a59?fmtAmt(a59):'-'}</b></span>
+     <span class="sum-dot">·</span>
+     <span class="sum-item">84㎡ <b class="grn">${a84?fmtAmt(a84):'-'}</b></span>`;
+}
+
+function renderCards(){
+  const list=document.getElementById('cardList');
+  const wrap=document.getElementById('moreWrap');
+
+  if(!_filtered.length){
+    list.innerHTML='<div class="state-box">표시할 거래 내역이 없습니다.</div>';
+    wrap.style.display='none'; return;
+  }
+
+  list.innerHTML=_filtered.slice(0,_visible).map(t=>cardHTML(t)).join('');
+  const rem=_filtered.length-_visible;
+  wrap.style.display=rem>0?'':'none';
+  if(rem>0) document.querySelector('#moreWrap .more-btn').textContent=`더보기 (${Math.min(PAGE,rem)}건 / 남은 ${rem}건)`;
+}
+
+function loadMore(){ _visible+=PAGE; renderCards(); }
+
+function cardHTML(t){
+  const high=isNewHigh(t);
+  const diff=prevHighDiff(t);
+  const fav=getFavs().includes(t.apt_name);
+  const ak=areaKey(t.area);
+  const safeName=t.apt_name.replace(/'/g,"\\'");
+  const byear=t.build_year||0;
+  const age=byear?`${new Date().getFullYear()-byear+1}년차`:'';
+
+  // 전고점 대비
+  let diffHtml='';
+  if(diff!==null){
+    if(diff>0) diffHtml=`<div class="card-prevhi">전고점 대비 <span class="ph-val ph-up">+${fmtAmt(diff)}</span> <span class="ph-up">↑ 신고가</span></div>`;
+    else if(diff<0) diffHtml=`<div class="card-prevhi">전고점 대비 <span class="ph-val ph-dn">${fmtAmt(diff)}</span></div>`;
+    else diffHtml=`<div class="card-prevhi"><span class="ph-eq">전고점과 동일</span></div>`;
+  } else if(!DB?.historical_highs?.[`${t.apt_name}|${ak}`]) {
+    diffHtml='<div class="card-prevhi" style="color:var(--b5)">이력 없음</div>';
+  }
+
+  // 카페 버튼
+  const cafeUrl=cafeSearchUrl(t.apt_name);
+  const cafeBtn=cafeUrl
+    ? `<a class="cafe-btn" href="${cafeUrl}" target="_blank" rel="noopener" onclick="event.stopPropagation()">☕ 카페에서 얘기</a>`
+    : `<button class="cafe-btn" style="opacity:.4;cursor:not-allowed" onclick="event.stopPropagation();showToast('설정 탭에서 카페 URL을 입력해 주세요.')">☕ 카페에서 얘기</button>`;
+
+  return `
+<div class="tx-card${high?' new-high':''}" onclick="openDetail('${safeName}','${ak}')">
+  ${high?'<div class="nh-banner">🔴 신고가</div>':''}
+  <div class="card-top-row">
+    <div class="card-apt-name">${esc(t.apt_name)}</div>
+    <div class="spark-wrap">${makeSpark(t.apt_name,ak)}</div>
+  </div>
+  <div class="card-price ${priceCls(t.amount)}">${fmtAmt(t.amount)}</div>
+  ${diffHtml}
+  <div class="card-meta">
+    <span>${esc(fmtArea(t.area))}</span>
+    <span class="sep">·</span>
+    <span>${t.floor}층</span>
+    <span class="sep">·</span>
+    <span>${esc(t.dong)}</span>
+  </div>
+  <div class="card-actions">
+    ${cafeBtn}
+    <button class="fav-btn-card${fav?' on':''}" onclick="toggleFav(event,'${safeName}')">${fav?'⭐':'☆'}</button>
+  </div>
+  <div class="card-footer">
+    <span class="cf-item">📅 계약 ${t.deal_date}</span>
+    ${age?`<span class="cf-sep">·</span><span class="cf-item">🏢 ${age}</span>`:''}
+    <span class="cf-sep">·</span><span class="cf-item">${esc(t.gugun)}</span>
+  </div>
+</div>`;
+}
+
+/* ══════════════════════════════════════════════════════════
+   아파트 상세 패널
+══════════════════════════════════════════════════════════ */
+let _detailApt='', _detailArea='';
+
+function openDetail(aptName,ak){
+  _detailApt=aptName; _detailArea=ak;
+  const card=DB?.transactions?.find(t=>t.apt_name===aptName)||{};
+  document.getElementById('detailTitle').textContent=aptName;
+  document.getElementById('detailSub').textContent=`${card.gugun||''} ${card.dong||''}`;
+
+  const trades=(DB?.transactions||[]).filter(t=>t.apt_name===aptName);
+  const areas=[...new Set(trades.map(t=>areaKey(t.area)))].sort((a,b)=>parseFloat(a)-parseFloat(b));
+
+  // 면적 탭
+  const tabs=['전체',...areas];
+  document.getElementById('areaTabs').innerHTML=tabs.map(a=>
+    `<button class="area-tab${a===ak?' active':''}" data-a="${a}" onclick="switchDetailArea('${a}')">${a==='전체'?'전체':fmtArea(parseFloat(a))}</button>`
+  ).join('');
+
+  renderDetailTrades(ak);
+  document.getElementById('detailOverlay').classList.add('open');
+  document.getElementById('detailPanel').classList.add('open');
+}
+
+function switchDetailArea(ak){
+  _detailArea=ak;
+  document.querySelectorAll('.area-tab').forEach(b=>b.classList.toggle('active',b.dataset.a===ak));
+  renderDetailTrades(ak);
+}
+
+function renderDetailTrades(ak){
+  const trades=(DB?.transactions||[])
+    .filter(t=>t.apt_name===_detailApt && (ak==='전체'||areaKey(t.area)===ak))
+    .sort((a,b)=>b.deal_date.localeCompare(a.deal_date));
+
+  const prices=trades.map(t=>t.amount);
+  const maxP=Math.max(...prices), minP=Math.min(...prices);
+
+  document.getElementById('detailTbody').innerHTML=trades.map(t=>{
+    const cls=t.amount===maxP?'td-nh':t.amount===minP?'td-lo':'';
+    return `<tr>
+      <td>${t.deal_date}</td>
+      <td>${t.floor}층</td>
+      <td>${fmtArea(t.area)}</td>
+      <td class="td-price ${cls}">${fmtAmt(t.amount)}</td>
+    </tr>`;
+  }).join('');
+}
+
+function closeDetail(){
+  document.getElementById('detailOverlay').classList.remove('open');
+  document.getElementById('detailPanel').classList.remove('open');
+}
+
+/* ══════════════════════════════════════════════════════════
+   관심 아파트
+══════════════════════════════════════════════════════════ */
+function getFavs(){ return JSON.parse(localStorage.getItem('favApts')||'[]'); }
+function saveFavs(arr){ localStorage.setItem('favApts',JSON.stringify(arr)); }
+
+function toggleFav(e,name){
+  e.stopPropagation();
+  const favs=getFavs(), idx=favs.indexOf(name);
+  if(idx>=0){ favs.splice(idx,1); e.target.textContent='☆'; e.target.classList.remove('on'); showToast('관심 아파트에서 제거했습니다.'); }
+  else { favs.push(name); e.target.textContent='⭐'; e.target.classList.add('on'); showToast('관심 아파트에 추가했습니다.'); }
+  saveFavs(favs);
+}
+
+function renderFavPage(){
+  const favs=getFavs();
+  const grid=document.getElementById('favGrid');
+  if(!favs.length){
+    grid.innerHTML='<div class="fav-empty">저장된 관심 아파트가 없습니다.<br>홈에서 ☆ 버튼을 탭하여 추가하세요.</div>';
+    return;
+  }
+  grid.innerHTML=favs.map(name=>{
+    const trades=(DB?.transactions||[]).filter(t=>t.apt_name===name)
+      .sort((a,b)=>b.deal_date.localeCompare(a.deal_date)).slice(0,4);
+    const safeName=name.replace(/'/g,"\\'");
+    const rows=trades.length
+      ? trades.map(t=>`<div class="fav-tr">
+          <span class="fav-tr-date">${t.deal_date}</span>
+          <span class="fav-tr-price">${fmtAmt(t.amount)}</span>
+          <span class="fav-tr-info">${fmtArea(t.area)}·${t.floor}층</span>
+        </div>`).join('')
+      : '<div style="color:var(--b5);font-size:12px;padding:6px 0">최근 거래 없음</div>';
+    return `<div class="fav-card" onclick="openDetail('${safeName}','')">
+      <div class="fav-card-hdr">
+        <div class="fav-card-name">${esc(name)}</div>
+        <button class="fav-del" onclick="event.stopPropagation();delFav('${safeName}',this)">✕</button>
+      </div>
+      <div class="fav-trades">${rows}</div>
+    </div>`;
+  }).join('');
+}
+
+function delFav(name,btn){
+  saveFavs(getFavs().filter(n=>n!==name));
+  btn.closest('.fav-card').remove();
+  showToast('삭제했습니다.');
+}
+
+/* ══════════════════════════════════════════════════════════
+   관심 아파트 검색 (자동완성)
+══════════════════════════════════════════════════════════ */
+let _acT=null, _acI=-1;
+
+function onFavInput(){
+  const q=document.getElementById('favInp').value.trim();
+  if(!q||!DB){ hideAC(); return; }
+  clearTimeout(_acT);
+  _acT=setTimeout(()=>showAC(q,'acList'),120);
+}
+
+function showAC(q,listId){
+  const lower=q.toLowerCase();
+  const matches=(DB?.apt_names||[]).filter(n=>n.toLowerCase().includes(lower)).slice(0,15);
+  if(!matches.length){ hideAC(); return; }
+  _acI=-1;
+  const list=document.getElementById(listId);
+  list.innerHTML=matches.map((n,i)=>{
+    const hi=esc(n).replace(new RegExp(esc(q).replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),'gi'),m=>`<b>${m}</b>`);
+    return `<div class="ac-item" data-n="${esc(n)}" data-i="${i}"
+      onmousedown="pickFavApt('${n.replace(/'/g,"\\'")}','${listId}')">${hi}</div>`;
+  }).join('');
+  list.style.display='block';
+}
+
+function hideAC(){ setTimeout(()=>{ document.getElementById('acList').style.display='none'; },180); }
+
+function onFavKey(e){
+  const items=document.querySelectorAll('#acList .ac-item');
+  if(!items.length) return;
+  if(e.key==='ArrowDown'){ _acI=Math.min(_acI+1,items.length-1); hiAC(items); }
+  else if(e.key==='ArrowUp'){ _acI=Math.max(_acI-1,0); hiAC(items); }
+  else if(e.key==='Enter'&&_acI>=0){ e.preventDefault(); pickFavApt(items[_acI].dataset.n,'acList'); }
+  else if(e.key==='Escape') hideAC();
+}
+
+function hiAC(items){ items.forEach((el,i)=>el.classList.toggle('focused',i===_acI)); if(_acI>=0) items[_acI].scrollIntoView({block:'nearest'}); }
+
+function pickFavApt(name,listId){
+  document.getElementById('favInp').value=name;
+  document.getElementById(listId).style.display='none';
+  openDetail(name,'');
+}
+
+/* ══════════════════════════════════════════════════════════
+   전체 검색 탭
+══════════════════════════════════════════════════════════ */
+let _srT=null;
+
+function onGlobalSearch(){
+  const q=document.getElementById('searchInp').value.trim();
+  const res=document.getElementById('searchResults');
+  if(!q||!DB){ res.innerHTML=''; return; }
+  clearTimeout(_srT);
+  _srT=setTimeout(()=>{
+    const lower=q.toLowerCase();
+    const apts=(DB.apt_names||[]).filter(n=>n.toLowerCase().includes(lower)).slice(0,20);
+    if(!apts.length){ res.innerHTML='<div class="state-box" style="padding:30px">검색 결과 없음</div>'; return; }
+    res.innerHTML=apts.map(name=>{
+      const last=(DB.transactions||[]).filter(t=>t.apt_name===name).sort((a,b)=>b.deal_date.localeCompare(a.deal_date))[0];
+      const safeName=name.replace(/'/g,"\\'");
+      return `<div class="fav-card" onclick="openDetail('${safeName}','')">
+        <div class="fav-card-hdr" style="margin-bottom:4px">
+          <div class="fav-card-name">${esc(name)}</div>
+        </div>
+        ${last?`<div style="font-size:12px;color:var(--b4)">${last.gugun} · 최근 ${last.deal_date} · ${fmtAmt(last.amount)}</div>`:''}
+      </div>`;
+    }).join('');
+  },200);
+}
+
+/* ══════════════════════════════════════════════════════════
+   설정 탭
+══════════════════════════════════════════════════════════ */
+function saveCafeUrl(){
+  CAFE_URL=document.getElementById('cafeUrlInp').value.trim();
+  localStorage.setItem('cafeUrl',CAFE_URL);
+  updateCafeLinks();
+  showToast('저장했습니다.');
+}
+
+function updateCafeLinks(){
+  const url=CAFE_URL||'#';
+  document.getElementById('cafeLink').href=url;
+  const sl=document.getElementById('cafeSectionLink');
+  if(sl) sl.href=url;
+}
+
+/* ══════════════════════════════════════════════════════════
+   탭 / 페이지 전환
+══════════════════════════════════════════════════════════ */
+function goTab(tab){
+  _tab=tab;
+  ['home','fav','search','settings'].forEach(t=>{
+    document.getElementById(`page-${t}`).style.display=t===tab?'':'none';
+  });
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.toggle('active',b.dataset.tab===tab));
+  if(tab==='fav')    renderFavPage();
+  if(tab==='search') document.getElementById('searchInp').focus();
+  history.replaceState(null,'',tab==='home'?location.pathname:`#${tab}`);
+}
+
+function openMenu(){
+  // 구군 바텀시트를 메뉴로 재활용
+  openDistSheet();
+}
+
+/* ══════════════════════════════════════════════════════════
+   초기화
+══════════════════════════════════════════════════════════ */
+const _hash=location.hash.replace('#','');
+if(['fav','search','settings'].includes(_hash)){
+  goTab(_hash);
+}
+
+window.addEventListener('popstate',()=>{
+  const h=location.hash.replace('#','');
+  goTab(['fav','search','settings'].includes(h)?h:'home');
+});
+
+init();
+</script>
+</body>
+</html>
