@@ -822,7 +822,8 @@ let _ldDate = '';
 let _ldDists = new Set();
 
 function showLanding(){
-  _ldDate = todayISO();
+  // 최신 신고일이 있으면 그 날짜로, 없으면 오늘로 초기화
+  _ldDate = (DB && DB.actualReportDate) || todayISO();
   _ldDists = new Set();
   renderLdDate();
   renderLdDists();
@@ -876,7 +877,8 @@ function dateField(t){ return _useRgst ? t.rgst_date : t.deal_date; }
 
 function getTargetKey(selDate){
   if(!DB?.transactions?.length) return null;
-  const cutoff=addDays(selDate,-1);
+  // 신고일 모드: selDate 당일까지 포함 / 계약일 모드: 전날까지(아직 미신고분 제외)
+  const cutoff=_useRgst ? selDate : addDays(selDate,-1);
   const dates=[...new Set(DB.transactions.map(t=>dateField(t)).filter(Boolean))].sort();
   let target=null;
   for(const d of dates) if(d<=cutoff) target=d;

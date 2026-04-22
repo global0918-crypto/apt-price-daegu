@@ -1,10 +1,14 @@
 #!/usr/bin/env python3
 """대구 아파트 실거래 수집 → data/transactions.json 저장"""
-import requests, xml.etree.ElementTree as ET, json, os
+import requests, xml.etree.ElementTree as ET, json, os, sys
 from datetime import datetime, timedelta
 from collections import Counter
+from target_date import compute_actual_report_date
 
-API_KEY = os.environ.get("API_KEY", "cad2afdb0f315b4ef965de57205ab4711e2b0ee7788caf4387c5edcd6820c430")
+API_KEY = os.environ.get("API_KEY", "")
+if not API_KEY:
+    print("오류: API_KEY 환경변수가 설정되지 않았습니다.", file=sys.stderr)
+    sys.exit(1)
 DEV_URL = "https://apis.data.go.kr/1613000/RTMSDataSvcAptTradeDev/getRTMSDataSvcAptTradeDev"
 STD_URL = "https://apis.data.go.kr/1613000/RTMSDataSvcAptTrade/getRTMSDataSvcAptTrade"
 
@@ -257,26 +261,32 @@ def main():
         reverse=True,
     )
 
+    # 신고일 분포 출력
+    dist = Counter(t["rgst_date"] or "없음" for t in transactions)
+    print("\n[신고일 분포 Top 10]")
+    for d, n in dist.most_common(10):
+        print(f"  {d}: {n}건")
+
+    # 실제 표시 타겟일 계산 (최근 5 영업일 소급)
+    print("\n[타겟일 계산]")
+    actual_report_date = compute_actual_report_date(transactions)
+
     # JSON 저장
     os.makedirs(DATA, exist_ok=True)
     payload = {
-        "generated_at":    now.isoformat(),
-        "total":           len(transactions),
-        "apt_names":       sorted(apt_set),
-        "historical_highs": highs,
-        "transactions":    transactions,
+        "generated_at":       now.isoformat(),
+        "actualReportDate":   actual_report_date,
+        "total":              len(transactions),
+        "apt_names":          sorted(apt_set),
+        "historical_highs":   highs,
+        "transactions":       transactions,
     }
     with open(OUTPUT, "w", encoding="utf-8") as f:
         json.dump(payload, f, ensure_ascii=False, separators=(",", ":"))
 
     kb = os.path.getsize(OUTPUT) / 1024
     print(f"\n[3] JSON 저장: {kb:.0f} KB, {len(transactions)}건, 아파트 {len(apt_set)}개")
-
-    # 신고일 분포 출력
-    dist = Counter(t["rgst_date"] or "없음" for t in transactions)
-    print("\n[신고일 분포 Top 10]")
-    for d, n in dist.most_common(10):
-        print(f"  {d}: {n}건")
+    print(f"  actualReportDate: {actual_report_date}")
 
     # 마스터 Excel 갱신
     print("\n[4] 마스터 Excel 갱신")
