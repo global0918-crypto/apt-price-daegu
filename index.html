@@ -872,12 +872,13 @@ function applyLanding(){
 /* ══════════════════════════════════════════════════════════
    날짜 네비게이터
 ══════════════════════════════════════════════════════════ */
-function dateField(t){ return _useRgst ? t.rgst_date : t.deal_date; }
+// rgst_date 없는 거래(신고 대기 중)는 deal_date로 폴백
+function dateField(t){ return _useRgst ? (t.rgst_date || t.deal_date) : t.deal_date; }
 
 function getTargetKey(selDate){
   if(!DB?.transactions?.length) return null;
-  // 신고일 모드: selDate 당일까지 포함 / 계약일 모드: 전날까지(아직 미신고분 제외)
-  const cutoff=_useRgst ? selDate : addDays(selDate,-1);
+  // 조회일 전날까지의 신고분 표시 (selDate - 1)
+  const cutoff=addDays(selDate,-1);
   const dates=[...new Set(DB.transactions.map(t=>dateField(t)).filter(Boolean))].sort();
   let target=null;
   for(const d of dates) if(d<=cutoff) target=d;
@@ -893,7 +894,9 @@ function updateDateUI(){
   _targetKey=getTargetKey(_selDate);
   const sub=document.getElementById('dateSubLabel');
   if(_targetKey){
-    const label=_useRgst?'신고일':'계약일';
+    // targetKey 날짜에 실제 신고일 데이터가 있으면 '신고일', 없으면 '계약일(신고대기)'
+    const hasRgst=DB.transactions.some(t=>t.rgst_date===_targetKey);
+    const label=hasRgst?'신고일':'계약일(신고대기)';
     sub.innerHTML=`${label} <b>${_targetKey}</b> 기준 데이터`;
   } else {
     sub.textContent='해당 기간 데이터 없음';
