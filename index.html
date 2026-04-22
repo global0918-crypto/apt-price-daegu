@@ -327,10 +327,9 @@ svg{display:block}
   display:flex;align-items:center;justify-content:center;
 }
 /* 면적 탭 */
-.area-tabs{display:flex;gap:6px;overflow-x:auto;padding:0 18px 14px;scrollbar-width:none;flex-shrink:0}
-.area-tabs::-webkit-scrollbar{display:none}
+.area-tabs{display:flex;flex-wrap:wrap;gap:8px;padding:0 18px 14px;flex-shrink:0}
 .area-tab{
-  flex-shrink:0;padding:5px 12px;border-radius:20px;
+  flex-shrink:0;white-space:nowrap;padding:5px 12px;border-radius:20px;
   border:1.5px solid var(--border);background:#fff;
   font-size:12px;font-weight:600;color:var(--b3);transition:all .15s;
 }
@@ -737,6 +736,8 @@ let _sparkCache = {};
 let _useRgst   = false;
 let HIST       = {};
 let _detailChart = null;
+let _detailAreas = [];
+const AREA_COLORS=['#10b981','#3b82f6','#f59e0b','#ef4444','#8b5cf6','#ec4899','#06b6d4'];
 
 // 세팅
 let CAFE_URL   = localStorage.getItem('cafeUrl') || '';
@@ -1221,6 +1222,7 @@ function openDetail(aptName,ak){
   const areas=histTrades.length
     ? [...new Set(histTrades.map(r=>r[1]+'㎡'))].sort((a,b)=>parseFloat(a)-parseFloat(b))
     : [...new Set(dbTrades.map(t=>areaKey(t.area)))].sort((a,b)=>parseFloat(a)-parseFloat(b));
+  _detailAreas=areas;
 
   // 면적 탭
   const tabs=['전체',...areas];
@@ -1286,31 +1288,87 @@ function closeDetail(){
 function renderDetailChart(trades){
   const wrap=document.getElementById('detailChartWrap');
   if(_detailChart){_detailChart.destroy();_detailChart=null;}
-  const pts=trades.slice().sort((a,b)=>a.deal_date.localeCompare(b.deal_date));
-  if(pts.length<2){wrap.style.display='none';return;}
+  if(trades.length<2){wrap.style.display='none';return;}
+
+  const isAll=(_detailArea==='전체');
+  let datasets, allLabels, showLegend;
+
+  if(isAll){
+    // 평형별 그룹핑
+    const groups={};
+    trades.forEach(t=>{
+      const k=t.area+'㎡';
+      if(!groups[k]) groups[k]=[];
+      groups[k].push(t);
+    });
+    const sortedAreas=Object.keys(groups).sort((a,b)=>parseFloat(a)-parseFloat(b));
+    allLabels=[...new Set(trades.map(t=>t.deal_date.slice(0,7)))].sort();
+    datasets=sortedAreas.map((ak,idx)=>{
+      const color=AREA_COLORS[idx%AREA_COLORS.length];
+      const byMonth={};
+      groups[ak].forEach(t=>{
+        const m=t.deal_date.slice(0,7);
+        if(!byMonth[m]) byMonth[m]=[];
+        byMonth[m].push(t.amount);
+      });
+      const data=allLabels.map(l=>{
+        const vs=byMonth[l];
+        return vs?Math.round(vs.reduce((s,v)=>s+v,0)/vs.length):null;
+      });
+      return{
+        label:fmtArea(parseFloat(ak)),
+        data,
+        borderColor:color,
+        backgroundColor:color+'20',
+        borderWidth:1.5,
+        pointRadius:groups[ak].length>60?0:2,
+        pointHoverRadius:5,
+        fill:false,
+        tension:0.3,
+        spanGaps:true,
+      };
+    });
+    showLegend=sortedAreas.length>1;
+    wrap.style.height=showLegend?'190px':'140px';
+  } else {
+    const pts=trades.slice().sort((a,b)=>a.deal_date.localeCompare(b.deal_date));
+    allLabels=pts.map(t=>t.deal_date.slice(0,7));
+    const idx=_detailAreas.indexOf(_detailArea);
+    const color=idx>=0?AREA_COLORS[idx%AREA_COLORS.length]:'#03c75a';
+    datasets=[{
+      label:fmtArea(parseFloat(_detailArea)),
+      data:pts.map(t=>t.amount),
+      borderColor:color,
+      backgroundColor:color+'20',
+      borderWidth:1.5,
+      pointRadius:pts.length>80?0:2,
+      pointHoverRadius:5,
+      fill:true,
+      tension:0.3,
+    }];
+    showLegend=false;
+    wrap.style.height='140px';
+  }
+
   wrap.style.display='block';
   const ctx=document.getElementById('detailChart').getContext('2d');
   _detailChart=new Chart(ctx,{
     type:'line',
-    data:{
-      labels:pts.map(t=>t.deal_date.slice(0,7)),
-      datasets:[{
-        data:pts.map(t=>t.amount),
-        borderColor:'#03c75a',
-        backgroundColor:'rgba(3,199,90,0.08)',
-        borderWidth:1.5,
-        pointRadius:pts.length>80?0:2,
-        pointHoverRadius:5,
-        fill:true,
-        tension:0.3,
-      }]
-    },
+    data:{labels:allLabels,datasets},
     options:{
       responsive:true,
       maintainAspectRatio:false,
       plugins:{
-        legend:{display:false},
-        tooltip:{callbacks:{label:c=>fmtAmt(c.parsed.y)}}
+        legend:{
+          display:showLegend,
+          position:'bottom',
+          labels:{font:{size:10},boxWidth:10,padding:6,usePointStyle:true}
+        },
+        tooltip:{
+          callbacks:{
+            label:c=>`${c.dataset.label} / ${fmtAmt(c.parsed.y)}`
+          }
+        }
       },
       scales:{
         x:{ticks:{maxTicksLimit:6,font:{size:10}},grid:{display:false}},
