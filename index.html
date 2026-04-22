@@ -309,11 +309,11 @@ svg{display:block}
 .detail-panel{
   position:fixed;bottom:0;left:0;right:0;z-index:610;
   background:#fff;border-radius:20px 20px 0 0;
-  max-height:92vh;display:flex;flex-direction:column;
+  max-height:calc(100vh - 60px);display:flex;flex-direction:column;
   transform:translateY(100%);transition:transform .3s cubic-bezier(.32,1,.23,1);
   max-width:600px;margin:0 auto;
 }
-.detail-panel.open{transform:translateY(0);min-height:75vh}
+.detail-panel.open{transform:translateY(0);min-height:65vh}
 .detail-hdr{
   padding:0 18px;flex-shrink:0;
 }
@@ -337,6 +337,15 @@ svg{display:block}
 /* 거래 테이블 */
 .detail-body{overflow-y:auto;padding:0 16px 20px;flex:1;min-height:0}
 .detail-chart-wrap{height:130px;margin-bottom:12px;padding:4px 0}
+/* 통계 카드 */
+.detail-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;padding:0 18px 14px;flex-shrink:0}
+@media(max-width:360px){.detail-stats{grid-template-columns:repeat(2,1fr)}}
+.ds-item{background:#f9fafb;border-radius:10px;padding:10px 8px;text-align:center}
+.ds-label{font-size:10px;color:var(--b4);font-weight:500;margin-bottom:3px}
+.ds-val{font-size:13px;font-weight:800;color:var(--b1);line-height:1.2}
+.ds-val.high{color:var(--red)}
+.ds-val.low{color:#3b82f6}
+.ds-sub{font-size:10px;color:var(--b5);margin-top:2px}
 .trade-tbl{width:100%;border-collapse:collapse;font-size:13px}
 .trade-tbl th{
   background:var(--bg2);padding:8px 10px;
@@ -695,6 +704,7 @@ svg{display:block}
     <div class="detail-sub"   id="detailSub">-</div>
     <button class="detail-close" onclick="closeDetail()">✕</button>
   </div>
+  <div class="detail-stats" id="detailStats"></div>
   <div class="area-tabs" id="areaTabs"></div>
   <div class="detail-body">
     <div class="detail-chart-wrap" id="detailChartWrap" style="display:none">
@@ -737,6 +747,7 @@ let _useRgst   = false;
 let HIST       = {};
 let _detailChart = null;
 let _detailAreas = [];
+let _hlDate='', _hlAmt=0;
 const AREA_COLORS=['#10b981','#3b82f6','#f59e0b','#ef4444','#8b5cf6','#ec4899','#06b6d4'];
 
 // 세팅
@@ -1155,7 +1166,7 @@ function cardHTML(t){
   const hgnnBadge=(hgnn&&hgnn.count>0)?`<span class="hgnn-badge">💬 ${hgnn.count}</span>`:'';
 
   return `
-<div class="tx-card${high?' new-high':''}" onclick="openDetail('${safeName}','${ak}')">
+<div class="tx-card${high?' new-high':''}" onclick="openDetail('${safeName}','${ak}','${t.deal_date}',${t.amount})">
   ${high?'<div class="nh-banner">🔴 신고가</div>':''}
   <div class="card-top-row">
     <div class="card-apt-name">${esc(t.apt_name)}${hgnnBadge}</div>
@@ -1210,8 +1221,9 @@ function downloadCSV(){
 ══════════════════════════════════════════════════════════ */
 let _detailApt='', _detailArea='';
 
-function openDetail(aptName,ak){
+function openDetail(aptName,ak,hlDate,hlAmt){
   ak=ak||'전체';
+  _hlDate=hlDate||''; _hlAmt=hlAmt||0;
   _detailApt=aptName; _detailArea=ak;
   const card=DB?.transactions?.find(t=>t.apt_name===aptName)||{};
   document.getElementById('detailTitle').textContent=aptName;
@@ -1224,12 +1236,17 @@ function openDetail(aptName,ak){
     : [...new Set(dbTrades.map(t=>areaKey(t.area)))].sort((a,b)=>parseFloat(a)-parseFloat(b));
   _detailAreas=areas;
 
+  // ak가 면적 목록에 없으면 전체로 fallback
+  if(ak!=='전체'&&!areas.includes(ak)) ak='전체';
+  _detailArea=ak;
+
   // 면적 탭
   const tabs=['전체',...areas];
   document.getElementById('areaTabs').innerHTML=tabs.map(a=>
     `<button class="area-tab${a===ak?' active':''}" data-a="${a}" onclick="switchDetailArea('${a}')">${a==='전체'?'전체':fmtArea(parseFloat(a))}</button>`
   ).join('');
 
+  renderDetailStats(ak);
   renderDetailTrades(ak);
   document.getElementById('detailOverlay').classList.add('open');
   document.getElementById('detailPanel').classList.add('open');
@@ -1238,6 +1255,7 @@ function openDetail(aptName,ak){
 function switchDetailArea(ak){
   _detailArea=ak;
   document.querySelectorAll('.area-tab').forEach(b=>b.classList.toggle('active',b.dataset.a===ak));
+  renderDetailStats(ak);
   renderDetailTrades(ak);
 }
 
@@ -1267,9 +1285,16 @@ function renderDetailTrades(ak){
   const minP=trades.length>1?Math.min(...prices):0;
 
   document.getElementById('detailTbody').innerHTML=trades.map(t=>{
-    const cls=trades.length>1&&t.amount===maxP?'td-nh':trades.length>1&&t.amount===minP?'td-lo':'';
-    return `<tr>
-      <td>${t.deal_date}</td>
+    const hKey=`${_detailApt}|${t.area}㎡`;
+    const prevHigh=DB?.historical_highs?.[hKey]||0;
+    const isNH=prevHigh>0&&t.amount>prevHigh;
+    const isLo=trades.length>1&&t.amount===minP;
+    const isHl=_hlDate&&t.deal_date===_hlDate&&t.amount===_hlAmt;
+    const rowAttr=isHl?' style="background:#fffde8"':'';
+    const cls=isNH?'td-nh':isLo?'td-lo':'';
+    const nhBadge=isNH?'<span style="color:var(--red);font-size:10px;font-weight:700;margin-left:3px">↑신고가</span>':'';
+    return `<tr${rowAttr}>
+      <td>${t.deal_date}${nhBadge}</td>
       <td>${t.floor}층</td>
       <td>${fmtArea(t.area)}</td>
       <td class="td-price ${cls}">${fmtAmt(t.amount)}</td>
@@ -1277,6 +1302,52 @@ function renderDetailTrades(ak){
   }).join('');
 
   renderDetailChart(trades);
+}
+
+function renderDetailStats(ak){
+  const histRaw=HIST[_detailApt]||[];
+  let trades;
+  if(histRaw.length){
+    const hf=histRaw.filter(r=>ak==='전체'||r[1]+'㎡'===ak);
+    trades=hf.map(r=>({deal_date:r[0],area:r[1],amount:r[3]}));
+  } else {
+    trades=(DB?.transactions||[])
+      .filter(t=>t.apt_name===_detailApt&&(ak==='전체'||areaKey(t.area)===ak))
+      .map(t=>({deal_date:t.deal_date,area:Math.round(t.area),amount:t.amount}));
+  }
+  const el=document.getElementById('detailStats');
+  if(!trades.length){el.innerHTML='';return;}
+
+  const prices=trades.map(t=>t.amount);
+  const maxIdx=prices.indexOf(Math.max(...prices));
+  const minIdx=prices.indexOf(Math.min(...prices));
+  const oneYearAgo=addDays(todayISO(),-365);
+  const recent=trades.filter(t=>t.deal_date>=oneYearAgo);
+  const recentAvg=recent.length
+    ?Math.round(recent.reduce((s,t)=>s+t.amount,0)/recent.length):null;
+  const startYear=trades.reduce((mn,t)=>t.deal_date<mn?t.deal_date:mn,'9999').slice(0,4);
+
+  el.innerHTML=`
+    <div class="ds-item">
+      <div class="ds-label">최고가</div>
+      <div class="ds-val high">${fmtAmt(prices[maxIdx])}</div>
+      <div class="ds-sub">${trades[maxIdx].deal_date}</div>
+    </div>
+    <div class="ds-item">
+      <div class="ds-label">최저가</div>
+      <div class="ds-val low">${fmtAmt(prices[minIdx])}</div>
+      <div class="ds-sub">${trades[minIdx].deal_date}</div>
+    </div>
+    <div class="ds-item">
+      <div class="ds-label">최근 1년 평균</div>
+      <div class="ds-val">${recentAvg?fmtAmt(recentAvg):'거래 부족'}</div>
+      <div class="ds-sub">${recent.length}건 기준</div>
+    </div>
+    <div class="ds-item">
+      <div class="ds-label">총 거래</div>
+      <div class="ds-val">${trades.length.toLocaleString()}건</div>
+      <div class="ds-sub">${startYear}~</div>
+    </div>`;
 }
 
 function closeDetail(){
