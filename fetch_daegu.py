@@ -64,10 +64,12 @@ def parse_rgst(raw):
     """신고일 문자열 → YYYY-MM-DD (실패 시 '')"""
     if not raw:
         return ""
-    r = raw.replace("-", "").replace(".", "")
-    if len(r) == 8 and r.isdigit():
+    r = raw.replace("-", "").replace(".", "").replace(" ", "")
+    if len(r) == 6 and r.isdigit():          # YY.MM.DD → YYMMDD
+        return f"20{r[:2]}-{r[2:4]}-{r[4:]}"
+    if len(r) == 8 and r.isdigit():          # YYYYMMDD
         return f"{r[:4]}-{r[4:6]}-{r[6:]}"
-    if len(raw) == 10 and raw[4] == "-":
+    if len(raw) == 10 and raw[4] == "-":     # YYYY-MM-DD
         return raw
     return ""
 
@@ -165,10 +167,12 @@ def update_master(new_rows):
 # ── 메인 ──────────────────────────────────────────────────────────────
 def main():
     now    = datetime.now()
-    months = [
-        now.strftime("%Y%m"),
-        (now.replace(day=1) - timedelta(days=1)).strftime("%Y%m"),
-    ]
+    # 최근 6개월 수집 (이전 계약+최근 신고분 포착)
+    months = []
+    cur = now.replace(day=1)
+    for _ in range(6):
+        months.append(cur.strftime("%Y%m"))
+        cur = (cur - timedelta(days=1)).replace(day=1)
 
     print(f"=== 대구 실거래 수집 ({now.strftime('%Y-%m-%d %H:%M')}) ===")
 
