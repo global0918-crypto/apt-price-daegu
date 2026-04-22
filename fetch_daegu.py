@@ -169,8 +169,40 @@ def update_master(new_rows):
 
 
 # ── 메인 ──────────────────────────────────────────────────────────────
+def _tx_key(t):
+    """거래 고유 식별키 (중복/신규 판별용)"""
+    return (
+        t.get("apt_name", ""),
+        t.get("deal_date", ""),
+        round(float(t.get("area", 0))),
+        int(t.get("floor", 0)),
+        int(t.get("amount", 0)),
+    )
+
+
+def load_prev_state(path):
+    """이전 transactions.json 로드 → (prev_keys, prev_rgst)"""
+    prev_keys, prev_rgst = set(), {}
+    if not os.path.exists(path):
+        return prev_keys, prev_rgst
+    try:
+        with open(path, encoding="utf-8") as f:
+            prev = json.load(f)
+        for t in prev.get("transactions", []):
+            k = _tx_key(t)
+            prev_keys.add(k)
+            if t.get("rgst_date"):
+                prev_rgst[k] = t["rgst_date"]
+        print(f"  이전 데이터: {len(prev_keys)}건 (rgst_date 보유: {len(prev_rgst)}건)")
+    except Exception as e:
+        print(f"  이전 데이터 로드 실패: {e}")
+    return prev_keys, prev_rgst
+
+
 def main():
     now    = datetime.now()
+    today_str = now.strftime("%Y-%m-%d")
+
     # 최근 6개월 수집 (이전 계약+최근 신고분 포착)
     months = []
     cur = now.replace(day=1)
@@ -179,6 +211,11 @@ def main():
         cur = (cur - timedelta(days=1)).replace(day=1)
 
     print(f"=== 대구 실거래 수집 ({now.strftime('%Y-%m-%d %H:%M')}) ===")
+
+    # 이전 스냅샷 로드 (신규 거래 감지용)
+    print("\n[0] 이전 스냅샷 로드")
+    prev_keys, prev_rgst = load_prev_state(OUTPUT)
+    is_first_run = len(prev_keys) == 0
 
     print("\n[1] 역대 최고가 로드 (신고가 판별용)")
     highs = load_historical_highs()
@@ -255,6 +292,24 @@ def main():
             tag = "[Dev]" if is_dev else "[Std]"
             print(f"{cnt}건 {tag}")
 
+    # ── 신규 거래 감지 & rgst_date 자동 부여 ─────────────────────────────
+    # API가 rgstDate를 ~95% 공백으로 반환하므로,
+    # 이전 스냅샷에 없는 거래 = "오늘 최초 확인" → rgst_date = 오늘
+    new_today = 0
+    for t in transactions:
+        k = _tx_key(t)
+        if t["rgst_date"]:
+            pass                        # API에서 받은 실제 신고일 유지
+        elif k in prev_rgst:
+            t["rgst_date"] = prev_rgst[k]   # 이전 실행에서 부여한 날짜 복원
+        elif not is_first_run and k not in prev_keys:
+            t["rgst_date"] = today_str       # 오늘 최초 등장 → 오늘 날짜
+            new_today += 1
+
+    print(f"\n[신규 거래 감지] {new_today}건 (rgst_date={today_str} 자동 부여)")
+    if is_first_run:
+        print("  ※ 최초 실행 — 신규 감지 스킵 (다음 실행부터 적용)")
+
     # 신고일 내림차순 → 계약일 내림차순
     transactions.sort(
         key=lambda x: (x["rgst_date"] or "0000-00-00", x["deal_date"]),
@@ -267,7 +322,7 @@ def main():
     for d, n in dist.most_common(10):
         print(f"  {d}: {n}건")
 
-    # 실제 표시 타겟일 계산 (최근 5 영업일 소급)
+    # 실제 표시 타겟일 계산 (오늘 포함 최근 5 영업일 소급)
     print("\n[타겟일 계산]")
     actual_report_date = compute_actual_report_date(transactions)
 
