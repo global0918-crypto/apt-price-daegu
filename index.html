@@ -312,7 +312,7 @@ svg{display:block}
   transform:translateY(100%);transition:transform .3s cubic-bezier(.32,1,.23,1);
   max-width:600px;margin:0 auto;
 }
-.detail-panel.open{transform:translateY(0)}
+.detail-panel.open{transform:translateY(0);min-height:75vh}
 .detail-hdr{
   padding:0 18px;flex-shrink:0;
 }
@@ -335,7 +335,7 @@ svg{display:block}
 }
 .area-tab.active{background:var(--green);color:#fff;border-color:var(--green)}
 /* 거래 테이블 */
-.detail-body{overflow-y:auto;padding:0 16px 20px}
+.detail-body{overflow-y:auto;padding:0 16px 20px;flex:1;min-height:0}
 .trade-tbl{width:100%;border-collapse:collapse;font-size:13px}
 .trade-tbl th{
   background:var(--bg2);padding:8px 10px;
@@ -1199,6 +1199,7 @@ function downloadCSV(){
 let _detailApt='', _detailArea='';
 
 function openDetail(aptName,ak){
+  ak=ak||'전체';
   _detailApt=aptName; _detailArea=ak;
   const card=DB?.transactions?.find(t=>t.apt_name===aptName)||{};
   document.getElementById('detailTitle').textContent=aptName;
