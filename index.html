@@ -907,8 +907,7 @@ function dateField(t){ return _useRgst ? (t.rgst_date || t.deal_date) : t.deal_d
 
 function getTargetKey(selDate){
   if(!DB?.transactions?.length) return null;
-  // 조회일 전날까지의 신고분 표시 (selDate - 1)
-  const cutoff=addDays(selDate,-1);
+  const cutoff=selDate;
   const dates=[...new Set(DB.transactions.map(t=>dateField(t)).filter(Boolean))].sort();
   let target=null;
   for(const d of dates) if(d<=cutoff) target=d;
