@@ -822,8 +822,7 @@ let _ldDate = '';
 let _ldDists = new Set();
 
 function showLanding(){
-  // 최신 신고일이 있으면 그 날짜로, 없으면 오늘로 초기화
-  _ldDate = (DB && DB.actualReportDate) || todayISO();
+  _ldDate = todayISO();
   _ldDists = new Set();
   renderLdDate();
   renderLdDists();
