@@ -1453,3 +1453,6 @@ if __name__ == "__main__":
     base_dir = os.path.dirname(os.path.abspath(__file__))
     output_path = os.path.join(base_dir, "아파트실거래_카드뷰.html")
     generate_html(excel_path, output_path)
+
+    import export_history
+    export_history.build(excel_path)

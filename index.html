@@ -7,6 +7,7 @@
 <meta name="description" content="대구 아파트 실거래가 조회 · 신고가 알림 · 대구 부동산 나눔 그룹 카페 연동">
 <link rel="preconnect" href="https://cdn.jsdelivr.net">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <style>
 /* ── CSS 변수 ──────────────────────────────────────────── */
 :root{
@@ -336,6 +337,7 @@ svg{display:block}
 .area-tab.active{background:var(--green);color:#fff;border-color:var(--green)}
 /* 거래 테이블 */
 .detail-body{overflow-y:auto;padding:0 16px 20px;flex:1;min-height:0}
+.detail-chart-wrap{height:130px;margin-bottom:12px;padding:4px 0}
 .trade-tbl{width:100%;border-collapse:collapse;font-size:13px}
 .trade-tbl th{
   background:var(--bg2);padding:8px 10px;
@@ -696,6 +698,9 @@ svg{display:block}
   </div>
   <div class="area-tabs" id="areaTabs"></div>
   <div class="detail-body">
+    <div class="detail-chart-wrap" id="detailChartWrap" style="display:none">
+      <canvas id="detailChart"></canvas>
+    </div>
     <table class="trade-tbl">
       <thead><tr>
         <th>계약일</th><th>층</th><th>면적</th><th style="text-align:right">금액</th>
@@ -730,6 +735,8 @@ let _filtered  = [];
 let _visible   = PAGE;
 let _sparkCache = {};
 let _useRgst   = false;
+let HIST       = {};
+let _detailChart = null;
 
 // 세팅
 let CAFE_URL   = localStorage.getItem('cafeUrl') || '';
@@ -777,13 +784,15 @@ async function init(){
   document.getElementById('cafeUrlInp').value = CAFE_URL;
 
   try{
-    const [txRes, hgRes] = await Promise.allSettled([
+    const [txRes, hgRes, histRes] = await Promise.allSettled([
       fetch('data/transactions.json'),
       fetch('data/hogangnono_reviews.json'),
+      fetch('data/history.json'),
     ]);
     if(txRes.status==='rejected'||!txRes.value.ok) throw new Error('transactions.json 로드 실패');
     DB = await txRes.value.json();
     if(hgRes.status==='fulfilled'&&hgRes.value.ok) HOGAN = await hgRes.value.json();
+    if(histRes.status==='fulfilled'&&histRes.value.ok) HIST = await histRes.value.json();
     _useRgst = DB.transactions.some(t=>t.rgst_date);
     onLoaded();
   }catch(e){
@@ -1207,8 +1216,11 @@ function openDetail(aptName,ak){
   document.getElementById('detailTitle').textContent=aptName;
   document.getElementById('detailSub').textContent=`${card.gugun||''} ${card.dong||''}`;
 
-  const trades=(DB?.transactions||[]).filter(t=>t.apt_name===aptName);
-  const areas=[...new Set(trades.map(t=>areaKey(t.area)))].sort((a,b)=>parseFloat(a)-parseFloat(b));
+  const histTrades=HIST[aptName]||[];
+  const dbTrades=(DB?.transactions||[]).filter(t=>t.apt_name===aptName);
+  const areas=histTrades.length
+    ? [...new Set(histTrades.map(r=>r[1]+'㎡'))].sort((a,b)=>parseFloat(a)-parseFloat(b))
+    : [...new Set(dbTrades.map(t=>areaKey(t.area)))].sort((a,b)=>parseFloat(a)-parseFloat(b));
 
   // 면적 탭
   const tabs=['전체',...areas];
@@ -1228,15 +1240,32 @@ function switchDetailArea(ak){
 }
 
 function renderDetailTrades(ak){
-  const trades=(DB?.transactions||[])
-    .filter(t=>t.apt_name===_detailApt && (ak==='전체'||areaKey(t.area)===ak))
-    .sort((a,b)=>b.deal_date.localeCompare(a.deal_date));
+  const histRaw=HIST[_detailApt]||[];
+  let trades;
+  if(histRaw.length){
+    const hf=histRaw.filter(r=>ak==='전체'||r[1]+'㎡'===ak);
+    const hKeys=new Set(hf.map(r=>`${r[0]}|${r[1]}|${r[2]}|${r[3]}`));
+    const dbExtra=(DB?.transactions||[]).filter(t=>{
+      const k=`${t.deal_date}|${Math.round(t.area)}|${t.floor}|${t.amount}`;
+      return t.apt_name===_detailApt&&(ak==='전체'||areaKey(t.area)===ak)&&!hKeys.has(k);
+    });
+    trades=[
+      ...hf.map(r=>({deal_date:r[0],area:r[1],floor:r[2],amount:r[3]})),
+      ...dbExtra.map(t=>({deal_date:t.deal_date,area:Math.round(t.area),floor:t.floor,amount:t.amount}))
+    ].sort((a,b)=>b.deal_date.localeCompare(a.deal_date));
+  } else {
+    trades=(DB?.transactions||[])
+      .filter(t=>t.apt_name===_detailApt&&(ak==='전체'||areaKey(t.area)===ak))
+      .sort((a,b)=>b.deal_date.localeCompare(a.deal_date))
+      .map(t=>({deal_date:t.deal_date,area:Math.round(t.area),floor:t.floor,amount:t.amount}));
+  }
 
   const prices=trades.map(t=>t.amount);
-  const maxP=Math.max(...prices), minP=Math.min(...prices);
+  const maxP=trades.length>1?Math.max(...prices):0;
+  const minP=trades.length>1?Math.min(...prices):0;
 
   document.getElementById('detailTbody').innerHTML=trades.map(t=>{
-    const cls=t.amount===maxP?'td-nh':t.amount===minP?'td-lo':'';
+    const cls=trades.length>1&&t.amount===maxP?'td-nh':trades.length>1&&t.amount===minP?'td-lo':'';
     return `<tr>
       <td>${t.deal_date}</td>
       <td>${t.floor}층</td>
@@ -1244,11 +1273,51 @@ function renderDetailTrades(ak){
       <td class="td-price ${cls}">${fmtAmt(t.amount)}</td>
     </tr>`;
   }).join('');
+
+  renderDetailChart(trades);
 }
 
 function closeDetail(){
   document.getElementById('detailOverlay').classList.remove('open');
   document.getElementById('detailPanel').classList.remove('open');
+  if(_detailChart){_detailChart.destroy();_detailChart=null;}
+}
+
+function renderDetailChart(trades){
+  const wrap=document.getElementById('detailChartWrap');
+  if(_detailChart){_detailChart.destroy();_detailChart=null;}
+  const pts=trades.slice().sort((a,b)=>a.deal_date.localeCompare(b.deal_date));
+  if(pts.length<2){wrap.style.display='none';return;}
+  wrap.style.display='block';
+  const ctx=document.getElementById('detailChart').getContext('2d');
+  _detailChart=new Chart(ctx,{
+    type:'line',
+    data:{
+      labels:pts.map(t=>t.deal_date.slice(0,7)),
+      datasets:[{
+        data:pts.map(t=>t.amount),
+        borderColor:'#03c75a',
+        backgroundColor:'rgba(3,199,90,0.08)',
+        borderWidth:1.5,
+        pointRadius:pts.length>80?0:2,
+        pointHoverRadius:5,
+        fill:true,
+        tension:0.3,
+      }]
+    },
+    options:{
+      responsive:true,
+      maintainAspectRatio:false,
+      plugins:{
+        legend:{display:false},
+        tooltip:{callbacks:{label:c=>fmtAmt(c.parsed.y)}}
+      },
+      scales:{
+        x:{ticks:{maxTicksLimit:6,font:{size:10}},grid:{display:false}},
+        y:{ticks:{callback:v=>fmtAmt(v),font:{size:10},maxTicksLimit:5}}
+      }
+    }
+  });
 }
 
 /* ══════════════════════════════════════════════════════════

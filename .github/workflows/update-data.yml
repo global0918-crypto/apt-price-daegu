@@ -2,7 +2,8 @@ name: 대구 아파트 실거래 데이터 갱신
 
 on:
   schedule:
-    - cron: '0 1 * * *'   # 매일 오전 10:00 KST (= 01:00 UTC)
+    - cron: '0 22 * * *'  # 매일 오전 07:00 KST (= 전날 22:00 UTC)
+    - cron: '0 4 * * *'   # 매일 오후 13:00 KST (= 04:00 UTC)
   workflow_dispatch:        # 수동 실행
 
 permissions:
@@ -39,6 +40,7 @@ jobs:
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add data/transactions.json
+          [ -f "data/history.json" ] && git add "data/history.json" || true
           [ -f "data/아파트실거래_마스터.xlsx" ] && git add "data/아파트실거래_마스터.xlsx" || true
           [ -f "아파트실거래_카드뷰.html" ] && git add "아파트실거래_카드뷰.html" || true
           git diff --staged --quiet && echo "변경 없음, 스킵" && exit 0
