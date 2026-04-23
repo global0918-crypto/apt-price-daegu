@@ -123,18 +123,26 @@ svg{display:block}
   padding:10px 0;
   position:relative;
 }
-.dist-wrap::after{
-  content:'▶';
-  position:absolute;right:0;top:0;bottom:0;
-  width:52px;
-  display:flex;align-items:center;justify-content:flex-end;
-  padding-right:10px;
-  background:linear-gradient(to right,rgba(255,255,255,0) 0%,#fff 55%);
-  color:var(--b4);font-size:10px;
-  pointer-events:none;
-  transition:opacity .2s;
+.dist-scroll-btn{
+  position:absolute;top:0;bottom:0;width:44px;
+  display:flex;align-items:center;justify-content:center;
+  border:none;cursor:pointer;
+  color:var(--b4);font-size:13px;z-index:2;
+  padding:0;transition:opacity .2s,color .15s;
 }
-.dist-wrap.scroll-end::after{opacity:0}
+.dist-scroll-btn.left{
+  left:0;
+  background:linear-gradient(to left,transparent 0%,#fff 65%);
+}
+.dist-scroll-btn.right{
+  right:0;
+  background:linear-gradient(to right,transparent 0%,#fff 65%);
+}
+.dist-scroll-btn:hover{color:var(--b2)}
+.dist-wrap.scroll-start .dist-scroll-btn.left{opacity:0;pointer-events:none}
+.dist-wrap.scroll-end   .dist-scroll-btn.right{opacity:0;pointer-events:none}
+.dist-wrap:not(.scroll-end) .dist-scroll-btn.right{animation:distPulse 2s infinite}
+@keyframes distPulse{0%,100%{transform:translateX(0)}50%{transform:translateX(3px)}}
 .dist-scroll{
   display:flex;gap:7px;overflow-x:auto;
   padding:2px 14px 4px;
@@ -677,7 +685,9 @@ svg{display:block}
 
     <!-- 구군 칩 -->
     <div class="dist-wrap">
+      <button class="dist-scroll-btn left" aria-label="이전 지역" onclick="distScrollBy(-150)">◀</button>
       <div class="dist-scroll" id="distScroll"></div>
+      <button class="dist-scroll-btn right" aria-label="다음 지역" onclick="distScrollBy(150)">▶</button>
     </div>
 
     <!-- 카페 인기글 -->
@@ -1057,19 +1067,21 @@ function updateDistScrollIndicator(){
   if(!scroll) return;
   const wrap=scroll.closest('.dist-wrap');
   if(!wrap) return;
-  // innerHTML 직후엔 레이아웃 미계산 → rAF 2회로 확실히 대기
-  const check=()=>{
-    const atEnd=scroll.scrollWidth<=scroll.clientWidth+4;
-    wrap.classList.toggle('scroll-end',atEnd);
+  const syncState=()=>{
+    wrap.classList.toggle('scroll-start', scroll.scrollLeft<=4);
+    wrap.classList.toggle('scroll-end',   scroll.scrollLeft+scroll.clientWidth>=scroll.scrollWidth-4);
   };
-  requestAnimationFrame(()=>requestAnimationFrame(check));
+  // innerHTML 직후엔 레이아웃 미계산 → rAF 2회 대기 후 측정
+  requestAnimationFrame(()=>requestAnimationFrame(syncState));
   if(!scroll._scrollListenerAdded){
-    scroll.addEventListener('scroll',()=>{
-      const end=scroll.scrollLeft+scroll.clientWidth>=scroll.scrollWidth-4;
-      wrap.classList.toggle('scroll-end',end);
-    },{passive:true});
+    scroll.addEventListener('scroll', syncState, {passive:true});
     scroll._scrollListenerAdded=true;
   }
+}
+
+function distScrollBy(amount){
+  const scroll=document.getElementById('distScroll');
+  if(scroll) scroll.scrollBy({left:amount,behavior:'smooth'});
 }
 
 function toggleDist(val){
