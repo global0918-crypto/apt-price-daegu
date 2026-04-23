@@ -395,8 +395,11 @@ svg{display:block}
   border-bottom:1px solid var(--border);
 }
 .detail-hdr .dh-handle{width:36px;height:4px;background:var(--border);border-radius:2px;margin:12px auto 14px}
-.detail-title{font-size:17px;font-weight:800;color:var(--b1);padding-right:36px}
-.detail-sub{font-size:12px;color:var(--b4);margin-top:2px;margin-bottom:12px}
+.detail-title-row{display:flex;align-items:center;gap:8px;padding-right:44px;margin-bottom:2px}
+.detail-title{font-size:17px;font-weight:800;color:var(--b1);flex:1;min-width:0}
+.map-link-btn{flex-shrink:0;padding:5px 11px;background:var(--green);color:#fff;border-radius:8px;font-size:12px;font-weight:600;white-space:nowrap;cursor:pointer}
+.map-link-btn:hover{opacity:.85}
+.detail-sub{font-size:12px;color:var(--b4);margin-top:0;margin-bottom:12px}
 .detail-close{
   position:absolute;top:16px;right:16px;
   width:32px;height:32px;border-radius:50%;
@@ -476,10 +479,13 @@ svg{display:block}
   box-shadow:0 8px 24px rgba(0,0,0,.12);z-index:300;
   max-height:240px;overflow-y:auto;display:none;
 }
-.ac-item{padding:11px 14px;font-size:13px;cursor:pointer;border-bottom:1px solid var(--border2);transition:background .1s}
+.ac-item{display:flex;align-items:center;justify-content:space-between;padding:11px 14px;font-size:13px;cursor:pointer;border-bottom:1px solid var(--border2);transition:background .1s}
 .ac-item:last-child{border-bottom:none}
 .ac-item:hover,.ac-item.focused{background:var(--green-bg)}
 .ac-item b{color:var(--green)}
+.ac-name{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ac-loc{flex-shrink:0;font-size:11px;color:var(--b4);background:var(--bg2);padding:2px 8px;border-radius:10px;white-space:nowrap;margin-left:8px}
+.sr-loc{flex-shrink:0;font-size:12px;color:var(--b4);background:var(--bg2);padding:3px 10px;border-radius:12px;white-space:nowrap;margin-left:10px}
 .fav-grid{display:flex;flex-direction:column;gap:0}
 .fav-card{background:#fff;border-bottom:1px solid var(--border2);padding:14px 16px;cursor:pointer}
 .fav-card-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
@@ -492,6 +498,11 @@ svg{display:block}
 .fav-tr-price{font-weight:700;color:var(--b1)}
 .fav-tr-info{color:var(--b5);font-size:11px;flex:1;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .fav-empty{text-align:center;padding:60px 16px;color:var(--b4);line-height:1.8}
+.fav-basic-info{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:11px 14px;margin-bottom:10px}
+.fav-info-row{display:flex;padding:5px 0;font-size:13px;border-bottom:1px solid var(--border2)}
+.fav-info-row:last-child{border-bottom:none}
+.fav-info-lbl{flex:0 0 60px;color:var(--b4)}
+.fav-info-val{flex:1;color:var(--b1);font-weight:600;word-break:break-all}
 
 /* ── Search page ─────────────────────────────────────────── */
 .search-page{padding:14px}
@@ -818,8 +829,11 @@ svg{display:block}
 <div class="detail-panel" id="detailPanel">
   <div class="detail-hdr" style="position:relative">
     <div class="dh-handle"></div>
-    <div class="detail-title" id="detailTitle">-</div>
-    <div class="detail-sub"   id="detailSub">-</div>
+    <div class="detail-title-row">
+      <div class="detail-title" id="detailTitle">-</div>
+      <button class="map-link-btn" onclick="openNaverLand()">📍 지도</button>
+    </div>
+    <div class="detail-sub" id="detailSub">-</div>
     <button class="detail-close" onclick="closeDetail()">✕</button>
     <div class="detail-type-tabs">
       <button class="dtt-btn active">매매</button>
@@ -1404,15 +1418,16 @@ function downloadCSV(){
 /* ══════════════════════════════════════════════════════════
    아파트 상세 패널
 ══════════════════════════════════════════════════════════ */
-let _detailApt='', _detailArea='';
+let _detailApt='', _detailArea='', _detailGugun='', _detailDong='';
 
 function openDetail(aptName,ak,hlDate,hlAmt){
   ak=ak||'전체';
   _hlDate=hlDate||''; _hlAmt=hlAmt||0;
   _detailApt=aptName; _detailArea=ak;
   const card=DB?.transactions?.find(t=>t.apt_name===aptName)||{};
+  _detailGugun=card.gugun||''; _detailDong=card.dong||'';
   document.getElementById('detailTitle').textContent=aptName;
-  document.getElementById('detailSub').textContent=`${card.gugun||''} ${card.dong||''}`;
+  document.getElementById('detailSub').textContent=`대구광역시 ${_detailGugun} ${_detailDong}`.trim();
 
   const histTrades=HIST[aptName]||[];
   const dbTrades=(DB?.transactions||[]).filter(t=>t.apt_name===aptName);
@@ -1439,6 +1454,11 @@ function openDetail(aptName,ak,hlDate,hlAmt){
   renderDetailTrades(ak);
   document.getElementById('detailOverlay').classList.add('open');
   document.getElementById('detailPanel').classList.add('open');
+}
+
+function openNaverLand(){
+  const q=encodeURIComponent(`대구 ${_detailDong} ${_detailApt}`);
+  window.open(`https://m.land.naver.com/search/result/${q}`,'_blank','noopener,noreferrer');
 }
 
 function toggleDetailArea(){
@@ -1746,9 +1766,27 @@ function renderFavPage(){
     return;
   }
   grid.innerHTML=favs.map(name=>{
-    const trades=(DB?.transactions||[]).filter(t=>t.apt_name===name)
-      .sort((a,b)=>b.deal_date.localeCompare(a.deal_date)).slice(0,4);
+    const allTrades=(DB?.transactions||[]).filter(t=>t.apt_name===name)
+      .sort((a,b)=>b.deal_date.localeCompare(a.deal_date));
+    const trades=allTrades.slice(0,4);
+    const first=allTrades[0]||{};
     const safeName=name.replace(/'/g,"\\'");
+
+    // 기본 정보 계산
+    const gugun=first.gugun||'';
+    const dong=first.dong||'';
+    const byear=first.build_year||(allTrades.find(t=>t.build_year)||{}).build_year||0;
+    const yearsOld=byear?new Date().getFullYear()-byear:'';
+    const uniqueAreas=[...new Set(allTrades.map(t=>Math.round(t.area)))].sort((a,b)=>a-b)
+      .map(a=>`${a}㎡`).join(' · ');
+
+    const infoRows=[
+      gugun&&dong?`<div class="fav-info-row"><span class="fav-info-lbl">주소</span><span class="fav-info-val">대구광역시 ${esc(gugun)} ${esc(dong)}</span></div>`:'',
+      byear?`<div class="fav-info-row"><span class="fav-info-lbl">입주</span><span class="fav-info-val">${byear}년${yearsOld?' ('+yearsOld+'년차)':''}</span></div>`:'',
+      uniqueAreas?`<div class="fav-info-row"><span class="fav-info-lbl">평형</span><span class="fav-info-val">${uniqueAreas}</span></div>`:'',
+      `<div class="fav-info-row"><span class="fav-info-lbl">총 거래</span><span class="fav-info-val">${allTrades.length}건</span></div>`,
+    ].filter(Boolean).join('');
+
     const rows=trades.length
       ? trades.map(t=>`<div class="fav-tr">
           <span class="fav-tr-date">${t.deal_date}</span>
@@ -1761,6 +1799,7 @@ function renderFavPage(){
         <div class="fav-card-name">${esc(name)}</div>
         <button class="fav-del" onclick="event.stopPropagation();delFav('${safeName}',this)">✕</button>
       </div>
+      <div class="fav-basic-info">${infoRows}</div>
       <div class="fav-trades">${rows}</div>
     </div>`;
   }).join('');
@@ -1789,11 +1828,19 @@ function showAC(q,listId){
   const matches=(DB?.apt_names||[]).filter(n=>n.toLowerCase().includes(lower)).slice(0,15);
   if(!matches.length){ hideAC(); return; }
   _acI=-1;
+  // 위치 조회용 맵
+  const locMap={};
+  (DB.transactions||[]).forEach(t=>{ if(!locMap[t.apt_name]) locMap[t.apt_name]={g:t.gugun,d:t.dong}; });
+  const re=new RegExp(q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),'gi');
   const list=document.getElementById(listId);
   list.innerHTML=matches.map((n,i)=>{
-    const hi=esc(n).replace(new RegExp(esc(q).replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),'gi'),m=>`<b>${m}</b>`);
+    const hi=esc(n).replace(re,m=>`<b>${m}</b>`);
+    const loc=locMap[n]||{};
+    const locStr=loc.g?`${loc.g} ${loc.d||''}`.trim():'';
     return `<div class="ac-item" data-n="${esc(n)}" data-i="${i}"
-      onmousedown="pickFavApt('${n.replace(/'/g,"\\'")}','${listId}')">${hi}</div>`;
+      onmousedown="pickFavApt('${n.replace(/'/g,"\\'")}','${listId}')">
+      <span class="ac-name">${hi}</span>${locStr?`<span class="ac-loc">${esc(locStr)}</span>`:''}
+    </div>`;
   }).join('');
   list.style.display='block';
 }
@@ -1834,11 +1881,13 @@ function onGlobalSearch(){
     res.innerHTML=apts.map(name=>{
       const last=(DB.transactions||[]).filter(t=>t.apt_name===name).sort((a,b)=>b.deal_date.localeCompare(a.deal_date))[0];
       const safeName=name.replace(/'/g,"\\'");
+      const locStr=last?`${last.gugun} ${last.dong||''}`.trim():'';
       return `<div class="fav-card" onclick="openDetail('${safeName}','')">
         <div class="fav-card-hdr" style="margin-bottom:4px">
           <div class="fav-card-name">${esc(name)}</div>
+          ${locStr?`<span class="sr-loc">${esc(locStr)}</span>`:''}
         </div>
-        ${last?`<div style="font-size:12px;color:var(--b4)">${last.gugun} · 최근 ${last.deal_date} · ${fmtAmt(last.amount)}</div>`:''}
+        ${last?`<div style="font-size:12px;color:var(--b4)">최근 ${last.deal_date} · ${fmtAmt(last.amount)}</div>`:''}
       </div>`;
     }).join('');
   },200);
