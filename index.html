@@ -30,7 +30,7 @@ html,body{height:100%;-webkit-tap-highlight-color:transparent}
 body{
   font-family:'Pretendard',-apple-system,'Noto Sans KR',sans-serif;
   background:var(--bg);color:var(--b1);
-  padding-bottom:calc(var(--tab-h) + var(--safe-b));
+  padding-bottom:100px!important;
   font-size:14px;line-height:1.5;
 }
 button{font-family:inherit;cursor:pointer;border:none;background:none}
@@ -69,12 +69,19 @@ svg{display:block}
 
 /* ── Bottom tab bar ─────────────────────────────────────── */
 .tab-bar{
-  position:fixed;bottom:0;left:0;right:0;z-index:200;
+  position:fixed!important;bottom:0!important;
+  left:50%!important;right:auto!important;
+  transform:translateX(-50%)!important;
+  width:100%!important;max-width:600px!important;
+  z-index:200;
   height:calc(var(--tab-h) + var(--safe-b));
   background:#fff;border-top:1px solid var(--border);
   display:flex;
   padding-bottom:var(--safe-b);
-  box-shadow:0 -1px 6px rgba(0,0,0,.06);
+  box-shadow:0 -2px 8px rgba(0,0,0,.08);
+}
+.tab-inner{
+  width:100%;display:flex;
 }
 .tab-btn{
   flex:1;display:flex;flex-direction:column;
@@ -87,7 +94,7 @@ svg{display:block}
 .tab-btn:hover{color:var(--b2)}
 
 /* ── Pages ──────────────────────────────────────────────── */
-.page{max-width:600px;margin:0 auto;padding-bottom:20px}
+.page{max-width:600px;margin:0 auto;padding-bottom:80px!important}
 
 /* ── Date strip ─────────────────────────────────────────── */
 .date-strip{
@@ -114,7 +121,20 @@ svg{display:block}
 .dist-wrap{
   background:#fff;border-bottom:1px solid var(--border);
   padding:10px 0;
+  position:relative;
 }
+.dist-wrap::after{
+  content:'▶';
+  position:absolute;right:0;top:0;bottom:0;
+  width:52px;
+  display:flex;align-items:center;justify-content:flex-end;
+  padding-right:10px;
+  background:linear-gradient(to right,rgba(255,255,255,0) 0%,#fff 55%);
+  color:var(--b4);font-size:10px;
+  pointer-events:none;
+  transition:opacity .2s;
+}
+.dist-wrap.scroll-end::after{opacity:0}
 .dist-scroll{
   display:flex;gap:7px;overflow-x:auto;
   padding:2px 14px 4px;
@@ -223,9 +243,13 @@ svg{display:block}
 .fav-abs.on{color:#ffd700}
 
 /* 카드 바디: 좌측 정보 + 우측 차트 */
-.card-body{display:grid;grid-template-columns:1fr 120px;gap:10px;align-items:start;margin-bottom:6px}
-.spark-wrap-lg{flex-shrink:0;align-self:stretch;display:flex;align-items:center}
-.spark-wrap-lg svg{width:120px;height:80px;display:block}
+.card-body{display:grid;grid-template-columns:1fr 180px;gap:10px;align-items:start;margin-bottom:6px}
+.spark-wrap-lg{flex-shrink:0;align-self:stretch;display:flex;align-items:center;min-width:0}
+.spark-wrap-lg svg{width:100%;height:80px;display:block;overflow:visible}
+.chart-empty{display:flex;align-items:center;justify-content:center;width:100%;height:80px;color:var(--b5);font-size:11px;background:var(--bg2);border-radius:6px}
+@media(max-width:400px){
+  .card-body{grid-template-columns:1fr 130px}
+}
 
 /* 가격 */
 .card-price{font-size:22px;font-weight:900;color:var(--b1);letter-spacing:-.5px;margin-bottom:4px;line-height:1.2}
@@ -301,7 +325,7 @@ svg{display:block}
 }
 
 /* ── Load more ──────────────────────────────────────────── */
-.more-wrap{padding:16px;text-align:center}
+.more-wrap{padding:16px;padding-bottom:40px!important;text-align:center}
 .more-btn{
   width:100%;padding:14px;border-radius:12px;
   background:var(--green);color:#fff;
@@ -354,12 +378,12 @@ svg{display:block}
 }
 .detail-overlay.open{opacity:1;pointer-events:all}
 .detail-panel{
-  position:fixed;bottom:8vh;left:8px;right:8px;z-index:610;
-  background:#fff;border-radius:16px;
-  height:80vh;max-height:80vh;
+  position:fixed;bottom:0;left:0;right:0;z-index:610;
+  background:#fff;border-radius:16px 16px 0 0;
+  height:92vh;max-height:92vh;
   display:flex;flex-direction:column;
   transform:translateY(110%);transition:transform .3s cubic-bezier(.32,1,.23,1);
-  box-shadow:0 8px 32px rgba(0,0,0,.16);
+  box-shadow:0 -4px 24px rgba(0,0,0,.14);
 }
 .detail-panel.open{transform:translateY(0)}
 .detail-hdr{
@@ -590,7 +614,8 @@ svg{display:block}
 @media(min-width:768px){
   .detail-panel{
     left:50%;right:auto;width:520px;
-    bottom:5vh;height:75vh;max-height:75vh;
+    bottom:3vh;height:88vh;max-height:88vh;
+    border-radius:16px;
     transform:translateX(-50%) translateY(110%);
   }
   .detail-panel.open{transform:translateX(-50%) translateY(0)}
@@ -703,6 +728,15 @@ svg{display:block}
   <div class="search-results" id="searchResults"></div>
 </div>
 
+<!-- TOP 10 -->
+<div class="page" id="page-top10" style="display:none">
+  <div style="padding:60px 16px;text-align:center;color:var(--b4)">
+    <div style="font-size:40px;margin-bottom:12px">📊</div>
+    <div style="font-size:16px;font-weight:700;color:var(--b2);margin-bottom:6px">Top 10 준비 중</div>
+    <div style="font-size:13px">구군·면적별 거래 순위 페이지가 곧 업데이트됩니다.</div>
+  </div>
+</div>
+
 <!-- SETTINGS -->
 <div class="page settings-page" id="page-settings" style="display:none">
   <div class="setting-section">
@@ -723,15 +757,20 @@ svg{display:block}
 
 <!-- Bottom tab bar -->
 <nav class="tab-bar">
-  <button class="tab-btn active" data-tab="home"     onclick="goTab('home')">
-    <span class="t-icon">🏠</span><span>홈</span>
-  </button>
-  <button class="tab-btn"        data-tab="fav"      onclick="goTab('fav')">
-    <span class="t-icon">⭐</span><span>관심</span>
-  </button>
-  <button class="tab-btn"        data-tab="search"   onclick="goTab('search')">
-    <span class="t-icon">🔍</span><span>검색</span>
-  </button>
+  <div class="tab-inner">
+    <button class="tab-btn active" data-tab="home"   onclick="goHome()">
+      <span class="t-icon">🏠</span><span>홈</span>
+    </button>
+    <button class="tab-btn"        data-tab="fav"    onclick="goTab('fav')">
+      <span class="t-icon">⭐</span><span>관심</span>
+    </button>
+    <button class="tab-btn"        data-tab="search" onclick="goTab('search')">
+      <span class="t-icon">🔍</span><span>검색</span>
+    </button>
+    <button class="tab-btn"        data-tab="top10"  onclick="goTab('top10')">
+      <span class="t-icon">📊</span><span>Top 10</span>
+    </button>
+  </div>
 </nav>
 
 <!-- District bottom sheet -->
@@ -791,7 +830,8 @@ let _nhOnly      = false;
 let _hideCancel  = false;
 let _filtered  = [];
 let _visible   = PAGE;
-let _sparkCache = {};
+let _sparkCache   = {};
+let _monthlyCache = {};
 let _useRgst   = false;
 let HIST       = {};
 let _detailChart = null;
@@ -1009,6 +1049,27 @@ function buildDistChips(){
       <span class="dc-cnt">${cnt||'-'}</span>
     </button>`;
   }).join('');
+  updateDistScrollIndicator();
+}
+
+function updateDistScrollIndicator(){
+  const scroll=document.getElementById('distScroll');
+  if(!scroll) return;
+  const wrap=scroll.closest('.dist-wrap');
+  if(!wrap) return;
+  // innerHTML 직후엔 레이아웃 미계산 → rAF 2회로 확실히 대기
+  const check=()=>{
+    const atEnd=scroll.scrollWidth<=scroll.clientWidth+4;
+    wrap.classList.toggle('scroll-end',atEnd);
+  };
+  requestAnimationFrame(()=>requestAnimationFrame(check));
+  if(!scroll._scrollListenerAdded){
+    scroll.addEventListener('scroll',()=>{
+      const end=scroll.scrollLeft+scroll.clientWidth>=scroll.scrollWidth-4;
+      wrap.classList.toggle('scroll-end',end);
+    },{passive:true});
+    scroll._scrollListenerAdded=true;
+  }
 }
 
 function toggleDist(val){
@@ -1104,37 +1165,53 @@ function prevHighDiff(t){
 }
 
 /* ══════════════════════════════════════════════════════════
-   스파크라인 SVG
+   스파크라인 SVG (월별 평균가 기반)
 ══════════════════════════════════════════════════════════ */
-function getSparkPts(aptName,ak){
-  const ck=`${aptName}|${ak}`;
-  if(_sparkCache[ck]) return _sparkCache[ck];
-  const pts=(DB?.transactions||[])
-    .filter(t=>t.apt_name===aptName && areaKey(t.area)===ak && t.amount>0 && !isCancelled(t))
-    .sort((a,b)=>a.deal_date.localeCompare(b.deal_date))
-    .map(t=>t.amount);
-  _sparkCache[ck]=pts;
-  return pts;
+function getMonthlyAvg(aptName){
+  if(_monthlyCache[aptName]) return _monthlyCache[aptName];
+  const groups={};
+  (DB?.transactions||[])
+    .filter(t=>t.apt_name===aptName && t.amount>0 && !isCancelled(t))
+    .forEach(t=>{
+      const ym=t.deal_date.slice(0,7);
+      if(!groups[ym]) groups[ym]=[];
+      groups[ym].push(t.amount);
+    });
+  const result=Object.entries(groups)
+    .map(([ym,prices])=>({
+      ym,
+      avg:Math.round(prices.reduce((a,b)=>a+b,0)/prices.length),
+      cnt:prices.length,
+    }))
+    .sort((a,b)=>a.ym.localeCompare(b.ym))
+    .slice(-24);
+  _monthlyCache[aptName]=result;
+  return result;
 }
 
-function makeSpark(aptName,ak,W=72,H=28){
-  const pts=getSparkPts(aptName,ak);
-  if(pts.length<2) return `<svg width="${W}" height="${H}"><line x1="0" y1="${H/2}" x2="${W}" y2="${H/2}" stroke="#e0e0e0" stroke-width="1.5"/></svg>`;
-  const min=Math.min(...pts), max=Math.max(...pts), range=max-min||1;
-  const pd=3;
-  const coords=pts.map((v,i)=>{
-    const x=pd+(i/(pts.length-1))*(W-pd*2);
-    const y=pd+(1-(v-min)/range)*(H-pd*2);
-    return `${x.toFixed(1)},${y.toFixed(1)}`;
-  });
+function makeSparkMonthly(aptName,W=180,H=80){
+  const data=getMonthlyAvg(aptName);
+  if(data.length<2) return `<div class="chart-empty">거래 이력 부족</div>`;
+  const prices=data.map(d=>d.avg);
+  const mn=Math.min(...prices), mx=Math.max(...prices), rng=mx-mn||1;
+  const pd=4;
+  const pts=data.map((d,i)=>({
+    x:pd+(i/(data.length-1))*(W-pd*2),
+    y:pd+(1-(d.avg-mn)/rng)*(H-pd*2),
+    ym:d.ym, avg:d.avg, cnt:d.cnt,
+  }));
+  const line=pts.map((p,i)=>`${i===0?'M':'L'}${p.x.toFixed(1)},${p.y.toFixed(1)}`).join(' ');
+  const fill=`${line} L${(W-pd).toFixed(1)},${H} L${pd},${H} Z`;
+  const isUp=pts[pts.length-1].avg>=pts[0].avg;
+  const lc=isUp?'#10b981':'#ef4444';
+  const fc=isUp?'#d1fae5':'#fee2e2';
   const last=pts[pts.length-1];
-  const lx=(W-pd).toFixed(1), ly=(pd+(1-(last-min)/range)*(H-pd*2)).toFixed(1);
-  const fill=[`${pd},${H}`,...coords,`${lx},${H}`].join(' ');
-  const c='#03c75a';
-  return `<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">
-    <polygon points="${fill}" fill="${c}22"/>
-    <polyline points="${coords.join(' ')}" fill="none" stroke="${c}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-    <circle cx="${lx}" cy="${ly}" r="2.5" fill="${c}" stroke="#fff" stroke-width="1"/>
+  const hoverPts=pts.map(p=>`<circle cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="7" fill="transparent" class="spark-hp"><title>${p.ym} 평균 ${fmtAmt(p.avg)} (${p.cnt}건)</title></circle>`).join('');
+  return `<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" width="100%" height="${H}" style="overflow:visible">
+    <path d="${fill}" fill="${fc}" opacity="0.5"/>
+    <path d="${line}" fill="none" stroke="${lc}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+    <circle cx="${last.x.toFixed(1)}" cy="${last.y.toFixed(1)}" r="3" fill="${lc}" stroke="#fff" stroke-width="1.5"/>
+    ${hoverPts}
   </svg>`;
 }
 
@@ -1248,7 +1325,7 @@ function cardHTML(t){
         <span>${esc(t.dong)}</span>
       </div>
     </div>
-    <div class="spark-wrap-lg">${makeSpark(t.apt_name,ak,120,80)}</div>
+    <div class="spark-wrap-lg">${makeSparkMonthly(t.apt_name,180,80)}</div>
   </div>
   <div class="card-footer">
     <span class="cf-item">📅 계약 ${t.deal_date}</span>
@@ -1425,16 +1502,56 @@ function closeDetail(){
   if(_detailChart){_detailChart.destroy();_detailChart=null;}
 }
 
+function fmtAmtShort(v){
+  if(!v) return '-';
+  if(v>=10000){
+    const e=Math.floor(v/10000), r=Math.round((v%10000)/1000);
+    if(r>=10) return `${e+1}억`;
+    return r===0?`${e}억`:`${e}.${r}억`;
+  }
+  return `${v.toLocaleString()}만`;
+}
+
+function drawDetailLabel(ctx,x,y,manwon,color,pos,area){
+  const label=fmtAmtShort(manwon);
+  ctx.save();
+  ctx.font='bold 11px -apple-system,sans-serif';
+  const tw=ctx.measureText(label).width;
+  const bw=tw+14, bh=18, r=9, gap=7;
+  let bx=x-bw/2;
+  let by=pos==='above'?y-gap-bh:y+gap;
+  bx=Math.max(area.left,Math.min(area.right-bw,bx));
+  // arrow
+  ctx.beginPath();
+  if(pos==='above'){ctx.moveTo(x,y-5);ctx.lineTo(x-4,by+bh);ctx.lineTo(x+4,by+bh);}
+  else{ctx.moveTo(x,y+5);ctx.lineTo(x-4,by);ctx.lineTo(x+4,by);}
+  ctx.closePath();ctx.fillStyle=color;ctx.fill();
+  // badge
+  ctx.beginPath();
+  ctx.moveTo(bx+r,by);ctx.lineTo(bx+bw-r,by);
+  ctx.quadraticCurveTo(bx+bw,by,bx+bw,by+r);
+  ctx.lineTo(bx+bw,by+bh-r);
+  ctx.quadraticCurveTo(bx+bw,by+bh,bx+bw-r,by+bh);
+  ctx.lineTo(bx+r,by+bh);
+  ctx.quadraticCurveTo(bx,by+bh,bx,by+bh-r);
+  ctx.lineTo(bx,by+r);
+  ctx.quadraticCurveTo(bx,by,bx+r,by);
+  ctx.closePath();ctx.fillStyle=color;ctx.fill();
+  // text
+  ctx.fillStyle='#fff';ctx.textAlign='center';ctx.textBaseline='middle';
+  ctx.fillText(label,bx+bw/2,by+bh/2);
+  ctx.restore();
+}
+
 function renderDetailChart(trades){
   const wrap=document.getElementById('detailChartWrap');
   if(_detailChart){_detailChart.destroy();_detailChart=null;}
   if(trades.length<2){wrap.style.display='none';return;}
 
   const isAll=(_detailArea==='전체');
-  let datasets, allLabels, showLegend;
+  let datasets, allLabels, showLegend, inlinePlugins=[];
 
   if(isAll){
-    // 평형별 그룹핑
     const groups={};
     trades.forEach(t=>{
       const k=t.area+'㎡';
@@ -1475,19 +1592,47 @@ function renderDetailChart(trades){
     allLabels=pts.map(t=>t.deal_date.slice(0,7));
     const idx=_detailAreas.indexOf(_detailArea);
     const color=idx>=0?AREA_COLORS[idx%AREA_COLORS.length]:'#03c75a';
+
+    const prices=pts.map(t=>t.amount);
+    const peakIdx=prices.indexOf(Math.max(...prices));
+    const troughIdx=prices.indexOf(Math.min(...prices));
+    const hasPT=peakIdx!==troughIdx;
+
+    const ptBg=prices.map((_,i)=>i===peakIdx?'#ef4444':i===troughIdx?'#3b82f6':color);
+    const ptBd=prices.map((_,i)=>(i===peakIdx||i===troughIdx)?'#fff':color);
+    const ptBdW=prices.map((_,i)=>(i===peakIdx||i===troughIdx)?2:0);
+    const ptR=prices.map((_,i)=>(i===peakIdx||i===troughIdx)?5:(pts.length>80?0:2));
+
     datasets=[{
       label:fmtArea(parseFloat(_detailArea)),
-      data:pts.map(t=>t.amount),
+      data:prices,
       borderColor:color,
       backgroundColor:color+'20',
       borderWidth:1.5,
-      pointRadius:pts.length>80?0:2,
+      pointRadius:ptR,
+      pointBackgroundColor:ptBg,
+      pointBorderColor:ptBd,
+      pointBorderWidth:ptBdW,
       pointHoverRadius:5,
       fill:true,
       tension:0.3,
     }];
     showLegend=false;
-    wrap.style.height='140px';
+    wrap.style.height='170px';
+
+    if(hasPT){
+      inlinePlugins=[{
+        id:'ptLabels',
+        afterDatasetsDraw(chart){
+          const c=chart.ctx, meta=chart.getDatasetMeta(0), area=chart.chartArea;
+          [[peakIdx,'#ef4444','above'],[troughIdx,'#3b82f6','below']].forEach(([i,clr,pos])=>{
+            if(i<0||!meta.data[i]) return;
+            const {x,y}=meta.data[i];
+            drawDetailLabel(c,x,y,prices[i],clr,pos,area);
+          });
+        }
+      }];
+    }
   }
 
   wrap.style.display='block';
@@ -1495,9 +1640,11 @@ function renderDetailChart(trades){
   _detailChart=new Chart(ctx,{
     type:'line',
     data:{labels:allLabels,datasets},
+    plugins:inlinePlugins,
     options:{
       responsive:true,
       maintainAspectRatio:false,
+      layout:{padding:{top:isAll?0:28,bottom:isAll?0:28}},
       plugins:{
         legend:{
           display:showLegend,
@@ -1643,7 +1790,7 @@ function onGlobalSearch(){
 ══════════════════════════════════════════════════════════ */
 function goTab(tab){
   _tab=tab;
-  ['home','fav','search','settings'].forEach(t=>{
+  ['home','fav','search','top10','settings'].forEach(t=>{
     const el=document.getElementById(`page-${t}`);
     if(el) el.style.display=t===tab?'':'none';
   });
@@ -1651,6 +1798,14 @@ function goTab(tab){
   if(tab==='fav')    renderFavPage();
   if(tab==='search') document.getElementById('searchInp').focus();
   history.replaceState(null,'',tab==='home'?location.pathname:`#${tab}`);
+}
+
+function goHome(){
+  _districts.clear();
+  _selDate=todayISO();
+  goTab('home');
+  applyFilter();
+  window.scrollTo({top:0,behavior:'smooth'});
 }
 
 function openMenu(){
@@ -1662,13 +1817,13 @@ function openMenu(){
    초기화
 ══════════════════════════════════════════════════════════ */
 const _hash=location.hash.replace('#','');
-if(['fav','search'].includes(_hash)){
+if(['fav','search','top10'].includes(_hash)){
   goTab(_hash);
 }
 
 window.addEventListener('popstate',()=>{
   const h=location.hash.replace('#','');
-  goTab(['fav','search'].includes(h)?h:'home');
+  goTab(['fav','search','top10'].includes(h)?h:'home');
 });
 
 /* ══════════════════════════════════════════════════════════
