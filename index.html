@@ -609,6 +609,7 @@ svg{display:block}
   font-size:13px;font-weight:600;color:var(--b3);transition:all .15s;text-align:center;
 }
 .landing-chip.active{background:var(--b1);color:#fff;border-color:var(--b1)}
+.landing-chip-all{grid-column:1/-1;padding:11px 6px;font-size:14px;font-weight:700}
 .landing-submit{
   width:100%;padding:15px;border-radius:12px;
   background:var(--green);color:#fff;font-size:16px;font-weight:800;
@@ -1007,7 +1008,7 @@ function renderLdDists(){
     ['전체',...DIST_VALS].map(d=>{
       const isAll = d==='전체';
       const active = isAll ? _ldDists.size===0 : _ldDists.has(d);
-      return `<button class="landing-chip${active?' active':''}" onclick="ldToggleDist('${d}')">${d}</button>`;
+      return `<button class="landing-chip${isAll?' landing-chip-all':''}${active?' active':''}" onclick="ldToggleDist('${d}')">${d}</button>`;
     }).join('');
 }
 
