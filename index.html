@@ -198,42 +198,34 @@ svg{display:block}
   font-size:11px;font-weight:700;letter-spacing:.5px;
 }
 
-/* 아파트명 + 스파크라인 */
-.card-top-row{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:4px}
+/* 카드 헤더: 단지명 + 우상단 별표 */
+.card-hdr{display:flex;align-items:flex-start;gap:8px;padding-right:34px;margin-bottom:6px}
 .card-apt-name{font-size:16px;font-weight:800;color:var(--b1);flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.spark-wrap{flex-shrink:0;margin-top:2px}
+.fav-abs{
+  position:absolute;top:10px;right:10px;
+  background:none;border:none;font-size:22px;
+  cursor:pointer;color:var(--b5);line-height:1;padding:2px;
+}
+.fav-abs.on{color:#ffd700}
+
+/* 카드 바디: 좌측 정보 + 우측 차트 */
+.card-body{display:grid;grid-template-columns:1fr 120px;gap:10px;align-items:start;margin-bottom:6px}
+.spark-wrap-lg{flex-shrink:0;align-self:stretch;display:flex;align-items:center}
+.spark-wrap-lg svg{width:120px;height:80px;display:block}
 
 /* 가격 */
-.card-price{font-size:24px;font-weight:900;color:var(--b1);letter-spacing:-.5px;margin-bottom:6px;line-height:1.2}
+.card-price{font-size:22px;font-weight:900;color:var(--b1);letter-spacing:-.5px;margin-bottom:4px;line-height:1.2}
 .card-price.p-high{color:#c0392b}
-.card-prevhi{font-size:11px;color:var(--b4);margin-bottom:8px}
+.card-prevhi{font-size:11px;color:var(--b4);margin-bottom:6px}
 .card-prevhi .ph-val{font-weight:700}
 .card-prevhi .ph-up{color:var(--red)}
 .card-prevhi .ph-dn{color:var(--green)}
 .card-prevhi .ph-eq{color:var(--b3)}
 
 /* 메타 정보 */
-.card-meta{display:flex;flex-wrap:wrap;gap:4px 10px;font-size:12px;color:var(--b3);margin-bottom:10px}
+.card-meta{display:flex;flex-wrap:wrap;gap:4px 10px;font-size:12px;color:var(--b3);margin-bottom:4px}
 .card-meta span::before{content:'';display:inline-block}
 .card-meta .sep{color:var(--border)}
-
-/* 하단 액션 */
-.card-actions{display:flex;gap:7px;align-items:center;margin-bottom:10px}
-.cafe-btn{
-  flex:1;display:flex;align-items:center;justify-content:center;gap:5px;
-  padding:8px 10px;border-radius:8px;
-  background:var(--green-bg);color:var(--green);
-  font-size:12px;font-weight:700;border:1px solid #c3f0d8;
-  transition:all .15s;
-}
-.cafe-btn:active{background:#d4f7e5}
-.fav-btn-card{
-  padding:8px 12px;border-radius:8px;
-  border:1.5px solid var(--border);background:#fff;
-  font-size:14px;transition:all .15s;line-height:1;
-}
-.fav-btn-card:active{transform:scale(1.2)}
-.fav-btn-card.on{border-color:#ffd700;background:#fffde8}
 
 /* 푸터 */
 .card-footer{
@@ -481,20 +473,25 @@ svg{display:block}
 }
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 
-/* ── Cafe 인기글 placeholder ─────────────────────────────── */
-.cafe-section{
-  margin:14px 14px 0;background:#fff;border-radius:var(--radius);
-  box-shadow:var(--shadow);overflow:hidden;
+/* ── 카페 인기글 ──────────────────────────────────────────── */
+.cafe-notices{
+  background:#fef3c7;border-left:4px solid #f59e0b;
+  padding:10px 14px;margin:10px 0 4px;border-radius:8px;
+  display:none;
 }
-.cafe-section-hdr{
-  display:flex;align-items:center;justify-content:space-between;
-  padding:12px 14px;border-bottom:1px solid var(--border2);
+.cafe-notices.visible{display:block}
+.cafe-notices-title{font-size:12px;font-weight:700;color:#92400e;margin-bottom:6px}
+.cafe-notice-item{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:5px 0;font-size:13px;border-bottom:1px solid rgba(245,158,11,.2);
 }
-.cafe-section-title{font-size:13px;font-weight:700;color:var(--b1)}
-.cafe-section-link{font-size:11px;color:var(--green);font-weight:600}
-.cafe-coming{
-  padding:20px;text-align:center;color:var(--b5);font-size:12px;
+.cafe-notice-item:last-child{border-bottom:none}
+.cafe-notice-item a{
+  color:#1f2937;text-decoration:none;flex:1;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
 }
+.cafe-notice-item a:hover{text-decoration:underline}
+.cafe-notice-time{color:#92400e;font-size:11px;margin-left:8px;flex-shrink:0;opacity:.7}
 
 /* ── Landing overlay ─────────────────────────────────────── */
 .landing{
@@ -644,6 +641,12 @@ svg{display:block}
       <div class="dist-scroll" id="distScroll"></div>
     </div>
 
+    <!-- 카페 인기글 -->
+    <div class="cafe-notices" id="cafeNotices">
+      <div class="cafe-notices-title">📢 카페 인기글</div>
+      <div id="cafeNoticeList"></div>
+    </div>
+
     <!-- 정렬 툴바 -->
     <div class="sort-bar">
       <button class="sort-btn"        data-sort="date" onclick="setSort(this,'date')">최신순</button>
@@ -663,14 +666,6 @@ svg{display:block}
       <button class="more-btn" onclick="loadMore()">더보기</button>
     </div>
 
-    <!-- 카페 인기글 (추후 연동) -->
-    <div class="cafe-section">
-      <div class="cafe-section-hdr">
-        <span class="cafe-section-title">☕ 카페 인기글</span>
-        <a class="cafe-section-link" id="cafeSectionLink" href="#" target="_blank">카페 바로가기 ↗</a>
-      </div>
-      <div class="cafe-coming">카페 인기글 연동 준비 중</div>
-    </div>
   </div>
 </div>
 
@@ -697,15 +692,6 @@ svg{display:block}
 <div class="page settings-page" id="page-settings" style="display:none">
   <div class="setting-section">
     <div class="setting-row">
-      <span class="setting-row-label">네이버 카페 URL</span>
-    </div>
-    <div class="setting-row">
-      <input class="setting-inp" id="cafeUrlInp" placeholder="https://cafe.naver.com/...">
-      <button class="setting-save" onclick="saveCafeUrl()">저장</button>
-    </div>
-  </div>
-  <div class="setting-section">
-    <div class="setting-row">
       <span class="setting-row-label">데이터 기준</span>
       <span class="setting-row-val" id="dataGenAt">-</span>
     </div>
@@ -730,9 +716,6 @@ svg{display:block}
   </button>
   <button class="tab-btn"        data-tab="search"   onclick="goTab('search')">
     <span class="t-icon">🔍</span><span>검색</span>
-  </button>
-  <button class="tab-btn"        data-tab="settings" onclick="goTab('settings')">
-    <span class="t-icon">⚙️</span><span>설정</span>
   </button>
 </nav>
 
@@ -800,8 +783,6 @@ let _detailAreas = [];
 let _hlDate='', _hlAmt=0;
 const AREA_COLORS=['#10b981','#3b82f6','#f59e0b','#ef4444','#8b5cf6','#ec4899','#06b6d4'];
 
-// 세팅
-let CAFE_URL   = localStorage.getItem('cafeUrl') || '';
 
 /* ══════════════════════════════════════════════════════════
    유틸
@@ -833,28 +814,25 @@ function showToast(msg){
   el._t=setTimeout(()=>el.classList.remove('show'),2200);
 }
 
-function cafeSearchUrl(aptName){
-  if(!CAFE_URL) return null;
-  return `${CAFE_URL.replace(/\/$/,'')}?iframe_url=/ArticleSearchList.nhn%3Fsearch.query=${encodeURIComponent(aptName)}`;
-}
-
 /* ══════════════════════════════════════════════════════════
    데이터 로드
 ══════════════════════════════════════════════════════════ */
 async function init(){
-  updateCafeLinks();
-  document.getElementById('cafeUrlInp').value = CAFE_URL;
-
   try{
-    const [txRes, hgRes, histRes] = await Promise.allSettled([
+    const [txRes, hgRes, histRes, noticeRes] = await Promise.allSettled([
       fetch('data/transactions.json'),
       fetch('data/hogangnono_reviews.json'),
       fetch('data/history.json'),
+      fetch('data/cafe_notices.json'),
     ]);
     if(txRes.status==='rejected'||!txRes.value.ok) throw new Error('transactions.json 로드 실패');
     DB = await txRes.value.json();
     if(hgRes.status==='fulfilled'&&hgRes.value.ok) HOGAN = await hgRes.value.json();
     if(histRes.status==='fulfilled'&&histRes.value.ok) HIST = await histRes.value.json();
+    if(noticeRes.status==='fulfilled'&&noticeRes.value.ok){
+      const nd=await noticeRes.value.json();
+      renderCafeNotices(nd);
+    }
     _useRgst = DB.transactions.some(t=>t.rgst_date);
     onLoaded();
   }catch(e){
@@ -1205,33 +1183,31 @@ function cardHTML(t){
     diffHtml='<div class="card-prevhi" style="color:var(--b5)">이력 없음</div>';
   }
 
-  // 카페 버튼
-  const cafeUrl=cafeSearchUrl(t.apt_name);
-  const cafeBtn=cafeUrl
-    ? `<a class="cafe-btn" href="${cafeUrl}" target="_blank" rel="noopener" onclick="event.stopPropagation()">☕ 카페에서 얘기</a>`
-    : `<button class="cafe-btn" style="opacity:.4;cursor:not-allowed" onclick="event.stopPropagation();showToast('설정 탭에서 카페 URL을 입력해 주세요.')">☕ 카페에서 얘기</button>`;
-
   const hgnn=HOGAN[t.apt_name];
-  const hgnnBadge=(hgnn&&hgnn.count>0)?`<span class="hgnn-badge">💬 ${hgnn.count}</span>`:'';
+  const hgnnUrl=`https://hogangnono.com/?searchTextKeyword=${encodeURIComponent(t.apt_name)}`;
+  const hgnnBadge=(hgnn&&hgnn.count>0)
+    ?`<a class="hgnn-badge" href="${hgnnUrl}" target="_blank" rel="noopener" onclick="event.stopPropagation()">💬 ${hgnn.count}</a>`
+    :'';
 
   return `
 <div class="tx-card${high?' new-high':''}" onclick="openDetail('${safeName}','${ak}','${t.deal_date}',${t.amount})">
-  <div class="card-top-row">
+  <div class="card-hdr">
     <div class="card-apt-name">${esc(t.apt_name)}${hgnnBadge}</div>
-    <div class="spark-wrap">${makeSpark(t.apt_name,ak)}</div>
   </div>
-  <div class="card-price ${priceCls(t.amount)}">${fmtAmt(t.amount)}</div>
-  ${diffHtml}
-  <div class="card-meta">
-    <span>${esc(fmtArea(t.area))}</span>
-    <span class="sep">·</span>
-    <span>${t.floor}층</span>
-    <span class="sep">·</span>
-    <span>${esc(t.dong)}</span>
-  </div>
-  <div class="card-actions">
-    ${cafeBtn}
-    <button class="fav-btn-card${fav?' on':''}" onclick="toggleFav(event,'${safeName}')">${fav?'⭐':'☆'}</button>
+  <button class="fav-abs${fav?' on':''}" onclick="toggleFav(event,'${safeName}')">${fav?'⭐':'☆'}</button>
+  <div class="card-body">
+    <div class="card-info">
+      <div class="card-price ${priceCls(t.amount)}">${fmtAmt(t.amount)}</div>
+      ${diffHtml}
+      <div class="card-meta">
+        <span>${esc(fmtArea(t.area))}</span>
+        <span class="sep">·</span>
+        <span>${t.floor}층</span>
+        <span class="sep">·</span>
+        <span>${esc(t.dong)}</span>
+      </div>
+    </div>
+    <div class="spark-wrap-lg">${makeSpark(t.apt_name,ak,120,80)}</div>
   </div>
   <div class="card-footer">
     <span class="cf-item">📅 계약 ${t.deal_date}</span>
@@ -1618,29 +1594,13 @@ function onGlobalSearch(){
 }
 
 /* ══════════════════════════════════════════════════════════
-   설정 탭
-══════════════════════════════════════════════════════════ */
-function saveCafeUrl(){
-  CAFE_URL=document.getElementById('cafeUrlInp').value.trim();
-  localStorage.setItem('cafeUrl',CAFE_URL);
-  updateCafeLinks();
-  showToast('저장했습니다.');
-}
-
-function updateCafeLinks(){
-  const url=CAFE_URL||'#';
-  document.getElementById('cafeLink').href=url;
-  const sl=document.getElementById('cafeSectionLink');
-  if(sl) sl.href=url;
-}
-
-/* ══════════════════════════════════════════════════════════
    탭 / 페이지 전환
 ══════════════════════════════════════════════════════════ */
 function goTab(tab){
   _tab=tab;
   ['home','fav','search','settings'].forEach(t=>{
-    document.getElementById(`page-${t}`).style.display=t===tab?'':'none';
+    const el=document.getElementById(`page-${t}`);
+    if(el) el.style.display=t===tab?'':'none';
   });
   document.querySelectorAll('.tab-btn').forEach(b=>b.classList.toggle('active',b.dataset.tab===tab));
   if(tab==='fav')    renderFavPage();
@@ -1657,14 +1617,36 @@ function openMenu(){
    초기화
 ══════════════════════════════════════════════════════════ */
 const _hash=location.hash.replace('#','');
-if(['fav','search','settings'].includes(_hash)){
+if(['fav','search'].includes(_hash)){
   goTab(_hash);
 }
 
 window.addEventListener('popstate',()=>{
   const h=location.hash.replace('#','');
-  goTab(['fav','search','settings'].includes(h)?h:'home');
+  goTab(['fav','search'].includes(h)?h:'home');
 });
+
+/* ══════════════════════════════════════════════════════════
+   카페 인기글
+══════════════════════════════════════════════════════════ */
+function relTime(iso){
+  const diff=Math.floor((Date.now()-new Date(iso).getTime())/1000);
+  if(diff<60)   return '방금 전';
+  if(diff<3600) return `${Math.floor(diff/60)}분 전`;
+  if(diff<86400)return `${Math.floor(diff/3600)}시간 전`;
+  return `${Math.floor(diff/86400)}일 전`;
+}
+function renderCafeNotices(data){
+  const items=(data?.items||[]).slice(0,3);
+  if(!items.length) return;
+  const list=document.getElementById('cafeNoticeList');
+  list.innerHTML=items.map(it=>`
+    <div class="cafe-notice-item">
+      <a href="${it.url}" target="_blank" rel="noopener" onclick="event.stopPropagation()">${esc(it.title)}</a>
+      <span class="cafe-notice-time">${relTime(it.postedAt)}</span>
+    </div>`).join('');
+  document.getElementById('cafeNotices').classList.add('visible');
+}
 
 init();
 
