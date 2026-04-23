@@ -801,7 +801,7 @@ function fmtAmt(v){
   }
   return s+a.toLocaleString()+'만원';
 }
-function fmtArea(a){ if(!a) return '-'; const p=Math.round(a/3.3058); return `전용 ${Math.round(a)}㎡(${p}평)`; }
+function fmtArea(a){ if(!a) return '-'; const p=Math.round(a/0.78/3.3058); return `전용 ${Math.round(a)}㎡(${p}평)`; }
 function areaKey(a){ return `${Math.round(a)}㎡`; }
 function priceCls(amt){ return amt>=100000?'p-high':''; }
 function esc(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
@@ -1697,7 +1697,7 @@ function executeCsvDownload(){
   const header=['계약일','신고일','자치구','동','단지명','전용면적(㎡)','평수','층','거래금액(만원)'];
   const data=[header,...rows.map(t=>[
     t.deal_date, t.rgst_date||'', t.gugun, t.dong, t.apt_name,
-    t.area, t.area?Math.round(t.area/3.3058):'',
+    t.area, t.area?Math.round(t.area/0.78/3.3058):'',
     t.floor, t.amount,
   ])].map(r=>r.map(v=>`"${String(v??'').replace(/"/g,'""')}"`).join(',')).join('\r\n');
   const blob=new Blob(['﻿'+data],{type:'text/csv;charset=utf-8'});

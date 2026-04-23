@@ -51,7 +51,7 @@ def make_cards(rows, hgn=None):
         sido, gugun, dong, apt_name, area, floor, build_year, deal_year, deal_month, deal_day, amount, deal_type, agent_loc, collected = r
         try:
             area_f = float(area)
-            pyeong = round(area_f / 3.3058)
+            pyeong = round(area_f / 0.78 / 3.3058)
             area_str = f"전용 {round(area_f)}㎡({pyeong}평)"
             area_key = f"{round(area_f)}㎡"
         except:
@@ -831,12 +831,12 @@ const PALETTE = [
   '#06b6d4','#f97316','#ec4899','#84cc16','#6366f1',
 ];
 
-/* ── 면적 포맷 "전용 84㎡(25평)" ── */
+/* ── 면적 포맷 "전용 84㎡(33평)" — 공급면적 기준 (전용률 0.78) ── */
 function fmtArea(ak) {{
   if (!ak) return '';
   const m2 = parseFloat(ak);
   if (!m2) return ak;
-  const pyeong = Math.round(m2 / 3.3058);
+  const pyeong = Math.round(m2 / 0.78 / 3.3058);
   return `전용 ${{Math.round(m2)}}㎡(${{pyeong}}평)`;
 }}
 
