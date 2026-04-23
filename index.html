@@ -157,12 +157,10 @@ svg{display:block}
 
 /* ── Sort toolbar ───────────────────────────────────────── */
 .sort-bar{
-  display:flex;align-items:center;gap:6px;
+  display:flex;align-items:center;gap:6px;flex-wrap:wrap;row-gap:8px;
   padding:10px 14px;border-bottom:1px solid var(--border2);
-  background:var(--bg2);overflow-x:auto;
-  scrollbar-width:none;
+  background:var(--bg2);
 }
-.sort-bar::-webkit-scrollbar{display:none}
 .sort-btn{
   flex-shrink:0;padding:5px 12px;border-radius:20px;
   border:1.5px solid var(--border);background:#fff;
@@ -170,9 +168,9 @@ svg{display:block}
 }
 .sort-btn.active{background:var(--green);color:#fff;border-color:var(--green)}
 .sort-btn:hover:not(.active){border-color:var(--b2);color:var(--b2)}
-.sort-sep{flex-shrink:0;color:var(--border);font-size:16px}
+.sort-sep{flex-shrink:0;color:var(--border);font-size:16px;margin-right:auto}
 .toggle-nh{
-  flex-shrink:0;margin-left:auto;padding:5px 12px;border-radius:20px;
+  flex-shrink:0;padding:5px 12px;border-radius:20px;
   border:1.5px solid var(--border);background:#fff;
   font-size:12px;font-weight:600;color:var(--b3);transition:all .15s;
   display:flex;align-items:center;gap:5px;
