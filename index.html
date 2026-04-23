@@ -48,11 +48,6 @@ svg{display:block}
   display:flex;align-items:center;gap:10px;
   height:100%;padding:0 14px;max-width:600px;margin:0 auto;
 }
-.hdr-menu{
-  padding:6px;border-radius:8px;color:var(--b3);font-size:18px;
-  transition:background .15s;line-height:1;
-}
-.hdr-menu:hover{background:var(--bg)}
 .hdr-center{flex:1;min-width:0}
 .hdr-title{font-size:15px;font-weight:800;color:var(--b1);letter-spacing:-.3px}
 .hdr-cafe{
@@ -245,10 +240,11 @@ svg{display:block}
 .card-apt-name{font-size:16px;font-weight:800;color:var(--b1);flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .fav-abs{
   position:absolute;top:10px;right:10px;
-  background:none;border:none;font-size:22px;
-  cursor:pointer;color:var(--b5);line-height:1;padding:2px;
+  background:none;border:none;font-size:20px;
+  cursor:pointer;color:#d1d5db;line-height:1;padding:2px;
+  transition:color .15s;
 }
-.fav-abs.on{color:#ffd700}
+.fav-abs.on{color:#fbbf24}
 
 /* 카드 바디: 좌측 정보 + 우측 차트 */
 .card-body{display:grid;grid-template-columns:1fr 180px;gap:10px;align-items:start;margin-bottom:6px}
@@ -652,7 +648,6 @@ svg{display:block}
 <!-- ── Header ─────────────────────────────────────────────── -->
 <header class="hdr">
   <div class="hdr-inner">
-    <button class="hdr-menu" onclick="openMenu()" aria-label="메뉴">☰</button>
     <div class="hdr-center">
       <div class="hdr-title">대구 아파트 실거래가</div>
       <a class="hdr-cafe" id="cafeLink" href="#" target="_blank" rel="noopener">
@@ -1214,9 +1209,8 @@ function makeSparkMonthly(aptName,W=180,H=80){
   }));
   const line=pts.map((p,i)=>`${i===0?'M':'L'}${p.x.toFixed(1)},${p.y.toFixed(1)}`).join(' ');
   const fill=`${line} L${(W-pd).toFixed(1)},${H} L${pd},${H} Z`;
-  const isUp=pts[pts.length-1].avg>=pts[0].avg;
-  const lc=isUp?'#10b981':'#ef4444';
-  const fc=isUp?'#d1fae5':'#fee2e2';
+  const lc='#10b981';
+  const fc='#d1fae5';
   const last=pts[pts.length-1];
   const hoverPts=pts.map(p=>`<circle cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="7" fill="transparent" class="spark-hp"><title>${p.ym} 평균 ${fmtAmt(p.avg)} (${p.cnt}건)</title></circle>`).join('');
   return `<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" width="100%" height="${H}" style="overflow:visible">
@@ -1241,6 +1235,8 @@ function applyFilter(){
   );
 
   if(_nhOnly) list=list.filter(t=>isNewHigh(t));
+  // 해제 거래 존재 여부에 따라 토글 버튼 표시
+  document.getElementById('toggleCancel').style.display=list.some(t=>isCancelled(t))?'':'none';
   if(_hideCancel) list=list.filter(t=>!isCancelled(t));
 
   list.sort((a,b)=>{
@@ -1325,7 +1321,7 @@ function cardHTML(t){
     <div class="card-apt-name">${esc(t.apt_name)}${hgnnBadge}</div>
     ${cancelBadge}
   </div>
-  <button class="fav-abs${fav?' on':''}" onclick="toggleFav(event,'${safeName}')">${fav?'⭐':'☆'}</button>
+  <button class="fav-abs${fav?' on':''}" onclick="toggleFav(event,'${safeName}')">★</button>
   <div class="card-body">
     <div class="card-info">
       ${priceSection}
@@ -1686,8 +1682,8 @@ function saveFavs(arr){ localStorage.setItem('favApts',JSON.stringify(arr)); }
 function toggleFav(e,name){
   e.stopPropagation();
   const favs=getFavs(), idx=favs.indexOf(name);
-  if(idx>=0){ favs.splice(idx,1); e.target.textContent='☆'; e.target.classList.remove('on'); showToast('관심 아파트에서 제거했습니다.'); }
-  else { favs.push(name); e.target.textContent='⭐'; e.target.classList.add('on'); showToast('관심 아파트에 추가했습니다.'); }
+  if(idx>=0){ favs.splice(idx,1); e.target.classList.remove('on'); showToast('관심 아파트에서 제거했습니다.'); }
+  else { favs.push(name); e.target.classList.add('on'); showToast('관심 아파트에 추가했습니다.'); }
   saveFavs(favs);
 }
 
@@ -1695,7 +1691,7 @@ function renderFavPage(){
   const favs=getFavs();
   const grid=document.getElementById('favGrid');
   if(!favs.length){
-    grid.innerHTML='<div class="fav-empty">저장된 관심 아파트가 없습니다.<br>홈에서 ☆ 버튼을 탭하여 추가하세요.</div>';
+    grid.innerHTML='<div class="fav-empty">저장된 관심 아파트가 없습니다.<br>홈에서 ★ 버튼을 탭하여 추가하세요.</div>';
     return;
   }
   grid.innerHTML=favs.map(name=>{
