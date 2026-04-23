@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover">
-<title>대구 아파트 실거래가 · 대구 부동산 나눔 그룹</title>
-<meta name="description" content="대구 아파트 실거래가 조회 · 신고가 알림 · 대구 부동산 나눔 그룹 카페 연동">
+<title>대구 아파트 실거래가</title>
+<meta name="description" content="대구 아파트 실거래가 조회 · 신고가 알림">
 <link rel="preconnect" href="https://cdn.jsdelivr.net">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css">
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
@@ -50,12 +50,6 @@ svg{display:block}
 }
 .hdr-center{flex:1;min-width:0}
 .hdr-title{font-size:15px;font-weight:800;color:var(--b1);letter-spacing:-.3px}
-.hdr-cafe{
-  display:inline-flex;align-items:center;gap:3px;
-  font-size:10px;color:var(--green);font-weight:600;
-  background:var(--green-bg);border-radius:4px;
-  padding:2px 6px;margin-top:2px;
-}
 .hdr-search-btn{
   padding:6px;border-radius:8px;color:var(--b3);font-size:18px;
   transition:background .15s;line-height:1;
@@ -552,25 +546,6 @@ svg{display:block}
 }
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 
-/* ── 카페 인기글 ──────────────────────────────────────────── */
-.cafe-notices{
-  background:#fef3c7;border-left:4px solid #f59e0b;
-  padding:10px 14px;margin:10px 0 4px;border-radius:8px;
-  display:none;
-}
-.cafe-notices.visible{display:block}
-.cafe-notices-title{font-size:12px;font-weight:700;color:#92400e;margin-bottom:6px}
-.cafe-notice-item{
-  display:flex;justify-content:space-between;align-items:center;
-  padding:5px 0;font-size:13px;border-bottom:1px solid rgba(245,158,11,.2);
-}
-.cafe-notice-item:last-child{border-bottom:none}
-.cafe-notice-item a{
-  color:#1f2937;text-decoration:none;flex:1;
-  overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
-}
-.cafe-notice-item a:hover{text-decoration:underline}
-.cafe-notice-time{color:#92400e;font-size:11px;margin-left:8px;flex-shrink:0;opacity:.7}
 
 /* ── Landing overlay ─────────────────────────────────────── */
 .landing{
@@ -688,9 +663,6 @@ svg{display:block}
   <div class="hdr-inner">
     <div class="hdr-center">
       <div class="hdr-title">대구 아파트 실거래가</div>
-      <a class="hdr-cafe" id="cafeLink" href="#" target="_blank" rel="noopener">
-        대구 부동산 나눔 그룹 ↗
-      </a>
     </div>
     <button class="hdr-search-btn" onclick="goTab('search')" aria-label="검색">🔍</button>
   </div>
@@ -721,12 +693,6 @@ svg{display:block}
       <button class="dist-scroll-btn left" aria-label="이전 지역" onclick="distScrollBy(-150)">◀</button>
       <div class="dist-scroll" id="distScroll"></div>
       <button class="dist-scroll-btn right" aria-label="다음 지역" onclick="distScrollBy(150)">▶</button>
-    </div>
-
-    <!-- 카페 인기글 -->
-    <div class="cafe-notices" id="cafeNotices">
-      <div class="cafe-notices-title">📢 카페 인기글</div>
-      <div id="cafeNoticeList"></div>
     </div>
 
     <!-- 정렬 툴바 -->
@@ -930,20 +896,15 @@ function showToast(msg){
 ══════════════════════════════════════════════════════════ */
 async function init(){
   try{
-    const [txRes, hgRes, histRes, noticeRes] = await Promise.allSettled([
+    const [txRes, hgRes, histRes] = await Promise.allSettled([
       fetch('data/transactions.json'),
       fetch('data/hogangnono_reviews.json'),
       fetch('data/history.json'),
-      fetch('data/cafe_notices.json'),
     ]);
     if(txRes.status==='rejected'||!txRes.value.ok) throw new Error('transactions.json 로드 실패');
     DB = await txRes.value.json();
     if(hgRes.status==='fulfilled'&&hgRes.value.ok) HOGAN = await hgRes.value.json();
     if(histRes.status==='fulfilled'&&histRes.value.ok) HIST = await histRes.value.json();
-    if(noticeRes.status==='fulfilled'&&noticeRes.value.ok){
-      const nd=await noticeRes.value.json();
-      renderCafeNotices(nd);
-    }
     _useRgst = DB.transactions.some(t=>t.rgst_date);
     onLoaded();
   }catch(e){
@@ -1932,27 +1893,6 @@ window.addEventListener('popstate',()=>{
   goTab(['fav','search','top10'].includes(h)?h:'home');
 });
 
-/* ══════════════════════════════════════════════════════════
-   카페 인기글
-══════════════════════════════════════════════════════════ */
-function relTime(iso){
-  const diff=Math.floor((Date.now()-new Date(iso).getTime())/1000);
-  if(diff<60)   return '방금 전';
-  if(diff<3600) return `${Math.floor(diff/60)}분 전`;
-  if(diff<86400)return `${Math.floor(diff/3600)}시간 전`;
-  return `${Math.floor(diff/86400)}일 전`;
-}
-function renderCafeNotices(data){
-  const items=(data?.items||[]).slice(0,3);
-  if(!items.length) return;
-  const list=document.getElementById('cafeNoticeList');
-  list.innerHTML=items.map(it=>`
-    <div class="cafe-notice-item">
-      <a href="${it.url}" target="_blank" rel="noopener" onclick="event.stopPropagation()">${esc(it.title)}</a>
-      <span class="cafe-notice-time">${relTime(it.postedAt)}</span>
-    </div>`).join('');
-  document.getElementById('cafeNotices').classList.add('visible');
-}
 
 init();
 
