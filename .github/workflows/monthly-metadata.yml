@@ -1,0 +1,41 @@
+name: Monthly Apt Metadata Fetch
+
+on:
+  schedule:
+    - cron: "0 2 1 * *"   # 매월 1일 UTC 02:00 = KST 11:00
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  fetch-metadata:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Fetch apt metadata
+        env:
+          API_KEY: ${{ secrets.API_KEY }}
+        run: python fetch_apt_metadata.py
+
+      - name: Commit & push if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/apt_metadata.json || true
+          if git diff --cached --quiet; then
+            echo "변경사항 없음 — 커밋 생략"
+          else
+            git commit -m "chore: monthly apt metadata update ($(TZ=Asia/Seoul date '+%Y-%m-%d %H:%M KST'))"
+            git push
+          fi

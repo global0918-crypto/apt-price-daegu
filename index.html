@@ -159,7 +159,7 @@ svg{display:block}
 .sort-bar{
   display:flex;align-items:center;gap:6px;flex-wrap:wrap;row-gap:8px;
   padding:10px 14px;border-bottom:1px solid var(--border2);
-  background:var(--bg2);
+  background:var(--bg2);margin-bottom:20px;
 }
 .sort-btn{
   flex-shrink:0;padding:5px 12px;border-radius:20px;
@@ -176,17 +176,6 @@ svg{display:block}
   display:flex;align-items:center;gap:5px;
 }
 .toggle-nh.active{background:var(--red-bg);color:var(--red);border-color:var(--red)}
-
-/* ── Summary strip ──────────────────────────────────────── */
-.summary-strip{
-  display:flex;align-items:center;gap:10px;flex-wrap:wrap;
-  padding:8px 14px;font-size:12px;color:var(--b4);
-  background:var(--bg2);
-}
-.sum-item b{font-weight:700;color:var(--b1)}
-.sum-item b.red{color:var(--red)}
-.sum-item b.grn{color:var(--green)}
-.sum-dot{color:var(--border);font-size:14px}
 
 /* ── Card list ──────────────────────────────────────────── */
 .card-list{display:flex;flex-direction:column;gap:0}
@@ -704,9 +693,6 @@ svg{display:block}
       <button class="toggle-nh" id="toggleCancel" onclick="toggleHideCancel()" style="margin-left:0">🚫 해제 숨기기</button>
       <button class="dl-btn" onclick="openCsvModal()" title="CSV 다운로드">⬇ CSV</button>
     </div>
-
-    <!-- 요약 -->
-    <div class="summary-strip" id="summaryStrip"></div>
 
     <!-- 카드 리스트 -->
     <div class="card-list" id="cardList"></div>
@@ -1238,7 +1224,7 @@ function applyFilter(){
   updateDateUI();
   buildDistChips();
 
-  if(!DB||!_targetKey){ _filtered=[]; renderCards(); renderSummary(); return; }
+  if(!DB||!_targetKey){ _filtered=[]; renderCards(); return; }
 
   let list=DB.transactions.filter(t=>
     dateField(t)===_targetKey && (_districts.size===0||_districts.has(t.gugun))
@@ -1257,23 +1243,7 @@ function applyFilter(){
 
   _filtered=list;
   _visible=PAGE;
-  renderSummary();
   renderCards();
-}
-
-function renderSummary(){
-  const total=_filtered.length;
-  const nhCnt=_filtered.filter(t=>isNewHigh(t)).length;
-  const avg=trg=>{ const a=_filtered.filter(t=>!isCancelled(t)&&t.area&&Math.abs(t.area-trg)<5&&t.amount>0); return a.length?Math.round(a.reduce((s,t)=>s+t.amount,0)/a.length):null; };
-  const a59=avg(59), a84=avg(84);
-  document.getElementById('summaryStrip').innerHTML=
-    `<span class="sum-item">신고 <b>${total.toLocaleString()}</b>건</span>
-     <span class="sum-dot">·</span>
-     <span class="sum-item">신고가 <b class="red">${nhCnt}</b>건</span>
-     <span class="sum-dot">·</span>
-     <span class="sum-item">59㎡ <b class="grn">${a59?fmtAmt(a59):'-'}</b></span>
-     <span class="sum-dot">·</span>
-     <span class="sum-item">84㎡ <b class="grn">${a84?fmtAmt(a84):'-'}</b></span>`;
 }
 
 function renderCards(){
@@ -1314,8 +1284,9 @@ function cardHTML(t){
 
   const cancelled=isCancelled(t);
   const hgnn=HOGAN[t.apt_name];
-  const hgnnQ=encodeURIComponent([t.apt_name,t.gugun,t.dong].filter(Boolean).join(' '));
-  const hgnnUrl=`https://hogangnono.com/?searchTextKeyword=${hgnnQ}`;
+  const hgnnUrl=hgnn?.hash
+    ?`https://hogangnono.com/apt/${hgnn.hash}`
+    :`https://hogangnono.com/?searchTextKeyword=${encodeURIComponent([t.dong,t.apt_name].filter(Boolean).join(' '))}`;
   const hgnnBadge=(hgnn&&hgnn.count>0)
     ?`<a class="hgnn-badge" href="${hgnnUrl}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" title="호갱노노에서 보기">💬 ${hgnn.count}</a>`
     :'';

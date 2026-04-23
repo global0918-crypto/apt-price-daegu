@@ -104,8 +104,8 @@ def main():
 
     for i, apt in enumerate(apts, 1):
         name = apt["name"]
-        # hash 있고 count=0이면 잘못된 데이터 → 재수집
-        if name in existing and (existing[name].get("count", 0) > 0 or not existing[name].get("hash")):
+        # count > 0이면 이미 성공 수집 → 스킵. hash=None(매칭실패)은 재시도 허용
+        if name in existing and existing[name].get("count", 0) > 0:
             continue
 
         print(f"[{i}/{len(apts)}] {name} ({apt['gugun']} {apt['dong']})", end=" ", flush=True)

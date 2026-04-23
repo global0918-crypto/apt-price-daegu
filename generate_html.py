@@ -44,8 +44,14 @@ def price_tier(amount_str):
     except:
         return "tier-low"
 
-def make_cards(rows, hgn=None):
+def make_cards(rows, hgn=None, meta_idx=None):
+    import re
     hgn = hgn or {}
+    meta_idx = meta_idx or {}
+
+    def norm(s):
+        return re.sub(r'\s+|[()\[\]{}]', '', str(s)).lower() if s else ''
+
     cards = []
     for r in rows:
         sido, gugun, dong, apt_name, area, floor, build_year, deal_year, deal_month, deal_day, amount, deal_type, agent_loc, collected = r
@@ -72,6 +78,11 @@ def make_cards(rows, hgn=None):
         review_count = hgn_info.get("count", 0)
         hgn_hash = hgn_info.get("hash", None)
 
+        meta = meta_idx.get(norm(apt_name))
+        households = meta.get("households") if meta else None
+        buildings  = meta.get("buildings")  if meta else None
+        floor_max  = meta.get("floor_max")  if meta else None
+
         cards.append({
             "sido": sido, "gugun": gugun, "dong": dong,
             "apt_name": apt_name, "area": area_str, "area_key": area_key,
@@ -83,6 +94,9 @@ def make_cards(rows, hgn=None):
             "hgn_hash": hgn_hash,
             "agent_loc": agent_loc or "",
             "collected": str(collected) if collected else "",
+            "households": households,
+            "buildings":  buildings,
+            "floor_max":  floor_max,
         })
     return cards
 
@@ -92,6 +106,24 @@ def load_hogangnono():
         return {}
     with open(path, "r", encoding="utf-8") as f:
         return json.load(f)
+
+def load_apt_metadata():
+    """data/apt_metadata.json 로드 → {정규화단지명: info} 인덱스 반환"""
+    import re
+    path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data", "apt_metadata.json")
+    if not os.path.exists(path):
+        return {}
+    with open(path, "r", encoding="utf-8") as f:
+        data = json.load(f)
+    raw = data.get("items", data)
+
+    def norm(s):
+        return re.sub(r'\s+|[()\[\]{}]', '', str(s)).lower() if s else ''
+
+    index = {}
+    for name, info in raw.items():
+        index[norm(name)] = info
+    return index
 
 def load_latest_snapshot():
     """마스터 파일 외 가장 최근 일별 스냅샷 반환 (카드용)"""
@@ -126,7 +158,8 @@ def render_cards_js(cards):
 
 def generate_html(excel_path, output_path):
     base_dir = os.path.dirname(os.path.abspath(__file__))
-    hgn = load_hogangnono()
+    hgn      = load_hogangnono()
+    meta_idx = load_apt_metadata()
 
     # ── SPARK_MAP: 마스터(7년) 전체로 계산 (실패 시 스냅샷으로 폴백) ──
     master_rows = []
@@ -155,7 +188,7 @@ def generate_html(excel_path, output_path):
     spark_map = build_spark_map(master_rows)
     spark_json = json.dumps(spark_map, ensure_ascii=False, separators=(',', ':'))
     print(f"SPARK_MAP: {len(spark_map)}개 아파트, {sum(len(v) for v in spark_map.values())}건")
-    cards = make_cards(snap_rows, hgn)
+    cards = make_cards(snap_rows, hgn, meta_idx)
 
     from datetime import datetime
     date_label = datetime.now().strftime("%Y%m%d_%H%M")
@@ -621,6 +654,14 @@ let chartInst = null;
 
 /* ── 초기화 ── */
 let _activeGugun = '';
+let APT_META = {{}};
+
+function normName(s) {{
+  return s ? s.replace(/[\s()\[\]{{}}]/g, '').toLowerCase() : '';
+}}
+function getAptMeta(aptName) {{
+  return APT_META[normName(aptName)] || null;
+}}
 
 function buildSelects() {{
   // 구군 칩
@@ -773,6 +814,7 @@ function renderVisible() {{
             <span class="info-label">계약일</span>
             <span class="info-value">${{d.date}}</span>
           </div>
+          ${{(()=>{{const m=getAptMeta(d.apt_name);return m&&m.households?`<div class="info-item"><span class="info-label">규모</span><span class="info-value">${{m.households.toLocaleString()}}세대${{m.buildings?' · '+m.buildings+'동':''}}</span></div>`:'';}})()}}
         </div>
       </div>
       <div class="card-footer">
@@ -866,8 +908,11 @@ function openModal(encodedName, encodedGugun, encodedAreaKey, encodedDate, trade
             || {{}};
   _currentSido = card.sido || '';
   document.getElementById('modalTitle').textContent = currentAptName;
+  const _meta = getAptMeta(currentAptName);
   document.getElementById('modalSub').textContent =
-    `${{card.sido||''}} ${{card.gugun||''}} ${{card.dong||''}} · 건축 ${{card.build_year||''}}년`;
+    `${{card.sido||''}} ${{card.gugun||''}} ${{card.dong||''}} · 건축 ${{card.build_year||''}}년`
+    + (_meta && _meta.households ? ` · ${{_meta.households.toLocaleString()}}세대` : '')
+    + (_meta && _meta.buildings  ? ` / ${{_meta.buildings}}동` : '');
 
   /* 탭 항상 1번(추이)으로 초기화 */
   document.querySelectorAll('.main-tab').forEach((b,i) => b.classList.toggle('active', i===0));
@@ -1438,6 +1483,15 @@ function applyLanding() {{
 
 buildSelects();
 initLanding();
+fetch('data/apt_metadata.json')
+  .then(r => r.ok ? r.json() : null)
+  .then(data => {{
+    if (!data) return;
+    const raw = data.items || data;
+    Object.entries(raw).forEach(([k, v]) => {{ APT_META[normName(k)] = v; }});
+    renderVisible();
+  }})
+  .catch(() => {{}});
 </script>
 </body>
 </html>"""
