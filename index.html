@@ -185,14 +185,17 @@ svg{display:block}
   position:relative;
 }
 .tx-card:active{background:#fafafa}
-.tx-card.new-high{border-left:3px solid var(--red)}
-
-/* 신고가 뱃지 */
-.nh-banner{
-  display:inline-flex;align-items:center;gap:5px;
-  background:var(--red-bg);color:var(--red);
-  font-size:11px;font-weight:700;
-  padding:3px 8px;border-radius:6px;margin-bottom:8px;
+.tx-card.new-high{
+  border:2px solid #ef4444;
+  box-shadow:0 0 0 4px rgba(239,68,68,.08);
+  z-index:1;
+}
+.tx-card.new-high::before{
+  content:"신고가";
+  position:absolute;top:-10px;left:12px;
+  background:#ef4444;color:#fff;
+  padding:2px 10px;border-radius:4px;
+  font-size:11px;font-weight:700;letter-spacing:.5px;
 }
 
 /* 아파트명 + 스파크라인 */
@@ -252,6 +255,44 @@ svg{display:block}
 @keyframes spin{to{transform:rotate(360deg)}}
 .err-box{text-align:center;padding:60px 16px;color:var(--red);line-height:1.8}
 .err-box code{background:#fee;padding:2px 6px;border-radius:4px;font-size:12px}
+
+/* ── CSV 모달 ────────────────────────────────────────────── */
+.csv-overlay{
+  display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);
+  z-index:200;align-items:flex-end;justify-content:center;
+}
+.csv-overlay.open{display:flex;}
+.csv-sheet{
+  background:var(--card);border-radius:20px 20px 0 0;
+  width:100%;max-width:480px;padding:24px 20px 32px;
+  max-height:90vh;overflow-y:auto;
+}
+.csv-title{font-size:17px;font-weight:800;margin-bottom:20px;}
+.csv-label{font-size:12px;font-weight:700;color:var(--b3);margin-bottom:6px;}
+.csv-dates{display:flex;gap:8px;margin-bottom:16px;}
+.csv-dates input[type=date]{
+  flex:1;padding:9px 10px;border:1px solid var(--border);border-radius:10px;
+  font-size:14px;background:var(--card);color:var(--b1);
+}
+.csv-quick{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px;}
+.csv-qbtn{
+  padding:6px 12px;border-radius:20px;border:1px solid var(--border);
+  font-size:12px;font-weight:600;background:var(--card);color:var(--b2);
+  cursor:pointer;
+}
+.csv-qbtn:active{background:var(--green);color:#fff;border-color:var(--green);}
+.csv-districts{display:flex;flex-wrap:wrap;gap:6px 10px;margin-bottom:24px;}
+.csv-dist-cb{display:flex;align-items:center;gap:4px;font-size:13px;cursor:pointer;}
+.csv-dist-cb input{accent-color:var(--green);}
+.csv-actions{display:flex;gap:10px;}
+.csv-dl-btn{
+  flex:1;padding:14px;border-radius:12px;background:var(--green);
+  color:#fff;font-size:15px;font-weight:700;border:none;cursor:pointer;
+}
+.csv-cancel-btn{
+  padding:14px 20px;border-radius:12px;border:1px solid var(--border);
+  background:var(--card);color:var(--b2);font-size:15px;font-weight:600;cursor:pointer;
+}
 
 /* ── Load more ──────────────────────────────────────────── */
 .more-wrap{padding:16px;text-align:center}
@@ -605,12 +646,12 @@ svg{display:block}
 
     <!-- 정렬 툴바 -->
     <div class="sort-bar">
-      <button class="sort-btn active" data-sort="date" onclick="setSort(this,'date')">최신순</button>
-      <button class="sort-btn"        data-sort="price_d" onclick="setSort(this,'price_d')">가격 높은순</button>
+      <button class="sort-btn"        data-sort="date" onclick="setSort(this,'date')">최신순</button>
+      <button class="sort-btn active" data-sort="price_d" onclick="setSort(this,'price_d')">가격 높은순</button>
       <button class="sort-btn"        data-sort="price_a" onclick="setSort(this,'price_a')">가격 낮은순</button>
       <span class="sort-sep">|</span>
       <button class="toggle-nh" id="toggleNh" onclick="toggleNhOnly()">🔴 신고가만</button>
-      <button class="dl-btn" onclick="downloadCSV()" title="CSV 다운로드">⬇ CSV</button>
+      <button class="dl-btn" onclick="openCsvModal()" title="CSV 다운로드">⬇ CSV</button>
     </div>
 
     <!-- 요약 -->
@@ -747,7 +788,7 @@ let _tab       = 'home';
 let _selDate   = '';
 let _targetKey = '';    // 표시할 날짜 (신고일 or 계약일)
 let _districts = new Set(); // 다중 선택 (empty = 전체)
-let _sort      = 'date';
+let _sort      = 'price_d';
 let _nhOnly    = false;
 let _filtered  = [];
 let _visible   = PAGE;
@@ -1175,7 +1216,6 @@ function cardHTML(t){
 
   return `
 <div class="tx-card${high?' new-high':''}" onclick="openDetail('${safeName}','${ak}','${t.deal_date}',${t.amount})">
-  ${high?'<div class="nh-banner">🔴 신고가</div>':''}
   <div class="card-top-row">
     <div class="card-apt-name">${esc(t.apt_name)}${hgnnBadge}</div>
     <div class="spark-wrap">${makeSpark(t.apt_name,ak)}</div>
@@ -1627,6 +1667,91 @@ window.addEventListener('popstate',()=>{
 });
 
 init();
+
+/* ══════════════════════════════════════════════════════════
+   CSV 모달
+══════════════════════════════════════════════════════════ */
+function openCsvModal(){
+  if(!DB?.transactions?.length){ showToast('데이터가 없습니다.'); return; }
+  const today=todayISO();
+  document.getElementById('csvDateFrom').value=addDays(today,-30);
+  document.getElementById('csvDateTo').value=today;
+  // 자치구 체크박스 동적 생성
+  const all=[...new Set(DB.transactions.map(t=>t.gugun).filter(Boolean))].sort();
+  const wrap=document.getElementById('csvDistWrap');
+  wrap.innerHTML='<label class="csv-dist-cb"><input type="checkbox" id="csvDistAll" onchange="csvToggleAll(this)" checked> <span>전체</span></label>'
+    +all.map(g=>`<label class="csv-dist-cb"><input type="checkbox" class="csv-dist-item" value="${g}" checked> <span>${g}</span></label>`).join('');
+  document.getElementById('csvOverlay').classList.add('open');
+}
+function closeCsvModal(){
+  document.getElementById('csvOverlay').classList.remove('open');
+}
+function csvToggleAll(cb){
+  document.querySelectorAll('.csv-dist-item').forEach(el=>{ el.checked=cb.checked; });
+}
+function setCsvRange(type){
+  const today=todayISO();
+  const from=document.getElementById('csvDateFrom');
+  const to=document.getElementById('csvDateTo');
+  to.value=today;
+  if(type==='7d')  from.value=addDays(today,-7);
+  else if(type==='30d') from.value=addDays(today,-30);
+  else if(type==='3m')  from.value=addDays(today,-90);
+  else if(type==='year') from.value=`${new Date().getFullYear()}-01-01`;
+  else { from.value='2000-01-01'; to.value=today; }
+}
+function executeCsvDownload(){
+  const from=document.getElementById('csvDateFrom').value;
+  const to=document.getElementById('csvDateTo').value;
+  if(!from||!to){ showToast('날짜를 선택해 주세요.'); return; }
+  const selDists=new Set([...document.querySelectorAll('.csv-dist-item:checked')].map(el=>el.value));
+  const allChecked=document.getElementById('csvDistAll')?.checked;
+  let rows=DB.transactions.filter(t=>{
+    const d=t.deal_date||'';
+    return d>=from && d<=to && (allChecked||selDists.has(t.gugun));
+  });
+  if(!rows.length){ showToast('해당 조건의 데이터가 없습니다.'); return; }
+  rows.sort((a,b)=>a.deal_date.localeCompare(b.deal_date));
+  const header=['계약일','신고일','자치구','동','단지명','전용면적(㎡)','평수','층','거래금액(만원)'];
+  const data=[header,...rows.map(t=>[
+    t.deal_date, t.rgst_date||'', t.gugun, t.dong, t.apt_name,
+    t.area, t.area?Math.round(t.area/3.3058):'',
+    t.floor, t.amount,
+  ])].map(r=>r.map(v=>`"${String(v??'').replace(/"/g,'""')}"`).join(',')).join('\r\n');
+  const blob=new Blob(['﻿'+data],{type:'text/csv;charset=utf-8'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url; a.download=`대구실거래가_${from}~${to}.csv`;
+  document.body.appendChild(a); a.click();
+  document.body.removeChild(a); URL.revokeObjectURL(url);
+  showToast(`${rows.length}건 다운로드 완료`);
+  closeCsvModal();
+}
 </script>
+
+<!-- CSV 다운로드 모달 -->
+<div class="csv-overlay" id="csvOverlay" onclick="if(event.target===this)closeCsvModal()">
+  <div class="csv-sheet">
+    <div class="csv-title">CSV 다운로드</div>
+    <div class="csv-label">기간</div>
+    <div class="csv-dates">
+      <input type="date" id="csvDateFrom">
+      <input type="date" id="csvDateTo">
+    </div>
+    <div class="csv-quick">
+      <button class="csv-qbtn" onclick="setCsvRange('7d')">최근 7일</button>
+      <button class="csv-qbtn" onclick="setCsvRange('30d')">최근 30일</button>
+      <button class="csv-qbtn" onclick="setCsvRange('3m')">최근 3개월</button>
+      <button class="csv-qbtn" onclick="setCsvRange('year')">올해 전체</button>
+      <button class="csv-qbtn" onclick="setCsvRange('all')">전체</button>
+    </div>
+    <div class="csv-label">자치구</div>
+    <div class="csv-districts" id="csvDistWrap"></div>
+    <div class="csv-actions">
+      <button class="csv-dl-btn" onclick="executeCsvDownload()">⬇ 다운로드</button>
+      <button class="csv-cancel-btn" onclick="closeCsvModal()">취소</button>
+    </div>
+  </div>
+</div>
 </body>
 </html>
