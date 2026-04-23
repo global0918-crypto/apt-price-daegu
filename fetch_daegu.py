@@ -237,10 +237,11 @@ def main():
                 items = parse_items(xml) if xml else []
 
             cnt = 0
+            cnt_cancel = 0
             for item in items:
-                # 해제(취소)건 제외
-                if v(item, "cdealDay"):
-                    continue
+                cdeal_type = v(item, "cdealType") or ""
+                cdeal_day  = v(item, "cdealDay")  or ""
+                cancelled  = bool(cdeal_day) or cdeal_type.upper() == "O"
 
                 dy = v(item, "dealYear")
                 dm = v(item, "dealMonth").zfill(2)
@@ -277,20 +278,28 @@ def main():
                     "rgst_date":  rgst,
                     "amount":     price,
                     "deal_type":  v(item, "dealingGbn") or "매매",
+                    "cdeal_type": cdeal_type,
+                    "cdeal_day":  cdeal_day,
                 })
-                master_rows.append([
-                    "대구광역시", name, dong, apt,
-                    v(item, "excluUseAr"), floor, by,
-                    dy, v(item, "dealMonth"), dd,
-                    v(item, "dealAmount").replace(",", ""),
-                    v(item, "dealingGbn") or "매매",
-                    v(item, "estateAgentSggNm"),
-                    now.strftime("%Y-%m-%d %H:%M"),
-                ])
-                cnt += 1
+
+                if cancelled:
+                    cnt_cancel += 1
+                else:
+                    # 해제건은 master에서 제외 (historical_highs 왜곡 방지)
+                    master_rows.append([
+                        "대구광역시", name, dong, apt,
+                        v(item, "excluUseAr"), floor, by,
+                        dy, v(item, "dealMonth"), dd,
+                        v(item, "dealAmount").replace(",", ""),
+                        v(item, "dealingGbn") or "매매",
+                        v(item, "estateAgentSggNm"),
+                        now.strftime("%Y-%m-%d %H:%M"),
+                    ])
+                    cnt += 1
 
             tag = "[Dev]" if is_dev else "[Std]"
-            print(f"{cnt}건 {tag}")
+            cancel_info = f" (해제 {cnt_cancel}건)" if cnt_cancel else ""
+            print(f"{cnt}건 {tag}{cancel_info}")
 
     # ── 신규 거래 감지 & rgst_date 자동 부여 ─────────────────────────────
     # API가 rgstDate를 ~95% 공백으로 반환하므로,

@@ -198,6 +198,20 @@ svg{display:block}
   font-size:11px;font-weight:700;letter-spacing:.5px;
 }
 
+/* 해제 거래 */
+.cancel-badge{
+  display:inline-block;padding:2px 8px;
+  background:#6b7280;color:#fff;
+  font-size:11px;font-weight:700;border-radius:4px;
+  letter-spacing:.5px;flex-shrink:0;
+}
+.tx-card.is-cancelled{opacity:.85}
+.tx-card.is-cancelled:hover{opacity:1}
+.card-price.cancelled{text-decoration:line-through;color:#9ca3af}
+.cancel-date{font-size:12px;color:#6b7280;margin-bottom:6px}
+.tr-cancelled td{color:#9ca3af}
+.tr-cancelled .td-price{text-decoration:line-through}
+
 /* 카드 헤더: 단지명 + 우상단 별표 */
 .card-hdr{display:flex;align-items:flex-start;gap:8px;padding-right:34px;margin-bottom:6px}
 .card-apt-name{font-size:16px;font-weight:800;color:var(--b1);flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
@@ -654,6 +668,7 @@ svg{display:block}
       <button class="sort-btn"        data-sort="price_a" onclick="setSort(this,'price_a')">가격 낮은순</button>
       <span class="sort-sep">|</span>
       <button class="toggle-nh" id="toggleNh" onclick="toggleNhOnly()">🔴 신고가만</button>
+      <button class="toggle-nh" id="toggleCancel" onclick="toggleHideCancel()" style="margin-left:0">🚫 해제 숨기기</button>
       <button class="dl-btn" onclick="openCsvModal()" title="CSV 다운로드">⬇ CSV</button>
     </div>
 
@@ -772,7 +787,8 @@ let _selDate   = '';
 let _targetKey = '';    // 표시할 날짜 (신고일 or 계약일)
 let _districts = new Set(); // 다중 선택 (empty = 전체)
 let _sort      = 'price_d';
-let _nhOnly    = false;
+let _nhOnly      = false;
+let _hideCancel  = false;
 let _filtered  = [];
 let _visible   = PAGE;
 let _sparkCache = {};
@@ -1053,17 +1069,34 @@ function toggleNhOnly(){
 }
 
 /* ══════════════════════════════════════════════════════════
+   해제 거래 판별
+══════════════════════════════════════════════════════════ */
+function isCancelled(t){
+  return t.cdeal_type==='O'||t.cdeal_type==='o';
+}
+function fmtCancelDate(d){
+  if(!d) return '';
+  if(d.length===8&&d.includes('.')) return '20'+d;
+  return d;
+}
+function toggleHideCancel(){
+  _hideCancel=!_hideCancel;
+  document.getElementById('toggleCancel').classList.toggle('active',_hideCancel);
+  applyFilter();
+}
+
+/* ══════════════════════════════════════════════════════════
    신고가 판별
 ══════════════════════════════════════════════════════════ */
 function isNewHigh(t){
-  if(!DB?.historical_highs||!t.amount) return false;
+  if(isCancelled(t)||!DB?.historical_highs||!t.amount) return false;
   const k=`${t.apt_name}|${areaKey(t.area)}`;
   const prev=DB.historical_highs[k]||0;
   return prev>0 && t.amount>prev;
 }
 
 function prevHighDiff(t){
-  if(!DB?.historical_highs||!t.amount) return null;
+  if(isCancelled(t)||!DB?.historical_highs||!t.amount) return null;
   const k=`${t.apt_name}|${areaKey(t.area)}`;
   const prev=DB.historical_highs[k]||0;
   if(!prev) return null;
@@ -1077,7 +1110,7 @@ function getSparkPts(aptName,ak){
   const ck=`${aptName}|${ak}`;
   if(_sparkCache[ck]) return _sparkCache[ck];
   const pts=(DB?.transactions||[])
-    .filter(t=>t.apt_name===aptName && areaKey(t.area)===ak && t.amount>0)
+    .filter(t=>t.apt_name===aptName && areaKey(t.area)===ak && t.amount>0 && !isCancelled(t))
     .sort((a,b)=>a.deal_date.localeCompare(b.deal_date))
     .map(t=>t.amount);
   _sparkCache[ck]=pts;
@@ -1119,6 +1152,7 @@ function applyFilter(){
   );
 
   if(_nhOnly) list=list.filter(t=>isNewHigh(t));
+  if(_hideCancel) list=list.filter(t=>!isCancelled(t));
 
   list.sort((a,b)=>{
     if(_sort==='price_d') return b.amount-a.amount;
@@ -1135,7 +1169,7 @@ function applyFilter(){
 function renderSummary(){
   const total=_filtered.length;
   const nhCnt=_filtered.filter(t=>isNewHigh(t)).length;
-  const avg=trg=>{ const a=_filtered.filter(t=>t.area&&Math.abs(t.area-trg)<5&&t.amount>0); return a.length?Math.round(a.reduce((s,t)=>s+t.amount,0)/a.length):null; };
+  const avg=trg=>{ const a=_filtered.filter(t=>!isCancelled(t)&&t.area&&Math.abs(t.area-trg)<5&&t.amount>0); return a.length?Math.round(a.reduce((s,t)=>s+t.amount,0)/a.length):null; };
   const a59=avg(59), a84=avg(84);
   document.getElementById('summaryStrip').innerHTML=
     `<span class="sum-item">신고 <b>${total.toLocaleString()}</b>건</span>
@@ -1183,22 +1217,29 @@ function cardHTML(t){
     diffHtml='<div class="card-prevhi" style="color:var(--b5)">이력 없음</div>';
   }
 
+  const cancelled=isCancelled(t);
   const hgnn=HOGAN[t.apt_name];
   const hgnnUrl=`https://hogangnono.com/?searchTextKeyword=${encodeURIComponent(t.apt_name)}`;
   const hgnnBadge=(hgnn&&hgnn.count>0)
     ?`<a class="hgnn-badge" href="${hgnnUrl}" target="_blank" rel="noopener" onclick="event.stopPropagation()">💬 ${hgnn.count}</a>`
     :'';
+  const cancelBadge=cancelled?'<span class="cancel-badge">해제</span>':'';
+  const priceSection=cancelled
+    ?`<div class="card-price cancelled">${fmtAmt(t.amount)}</div>
+      <div class="cancel-date">해제 ${fmtCancelDate(t.cdeal_day)}</div>`
+    :`<div class="card-price ${priceCls(t.amount)}">${fmtAmt(t.amount)}</div>
+      ${diffHtml}`;
 
   return `
-<div class="tx-card${high?' new-high':''}" onclick="openDetail('${safeName}','${ak}','${t.deal_date}',${t.amount})">
+<div class="tx-card${high?' new-high':''}${cancelled?' is-cancelled':''}" onclick="openDetail('${safeName}','${ak}','${t.deal_date}',${t.amount})">
   <div class="card-hdr">
     <div class="card-apt-name">${esc(t.apt_name)}${hgnnBadge}</div>
+    ${cancelBadge}
   </div>
   <button class="fav-abs${fav?' on':''}" onclick="toggleFav(event,'${safeName}')">${fav?'⭐':'☆'}</button>
   <div class="card-body">
     <div class="card-info">
-      <div class="card-price ${priceCls(t.amount)}">${fmtAmt(t.amount)}</div>
-      ${diffHtml}
+      ${priceSection}
       <div class="card-meta">
         <span>${esc(fmtArea(t.area))}</span>
         <span class="sep">·</span>
@@ -1294,38 +1335,42 @@ function renderDetailTrades(ak){
       return t.apt_name===_detailApt&&(ak==='전체'||areaKey(t.area)===ak)&&!hKeys.has(k);
     });
     trades=[
-      ...hf.map(r=>({deal_date:r[0],area:r[1],floor:r[2],amount:r[3]})),
-      ...dbExtra.map(t=>({deal_date:t.deal_date,area:Math.round(t.area),floor:t.floor,amount:t.amount}))
+      ...hf.map(r=>({deal_date:r[0],area:r[1],floor:r[2],amount:r[3],cdeal_type:'',cdeal_day:''})),
+      ...dbExtra.map(t=>({deal_date:t.deal_date,area:Math.round(t.area),floor:t.floor,amount:t.amount,cdeal_type:t.cdeal_type||'',cdeal_day:t.cdeal_day||''}))
     ].sort((a,b)=>b.deal_date.localeCompare(a.deal_date));
   } else {
     trades=(DB?.transactions||[])
       .filter(t=>t.apt_name===_detailApt&&(ak==='전체'||areaKey(t.area)===ak))
       .sort((a,b)=>b.deal_date.localeCompare(a.deal_date))
-      .map(t=>({deal_date:t.deal_date,area:Math.round(t.area),floor:t.floor,amount:t.amount}));
+      .map(t=>({deal_date:t.deal_date,area:Math.round(t.area),floor:t.floor,amount:t.amount,cdeal_type:t.cdeal_type||'',cdeal_day:t.cdeal_day||''}));
   }
 
-  const prices=trades.map(t=>t.amount);
-  const maxP=trades.length>1?Math.max(...prices):0;
-  const minP=trades.length>1?Math.min(...prices):0;
+  const validTrades=trades.filter(t=>!isCancelled(t));
+  const prices=validTrades.map(t=>t.amount);
+  const maxP=validTrades.length>1?Math.max(...prices):0;
+  const minP=validTrades.length>1?Math.min(...prices):0;
 
   document.getElementById('detailTbody').innerHTML=trades.map(t=>{
+    const canc=isCancelled(t);
     const hKey=`${_detailApt}|${t.area}㎡`;
     const prevHigh=DB?.historical_highs?.[hKey]||0;
-    const isNH=prevHigh>0&&t.amount>prevHigh;
-    const isLo=trades.length>1&&t.amount===minP;
+    const isNH=!canc&&prevHigh>0&&t.amount>prevHigh;
+    const isLo=!canc&&validTrades.length>1&&t.amount===minP;
     const isHl=_hlDate&&t.deal_date===_hlDate&&t.amount===_hlAmt;
-    const rowAttr=isHl?' style="background:#fffde8"':'';
+    const trCls=canc?'tr-cancelled':'';
+    const trStyle=isHl?'style="background:#fffde8"':'';
     const cls=isNH?'td-nh':isLo?'td-lo':'';
     const nhBadge=isNH?'<span style="color:var(--red);font-size:10px;font-weight:700;margin-left:3px">↑신고가</span>':'';
-    return `<tr${rowAttr}>
+    const cancelTag=canc?`<span style="color:#6b7280;font-size:10px;margin-left:4px">해제 ${fmtCancelDate(t.cdeal_day)}</span>`:'';
+    return `<tr class="${trCls}" ${trStyle}>
       <td>${t.deal_date}${nhBadge}</td>
       <td>${t.floor}층</td>
       <td>${fmtArea(t.area)}</td>
-      <td class="td-price ${cls}">${fmtAmt(t.amount)}</td>
+      <td class="td-price ${cls}">${fmtAmt(t.amount)}${cancelTag}</td>
     </tr>`;
   }).join('');
 
-  renderDetailChart(trades);
+  renderDetailChart(validTrades);
 }
 
 function renderDetailStats(ak){
@@ -1336,7 +1381,7 @@ function renderDetailStats(ak){
     trades=hf.map(r=>({deal_date:r[0],area:r[1],amount:r[3]}));
   } else {
     trades=(DB?.transactions||[])
-      .filter(t=>t.apt_name===_detailApt&&(ak==='전체'||areaKey(t.area)===ak))
+      .filter(t=>t.apt_name===_detailApt&&(ak==='전체'||areaKey(t.area)===ak)&&!isCancelled(t))
       .map(t=>({deal_date:t.deal_date,area:Math.round(t.area),amount:t.amount}));
   }
   const el=document.getElementById('detailStats');
