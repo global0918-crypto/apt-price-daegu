@@ -1813,11 +1813,8 @@ function goTab(tab){
 }
 
 function goHome(){
-  _districts.clear();
-  _selDate=todayISO();
   goTab('home');
-  applyFilter();
-  window.scrollTo({top:0,behavior:'smooth'});
+  showLanding();
 }
 
 function openMenu(){
