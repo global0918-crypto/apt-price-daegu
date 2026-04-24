@@ -20,53 +20,64 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Check if already ran today
-        id: check
-        env:
-          TZ: Asia/Seoul
+      - name: Check 매매 status
+        id: check_sale
         run: |
           TODAY_KST=$(TZ='Asia/Seoul' date '+%Y-%m-%d')
-          LAST_UPDATE=$(TZ='Asia/Seoul' git log -1 --format='%ad' --date='format-local:%Y-%m-%d' -- data/transactions.json 2>/dev/null || echo "")
-          echo "오늘 (KST): $TODAY_KST"
-          echo "마지막 업데이트: $LAST_UPDATE"
-          if [ "$TODAY_KST" = "$LAST_UPDATE" ]; then
-            echo "already_ran=true" >> $GITHUB_OUTPUT
-            echo "✓ 오늘 이미 실행됨. 스킵."
+          LAST=$(TZ='Asia/Seoul' git log -1 --format='%ad' --date='format-local:%Y-%m-%d' -- data/transactions.json 2>/dev/null || echo "")
+          echo "매매 마지막 업데이트: $LAST (오늘: $TODAY_KST)"
+          if [ "$TODAY_KST" = "$LAST" ]; then
+            echo "done=true" >> $GITHUB_OUTPUT
+            echo "✓ 매매 오늘 완료. 스킵."
           else
-            echo "already_ran=false" >> $GITHUB_OUTPUT
-            echo "→ 오늘 첫 실행. 진행."
+            echo "done=false" >> $GITHUB_OUTPUT
+            echo "→ 매매 실행 필요."
+          fi
+
+      - name: Check 전월세 status
+        id: check_rent
+        run: |
+          TODAY_KST=$(TZ='Asia/Seoul' date '+%Y-%m-%d')
+          LAST=$(TZ='Asia/Seoul' git log -1 --format='%ad' --date='format-local:%Y-%m-%d' -- data/rent_transactions.json 2>/dev/null || echo "")
+          echo "전월세 마지막 업데이트: $LAST (오늘: $TODAY_KST)"
+          if [ "$TODAY_KST" = "$LAST" ]; then
+            echo "done=true" >> $GITHUB_OUTPUT
+            echo "✓ 전월세 오늘 완료. 스킵."
+          else
+            echo "done=false" >> $GITHUB_OUTPUT
+            echo "→ 전월세 실행 필요."
           fi
 
       - name: Setup Python
-        if: steps.check.outputs.already_ran == 'false'
+        if: steps.check_sale.outputs.done == 'false' || steps.check_rent.outputs.done == 'false'
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
 
       - name: Install dependencies
-        if: steps.check.outputs.already_ran == 'false'
+        if: steps.check_sale.outputs.done == 'false' || steps.check_rent.outputs.done == 'false'
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
       - name: Fetch 매매 데이터
-        if: steps.check.outputs.already_ran == 'false'
+        if: steps.check_sale.outputs.done == 'false'
         env:
           API_KEY: ${{ secrets.API_KEY }}
         run: python fetch_daegu.py
 
       - name: Fetch 전월세 데이터
-        if: steps.check.outputs.already_ran == 'false'
+        if: steps.check_rent.outputs.done == 'false'
         env:
           MOLIT_API_KEY: ${{ secrets.MOLIT_API_KEY }}
         run: python fetch_daegu_rent.py
 
       - name: Generate history JSON
-        if: steps.check.outputs.already_ran == 'false'
+        if: steps.check_sale.outputs.done == 'false'
         run: python export_history.py
 
       - name: Commit & push if changed
-        if: steps.check.outputs.already_ran == 'false'
+        if: steps.check_sale.outputs.done == 'false' || steps.check_rent.outputs.done == 'false'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
