@@ -178,6 +178,31 @@ svg{display:block}
 .toggle-nh.active{background:var(--red-bg);color:var(--red);border-color:var(--red)}
 #toggleCancel.active{background:#d1fae5;color:#065f46;border-color:#10b981}
 
+/* ── Trade type tabs ─────────────────────────────────────── */
+.trade-tabs{
+  display:flex;background:#fff;border-bottom:2px solid var(--border);
+}
+.tt-btn{
+  flex:1;padding:10px 0;
+  border:none;border-bottom:3px solid transparent;margin-bottom:-2px;
+  background:transparent;
+  font-size:14px;font-weight:700;color:var(--b4);
+  cursor:pointer;transition:all .15s;
+}
+.tt-btn.active{color:var(--green);border-bottom-color:var(--green)}
+.tt-btn:hover:not(.active){color:var(--b2)}
+
+/* ── Rent cards ──────────────────────────────────────────── */
+.rent-type-badge{
+  font-size:11px;font-weight:700;padding:2px 8px;border-radius:10px;flex-shrink:0;
+}
+.rent-type-badge.jeonse{background:#dbeafe;color:#1d4ed8}
+.rent-type-badge.wolse{background:#fef9c3;color:#92400e}
+.rent-price-row{display:flex;align-items:baseline;gap:4px;flex-wrap:wrap}
+.rent-slash{color:var(--b4);font-size:13px;font-weight:400}
+.rent-monthly{color:#d97706}
+.rent-card{cursor:default}
+
 /* ── Card list ──────────────────────────────────────────── */
 .card-list{display:flex;flex-direction:column;gap:0}
 
@@ -677,6 +702,13 @@ svg{display:block}
       <div class="date-sub" id="dateSubLabel"></div>
     </div>
 
+    <!-- 거래유형 탭 -->
+    <div class="trade-tabs" id="tradeTabs">
+      <button class="tt-btn active" data-mode="sale"   onclick="setTradeMode('sale')">매매</button>
+      <button class="tt-btn"        data-mode="jeonse" onclick="setTradeMode('jeonse')">전세</button>
+      <button class="tt-btn"        data-mode="wolse"  onclick="setTradeMode('wolse')">월세</button>
+    </div>
+
     <!-- 구군 칩 -->
     <div class="dist-wrap">
       <button class="dist-scroll-btn left" aria-label="이전 지역" onclick="distScrollBy(-150)">◀</button>
@@ -684,8 +716,8 @@ svg{display:block}
       <button class="dist-scroll-btn right" aria-label="다음 지역" onclick="distScrollBy(150)">▶</button>
     </div>
 
-    <!-- 정렬 툴바 -->
-    <div class="sort-bar">
+    <!-- 매매 정렬 툴바 -->
+    <div class="sort-bar" id="sortBarSale">
       <button class="sort-btn"        data-sort="date" onclick="setSort(this,'date')">최신순</button>
       <button class="sort-btn active" data-sort="price_d" onclick="setSort(this,'price_d')">가격 높은순</button>
       <button class="sort-btn"        data-sort="price_a" onclick="setSort(this,'price_a')">가격 낮은순</button>
@@ -693,6 +725,14 @@ svg{display:block}
       <button class="toggle-nh" id="toggleNh" onclick="toggleNhOnly()">🔴 신고가만</button>
       <button class="toggle-nh" id="toggleCancel" onclick="toggleHideCancel()" style="margin-left:0"><span id="cancelIcon">🚫</span> <span id="cancelText">해제 숨기기</span></button>
       <button class="dl-btn" onclick="openCsvModal()" title="CSV 다운로드">⬇ CSV</button>
+    </div>
+
+    <!-- 전월세 정렬 툴바 -->
+    <div class="sort-bar" id="sortBarRent" style="display:none">
+      <button class="sort-btn active" data-rsort="date"  onclick="setRentSort(this,'date')">최신순</button>
+      <button class="sort-btn"        data-rsort="dep_d" onclick="setRentSort(this,'dep_d')">보증금↓</button>
+      <button class="sort-btn"        data-rsort="dep_a" onclick="setRentSort(this,'dep_a')">보증금↑</button>
+      <button class="dl-btn" onclick="downloadRentCSV()" title="CSV 다운로드">⬇ CSV</button>
     </div>
 
     <!-- 카드 리스트 -->
@@ -828,7 +868,10 @@ const PAGE      = 40;
 
 let DB         = null;
 let HOGAN      = {};   // 호갱노노 리뷰 수
+let RENT       = null; // rent_transactions.json
 let _tab       = 'home';
+let _tradeMode = 'sale'; // 'sale'|'jeonse'|'wolse'
+let _rentSort  = 'date';
 let _selDate   = '';
 let _targetKey = '';    // 표시할 날짜 (신고일 or 계약일)
 let _districts = new Set(); // 다중 선택 (empty = 전체)
@@ -882,15 +925,17 @@ function showToast(msg){
 ══════════════════════════════════════════════════════════ */
 async function init(){
   try{
-    const [txRes, hgRes, histRes] = await Promise.allSettled([
+    const [txRes, hgRes, histRes, rentRes] = await Promise.allSettled([
       fetch('data/transactions.json'),
       fetch('data/hogangnono_reviews.json'),
       fetch('data/history.json'),
+      fetch('data/rent_transactions.json'),
     ]);
     if(txRes.status==='rejected'||!txRes.value.ok) throw new Error('transactions.json 로드 실패');
     DB = await txRes.value.json();
     if(hgRes.status==='fulfilled'&&hgRes.value.ok) HOGAN = await hgRes.value.json();
     if(histRes.status==='fulfilled'&&histRes.value.ok) HIST = await histRes.value.json();
+    if(rentRes.status==='fulfilled'&&rentRes.value.ok) RENT = await rentRes.value.json();
     _useRgst = DB.transactions.some(t=>t.rgst_date);
     onLoaded();
   }catch(e){
@@ -992,6 +1037,18 @@ function getTargetKey(selDate){
 }
 
 function updateDateUI(){
+  if(_tradeMode!=='sale'){
+    const ym=RENT?.query_ym||'';
+    const y=ym.slice(0,4), m=parseInt(ym.slice(4,6),10)||0;
+    document.getElementById('dateLabel').textContent=ym?`${y}년 ${m}월`:'-';
+    document.getElementById('prevBtn').disabled=true;
+    document.getElementById('nextBtn').disabled=true;
+    const src=_tradeMode==='jeonse'?(RENT?.month_items?.jeonse||[]):(RENT?.month_items?.wolse||[]);
+    const vis=_districts.size===0?src:src.filter(t=>_districts.has(t.gugun));
+    const label=_tradeMode==='jeonse'?'전세':'월세';
+    document.getElementById('dateSubLabel').textContent=`이번달 ${label} ${vis.length.toLocaleString()}건`;
+    return;
+  }
   const today=todayISO(), minDate=addDays(today,-MAX_BACK);
   document.getElementById('dateLabel').textContent=`${_selDate} (${weekday(_selDate)})`;
   document.getElementById('prevBtn').disabled=_selDate<=minDate;
@@ -1000,7 +1057,6 @@ function updateDateUI(){
   _targetKey=getTargetKey(_selDate);
   const sub=document.getElementById('dateSubLabel');
   if(_targetKey){
-    // targetKey 날짜에 실제 신고일 데이터가 있으면 '신고일', 없으면 '계약일(신고대기)'
     const hasRgst=DB.transactions.some(t=>t.rgst_date===_targetKey);
     const label=hasRgst?'신고일':'계약일(신고대기)';
     sub.innerHTML=`${label} <b>${_targetKey}</b> 기준 데이터`;
@@ -1022,6 +1078,13 @@ function goToday(){ _selDate=todayISO(); applyFilter(); }
    구군 필터
 ══════════════════════════════════════════════════════════ */
 function calcDistStats(){
+  if(_tradeMode!=='sale'){
+    if(!RENT) return {counts:{},highs:{}};
+    const src=_tradeMode==='jeonse'?(RENT.month_items?.jeonse||[]):(RENT.month_items?.wolse||[]);
+    const counts={};
+    src.forEach(t=>{ counts[t.gugun]=(counts[t.gugun]||0)+1; });
+    return {counts,highs:{}};
+  }
   if(!DB||!_targetKey) return {counts:{},highs:{}};
   const base=DB.transactions.filter(t=>dateField(t)===_targetKey);
   const counts={}, highs={};
@@ -1152,6 +1215,22 @@ function toggleHideCancel(){
   applyFilter();
 }
 
+function setTradeMode(mode){
+  _tradeMode=mode;
+  document.querySelectorAll('.tt-btn').forEach(b=>b.classList.toggle('active',b.dataset.mode===mode));
+  const isSale=mode==='sale';
+  document.getElementById('sortBarSale').style.display=isSale?'':'none';
+  document.getElementById('sortBarRent').style.display=isSale?'none':'';
+  _districts.clear();
+  applyFilter();
+}
+
+function setRentSort(btn,sort){
+  _rentSort=sort;
+  document.querySelectorAll('#sortBarRent .sort-btn').forEach(b=>b.classList.toggle('active',b.dataset.rsort===sort));
+  applyRentFilter();
+}
+
 /* ══════════════════════════════════════════════════════════
    신고가 판별
 ══════════════════════════════════════════════════════════ */
@@ -1227,6 +1306,8 @@ function applyFilter(){
   updateDateUI();
   buildDistChips();
 
+  if(_tradeMode!=='sale'){ applyRentFilter(); return; }
+
   if(!DB||!_targetKey){ _filtered=[]; renderCards(); return; }
 
   let list=DB.transactions.filter(t=>
@@ -1249,6 +1330,23 @@ function applyFilter(){
   renderCards();
 }
 
+function applyRentFilter(){
+  if(!RENT){ _filtered=[]; renderCards(); return; }
+  const src=_tradeMode==='jeonse'
+    ?(RENT.month_items?.jeonse||[])
+    :(RENT.month_items?.wolse||[]);
+  let list=[...src];
+  if(_districts.size>0) list=list.filter(t=>_districts.has(t.gugun));
+  list.sort((a,b)=>{
+    if(_rentSort==='dep_d') return b.deposit-a.deposit;
+    if(_rentSort==='dep_a') return a.deposit-b.deposit;
+    return b.deal_date.localeCompare(a.deal_date);
+  });
+  _filtered=list;
+  _visible=PAGE;
+  renderCards();
+}
+
 function renderCards(){
   const list=document.getElementById('cardList');
   const wrap=document.getElementById('moreWrap');
@@ -1258,13 +1356,79 @@ function renderCards(){
     wrap.style.display='none'; return;
   }
 
-  list.innerHTML=_filtered.slice(0,_visible).map(t=>cardHTML(t)).join('');
+  const renderer=_tradeMode==='sale'?cardHTML:rentCardHTML;
+  list.innerHTML=_filtered.slice(0,_visible).map(t=>renderer(t)).join('');
   const rem=_filtered.length-_visible;
   wrap.style.display=rem>0?'':'none';
   if(rem>0) document.querySelector('#moreWrap .more-btn').textContent=`더보기 (${Math.min(PAGE,rem)}건 / 남은 ${rem}건)`;
 }
 
 function loadMore(){ _visible+=PAGE; renderCards(); }
+
+function rentCardHTML(t){
+  const fav=getFavs().includes(t.apt_name);
+  const safeName=t.apt_name.replace(/'/g,"\\'");
+  const byear=t.build_year||0;
+  const age=byear?`${new Date().getFullYear()-byear+1}년차`:'';
+  const isWolse=t.monthly_rent>0;
+  const badge=`<span class="rent-type-badge ${isWolse?'wolse':'jeonse'}">${isWolse?'월세':'전세'}</span>`;
+
+  const priceHtml=isWolse
+    ?`<div class="rent-price-row"><span class="card-price">${fmtAmt(t.deposit)}</span><span class="rent-slash">/ 월</span><span class="card-price rent-monthly">${fmtAmt(t.monthly_rent)}</span></div>`
+    :`<div class="card-price">${fmtAmt(t.deposit)}</div>`;
+
+  const extras=[
+    t.contract_type?`${t.contract_type}계약`:'',
+    t.use_rr_right==='사용'?'갱신청구권':'',
+  ].filter(Boolean).join(' · ');
+
+  return `
+<div class="tx-card rent-card">
+  <div class="card-hdr">
+    <div class="card-apt-name">${esc(t.apt_name)}</div>
+    ${badge}
+  </div>
+  <button class="fav-abs${fav?' on':''}" onclick="toggleFav(event,'${safeName}')">★</button>
+  <div class="card-body">
+    <div class="card-info">
+      ${priceHtml}
+      <div class="card-meta">
+        <span>${esc(fmtArea(t.area))}</span>
+        <span class="sep">·</span>
+        <span>${t.floor}층</span>
+        <span class="sep">·</span>
+        <span>${esc(t.dong)}</span>
+      </div>
+    </div>
+  </div>
+  <div class="card-footer">
+    <span class="cf-item">📅 계약 ${t.deal_date}</span>
+    ${age?`<span class="cf-sep">·</span><span class="cf-item">🏢 ${age}</span>`:''}
+    ${extras?`<span class="cf-sep">·</span><span class="cf-item">${esc(extras)}</span>`:''}
+  </div>
+</div>`;
+}
+
+function downloadRentCSV(){
+  if(!_filtered.length){ showToast('다운로드할 데이터가 없습니다.'); return; }
+  const label=_tradeMode==='jeonse'?'전세':'월세';
+  const ym=RENT?.query_ym||'';
+  const header=_tradeMode==='jeonse'
+    ?['구군','동','아파트명','전용면적(㎡)','층','건축년도','계약일','신고일','보증금(만원)','계약유형','갱신청구권']
+    :['구군','동','아파트명','전용면적(㎡)','층','건축년도','계약일','신고일','보증금(만원)','월세(만원)','계약유형','갱신청구권'];
+  const rows=_filtered.map(t=>_tradeMode==='jeonse'
+    ?[t.gugun,t.dong,t.apt_name,t.area,t.floor,t.build_year,t.deal_date,t.rgst_date||'',t.deposit,t.contract_type||'',t.use_rr_right||'']
+    :[t.gugun,t.dong,t.apt_name,t.area,t.floor,t.build_year,t.deal_date,t.rgst_date||'',t.deposit,t.monthly_rent,t.contract_type||'',t.use_rr_right||'']
+  );
+  const csv=[header,...rows].map(r=>r.map(v=>`"${String(v??'').replace(/"/g,'""')}"`).join(',')).join('\r\n');
+  const blob=new Blob(['﻿'+csv],{type:'text/csv;charset=utf-8'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url; a.download=`대구${label}_${ym}.csv`;
+  document.body.appendChild(a); a.click();
+  document.body.removeChild(a); URL.revokeObjectURL(url);
+  showToast(`${_filtered.length}건 다운로드 완료`);
+}
 
 function cardHTML(t){
   const high=isNewHigh(t);
