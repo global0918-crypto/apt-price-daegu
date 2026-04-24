@@ -176,6 +176,7 @@ svg{display:block}
   display:flex;align-items:center;gap:5px;
 }
 .toggle-nh.active{background:var(--red-bg);color:var(--red);border-color:var(--red)}
+#toggleCancel.active{background:#d1fae5;color:#065f46;border-color:#10b981}
 
 /* ── Card list ──────────────────────────────────────────── */
 .card-list{display:flex;flex-direction:column;gap:0}
@@ -690,7 +691,7 @@ svg{display:block}
       <button class="sort-btn"        data-sort="price_a" onclick="setSort(this,'price_a')">가격 낮은순</button>
       <span class="sort-sep">|</span>
       <button class="toggle-nh" id="toggleNh" onclick="toggleNhOnly()">🔴 신고가만</button>
-      <button class="toggle-nh" id="toggleCancel" onclick="toggleHideCancel()" style="margin-left:0">🚫 해제 숨기기</button>
+      <button class="toggle-nh" id="toggleCancel" onclick="toggleHideCancel()" style="margin-left:0"><span id="cancelIcon">🚫</span> <span id="cancelText">해제 숨기기</span></button>
       <button class="dl-btn" onclick="openCsvModal()" title="CSV 다운로드">⬇ CSV</button>
     </div>
 
@@ -1146,6 +1147,8 @@ function fmtCancelDate(d){
 function toggleHideCancel(){
   _hideCancel=!_hideCancel;
   document.getElementById('toggleCancel').classList.toggle('active',_hideCancel);
+  document.getElementById('cancelIcon').textContent=_hideCancel?'✅':'🚫';
+  document.getElementById('cancelText').textContent=_hideCancel?'해제 보기':'해제 숨기기';
   applyFilter();
 }
 
