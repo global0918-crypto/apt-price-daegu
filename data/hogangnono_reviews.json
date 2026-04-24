@@ -1,69 +1,58 @@
 {
   "종로중흥S클래스": {
-    "count": 4,
-    "hash": "c8Kca",
-    "matched": "종로중흥S클래스(오)",
-    "address": "서울특별시 종로구 숭인동 202-3"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "광화문스페이스본(101동~105동)": {
-    "count": 86,
-    "hash": "cgt51",
-    "matched": "광화문스페이스본(오)",
-    "address": "서울특별시 종로구 사직동 9"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "버넷하임1": {
-    "count": 6,
-    "hash": "c8w12",
-    "matched": "버넷하임1(오)",
-    "address": "서울특별시 종로구 숭인동 1421"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "청운현대": {
-    "count": 56,
-    "hash": "164",
-    "matched": "청운현대",
-    "address": "서울특별시 종로구 청운동 56-45"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "아남1": {
-    "count": 645,
-    "hash": "24x9e",
-    "matched": "아남",
-    "address": "서울특별시 강동구 고덕동 486"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "경희궁자이(3단지)": {
-    "count": 474,
-    "hash": "aD0fe",
-    "matched": "경희궁자이3단지",
-    "address": "서울특별시 종로구 평동 233"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "경희궁자이(2단지)": {
-    "count": 706,
-    "hash": "aCZb6",
-    "matched": "경희궁자이2단지",
-    "address": "서울특별시 종로구 홍파동 199"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "인왕산아이파크": {
-    "count": 535,
-    "hash": "274b",
-    "matched": "인왕산아이파크1차",
-    "address": "서울특별시 종로구 무악동 60"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "종로센트레빌": {
-    "count": 298,
-    "hash": "1D6a",
-    "matched": "종로센트레빌",
-    "address": "서울특별시 종로구 숭인동 2-1"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "현대": {
-    "count": 203,
-    "hash": "4sAab",
-    "matched": "현대",
-    "address": "대전광역시 중구 유천동 10"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "두산": {
-    "count": 515,
-    "hash": "1jw14",
-    "matched": "두산",
-    "address": "서울특별시 구로구 개봉동 472"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "명륜동주상복합아남아파트": {
     "count": 0,
@@ -71,16 +60,14 @@
     "matched": null
   },
   "경희궁자이(4단지)": {
-    "count": 192,
-    "hash": "aD14d",
-    "matched": "경희궁자이4단지",
-    "address": "서울특별시 종로구 교북동 126"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "신당블루카운티": {
-    "count": 16,
-    "hash": "d3de1",
-    "matched": "신당블루카운티",
-    "address": "서울특별시 중구 황학동 846"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "한양I-Class": {
     "count": 0,
@@ -88,40 +75,34 @@
     "matched": null
   },
   "도현블랑빌": {
-    "count": 4,
-    "hash": "2Mcd",
-    "matched": "남산도현블랑빌",
-    "address": "서울특별시 중구 신당동 432-2164"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "신당동파라다이스": {
-    "count": 25,
-    "hash": "3abc",
-    "matched": "신당동파라다이스",
-    "address": "서울특별시 중구 신당동 846"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "청구e편한세상": {
-    "count": 436,
-    "hash": "3na5",
-    "matched": "청구e편한세상",
-    "address": "서울특별시 중구 신당동 852"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "남산타운": {
-    "count": 2451,
-    "hash": "2O75",
-    "matched": "남산타운",
-    "address": "서울특별시 중구 신당동 844"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "롯데캐슬": {
-    "count": 32,
-    "hash": "73Lca",
-    "matched": "롯데캐슬",
-    "address": "충청북도 제천시 장락동 1046"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "순화동더샵": {
-    "count": 178,
-    "hash": "3Y87",
-    "matched": "순화더샵",
-    "address": "서울특별시 중구 순화동 151"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "약수역더시티": {
     "count": 0,
@@ -129,58 +110,49 @@
     "matched": null
   },
   "오장동오팰리오": {
-    "count": 18,
-    "hash": "fGca9",
-    "matched": "오장동오팰리오",
-    "address": "서울특별시 중구 오장동 139-7"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "남산롯데캐슬아이리스": {
-    "count": 293,
-    "hash": "2a50",
-    "matched": "남산롯데캐슬아이리스",
-    "address": "서울특별시 중구 회현동1가 208"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "래미안하이베르": {
-    "count": 680,
-    "hash": "31af",
-    "matched": "래미안신당하이베르",
-    "address": "서울특별시 중구 신당동 851"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "힐스테이트남산": {
-    "count": 68,
-    "hash": "7gWab",
-    "matched": "온양힐스테이트",
-    "address": "충청남도 아산시 온천동 1910"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "삼성": {
-    "count": 6,
-    "hash": "adz75",
-    "matched": "삼성",
-    "address": "대전광역시 동구 삼성동 278-15"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "우일타운": {
-    "count": 26,
-    "hash": "3J0e",
-    "matched": "현대우일타운",
-    "address": "서울특별시 중구 흥인동 3-4"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "남산FORESTHOUSE": {
-    "count": 75,
-    "hash": "bszac",
-    "matched": "FORESTHOUSE",
-    "address": "경기도 성남시 분당구 야탑동 264-1"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "세운푸르지오헤리시티": {
-    "count": 587,
-    "hash": "e5346",
-    "matched": "세운푸르지오헤리시티",
-    "address": "서울특별시 중구 인현동2가 240"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "빌라맨션": {
-    "count": 9,
-    "hash": "4qId4",
-    "matched": "빌라맨션",
-    "address": "대전광역시 동구 삼성동 279-1"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "시티파크(2단지)": {
     "count": 0,
@@ -188,190 +160,159 @@
     "matched": null
   },
   "신동아1": {
-    "count": 69,
-    "hash": "62I54",
-    "matched": "신동아1차",
-    "address": "경기도 오산시 서동 125-2"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "래미안용산더센트럴": {
-    "count": 232,
-    "hash": "aDy26",
-    "matched": "래미안용산더센트럴",
-    "address": "서울특별시 용산구 한강로2가 422"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "강촌": {
-    "count": 488,
-    "hash": "5Zdf",
-    "matched": "강촌",
-    "address": "서울특별시 용산구 이촌동 402"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "후암미주": {
-    "count": 8,
-    "hash": "2pQf2",
-    "matched": "부암미주",
-    "address": "부산광역시 부산진구 부암동 332-6"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "용산데시앙포레": {
-    "count": 302,
-    "hash": "dCF16",
-    "matched": "용산데시앙포레",
-    "address": "서울특별시 용산구 효창동 288"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "용산동아파트": {
-    "count": 122,
-    "hash": "6Pd3",
-    "matched": "용산",
-    "address": "서울특별시 용산구 이태원동 669"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "반도": {
-    "count": 38,
-    "hash": "66a2",
-    "matched": "반도",
-    "address": "서울특별시 용산구 이촌동 301-170"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "북한강(성원)": {
-    "count": 261,
-    "hash": "682d",
-    "matched": "북한강성원",
-    "address": "서울특별시 용산구 이촌동 422"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "용산e편한세상": {
-    "count": 665,
-    "hash": "5Be0",
-    "matched": "용산e편한세상",
-    "address": "서울특별시 용산구 신계동 48"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "신동아": {
-    "count": 259,
-    "hash": "24a3e",
-    "matched": "신동아",
-    "address": "서울특별시 강동구 명일동 44"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "서울숲 한신 더 휴": {
-    "count": 1064,
-    "hash": "8Id3",
-    "matched": "서울숲한신더휴",
-    "address": "서울특별시 성동구 행당동 349"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "이화102동": {
     "count": 0,
-    "hash": "3Sb45",
-    "matched": "이화골드101동,102동",
-    "address": "인천광역시 남동구 만수동 925-8"
+    "hash": null,
+    "matched": null
   },
   "덕현해밀": {
-    "count": 31,
-    "hash": "al1b",
-    "matched": "덕현해밀",
-    "address": "서울특별시 성동구 용답동 252"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "롯데캐슬파크": {
-    "count": 404,
-    "hash": "a71f",
-    "matched": "성수롯데캐슬파크",
-    "address": "서울특별시 성동구 성수동2가 835"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "텐즈힐(2단지)": {
-    "count": 519,
-    "hash": "9VS32",
-    "matched": "텐즈힐2단지",
-    "address": "서울특별시 성동구 상왕십리동 811"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "신성미소지움": {
-    "count": 18,
-    "hash": "XN03",
-    "matched": "신성미소지움",
-    "address": "서울특별시 양천구 신월동 1020"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "극동그린": {
-    "count": 245,
-    "hash": "9hb0",
-    "matched": "극동그린",
-    "address": "서울특별시 성동구 옥수동 436"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "래미안하이리버": {
-    "count": 725,
-    "hash": "8Z25",
-    "matched": "래미안하이리버",
-    "address": "서울특별시 성동구 금호동2가 1217"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "서울숲행당푸르지오": {
-    "count": 348,
-    "hash": "8y3f",
-    "matched": "서울숲행당푸르지오",
-    "address": "서울특별시 성동구 행당동 376"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "서울숲금강아미움": {
-    "count": 88,
-    "hash": "a13d",
-    "matched": "서울숲금강아미움",
-    "address": "서울특별시 성동구 성수동2가 836"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "텐즈힐(1단지)": {
-    "count": 519,
-    "hash": "9VS32",
-    "matched": "텐즈힐2단지",
-    "address": "서울특별시 성동구 상왕십리동 811"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "쌍용": {
     "count": 0,
-    "hash": "8BQ5c",
-    "matched": "쌍용2",
-    "address": "경상북도 예천군 예천읍 동본리 454-2"
+    "hash": null,
+    "matched": null
   },
   "대림e-편한세상": {
-    "count": 66,
-    "hash": "y197",
-    "matched": "상계대림e편한세상",
-    "address": "서울특별시 노원구 상계동 1301"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "왕십리삼성아파트": {
-    "count": 344,
-    "hash": "8h58",
-    "matched": "왕십리삼성",
-    "address": "서울특별시 성동구 마장동 817"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "벽산": {
-    "count": 44,
-    "hash": "2Rw69",
-    "matched": "벽산",
-    "address": "부산광역시 사하구 장림동 532"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "무학현대": {
-    "count": 150,
-    "hash": "7S9a",
-    "matched": "무학현대",
-    "address": "서울특별시 성동구 하왕십리동 992"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "동아그린": {
-    "count": 330,
-    "hash": "6136",
-    "matched": "동아그린",
-    "address": "서울특별시 용산구 이촌동 411"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "중앙하이츠": {
-    "count": 47,
-    "hash": "aoa2",
-    "matched": "중앙하이츠",
-    "address": "서울특별시 성동구 용답동 15"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "성수1차대우아파트": {
-    "count": 63,
-    "hash": "a661",
-    "matched": "성수1차대우",
-    "address": "서울특별시 성동구 성수동2가 279-50"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "금호베스트빌": {
-    "count": 23,
-    "hash": "ah2f",
-    "matched": "금호베스트빌",
-    "address": "서울특별시 성동구 송정동 103"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "광진코지웰": {
-    "count": 20,
-    "hash": "bzz3e",
-    "matched": "광진코지웰(오)",
-    "address": "서울특별시 광진구 화양동 113-1"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "씨즈건대힐스": {
     "count": 0,
@@ -379,10 +320,9 @@
     "matched": null
   },
   "중곡2단지": {
-    "count": 3,
-    "hash": "2DS48",
-    "matched": "금곡2단지주공",
-    "address": "부산광역시 북구 금곡동 98-1"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "현대8(801동,802동)": {
     "count": 0,
@@ -390,106 +330,89 @@
     "matched": null
   },
   "자양동현대": {
-    "count": 79,
-    "hash": "d4f3",
-    "matched": "자양현대",
-    "address": "서울특별시 광진구 자양동 645-5"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "자양우성7": {
-    "count": 331,
-    "hash": "d54f",
-    "matched": "자양우성3차",
-    "address": "서울특별시 광진구 자양동 516"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "자양호반써밋": {
-    "count": 249,
-    "hash": "dDo7e",
-    "matched": "자양호반써밋",
-    "address": "서울특별시 광진구 자양동 861"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "더샵스타시티": {
-    "count": 721,
-    "hash": "cG59",
-    "matched": "더샵스타시티",
-    "address": "서울특별시 광진구 자양동 227-7"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "삼성베스트빌(31차)": {
-    "count": 2,
-    "hash": "H6cf",
-    "matched": "삼성베스트빌",
-    "address": "서울특별시 은평구 증산동 174-8"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "e편한세상광진그랜드파크": {
-    "count": 630,
-    "hash": "dCk3b",
-    "matched": "e편한세상광진그랜드파크",
-    "address": "서울특별시 광진구 구의동 680"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "자양삼성": {
-    "count": 163,
-    "hash": "cI26",
-    "matched": "자양삼성",
-    "address": "서울특별시 광진구 자양동 787"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "청구": {
-    "count": 229,
-    "hash": "tbd1",
-    "matched": "청구",
-    "address": "서울특별시 도봉구 방학동 734"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "테라팰리스건대2차": {
-    "count": 97,
-    "hash": "dBW83",
-    "matched": "테라팰리스건대2차",
-    "address": "서울특별시 광진구 자양동 860"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "상록타워아파트": {
-    "count": 285,
-    "hash": "cMxdd",
-    "matched": "상록타워",
-    "address": "서울특별시 광진구 광장동 570"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "일성파크": {
-    "count": 278,
-    "hash": "dIec",
-    "matched": "일성파크",
-    "address": "서울특별시 광진구 군자동 99"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "극동2": {
-    "count": 58,
-    "hash": "79r35",
-    "matched": "극동2차",
-    "address": "충청남도 천안시 동남구 청수동 183"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "엘림퍼스트중곡동": {
-    "count": 1,
-    "hash": "ejQ2a",
-    "matched": "엘림퍼스트",
-    "address": "서울특별시 광진구 중곡동 190-29"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "화양현대": {
-    "count": 177,
-    "hash": "dC92",
-    "matched": "화양현대",
-    "address": "서울특별시 광진구 화양동 234"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "우성1": {
-    "count": 17,
-    "hash": "4b195",
-    "matched": "우성1",
-    "address": "광주광역시 서구 화정동 858-4"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "에스케이": {
-    "count": 17,
-    "hash": "oC10",
-    "matched": "에스케이",
-    "address": "서울특별시 성북구 종암동 127"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "현대5": {
-    "count": 127,
-    "hash": "3N1aa",
-    "matched": "현대5차",
-    "address": "인천광역시 연수구 옥련동 639-1"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "자양강변I-Park": {
     "count": 0,
@@ -497,304 +420,254 @@
     "matched": null
   },
   "장안뉴시티": {
-    "count": 49,
-    "hash": "g3f5",
-    "matched": "장안뉴시티",
-    "address": "서울특별시 동대문구 장안동 372-5"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "두산위브": {
-    "count": 918,
-    "hash": "1lj25",
-    "matched": "두산위브",
-    "address": "서울특별시 금천구 가산동 769"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "현대코아": {
-    "count": 195,
-    "hash": "2bd40",
-    "matched": "현대코아",
-    "address": "서울특별시 강동구 천호동 565"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "래미안장안": {
-    "count": 699,
-    "hash": "fv7f",
-    "matched": "래미안장안2차",
-    "address": "서울특별시 동대문구 장안동 329-3"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "래미안위브": {
-    "count": 1940,
-    "hash": "9Wodf",
-    "matched": "래미안위브",
-    "address": "서울특별시 동대문구 답십리동 1003"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "주공2": {
-    "count": 55,
-    "hash": "4ppa1",
-    "matched": "주공2",
-    "address": "대전광역시 동구 판암동 202"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "전농우성": {
-    "count": 570,
-    "hash": "ez9f",
-    "matched": "전농우성",
-    "address": "서울특별시 동대문구 전농동 6"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "래미안 허브리츠": {
-    "count": 594,
-    "hash": "dUf0",
-    "matched": "래미안허브리츠",
-    "address": "서울특별시 동대문구 용두동 792"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "엘림스퀘어3": {
-    "count": 21,
-    "hash": "fMbd6",
-    "matched": "엘림스퀘어1차",
-    "address": "서울특별시 강동구 천호동 452-5"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "롯데캐슬피렌체": {
-    "count": 281,
-    "hash": "dVbb",
-    "matched": "롯데캐슬피렌체",
-    "address": "서울특별시 동대문구 용두동 790"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "장안삼성쉐르빌": {
-    "count": 67,
-    "hash": "g4a6",
-    "matched": "장안삼성쉐르빌",
-    "address": "서울특별시 동대문구 장안동 371-1"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "청계지웰에스테이트": {
-    "count": 15,
-    "hash": "ckBb3",
-    "matched": "청계지웰에스테이트(오)",
-    "address": "서울특별시 동대문구 답십리동 498-7"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "삼익": {
-    "count": 232,
-    "hash": "1njd1",
-    "matched": "삼익",
-    "address": "서울특별시 금천구 시흥동 5-13"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "명경아트빌": {
-    "count": 1,
-    "hash": "ed15",
-    "matched": "명경아트빌",
-    "address": "서울특별시 동대문구 제기동 892-114"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "래미안엘파인아파트": {
-    "count": 339,
-    "hash": "eT03",
-    "matched": "래미안엘파인",
-    "address": "서울특별시 동대문구 답십리동 1000"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "전농동삼성래미안": {
-    "count": 372,
-    "hash": "ewe0",
-    "matched": "전농삼성",
-    "address": "서울특별시 동대문구 전농동 155"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "전농SK": {
-    "count": 880,
-    "hash": "ev76",
-    "matched": "전농SK1차",
-    "address": "서울특별시 동대문구 전농동 10"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "은하수드림빌": {
-    "count": 12,
-    "hash": "g25d",
-    "matched": "은하수드림필",
-    "address": "서울특별시 동대문구 장안동 572"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "장안현대홈타운(336)": {
-    "count": 756,
-    "hash": "gmea",
-    "matched": "장안현대홈타운1차",
-    "address": "서울특별시 동대문구 장안동 336"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "이수브라운스톤": {
-    "count": 112,
-    "hash": "ehb4",
-    "matched": "이수브라운스톤",
-    "address": "서울특별시 동대문구 제기동 252"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "래미안크레시티": {
-    "count": 1483,
-    "hash": "9Wkce",
-    "matched": "래미안크레시티",
-    "address": "서울특별시 동대문구 전농동 690"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "장안힐스테이트": {
-    "count": 477,
-    "hash": "g5a6",
-    "matched": "장안힐스테이트",
-    "address": "서울특별시 동대문구 장안동 329-2"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "래미안이문2차": {
-    "count": 434,
-    "hash": "hQe0",
-    "matched": "래미안이문2차",
-    "address": "서울특별시 동대문구 이문동 311"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "회기힐스테이트": {
-    "count": 138,
-    "hash": "hsb1",
-    "matched": "회기힐스테이트",
-    "address": "서울특별시 동대문구 회기동 351"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "한신": {
-    "count": 421,
-    "hash": "6wQc5",
-    "matched": "한신",
-    "address": "경기도 화성시 병점구 병점동 485"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "르미에르장안타운5차": {
-    "count": 15,
-    "hash": "fyf5",
-    "matched": "르메이에르장안타운6차",
-    "address": "서울특별시 동대문구 장안동 342-3"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "브라운스톤휘경": {
-    "count": 212,
-    "hash": "hy3f",
-    "matched": "브라운스톤휘경",
-    "address": "서울특별시 동대문구 휘경동 368"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "청계한신휴플러스": {
-    "count": 617,
-    "hash": "f2dd",
-    "matched": "청계한신휴플러스",
-    "address": "서울특별시 동대문구 답십리동 1002"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "동서울한양": {
-    "count": 292,
-    "hash": "eN41",
-    "matched": "동서울한양",
-    "address": "서울특별시 동대문구 답십리동 41"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "동대문푸르지오시티(도시형생활주택)": {
-    "count": 248,
-    "hash": "aX555",
-    "matched": "동대문푸르지오시티(도시형)",
-    "address": "서울특별시 동대문구 용두동 104-3"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "태솔아파트5차": {
-    "count": 3,
-    "hash": "e4143",
-    "matched": "태솔5차",
-    "address": "서울특별시 동대문구 장안동 334-3"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "삼희": {
-    "count": 40,
-    "hash": "f72f",
-    "matched": "삼희",
-    "address": "서울특별시 동대문구 답십리동 530-5"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "한신아파트": {
-    "count": 496,
-    "hash": "1mq00",
-    "matched": "한신",
-    "address": "서울특별시 금천구 독산동 1093-4"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "주공1": {
-    "count": 21,
-    "hash": "7fGd6",
-    "matched": "주공1",
-    "address": "충청남도 공주시 신관동 255-3"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "세양청마루": {
-    "count": 47,
-    "hash": "eUa1",
-    "matched": "세양청마루",
-    "address": "서울특별시 동대문구 답십리동 997"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "한강훼미리주상복합아파트": {
-    "count": 14,
-    "hash": "h439",
-    "matched": "한강훼미리",
-    "address": "서울특별시 동대문구 장안동 381-3"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "이편한세상청계센트럴포레": {
-    "count": 888,
-    "hash": "dsjbd",
-    "matched": "e편한세상청계센트럴포레",
-    "address": "서울특별시 동대문구 용두동 795"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "안암골벽산": {
-    "count": 281,
-    "hash": "eef0",
-    "matched": "안암골벽산",
-    "address": "서울특별시 동대문구 제기동 153"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "신이문금호어울림": {
-    "count": 97,
-    "hash": "hS12",
-    "matched": "신이문금호어울림",
-    "address": "서울특별시 동대문구 이문동 428"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "래미안장안2차": {
-    "count": 699,
-    "hash": "fv7f",
-    "matched": "래미안장안2차",
-    "address": "서울특별시 동대문구 장안동 329-3"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "동아": {
-    "count": 47,
-    "hash": "4pI74",
-    "matched": "동아",
-    "address": "대전광역시 동구 자양동 201"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "대림": {
-    "count": 31,
-    "hash": "7Uxae",
-    "matched": "대림",
-    "address": "전라남도 광양시 광양읍 덕례리 1755-1"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "청솔2차우성": {
-    "count": 28,
-    "hash": "f3b3",
-    "matched": "청솔2차우성",
-    "address": "서울특별시 동대문구 답십리동 80-2"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "동성3": {
-    "count": 211,
-    "hash": "lR6f",
-    "matched": "동성3차",
-    "address": "서울특별시 중랑구 신내동 618"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "포시티": {
-    "count": 63,
-    "hash": "jM03",
-    "matched": "포시티(도시형)",
-    "address": "서울특별시 중랑구 상봉동 113-1"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "면목동2차미소지움아파트": {
-    "count": 12,
-    "hash": "ipb3",
-    "matched": "면목동2차미소지움",
-    "address": "서울특별시 중랑구 면목동 1530"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "신내9진흥": {
-    "count": 470,
-    "hash": "m3e1",
-    "matched": "신내9단지진흥",
-    "address": "서울특별시 중랑구 신내동 657"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "대원칸타빌": {
-    "count": 65,
-    "hash": "igc1",
-    "matched": "대원칸타빌",
-    "address": "서울특별시 중랑구 면목동 581"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "동성1": {
-    "count": 10,
-    "hash": "cPj13",
-    "matched": "동성1차",
-    "address": "경상남도 창원시 성산구 신촌동 22-4"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "성원": {
-    "count": 171,
-    "hash": "8qy81",
-    "matched": "성원",
-    "address": "경상북도 구미시 구포동 528"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "엘지,쌍용아파트": {
     "count": 0,
@@ -802,70 +675,59 @@
     "matched": null
   },
   "신성": {
-    "count": 84,
-    "hash": "iJ52",
-    "matched": "신성",
-    "address": "서울특별시 중랑구 면목동 1519"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "용마한신": {
-    "count": 57,
-    "hash": "iO89",
-    "matched": "용마2차한신",
-    "address": "서울특별시 중랑구 면목동 1073"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "면목한신": {
-    "count": 606,
-    "hash": "iB78",
-    "matched": "면목한신",
-    "address": "서울특별시 중랑구 면목동 193-1"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "신내대림아파트": {
-    "count": 5,
-    "hash": "m27b",
-    "matched": "신내아트빌",
-    "address": "서울특별시 중랑구 신내동 450-1"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "건영캐스빌": {
-    "count": 51,
-    "hash": "tr0c",
-    "matched": "건영캐스빌",
-    "address": "서울특별시 도봉구 창동 635-42"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "라온프라이빗": {
-    "count": 299,
-    "hash": "b5vd2",
-    "matched": "면목라온프라이빗",
-    "address": "서울특별시 중랑구 면목동 1544"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "예성그린캐슬": {
-    "count": 45,
-    "hash": "lm31",
-    "matched": "예성그린캐슬",
-    "address": "서울특별시 중랑구 망우동 577"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "공감대": {
-    "count": 48,
-    "hash": "kt5e",
-    "matched": "공감대",
-    "address": "서울특별시 중랑구 묵동 171-4"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "경원": {
-    "count": 11,
-    "hash": "ml55",
-    "matched": "경원",
-    "address": "서울특별시 중랑구 신내동 449-1"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "신내6대주": {
-    "count": 940,
-    "hash": "m47f",
-    "matched": "신내6단지시영",
-    "address": "서울특별시 중랑구 신내동 650"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "신내 데시앙포레": {
-    "count": 399,
-    "hash": "m83d",
-    "matched": "신내데시앙포레",
-    "address": "서울특별시 중랑구 신내동 817"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "우정아파트": {
     "count": 0,
@@ -873,10 +735,9 @@
     "matched": null
   },
   "용마금호타운": {
-    "count": 145,
-    "hash": "iP00",
-    "matched": "용마금호타운",
-    "address": "서울특별시 중랑구 면목동 494"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "한신아파트상가동유치원동(103~109)": {
     "count": 0,
@@ -884,10 +745,9 @@
     "matched": null
   },
   "사가정센트럴아이파크": {
-    "count": 1034,
-    "hash": "b5f46",
-    "matched": "사가정센트럴아이파크",
-    "address": "서울특별시 중랑구 면목동 1545"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "동성아파트": {
     "count": 0,
@@ -895,52 +755,44 @@
     "matched": null
   },
   "건영2차아파트": {
-    "count": 840,
-    "hash": "jr6e",
-    "matched": "건영2차",
-    "address": "서울특별시 중랑구 신내동 785"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "금호어울림(580)": {
-    "count": 35,
-    "hash": "kr78",
-    "matched": "금호어울림",
-    "address": "서울특별시 중랑구 묵동 386"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "묵동자이(1단지)": {
-    "count": 61,
-    "hash": "kDaa",
-    "matched": "묵동자이1단지",
-    "address": "서울특별시 중랑구 묵동 164-4"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "신내우디안1단지": {
-    "count": 402,
-    "hash": "m74d",
-    "matched": "신내우디안1단지",
-    "address": "서울특별시 중랑구 신내동 816"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "금호어울림(580-1)": {
-    "count": 35,
-    "hash": "kr78",
-    "matched": "금호어울림",
-    "address": "서울특별시 중랑구 묵동 386"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "금호어울림": {
-    "count": 35,
-    "hash": "kr78",
-    "matched": "금호어울림",
-    "address": "서울특별시 중랑구 묵동 386"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "솔렌시아3(85-1)": {
-    "count": 9,
-    "hash": "eAE1b",
-    "matched": "솔렌시아3(오)",
-    "address": "서울특별시 중랑구 상봉동 85-1"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "마젤란21": {
-    "count": 62,
-    "hash": "4pu0e",
-    "matched": "마젤란21",
-    "address": "대전광역시 동구 용운동 598"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "화성.두산아파트": {
     "count": 0,
@@ -948,28 +800,24 @@
     "matched": null
   },
   "이편한세상화랑대": {
-    "count": 543,
-    "hash": "aDk68",
-    "matched": "e편한세상화랑대",
-    "address": "서울특별시 중랑구 묵동 396"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "한일써너스빌": {
-    "count": 271,
-    "hash": "jK15",
-    "matched": "한일써너스빌",
-    "address": "서울특별시 중랑구 상봉동 81-5"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "두산1": {
     "count": 0,
-    "hash": "8kP0e",
-    "matched": "두산1",
-    "address": "경상북도 구미시 형곡동 318-4"
+    "hash": null,
+    "matched": null
   },
   "남청파인힐(101동)": {
-    "count": 27,
-    "hash": "ie65",
-    "matched": "남청파인힐",
-    "address": "서울특별시 중랑구 면목동 1526"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "진로아파트": {
     "count": 0,
@@ -977,214 +825,179 @@
     "matched": null
   },
   "데시앙": {
-    "count": 1,
-    "hash": "4EG7b",
-    "matched": "데시앙",
-    "address": "울산광역시 중구 성안동 791-6"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "신내": {
-    "count": 283,
-    "hash": "mm7d",
-    "matched": "신내데시앙",
-    "address": "서울특별시 중랑구 신내동 317"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "동부아파트": {
-    "count": 193,
-    "hash": "ju12",
-    "matched": "동부",
-    "address": "서울특별시 중랑구 상봉동 495"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "망우": {
-    "count": 2,
-    "hash": "lA57",
-    "matched": "망우",
-    "address": "서울특별시 중랑구 망우동 184-6"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "건영2차": {
-    "count": 840,
-    "hash": "jr6e",
-    "matched": "건영2차",
-    "address": "서울특별시 중랑구 신내동 785"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "프레미어스엠코": {
-    "count": 373,
-    "hash": "jB61",
-    "matched": "상봉프레미어스엠코",
-    "address": "서울특별시 중랑구 상봉동 500"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "동광오뜨빌": {
-    "count": 8,
-    "hash": "lN8d",
-    "matched": "동광오뜨빌",
-    "address": "서울특별시 중랑구 신내동 800"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "미랜드프래임빌(102동)": {
-    "count": 6,
-    "hash": "jxf8",
-    "matched": "미랜드프래임빌",
-    "address": "서울특별시 중랑구 상봉동 115-31"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "신내11대명": {
-    "count": 253,
-    "hash": "m038",
-    "matched": "신내11단지대명",
-    "address": "서울특별시 중랑구 신내동 661"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "석탑": {
-    "count": 58,
-    "hash": "lY5e",
-    "matched": "석탑",
-    "address": "서울특별시 중랑구 신내동 787"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "신내두산아파트": {
-    "count": 5,
-    "hash": "m27b",
-    "matched": "신내아트빌",
-    "address": "서울특별시 중랑구 신내동 450-1"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "건영1": {
-    "count": 344,
-    "hash": "1y0a6",
-    "matched": "건영1차",
-    "address": "서울특별시 관악구 신림동 746-43"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "신안2": {
-    "count": 1,
-    "hash": "7KG92",
-    "matched": "신안",
-    "address": "전라남도 목포시 산정동 305-2"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "태영데시앙1": {
-    "count": 13,
-    "hash": "8Slb8",
-    "matched": "태영데시앙",
-    "address": "경상남도 창원시 진해구 부흥동 1-1"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "경남": {
-    "count": 74,
-    "hash": "rE56",
-    "matched": "경남",
-    "address": "서울특별시 도봉구 쌍문동 73"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "망우역신원아침도시": {
-    "count": 134,
-    "hash": "dXvae",
-    "matched": "망우역신원아침도시",
-    "address": "서울특별시 중랑구 신내동 838"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "현대아이파크": {
-    "count": 91,
-    "hash": "10F42",
-    "matched": "현대아이파크",
-    "address": "서울특별시 강서구 염창동 282-19"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "면목동금호어울림아파트": {
-    "count": 68,
-    "hash": "iq59",
-    "matched": "면목금호어울림",
-    "address": "서울특별시 중랑구 면목동 1528"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "다우훼밀리": {
-    "count": 68,
-    "hash": "lL58",
-    "matched": "다우훼밀리",
-    "address": "서울특별시 중랑구 신내동 796"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "경남아너스빌": {
-    "count": 82,
-    "hash": "2Ef95",
-    "matched": "경남아너스빌",
-    "address": "부산광역시 북구 화명동 196"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "효산센터빌": {
-    "count": 5,
-    "hash": "kV5e",
-    "matched": "효산센터빌",
-    "address": "서울특별시 중랑구 묵동 391"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "범양프레체": {
-    "count": 5,
-    "hash": "boG6f",
-    "matched": "중화범양프레체(오)",
-    "address": "서울특별시 중랑구 중화동 208-4"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "대우": {
-    "count": 70,
-    "hash": "rw2e",
-    "matched": "대우",
-    "address": "서울특별시 강북구 우이동 342"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "길음뉴타운5단지(래미안)": {
-    "count": 371,
-    "hash": "ok7b",
-    "matched": "길음뉴타운5단지래미안",
-    "address": "서울특별시 성북구 길음동 1282"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "돈암동일하이빌": {
-    "count": 96,
-    "hash": "mR3f",
-    "matched": "돈암동일하이빌",
-    "address": "서울특별시 성북구 동소문동5가 120"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "풍산쉐르빌(815-1)": {
     "count": 0,
-    "hash": "o555",
-    "matched": "풍산쉐르빌",
-    "address": "서울특별시 성북구 정릉동 815-1"
+    "hash": null,
+    "matched": null
   },
   "보문리슈빌하우트": {
-    "count": 488,
-    "hash": "dCP88",
-    "matched": "보문리슈빌하우트",
-    "address": "서울특별시 성북구 보문동1가 228"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "길음뉴타운1단지(래미안길음1차)": {
-    "count": 764,
-    "hash": "ojda",
-    "matched": "길음뉴타운8단지래미안",
-    "address": "서울특별시 성북구 길음동 1284"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "길음뉴타운데시앙": {
-    "count": 306,
-    "hash": "nHc5",
-    "matched": "길음뉴타운데시앙",
-    "address": "서울특별시 성북구 정릉동 1018"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "돈암동삼성": {
-    "count": 842,
-    "hash": "mt60",
-    "matched": "돈암삼성",
-    "address": "서울특별시 성북구 돈암동 15-1"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "월곡두산위브": {
-    "count": 1215,
-    "hash": "p63e",
-    "matched": "월곡두산위브",
-    "address": "서울특별시 성북구 하월곡동 222"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "정릉푸르지오": {
-    "count": 124,
-    "hash": "nTfb",
-    "matched": "정릉푸르지오",
-    "address": "서울특별시 성북구 정릉동 406"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "안암동삼성래미안": {
-    "count": 243,
-    "hash": "2q609",
-    "matched": "부암삼성래미안",
-    "address": "부산광역시 부산진구 부암동 500"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "래미안크리시엘": {
-    "count": 809,
-    "hash": "oz5e",
-    "matched": "래미안크리시엘",
-    "address": "서울특별시 성북구 종암동 80"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "정릉풍림아이원": {
-    "count": 1184,
-    "hash": "nU27",
-    "matched": "정릉풍림아이원",
-    "address": "서울특별시 성북구 정릉동 239"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "한진(609-1)": {
     "count": 0,
@@ -1192,52 +1005,44 @@
     "matched": null
   },
   "이수브라운스톤돈암": {
-    "count": 578,
-    "hash": "mF0f",
-    "matched": "브라운스톤돈암",
-    "address": "서울특별시 성북구 돈암동 636"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "래미안월곡": {
-    "count": 1018,
-    "hash": "oV04",
-    "matched": "래미안월곡",
-    "address": "서울특별시 성북구 하월곡동 225"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "중앙하이츠빌2단지": {
-    "count": 299,
-    "hash": "o1f1",
-    "matched": "중앙하이츠빌2단지",
-    "address": "서울특별시 성북구 정릉동 435"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "동아에코빌": {
-    "count": 97,
-    "hash": "uH82",
-    "matched": "동아에코빌",
-    "address": "서울특별시 도봉구 도봉동 654"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "코오롱": {
-    "count": 17,
-    "hash": "86t04",
-    "matched": "코오롱",
-    "address": "경상북도 포항시 북구 학산동 192-1"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "돈암동해피트리": {
-    "count": 83,
-    "hash": "mx01",
-    "matched": "돈암동해피트리",
-    "address": "서울특별시 성북구 돈암동 642"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "정릉e-편한세상": {
-    "count": 352,
-    "hash": "nI94",
-    "matched": "정릉2차e편한세상",
-    "address": "서울특별시 성북구 정릉동 1035"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "길음뉴타운8단지(래미안)": {
-    "count": 764,
-    "hash": "ojda",
-    "matched": "길음뉴타운8단지래미안",
-    "address": "서울특별시 성북구 길음동 1284"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "삼부컨비니언": {
     "count": 0,
@@ -1245,106 +1050,89 @@
     "matched": null
   },
   "한신플러스C": {
-    "count": 263,
-    "hash": "aA714",
-    "matched": "한신휴플러스",
-    "address": "경상북도 구미시 상모동 541"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "길음뉴타운6단지(래미안)": {
-    "count": 566,
-    "hash": "of02",
-    "matched": "길음뉴타운6단지래미안",
-    "address": "서울특별시 성북구 길음동 1283"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "래미안장위퍼스트하이": {
-    "count": 1422,
-    "hash": "aYSba",
-    "matched": "래미안장위퍼스트하이",
-    "address": "서울특별시 성북구 장위동 320"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "길음역금호어울림센터힐": {
-    "count": 235,
-    "hash": "9WP9e",
-    "matched": "길음역금호어울림센터힐",
-    "address": "서울특별시 성북구 돈암동 643"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "성북힐스테이트(101동)": {
-    "count": 14,
-    "hash": "cdI23",
-    "matched": "성북힐스테이트(오)",
-    "address": "서울특별시 성북구 하월곡동 88-64"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "범양": {
-    "count": 391,
-    "hash": "mE67",
-    "matched": "범양",
-    "address": "서울특별시 성북구 돈암동 631"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "석계역한일노벨리아시티": {
-    "count": 81,
-    "hash": "fOZ9a",
-    "matched": "석계역한일노벨리아시티",
-    "address": "서울특별시 성북구 장위동 8-2"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "종암선경": {
-    "count": 372,
-    "hash": "5IG96",
-    "matched": "선경",
-    "address": "경기도 안산시 상록구 성포동 592"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "돈암현대아파트": {
-    "count": 353,
-    "hash": "mA22",
-    "matched": "돈암현대",
-    "address": "서울특별시 성북구 돈암동 1"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "월곡래미안루나밸리": {
-    "count": 506,
-    "hash": "p71f",
-    "matched": "월곡래미안루나밸리",
-    "address": "서울특별시 성북구 하월곡동 226"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "종암2차SKVIEW": {
-    "count": 174,
-    "hash": "oE49",
-    "matched": "종암2차SK뷰",
-    "address": "서울특별시 성북구 종암동 135"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "일신건영휴먼빌아파트": {
-    "count": 183,
-    "hash": "mI47",
-    "matched": "돈암일신건영휴먼빌",
-    "address": "서울특별시 성북구 돈암동 524"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "돈암코오롱하늘채": {
-    "count": 226,
-    "hash": "aCA96",
-    "matched": "돈암코오롱하늘채",
-    "address": "서울특별시 성북구 돈암동 644"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "고려": {
-    "count": 19,
-    "hash": "Nk06",
-    "matched": "고려",
-    "address": "서울특별시 마포구 도화동 544"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "래미안세레니티": {
-    "count": 548,
-    "hash": "ox6d",
-    "matched": "래미안세레니티",
-    "address": "서울특별시 성북구 종암동 133"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "아이파크종암동2차": {
-    "count": 356,
-    "hash": "oBdc",
-    "matched": "종암아이파크1차",
-    "address": "서울특별시 성북구 종암동 130"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "이편한세상보문": {
-    "count": 266,
-    "hash": "nu4f",
-    "matched": "e편한세상보문1단지",
-    "address": "서울특별시 성북구 보문동3가 230"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "돈암동 풍림아파트 101~105동": {
     "count": 0,
@@ -1352,10 +1140,9 @@
     "matched": null
   },
   "정릉푸른마을동아": {
-    "count": 204,
-    "hash": "o49e",
-    "matched": "푸른마을동아",
-    "address": "서울특별시 성북구 정릉동 210"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "정릉우성아파트 101~105동": {
     "count": 0,
@@ -1363,160 +1150,134 @@
     "matched": null
   },
   "래미안길음센터피스": {
-    "count": 1156,
-    "hash": "aQr4c",
-    "matched": "래미안길음센터피스",
-    "address": "서울특별시 성북구 길음동 1288"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "길음뉴타운9단지(래미안)": {
-    "count": 398,
-    "hash": "og96",
-    "matched": "길음뉴타운9단지래미안",
-    "address": "서울특별시 성북구 길음동 1286"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "우방": {
-    "count": 154,
-    "hash": "1yU68",
-    "matched": "우방",
-    "address": "서울특별시 관악구 신림동 1715"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "꿈의숲아이파크": {
-    "count": 1049,
-    "hash": "dpTba",
-    "matched": "꿈의숲아이파크",
-    "address": "서울특별시 성북구 장위동 323"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "길음뉴타운2단지푸르지오": {
-    "count": 1059,
-    "hash": "oi6d",
-    "matched": "길음뉴타운2단지푸르지오",
-    "address": "서울특별시 성북구 길음동 1280"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "정릉꿈에그린": {
-    "count": 220,
-    "hash": "9WX67",
-    "matched": "정릉꿈에그린",
-    "address": "서울특별시 성북구 정릉동 1037"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "꿈의숲푸르지오": {
-    "count": 844,
-    "hash": "oSa5",
-    "matched": "꿈의숲푸르지오",
-    "address": "서울특별시 성북구 하월곡동 228"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "길음동동부센트레빌(1278-0)": {
-    "count": 934,
-    "hash": "old5",
-    "matched": "길음동부센트레빌",
-    "address": "서울특별시 성북구 길음동 1278"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "정릉힐스테이트": {
-    "count": 165,
-    "hash": "nYd8",
-    "matched": "정릉힐스테이트",
-    "address": "서울특별시 성북구 정릉동 1025"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "수유벽산1차": {
-    "count": 354,
-    "hash": "qY21",
-    "matched": "수유벽산1차",
-    "address": "서울특별시 강북구 수유동 205"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "푸르지오시티": {
-    "count": 203,
-    "hash": "c1Gcf",
-    "matched": "푸르지오시티",
-    "address": "인천광역시 남동구 논현동 650-1"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "에스케이북한산시티": {
-    "count": 3002,
-    "hash": "q194",
-    "matched": "SK북한산시티",
-    "address": "서울특별시 강북구 미아동 1353"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "래미안수유": {
-    "count": 133,
-    "hash": "qQa7",
-    "matched": "수유래미안",
-    "address": "서울특별시 강북구 수유동 730"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "번동솔그린": {
-    "count": 110,
-    "hash": "ql50",
-    "matched": "번동솔그린",
-    "address": "서울특별시 강북구 번동 136"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "꿈의숲해링턴플레이스": {
-    "count": 848,
-    "hash": "b5V4d",
-    "matched": "꿈의숲해링턴플레이스",
-    "address": "서울특별시 강북구 미아동 1369"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "주공1단지": {
-    "count": 20,
-    "hash": "8gXa8",
-    "matched": "주공1단지",
-    "address": "경상북도 안동시 용상동 985-1"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "삼각산아이원": {
-    "count": 696,
-    "hash": "pRc3",
-    "matched": "삼각산아이원",
-    "address": "서울특별시 강북구 미아동 1357"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "두산위브트레지움": {
-    "count": 734,
-    "hash": "pCf5",
-    "matched": "두산위브트레지움",
-    "address": "서울특별시 강북구 미아동 811"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "주공4단지": {
-    "count": 1202,
-    "hash": "57tc8",
-    "matched": "주공4단지",
-    "address": "경기도 수원시 팔달구 우만동 300"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "벽산라이브파크": {
-    "count": 1300,
-    "hash": "pO29",
-    "matched": "벽산라이브파크",
-    "address": "서울특별시 강북구 미아동 1354"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "경남아너스빌(1356-0)": {
-    "count": 354,
-    "hash": "py4a",
-    "matched": "경남아너스빌",
-    "address": "서울특별시 강북구 미아동 1356"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "한솔솔파크": {
-    "count": 53,
-    "hash": "qB1f",
-    "matched": "한솔솔파크",
-    "address": "서울특별시 강북구 번동 138"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "기산그린": {
-    "count": 79,
-    "hash": "qge7",
-    "matched": "기산그린",
-    "address": "서울특별시 강북구 번동 191"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "삼성래미안트리베라2단지": {
-    "count": 572,
-    "hash": "pT55",
-    "matched": "삼성래미안트리베라2차",
-    "address": "서울특별시 강북구 미아동 812"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "선덕빌라트아파트": {
-    "count": 1,
-    "hash": "sW71",
-    "matched": "선덕빌라트",
-    "address": "서울특별시 도봉구 방학동 519-1"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "주공19단지(창동리버타운)": {
-    "count": 748,
-    "hash": "9Xo54",
-    "matched": "주공19단지",
-    "address": "서울특별시 도봉구 창동 33"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "청구아파트": {
     "count": 0,
@@ -1524,256 +1285,214 @@
     "matched": null
   },
   "삼익세라믹아파트": {
-    "count": 82,
-    "hash": "sV1c",
-    "matched": "삼익세라믹",
-    "address": "서울특별시 도봉구 방학동 274"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "래미안도봉": {
-    "count": 149,
-    "hash": "uI18",
-    "matched": "도봉래미안",
-    "address": "서울특별시 도봉구 도봉동 655"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "서원": {
-    "count": 604,
-    "hash": "uO6f",
-    "matched": "서원",
-    "address": "서울특별시 도봉구 도봉동 641"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "주공17단지": {
-    "count": 923,
-    "hash": "tWfa",
-    "matched": "주공17단지",
-    "address": "서울특별시 도봉구 창동 38"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "신동아아파트1": {
-    "count": 740,
-    "hash": "t235",
-    "matched": "신동아1단지",
-    "address": "서울특별시 도봉구 방학동 272"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "동아청솔": {
-    "count": 829,
-    "hash": "tz7e",
-    "matched": "동아청솔",
-    "address": "서울특별시 도봉구 창동 808"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "한양2": {
-    "count": 379,
-    "hash": "1Y4f9",
-    "matched": "한양2차",
-    "address": "서울특별시 송파구 송파동 151"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "한솔캐스빌": {
     "count": 0,
-    "hash": "so79",
-    "matched": "한솔캐스빌",
-    "address": "서울특별시 도봉구 쌍문동 128-2"
+    "hash": null,
+    "matched": null
   },
   "삼익세라믹": {
-    "count": 337,
-    "hash": "rP39",
-    "matched": "삼익세라믹",
-    "address": "서울특별시 도봉구 쌍문동 56"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "쌍문동삼성래미안": {
-    "count": 123,
-    "hash": "s70c",
-    "matched": "쌍문삼성래미안",
-    "address": "서울특별시 도봉구 쌍문동 725"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "창동주공3단지(해등마을)": {
-    "count": 1062,
-    "hash": "ub10",
-    "matched": "창동주공3단지",
-    "address": "서울특별시 도봉구 창동 347"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "성원상떼빌": {
-    "count": 25,
-    "hash": "9ND13",
-    "matched": "성원상떼빌",
-    "address": "충청북도 청주시 청원구 율량동 1204"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "우성아파트1": {
-    "count": 2,
-    "hash": "9rd0c",
-    "matched": "성우아파트",
-    "address": "경상남도 합천군 합천읍 합천리 704"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "한양6": {
-    "count": 43,
-    "hash": "1Vae0",
-    "matched": "한양6차",
-    "address": "서울특별시 강남구 압구정동 484"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "초안산신도브래뉴": {
-    "count": 32,
-    "hash": "uq0c",
-    "matched": "초안산신도브래뉴",
-    "address": "서울특별시 도봉구 창동 821"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "방학동삼성래미안1": {
-    "count": 140,
-    "hash": "sQ8a",
-    "matched": "방학삼성래미안1단지",
-    "address": "서울특별시 도봉구 방학동 720-18"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "신동아아파트2": {
-    "count": 16,
-    "hash": "7PM69",
-    "matched": "신동아",
-    "address": "전라남도 여수시 봉계동 2"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "창동한승미메이드": {
-    "count": 25,
-    "hash": "ue38",
-    "matched": "창동한승미메이드",
-    "address": "서울특별시 도봉구 창동 824"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "양우내안애": {
-    "count": 85,
-    "hash": "aO900",
-    "matched": "양우내안애",
-    "address": "충청남도 서산시 읍내동 873"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "도봉파크빌3": {
-    "count": 91,
-    "hash": "uE32",
-    "matched": "도봉파크빌3단지",
-    "address": "서울특별시 도봉구 도봉동 644"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "스마트트라움": {
-    "count": 2,
-    "hash": "fCf85",
-    "matched": "스마트트라움",
-    "address": "서울특별시 중랑구 상봉동 128-34"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "한양7": {
-    "count": 96,
-    "hash": "sp50",
-    "matched": "한양7차",
-    "address": "서울특별시 도봉구 쌍문동 158"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "성진파크뷰아파트": {
-    "count": 14,
-    "hash": "dGu67",
-    "matched": "성진뉴파크뷰",
-    "address": "서울특별시 도봉구 방학동 741"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "창동현대4차": {
-    "count": 63,
-    "hash": "uga9",
-    "matched": "창동현대4차",
-    "address": "서울특별시 도봉구 창동 818"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "방학동삼성래미안2": {
-    "count": 72,
-    "hash": "sP31",
-    "matched": "방학삼성래미안2단지",
-    "address": "서울특별시 도봉구 방학동 715-12"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "북한산코오롱하늘채": {
-    "count": 85,
-    "hash": "rM8d",
-    "matched": "북한산코오롱하늘채",
-    "address": "서울특별시 도봉구 쌍문동 732"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "극동": {
-    "count": 158,
-    "hash": "8HId1",
-    "matched": "극동",
-    "address": "경상남도 창원시 의창구 팔용동 124-1"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "벽산아파트2": {
-    "count": 49,
-    "hash": "71994",
-    "matched": "남산아파트",
-    "address": "충청북도 충주시 교현동 1083"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "창동2차현대": {
-    "count": 158,
-    "hash": "u172",
-    "matched": "창동현대2차",
-    "address": "서울특별시 도봉구 창동 815"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "현대1": {
-    "count": 3,
-    "hash": "8hbfe",
-    "matched": "현대1",
-    "address": "경상북도 안동시 용상동 570-3"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "금호1": {
-    "count": 41,
-    "hash": "gz05b",
-    "matched": "금호16구역",
-    "address": "서울특별시 성동구 금호동2가 501-31"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "상계주공1(고층)": {
-    "count": 748,
-    "hash": "yf44",
-    "matched": "상계주공1단지",
-    "address": "서울특별시 노원구 상계동 765"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "삼익포레스트아파트": {
-    "count": 263,
-    "hash": "wec4",
-    "matched": "삼익포레스트",
-    "address": "서울특별시 노원구 공릉동 737"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "현대1(4차)": {
-    "count": 12,
-    "hash": "yZc9",
-    "matched": "현대4차",
-    "address": "서울특별시 노원구 상계동 1271"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "노원롯데캐슬시그니처": {
-    "count": 1147,
-    "hash": "dMkc4",
-    "matched": "노원롯데캐슬시그니처",
-    "address": "서울특별시 노원구 상계동 1410"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "상계주공13(고층)": {
-    "count": 267,
-    "hash": "yg5a",
-    "matched": "상계주공13단지",
-    "address": "서울특별시 노원구 상계동 637"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "두산힐스빌아파트": {
-    "count": 235,
-    "hash": "vK15",
-    "matched": "공릉두산힐스빌",
-    "address": "서울특별시 노원구 공릉동 747"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "태릉해링턴플레이스": {
-    "count": 773,
-    "hash": "ctW6f",
-    "matched": "태릉해링턴플레이스",
-    "address": "서울특별시 노원구 공릉동 758"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "초안산쌍용스윗닷홈": {
-    "count": 42,
-    "hash": "vq68",
-    "matched": "초안산쌍용스윗닷홈",
-    "address": "서울특별시 노원구 월계동 945"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "삼익4단지아파트": {
-    "count": 203,
-    "hash": "wfef",
-    "matched": "공릉삼익4단지",
-    "address": "서울특별시 노원구 공릉동 714"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "성북역신도브래뉴": {
-    "count": 43,
-    "hash": "v72b",
-    "matched": "성북역신도브래뉴",
-    "address": "서울특별시 노원구 월계동 941"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "보람아파트": {
-    "count": 1010,
-    "hash": "xP9f",
-    "matched": "보람",
-    "address": "서울특별시 노원구 상계동 639"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "태강아파트(아이파크)": {
     "count": 0,
@@ -1781,10 +1500,9 @@
     "matched": null
   },
   "상계주공16(고층)": {
-    "count": 1000,
-    "hash": "yee3",
-    "matched": "상계주공16단지",
-    "address": "서울특별시 노원구 상계동 624"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "신동아(366)": {
     "count": 0,
@@ -1792,148 +1510,124 @@
     "matched": null
   },
   "상계주공12(고층)": {
-    "count": 500,
-    "hash": "yp6e",
-    "matched": "상계주공12단지",
-    "address": "서울특별시 노원구 상계동 647"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "동아불암": {
-    "count": 153,
-    "hash": "xG09",
-    "matched": "동아불암",
-    "address": "서울특별시 노원구 상계동 1285"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "상계주공6(고층)": {
-    "count": 1190,
-    "hash": "9XK8d",
-    "matched": "상계주공6단지",
-    "address": "서울특별시 노원구 상계동 720"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "동신": {
-    "count": 583,
-    "hash": "v0fe",
-    "matched": "동신",
-    "address": "서울특별시 노원구 월계동 436"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "상계주공4(고층)": {
-    "count": 721,
-    "hash": "yq24",
-    "matched": "상계주공4단지",
-    "address": "서울특별시 노원구 상계동 749-5"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "청백4": {
-    "count": 197,
-    "hash": "vpd1",
-    "matched": "청백4단지",
-    "address": "서울특별시 노원구 월계동 781"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "하계2현대": {
-    "count": 307,
-    "hash": "xjd4",
-    "matched": "하계2차현대",
-    "address": "서울특별시 노원구 하계동 288"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "현대(6차)": {
-    "count": 119,
-    "hash": "9XP95",
-    "matched": "현대6차",
-    "address": "서울특별시 노원구 중계동 34-5"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "양우": {
-    "count": 137,
-    "hash": "1iX29",
-    "matched": "양우",
-    "address": "서울특별시 구로구 고척동 328"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "은빛2단지": {
-    "count": 461,
-    "hash": "yKb5",
-    "matched": "은빛2단지",
-    "address": "서울특별시 노원구 상계동 1256"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "테라파크뷰": {
-    "count": 1083,
-    "hash": "5dJc0",
-    "matched": "파크뷰",
-    "address": "경기도 성남시 분당구 정자동 6"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "대동아파트": {
-    "count": 61,
-    "hash": "uZ2b",
-    "matched": "대동",
-    "address": "서울특별시 노원구 월계동 925"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "미라쉘": {
-    "count": 51,
-    "hash": "cdFc7",
-    "matched": "미라쉘",
-    "address": "서울특별시 서초구 우면동 765"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "한일휴니스빌": {
-    "count": 61,
-    "hash": "wX75",
-    "matched": "한일휴니스빌(도시형)",
-    "address": "서울특별시 노원구 공릉동 683-14"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "상계주공9(고층)": {
-    "count": 829,
-    "hash": "yd56",
-    "matched": "상계주공9단지",
-    "address": "서울특별시 노원구 상계동 670"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "상계대림": {
-    "count": 189,
-    "hash": "y27a",
-    "matched": "상계대림",
-    "address": "서울특별시 노원구 상계동 172"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "한진한화그랑빌": {
-    "count": 1599,
-    "hash": "uY5d",
-    "matched": "월계한진한화그랑빌",
-    "address": "서울특별시 노원구 월계동 18"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "시영2단지(라이프)아파트": {
-    "count": 293,
-    "hash": "vQd8",
-    "matched": "공릉2단지라이프",
-    "address": "서울특별시 노원구 공릉동 707"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "노원센트럴푸르지오": {
-    "count": 535,
-    "hash": "b5F68",
-    "matched": "노원센트럴푸르지오",
-    "address": "서울특별시 노원구 상계동 1355"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "현대(3차)": {
-    "count": 23,
-    "hash": "4SO6b",
-    "matched": "현대3차",
-    "address": "울산광역시 동구 화정동 851-3"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "상아": {
-    "count": 251,
-    "hash": "4xef4",
-    "matched": "상아",
-    "address": "대전광역시 서구 만년동 1"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "현대그린": {
-    "count": 52,
-    "hash": "A6c4",
-    "matched": "현대그린",
-    "address": "서울특별시 노원구 중계동 49"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "비선아파트": {
-    "count": 344,
-    "hash": "wbf6",
-    "matched": "비선",
-    "address": "서울특별시 노원구 공릉동 109"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "상계주공10(고층)": {
-    "count": 805,
-    "hash": "yhec",
-    "matched": "상계주공10단지",
-    "address": "서울특별시 노원구 상계동 666"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "풍림아파트A": {
     "count": 0,
@@ -1941,124 +1635,104 @@
     "matched": null
   },
   "미성": {
-    "count": 236,
-    "hash": "a101a",
-    "matched": "미성",
-    "address": "서울특별시 영등포구 여의도동 37-1"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "청솔아파트8": {
-    "count": 120,
-    "hash": "wIf3",
-    "matched": "청솔8단지",
-    "address": "서울특별시 노원구 공릉동 91"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "삼호3": {
-    "count": 59,
-    "hash": "1CF00",
-    "matched": "삼호3차",
-    "address": "서울특별시 서초구 방배동 759-3"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "상계주공2(저층)": {
-    "count": 589,
-    "hash": "9XL89",
-    "matched": "상계주공2단지",
-    "address": "서울특별시 노원구 상계동 746-5"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "임광": {
-    "count": 143,
-    "hash": "yL89",
-    "matched": "임광",
-    "address": "서울특별시 노원구 상계동 694"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "주공5": {
-    "count": 86,
-    "hash": "4pkcb",
-    "matched": "주공5",
-    "address": "대전광역시 동구 판암동 237"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "양지마을(대림)2": {
-    "count": 150,
-    "hash": "5Jp90",
-    "matched": "양지마을",
-    "address": "경기도 안산시 단원구 고잔동 780"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "미도": {
-    "count": 218,
-    "hash": "xKb2",
-    "matched": "미도",
-    "address": "서울특별시 노원구 상계동 766-1"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "미륭": {
-    "count": 56,
-    "hash": "3G1f8",
-    "matched": "미륭",
-    "address": "인천광역시 동구 화수동 2-7"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "중계3벽산": {
-    "count": 81,
-    "hash": "zMa3",
-    "matched": "중계우성3차",
-    "address": "서울특별시 노원구 중계동 585"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "상계주공14(고층)": {
-    "count": 826,
-    "hash": "ylb1",
-    "matched": "상계주공14단지",
-    "address": "서울특별시 노원구 상계동 626"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "중계무지개": {
-    "count": 1103,
-    "hash": "9XS8a",
-    "matched": "중계무지개",
-    "address": "서울특별시 노원구 중계동 513"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "학여울청구": {
-    "count": 681,
-    "hash": "xlcb",
-    "matched": "학여울청구",
-    "address": "서울특별시 노원구 하계동 354"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "상계주공3(저층)": {
-    "count": 1002,
-    "hash": "ya36",
-    "matched": "상계주공3단지",
-    "address": "서울특별시 노원구 상계동 737"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "중계그린1단지": {
-    "count": 1926,
-    "hash": "zS53",
-    "matched": "중계그린",
-    "address": "서울특별시 노원구 중계동 502-1"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "은빛1단지": {
-    "count": 457,
-    "hash": "yI06",
-    "matched": "은빛1단지",
-    "address": "서울특별시 노원구 상계동 1255"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "공릉동한보에센시티아파트": {
-    "count": 165,
-    "hash": "vM08",
-    "matched": "한보에센시티",
-    "address": "서울특별시 노원구 공릉동 743"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "롯데캐슬루나": {
-    "count": 413,
-    "hash": "v2c5",
-    "matched": "롯데캐슬루나",
-    "address": "서울특별시 노원구 월계동 947"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "상계주공2(고층)": {
-    "count": 589,
-    "hash": "9XL89",
-    "matched": "상계주공2단지",
-    "address": "서울특별시 노원구 상계동 746-5"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "상계주공7(고층)": {
-    "count": 983,
-    "hash": "ycc9",
-    "matched": "상계주공7단지",
-    "address": "서울특별시 노원구 상계동 692"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "시영3차(라이프)아파트": {
     "count": 0,
@@ -2066,94 +1740,79 @@
     "matched": null
   },
   "한신1차": {
-    "count": 108,
-    "hash": "yW51",
-    "matched": "한신1차",
-    "address": "서울특별시 노원구 상계동 135"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "상계신동아": {
-    "count": 71,
-    "hash": "y823",
-    "matched": "상계신동아",
-    "address": "서울특별시 노원구 상계동 463"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "동진": {
-    "count": 78,
-    "hash": "zq50",
-    "matched": "동진",
-    "address": "서울특별시 노원구 중계동 103"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "공릉2신도브래뉴아파트": {
-    "count": 46,
-    "hash": "vH3e",
-    "matched": "공릉2차신도브래뉴",
-    "address": "서울특별시 노원구 공릉동 749"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "우국리더스빌": {
-    "count": 51,
-    "hash": "ws4d",
-    "matched": "우국리더스빌",
-    "address": "서울특별시 노원구 공릉동 757"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "상계주공11(고층)": {
-    "count": 648,
-    "hash": "yk70",
-    "matched": "상계주공11단지",
-    "address": "서울특별시 노원구 상계동 652"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "주공7": {
-    "count": 233,
-    "hash": "5Jv5b",
-    "matched": "주공7단지",
-    "address": "경기도 안산시 단원구 고잔동 670"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "주공8": {
-    "count": 184,
-    "hash": "5Jw28",
-    "matched": "주공8단지",
-    "address": "경기도 안산시 단원구 고잔동 671"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "건양노블레스빌": {
-    "count": 20,
-    "hash": "uX9c",
-    "matched": "건양노블레스",
-    "address": "서울특별시 노원구 월계동 938"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "대주파크빌아파트": {
-    "count": 47,
-    "hash": "w310",
-    "matched": "대주파크빌",
-    "address": "서울특별시 노원구 공릉동 751"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "상계2차중앙하이츠": {
-    "count": 309,
-    "hash": "xY3c",
-    "matched": "상계중앙하이츠2차",
-    "address": "서울특별시 노원구 상계동 1282"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "한신1": {
-    "count": 39,
-    "hash": "5h65d",
-    "matched": "한신1차",
-    "address": "경기도 의정부시 호원동 10-1"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "초안1": {
-    "count": 125,
-    "hash": "vs77",
-    "matched": "초안1단지",
-    "address": "서울특별시 노원구 월계동 923"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "중앙하이츠아쿠아": {
-    "count": 143,
-    "hash": "9XT8f",
-    "matched": "중앙하이츠아쿠아",
-    "address": "서울특별시 노원구 중계동 514"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "태릉우성아파트": {
-    "count": 210,
-    "hash": "ww64",
-    "matched": "태릉우성",
-    "address": "서울특별시 노원구 공릉동 254"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "청솔(시영7)": {
     "count": 0,
@@ -2161,106 +1820,89 @@
     "matched": null
   },
   "상계1차현대아파트": {
-    "count": 99,
-    "hash": "xZ0b",
-    "matched": "상계3차현대",
-    "address": "서울특별시 노원구 상계동 1063"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "현대2차": {
-    "count": 47,
-    "hash": "6qV55",
-    "matched": "현대2차",
-    "address": "경기도 이천시 창전동 1-2"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "금호타운(583)": {
-    "count": 146,
-    "hash": "zUbc",
-    "matched": "중계금호타운",
-    "address": "서울특별시 노원구 중계동 583"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "한일2": {
-    "count": 58,
-    "hash": "6IKe0",
-    "matched": "한일",
-    "address": "강원특별자치도 원주시 단구동 1517-2"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "소담빌": {
-    "count": 3,
-    "hash": "c3751",
-    "matched": "소담빌(오)",
-    "address": "서울특별시 노원구 상계동 330-29"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "염광": {
-    "count": 335,
-    "hash": "zG8f",
-    "matched": "염광",
-    "address": "서울특별시 노원구 중계동 445"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "건영2": {
-    "count": 306,
-    "hash": "ze64",
-    "matched": "건영2차",
-    "address": "서울특별시 노원구 중계동 515-2"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "상계주공3(고층)": {
-    "count": 1002,
-    "hash": "ya36",
-    "matched": "상계주공3단지",
-    "address": "서울특별시 노원구 상계동 737"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "동원베네스트": {
-    "count": 86,
-    "hash": "v14c",
-    "matched": "동원베네스트",
-    "address": "서울특별시 노원구 월계동 940"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "사슴3": {
-    "count": 429,
-    "hash": "v523",
-    "matched": "사슴3단지",
-    "address": "서울특별시 노원구 월계동 320-11"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "상계현대3차": {
-    "count": 115,
-    "hash": "yYd0",
-    "matched": "상계현대2차",
-    "address": "서울특별시 노원구 상계동 1078"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "화랑대디오베이션": {
-    "count": 168,
-    "hash": "dGwfc",
-    "matched": "화랑대디오베이션",
-    "address": "서울특별시 노원구 공릉동 760"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "극동늘푸른": {
-    "count": 60,
-    "hash": "xve6",
-    "matched": "극동늘푸른",
-    "address": "서울특별시 노원구 상계동 1128"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "베로니스": {
-    "count": 10,
-    "hash": "d7i90",
-    "matched": "베로니스",
-    "address": "서울특별시 은평구 갈현동 468-5"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "박석고개1단지힐스테이트(116~131동)BL2-1": {
-    "count": 48,
-    "hash": "HW67",
-    "matched": "은평뉴타운박석고개힐1단지힐스테이트(112~115동)",
-    "address": "서울특별시 은평구 진관동 123"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "DMCSK뷰아이파크포레": {
-    "count": 684,
-    "hash": "dLeec",
-    "matched": "DMCSKVIEW아이파크포레",
-    "address": "서울특별시 은평구 수색동 419"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "북한산한양수자인아파트": {
-    "count": 64,
-    "hash": "B3c1",
-    "matched": "북한산한양수자인",
-    "address": "서울특별시 은평구 불광동 636"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "뉴월드(402-42)": {
     "count": 0,
@@ -2268,118 +1910,99 @@
     "matched": null
   },
   "갈현동현대": {
-    "count": 162,
-    "hash": "Bx9c",
-    "matched": "갈현현대",
-    "address": "서울특별시 은평구 갈현동 537"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "은평뉴타운솔하임": {
-    "count": 73,
-    "hash": "dvhe0",
-    "matched": "은평뉴타운솔하임(오)",
-    "address": "서울특별시 은평구 진관동 60"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "우물골2단지두산위브(204~208동)BL2-5": {
-    "count": 101,
-    "hash": "HK93",
-    "matched": "은평뉴타운우물골2단지(204~208동)",
-    "address": "서울특별시 은평구 진관동 83"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "뉴캐슬": {
-    "count": 3,
-    "hash": "CTf1",
-    "matched": "뉴캐슬",
-    "address": "서울특별시 은평구 대조동 9-29"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "백련산힐스테이트1차": {
-    "count": 598,
-    "hash": "E0e5",
-    "matched": "백련산힐스테이트1차",
-    "address": "서울특별시 은평구 응암동 759"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "라이프미성": {
-    "count": 82,
-    "hash": "lVaf",
-    "matched": "라이프미성",
-    "address": "서울특별시 중랑구 신내동 487"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "현대2": {
-    "count": 166,
-    "hash": "5ik8e",
-    "matched": "현대2차",
-    "address": "경기도 의정부시 신곡동 724-2"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "백련산에스케이뷰아이파크": {
-    "count": 797,
-    "hash": "b5k79",
-    "matched": "백련산SK뷰아이파크",
-    "address": "서울특별시 은평구 응암동 767"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "은평뉴타운엘크루": {
-    "count": 254,
-    "hash": "aD32f",
-    "matched": "은평뉴타운엘크루",
-    "address": "서울특별시 은평구 진관동 65"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "대경아르체": {
-    "count": 7,
-    "hash": "gEs38",
-    "matched": "대경아르체",
-    "address": "서울특별시 은평구 갈현동 550"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "거장메카": {
-    "count": 2,
-    "hash": "dLsb9",
-    "matched": "거장메카",
-    "address": "서울특별시 은평구 녹번동 183-2"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "대주피오레": {
-    "count": 67,
-    "hash": "DN3b",
-    "matched": "대주피오레",
-    "address": "서울특별시 은평구 응암동 669-1"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "신사씨티": {
-    "count": 4,
-    "hash": "1Tzf7",
-    "matched": "신사동씨티빌",
-    "address": "서울특별시 강남구 신사동 523-4"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "래미안베라힐즈": {
-    "count": 579,
-    "hash": "aQn68",
-    "matched": "래미안베라힐즈",
-    "address": "서울특별시 은평구 녹번동 283"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "개성하이뷰": {
     "count": 0,
-    "hash": "FO0d",
-    "matched": "개성하이뷰",
-    "address": "서울특별시 은평구 신사동 7-11"
+    "hash": null,
+    "matched": null
   },
   "예청B": {
-    "count": 1,
-    "hash": "EM1f",
-    "matched": "예청B",
-    "address": "서울특별시 은평구 응암동 122-12"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "북한산힐스테이트7차": {
-    "count": 386,
-    "hash": "B439",
-    "matched": "북한산힐스테이트7차",
-    "address": "서울특별시 은평구 불광동 643"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "e편한세상 수색 에코포레": {
-    "count": 736,
-    "hash": "Ae65",
-    "matched": "e편한세상수색에코포레",
-    "address": "서울특별시 은평구 수색동 415-1"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "백련산힐스테이트2차": {
-    "count": 473,
-    "hash": "9Y8dd",
-    "matched": "백련산힐스테이트2차",
-    "address": "서울특별시 은평구 응암동 760"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "대림아파트(276)": {
     "count": 0,
@@ -2387,28 +2010,24 @@
     "matched": null
   },
   "e편한세상백련산": {
-    "count": 287,
-    "hash": "dsp11",
-    "matched": "e편한세상백련산",
-    "address": "서울특별시 은평구 응암동 771"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "경향파크": {
-    "count": 58,
-    "hash": "Cbd5",
-    "matched": "경향파크",
-    "address": "서울특별시 은평구 구산동 162-1"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "동광갈현베르빌": {
-    "count": 80,
-    "hash": "BB98",
-    "matched": "동광갈현베르빌",
-    "address": "서울특별시 은평구 갈현동 465-12"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "브라운스톤구산": {
-    "count": 95,
-    "hash": "Ck45",
-    "matched": "브라운스톤구산",
-    "address": "서울특별시 은평구 구산동 159-10"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "무궁화": {
     "count": 4,
@@ -2417,448 +2036,374 @@
     "address": "대구광역시 동구 방촌동 1067-1"
   },
   "응암동금호": {
-    "count": 162,
-    "hash": "El04",
-    "matched": "응암금호",
-    "address": "서울특별시 은평구 응암동 739"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "상림마을8단지롯데캐슬(821~830동)BL1-12": {
-    "count": 152,
-    "hash": "I4ec",
-    "matched": "은평뉴타운상림마을8단지롯데캐슬(821~830동)",
-    "address": "서울특별시 은평구 진관동 20"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "은평뉴타운기자촌11단지": {
-    "count": 220,
-    "hash": "9F52c",
-    "matched": "은평뉴타운기자촌11단지",
-    "address": "서울특별시 은평구 진관동 150"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "DMC센트럴자이(1단지)": {
-    "count": 1773,
-    "hash": "dzJ4f",
-    "matched": "DMC센트럴자이",
-    "address": "서울특별시 은평구 증산동 258"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "동익파크1동(355-95)": {
-    "count": 42,
-    "hash": "CJda",
-    "matched": "동익파크(1동)",
-    "address": "서울특별시 은평구 구산동 355-95"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "동익파크2동(355-98)": {
-    "count": 42,
-    "hash": "CJda",
-    "matched": "동익파크(1동)",
-    "address": "서울특별시 은평구 구산동 355-95"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "서강스카이빌": {
-    "count": 6,
-    "hash": "E61d",
-    "matched": "서강스카이빌2",
-    "address": "서울특별시 은평구 응암동 116-17"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "은평신사두산위브2차": {
-    "count": 29,
-    "hash": "GIb3",
-    "matched": "은평신사두산위브2차",
-    "address": "서울특별시 은평구 신사동 371"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "응암역효성해링턴플레이스": {
-    "count": 285,
-    "hash": "aPY20",
-    "matched": "응암역효성해링턴플레이스",
-    "address": "서울특별시 은평구 신사동 372"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "우물골2단지두산위브(209~222동)BL2-8": {
-    "count": 121,
-    "hash": "HJ5f",
-    "matched": "은평뉴타운우물골2단지(209~222동)",
-    "address": "서울특별시 은평구 진관동 88"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "백련산힐스테이트3차": {
-    "count": 447,
-    "hash": "E152",
-    "matched": "백련산힐스테이트3차",
-    "address": "서울특별시 은평구 응암동 761"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "북한산래미안아파트(1단지)": {
-    "count": 282,
-    "hash": "B656",
-    "matched": "북한산래미안",
-    "address": "서울특별시 은평구 불광동 638"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "구파발9단지래미안(916~928동)BL3-2": {
-    "count": 309,
-    "hash": "HB44",
-    "matched": "은평뉴타운구파발9단지래미안(916~928동)",
-    "address": "서울특별시 은평구 진관동 25"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "은평스카이뷰자이": {
-    "count": 395,
-    "hash": "aRL05",
-    "matched": "은평스카이뷰자이",
-    "address": "서울특별시 은평구 진관동 62"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "DMC 진흥": {
-    "count": 142,
-    "hash": "Amfb",
-    "matched": "DMC진흥",
-    "address": "서울특별시 은평구 수색동 416-1"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "녹번역e편한세상캐슬": {
-    "count": 1834,
-    "hash": "b5K85",
-    "matched": "녹번역e편한세상캐슬",
-    "address": "서울특별시 은평구 응암동 769"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "힐스테이트녹번": {
-    "count": 605,
-    "hash": "aRD11",
-    "matched": "힐스테이트녹번",
-    "address": "서울특별시 은평구 녹번동 282"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "DMC우방": {
-    "count": 336,
-    "hash": "Hb86",
-    "matched": "DMC우방",
-    "address": "서울특별시 은평구 증산동 244"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "DMC자이1단지": {
-    "count": 196,
-    "hash": "Ah62",
-    "matched": "DMC자이1단지",
-    "address": "서울특별시 은평구 수색동 75"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "상림마을7단지아이파크(730~742동)BL1-14": {
-    "count": 86,
-    "hash": "I74f",
-    "matched": "은평뉴타운상림마을7단지아이파크(730~742동)",
-    "address": "서울특별시 은평구 진관동 10"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "리더스파크": {
-    "count": 12,
-    "hash": "F34b",
-    "matched": "리더스파크",
-    "address": "서울특별시 은평구 역촌동 85-41"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "승윤노블리안": {
-    "count": 13,
-    "hash": "dKGa5",
-    "matched": "승윤노블리안",
-    "address": "서울특별시 은평구 신사동 19-147"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "불광롯데캐슬": {
-    "count": 330,
-    "hash": "9XX86",
-    "matched": "불광롯데캐슬",
-    "address": "서울특별시 은평구 불광동 645"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "은평뉴타운꿈에그린": {
-    "count": 178,
-    "hash": "aPN8c",
-    "matched": "은평뉴타운꿈에그린",
-    "address": "서울특별시 은평구 진관동 66"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "북한산현대힐스테이트3차아파트": {
-    "count": 895,
-    "hash": "B9df",
-    "matched": "북한산현대힐스테이트3차",
-    "address": "서울특별시 은평구 불광동 641"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "DMC센트레빌": {
-    "count": 248,
-    "hash": "MB78",
-    "matched": "DMC센트레빌",
-    "address": "서울특별시 서대문구 남가좌동 381"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "서강1차(1동)": {
-    "count": 19,
-    "hash": "Lq70",
-    "matched": "서강1차",
-    "address": "서울특별시 서대문구 홍은동 186-22"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "e편한세상신촌2단지": {
-    "count": 1472,
-    "hash": "aD647",
-    "matched": "e편한세상신촌",
-    "address": "서울특별시 서대문구 북아현동 1013"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "파크힐": {
-    "count": 1,
-    "hash": "JX94",
-    "matched": "파크힐",
-    "address": "서울특별시 서대문구 홍제동 312-243"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "북한산더샵": {
-    "count": 385,
-    "hash": "aGTf3",
-    "matched": "북한산더샵",
-    "address": "서울특별시 서대문구 홍은동 464"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "홍제역해링턴플레이스": {
-    "count": 1061,
-    "hash": "cMN34",
-    "matched": "홍제역해링턴플레이스",
-    "address": "서울특별시 서대문구 홍제동 474"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "홍제현대": {
-    "count": 340,
-    "hash": "JPbe",
-    "matched": "홍제현대",
-    "address": "서울특별시 서대문구 홍제동 331"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "드리밍아파트": {
-    "count": 2,
-    "hash": "Kr98",
-    "matched": "드리밍",
-    "address": "서울특별시 서대문구 연희동 169-3"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "우공팰리스": {
-    "count": 8,
-    "hash": "Mr4f",
-    "matched": "우공팰리스",
-    "address": "서울특별시 서대문구 북가좌동 384-1"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "월드컵현대": {
-    "count": 175,
-    "hash": "Msdb",
-    "matched": "월드컵현대",
-    "address": "서울특별시 서대문구 북가좌동 371-1"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "DMC래미안e편한세상": {
-    "count": 1398,
-    "hash": "Me23",
-    "matched": "DMC래미안e편한세상",
-    "address": "서울특별시 서대문구 북가좌동 481"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "DMC센트럴아이파크": {
-    "count": 791,
-    "hash": "aVO1a",
-    "matched": "DMC센트럴아이파크",
-    "address": "서울특별시 서대문구 남가좌동 388"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "홍은동풍림아이원": {
-    "count": 75,
-    "hash": "LP8e",
-    "matched": "홍은풍림아이원",
-    "address": "서울특별시 서대문구 홍은동 460"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "래미안루센티아": {
-    "count": 489,
-    "hash": "b4Zfa",
-    "matched": "래미안루센티아",
-    "address": "서울특별시 서대문구 남가좌동 390"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "신촌푸르지오": {
-    "count": 813,
-    "hash": "ayW5b",
-    "matched": "신촌푸르지오",
-    "address": "서울특별시 서대문구 북아현동 1011"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "유원하나": {
-    "count": 326,
-    "hash": "Jva2",
-    "matched": "유원하나",
-    "address": "서울특별시 서대문구 홍제동 454"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "유원": {
-    "count": 33,
-    "hash": "vl22",
-    "matched": "유원",
-    "address": "서울특별시 노원구 월계동 880"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "세윤외인빌리지": {
     "count": 0,
-    "hash": "Lua3",
-    "matched": "세윤외인빌리지",
-    "address": "서울특별시 서대문구 홍은동 265-366"
+    "hash": null,
+    "matched": null
   },
   "DMC두산위브": {
-    "count": 177,
-    "hash": "Mh01",
-    "matched": "DMC두산위브",
-    "address": "서울특별시 서대문구 북가좌동 459"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "홍제원현대(459-0)": {
-    "count": 522,
-    "hash": "JM24",
-    "matched": "홍제원현대",
-    "address": "서울특별시 서대문구 홍제동 459"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "천연뜨란채": {
-    "count": 1051,
-    "hash": "Iy19",
-    "matched": "천연뜨란채",
-    "address": "서울특별시 서대문구 천연동 145"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "북한산두산위브": {
-    "count": 305,
-    "hash": "aZ2ac",
-    "matched": "북한산두산위브1차",
-    "address": "서울특별시 서대문구 홍은동 467"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "미동": {
-    "count": 75,
-    "hash": "Ii9c",
-    "matched": "미동",
-    "address": "서울특별시 서대문구 충정로3가 189-8"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "인왕산벽산": {
-    "count": 73,
-    "hash": "Jydd",
-    "matched": "인왕산벽산",
-    "address": "서울특별시 서대문구 홍제동 465"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "충정리시온": {
-    "count": 239,
-    "hash": "Inae",
-    "matched": "충정리시온",
-    "address": "서울특별시 서대문구 충정로3가 465"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "HDX휴팰리스": {
-    "count": 48,
-    "hash": "dUl0e",
-    "matched": "HDX휴팰리스",
-    "address": "서울특별시 서대문구 홍은동 465"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "홍은동벽산": {
-    "count": 634,
-    "hash": "LQ1a",
-    "matched": "홍은벽산",
-    "address": "서울특별시 서대문구 홍은동 455"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "충림예하임": {
-    "count": 32,
-    "hash": "Imfe",
-    "matched": "충림예하임",
-    "address": "서울특별시 서대문구 충정로3가 477"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "홍은미성": {
-    "count": 76,
-    "hash": "Ll23",
-    "matched": "미성",
-    "address": "서울특별시 서대문구 홍은동 186-1"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "신촌럭키": {
-    "count": 742,
-    "hash": "K069",
-    "matched": "신촌럭키",
-    "address": "서울특별시 서대문구 대현동 144"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "e편한세상신촌4단지": {
-    "count": 1472,
-    "hash": "aD647",
-    "matched": "e편한세상신촌",
-    "address": "서울특별시 서대문구 북아현동 1013"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "DMC한양": {
-    "count": 767,
-    "hash": "Mq5b",
-    "matched": "DMC한양",
-    "address": "서울특별시 서대문구 북가좌동 431"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "홍제비콘드림힐": {
-    "count": 68,
-    "hash": "JK76",
-    "matched": "홍제비콘드림힐",
-    "address": "서울특별시 서대문구 홍제동 468"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "동양드림": {
-    "count": 3,
-    "hash": "Je4f",
-    "matched": "동양드림",
-    "address": "서울특별시 서대문구 홍제동 24-16"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "DMC현대아파트": {
-    "count": 239,
-    "hash": "Mjbb",
-    "matched": "DMC현대",
-    "address": "서울특별시 서대문구 북가좌동 453"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "신일해피트리": {
-    "count": 10,
-    "hash": "SOfd",
-    "matched": "신일해피트리",
-    "address": "서울특별시 양천구 신정동 1219-1"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "남가좌동현대": {
-    "count": 813,
-    "hash": "MD98",
-    "matched": "남가좌현대",
-    "address": "서울특별시 서대문구 남가좌동 376"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "쌍용스윗닷홈": {
-    "count": 159,
-    "hash": "1sz26",
-    "matched": "쌍용스윗닷홈",
-    "address": "서울특별시 동작구 상도동 418"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "대우푸르지오": {
-    "count": 48,
-    "hash": "2Ej45",
-    "matched": "대우푸르지오",
-    "address": "부산광역시 북구 화명동 752"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "서대문센트럴아이파크": {
-    "count": 1391,
-    "hash": "dpy4c",
-    "matched": "서대문센트럴아이파크",
-    "address": "서울특별시 서대문구 홍은동 11-111"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "DMC파크뷰자이4단지": {
-    "count": 2508,
-    "hash": "9YLdc",
-    "matched": "DMC파크뷰자이",
-    "address": "서울특별시 서대문구 남가좌동 385"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "신촌숲아이파크": {
-    "count": 695,
-    "hash": "aZ1ca",
-    "matched": "신촌숲아이파크",
-    "address": "서울특별시 마포구 신수동 462"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "래미안웰스트림": {
-    "count": 530,
-    "hash": "aA91d",
-    "matched": "래미안마포웰스트림",
-    "address": "서울특별시 마포구 현석동 225"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "성사1차풍림아파트101동": {
-    "count": 116,
-    "hash": "R131",
-    "matched": "성사1차풍림",
-    "address": "서울특별시 마포구 성산동 600"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "해모로": {
-    "count": 452,
-    "hash": "6bTbf",
-    "matched": "해모로",
-    "address": "경기도 의왕시 오전동 27-1"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "한국프라우드": {
-    "count": 16,
-    "hash": "P9a3",
-    "matched": "한국프라우드",
-    "address": "서울특별시 마포구 합정동 469"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "대우미래사랑": {
-    "count": 215,
-    "hash": "bu182",
-    "matched": "대우미래사랑",
-    "address": "서울특별시 영등포구 도림동 819"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "블레스하임": {
-    "count": 5,
-    "hash": "gG044",
-    "matched": "블레스하임",
-    "address": "서울특별시 마포구 신공덕동 13-15"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "동원월드타운": {
-    "count": 36,
-    "hash": "Rr54",
-    "matched": "동원월드타운",
-    "address": "서울특별시 마포구 중동 395"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "창전래미안": {
     "count": 0,
@@ -2866,256 +2411,214 @@
     "matched": null
   },
   "마포중동현대": {
-    "count": 536,
-    "hash": "N4bb",
-    "matched": "마포현대",
-    "address": "서울특별시 마포구 공덕동 188-108"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "그레이스": {
-    "count": 3,
-    "hash": "QP7f",
-    "matched": "그레이스",
-    "address": "서울특별시 마포구 성산동 254-28"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "우성": {
-    "count": 741,
-    "hash": "1rS0b",
-    "matched": "우성",
-    "address": "서울특별시 동작구 노량진동 323"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "건영월드컵": {
-    "count": 86,
-    "hash": "Rqf2",
-    "matched": "건영월드컵",
-    "address": "서울특별시 마포구 중동 393"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "상암월드컵파크9단지": {
-    "count": 245,
-    "hash": "RLac",
-    "matched": "상암월드컵파크9단지",
-    "address": "서울특별시 마포구 상암동 1752"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "마포래미안푸르지오4단지": {
-    "count": 3155,
-    "hash": "9YO50",
-    "matched": "마포래미안푸르지오",
-    "address": "서울특별시 마포구 아현동 777"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "상암월드컵파크3단지": {
-    "count": 310,
-    "hash": "RK18",
-    "matched": "상암월드컵파크3단지",
-    "address": "서울특별시 마포구 상암동 1643"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "망원동동원데쟈뷰": {
-    "count": 21,
-    "hash": "PDb1",
-    "matched": "망원동동원데쟈뷰",
-    "address": "서울특별시 마포구 망원동 516"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "마포프레스티지자이": {
-    "count": 1247,
-    "hash": "b4N6f",
-    "matched": "마포프레스티지자이",
-    "address": "서울특별시 마포구 염리동 532"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "메세나폴리스": {
-    "count": 425,
-    "hash": "OF46",
-    "matched": "메세나폴리스",
-    "address": "서울특별시 마포구 서교동 490"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "신공덕1차삼성래미안1아파트": {
-    "count": 750,
-    "hash": "Nd5a",
-    "matched": "신공덕삼성래미안1차",
-    "address": "서울특별시 마포구 신공덕동 155"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "강변힐스테이트": {
-    "count": 509,
-    "hash": "O8d9",
-    "matched": "강변힐스테이트",
-    "address": "서울특별시 마포구 현석동 222"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "대림1": {
-    "count": 5,
-    "hash": "8Wv8d",
-    "matched": "대림",
-    "address": "경상남도 진주시 상평동 277-1"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "강림월드타운": {
-    "count": 10,
-    "hash": "Rp14",
-    "matched": "강림월드타운",
-    "address": "서울특별시 마포구 중동 36-29"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "목동신시가지4": {
-    "count": 485,
-    "hash": "V233",
-    "matched": "목동신시가지4단지",
-    "address": "서울특별시 양천구 목동 904"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "신안약수": {
-    "count": 153,
-    "hash": "XO23",
-    "matched": "신안약수",
-    "address": "서울특별시 양천구 신월동 591-1"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "명지해드는터": {
-    "count": 24,
-    "hash": "Uw33",
-    "matched": "명지해드는터",
-    "address": "서울특별시 양천구 목동 957"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "보람쉬움1": {
-    "count": 9,
-    "hash": "5spfc",
-    "matched": "보람쉬움",
-    "address": "경기도 부천시 원미구 역곡동 26-5"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "푸른마을4": {
-    "count": 110,
-    "hash": "TS40",
-    "matched": "푸른마을4단지",
-    "address": "서울특별시 양천구 신정동 1285"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "동원로데오": {
-    "count": 27,
-    "hash": "S356",
-    "matched": "동원로데오",
-    "address": "서울특별시 양천구 신정동 1308"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "목동우성3": {
-    "count": 85,
-    "hash": "Sre1",
-    "matched": "목동우성3차",
-    "address": "서울특별시 양천구 신정동 338"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "수명산롯데캐슬": {
-    "count": 132,
-    "hash": "XH75",
-    "matched": "수명산롯데캐슬",
-    "address": "서울특별시 양천구 신월동 1036"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "두란": {
-    "count": 1,
-    "hash": "Wj20",
-    "matched": "두란",
-    "address": "서울특별시 양천구 목동 714-1"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "호반써밋목동": {
-    "count": 496,
-    "hash": "dKQ45",
-    "matched": "호반써밋목동",
-    "address": "서울특별시 양천구 신정동 1327"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "이펜하우스1단지": {
-    "count": 92,
-    "hash": "SQ13",
-    "matched": "신정이펜하우스1단지",
-    "address": "서울특별시 양천구 신정동 1321"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "목동신시가지3": {
-    "count": 385,
-    "hash": "V3b2",
-    "matched": "목동신시가지3단지",
-    "address": "서울특별시 양천구 목동 903"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "영남타운": {
-    "count": 1,
-    "hash": "Zled",
-    "matched": "영남타운",
-    "address": "서울특별시 양천구 신월동 547-7"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "목동벨로스주상복합": {
-    "count": 2,
-    "hash": "4mna3",
-    "matched": "휴로스주상복합빌딩",
-    "address": "광주광역시 광산구 우산동 1576-4"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "이펜하우스3단지": {
-    "count": 216,
-    "hash": "SSa5",
-    "matched": "신정이펜하우스3단지",
-    "address": "서울특별시 양천구 신정동 1316"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "목동센트럴아이파크위브2단지": {
-    "count": 3531,
-    "hash": "b5b77",
-    "matched": "목동센트럴아이파크위브",
-    "address": "서울특별시 양천구 신월동 1075"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "신트리1": {
-    "count": 721,
-    "hash": "T7ff",
-    "matched": "신트리1단지",
-    "address": "서울특별시 양천구 신정동 1259"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "길훈": {
-    "count": 114,
-    "hash": "18qad",
-    "matched": "길훈",
-    "address": "서울특별시 강서구 마곡동 1565"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "예건미예뜰1동": {
-    "count": 3,
-    "hash": "Yhe9",
-    "matched": "예건미예뜰",
-    "address": "서울특별시 양천구 신월동 494-4"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "래미안목동아델리체(101동~118동)": {
-    "count": 1032,
-    "hash": "b521e",
-    "matched": "래미안목동아델리체",
-    "address": "서울특별시 양천구 신정동 1326"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "신목동파라곤": {
-    "count": 385,
-    "hash": "dvsb4",
-    "matched": "신목동파라곤",
-    "address": "서울특별시 양천구 신월동 1085"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "올림푸스(150-1)": {
-    "count": 1,
-    "hash": "Ync0",
-    "matched": "올림푸스",
-    "address": "서울특별시 양천구 신월동 150-1"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "신월대림": {
-    "count": 49,
-    "hash": "XUa1",
-    "matched": "신월대림",
-    "address": "서울특별시 양천구 신월동 491-1"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "롯데캐슬위너": {
-    "count": 690,
-    "hash": "USb7",
-    "matched": "목동롯데캐슬위너",
-    "address": "서울특별시 양천구 목동 956"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "벽산블루밍1단지": {
-    "count": 45,
-    "hash": "X6c5",
-    "matched": "벽산블루밍1단지",
-    "address": "서울특별시 양천구 신월동 1022"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "수명산SKVIEW": {
-    "count": 156,
-    "hash": "XG32",
-    "matched": "수명산SKVIEW",
-    "address": "서울특별시 양천구 신월동 1053"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "건진": {
     "count": 0,
-    "hash": "Ukcb",
-    "matched": "건진",
-    "address": "서울특별시 양천구 목동 761-13"
+    "hash": null,
+    "matched": null
   },
   "목동신시가지7": {
-    "count": 1224,
-    "hash": "V42c",
-    "matched": "목동신시가지7단지",
-    "address": "서울특별시 양천구 목동 925"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "금호아파트(768)": {
     "count": 0,
@@ -3123,292 +2626,244 @@
     "matched": null
   },
   "로데오휘버스빌": {
-    "count": 4,
-    "hash": "S7a0",
-    "matched": "로데오휘버스",
-    "address": "서울특별시 양천구 신정동 893-9"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "대성유니드": {
-    "count": 32,
-    "hash": "lMbc",
-    "matched": "대성유니드",
-    "address": "서울특별시 중랑구 신내동 803"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "푸른마을2": {
-    "count": 276,
-    "hash": "TQ1c",
-    "matched": "푸른마을2단지",
-    "address": "서울특별시 양천구 신정동 1281"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "성보": {
-    "count": 4,
-    "hash": "VG7a",
-    "matched": "성보",
-    "address": "서울특별시 양천구 목동 773-5"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "목동청구한신아파트": {
-    "count": 950,
-    "hash": "Vb68",
-    "matched": "목동한신청구",
-    "address": "서울특별시 양천구 목동 929"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "목동금호베스트빌": {
-    "count": 178,
-    "hash": "ULe0",
-    "matched": "목동금호베스트빌",
-    "address": "서울특별시 양천구 목동 549"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "신도신월1차": {
-    "count": 51,
-    "hash": "XM94",
-    "matched": "신도신월1차",
-    "address": "서울특별시 양천구 신월동 1029"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "장수마을2단지동원데쟈뷰": {
-    "count": 30,
-    "hash": "YD9a",
-    "matched": "장수마을2단지동원데쟈뷰",
-    "address": "서울특별시 양천구 신월동 1049"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "금하뜨라네": {
-    "count": 79,
-    "hash": "d70be",
-    "matched": "금하뜨라네",
-    "address": "서울특별시 양천구 신월동 142-14"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "목동센트럴아이파크위브3단지": {
-    "count": 3531,
-    "hash": "b5b77",
-    "matched": "목동센트럴아이파크위브",
-    "address": "서울특별시 양천구 신월동 1075"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "방주아크빌": {
-    "count": 10,
-    "hash": "X5cb",
-    "matched": "방주아크빌",
-    "address": "서울특별시 양천구 신월동 426-3"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "목동트윈빌": {
-    "count": 142,
-    "hash": "Vg96",
-    "matched": "목동트윈빌",
-    "address": "서울특별시 양천구 목동 905-22"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "목동파크자이(101동~108동)": {
-    "count": 307,
-    "hash": "aYU4e",
-    "matched": "목동파크자이",
-    "address": "서울특별시 양천구 신정동 1325"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "청송그린힐": {
-    "count": 7,
-    "hash": "YN7a",
-    "matched": "청송그린힐",
-    "address": "서울특별시 양천구 신월동 981-4"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "신월2차미소지움": {
-    "count": 18,
-    "hash": "XN03",
-    "matched": "신성미소지움",
-    "address": "서울특별시 양천구 신월동 1020"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "목동센트럴아이파크위브1단지": {
-    "count": 3531,
-    "hash": "b5b77",
-    "matched": "목동센트럴아이파크위브",
-    "address": "서울특별시 양천구 신월동 1075"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "신트리4": {
-    "count": 623,
-    "hash": "T9ee",
-    "matched": "신트리4단지",
-    "address": "서울특별시 양천구 신정동 1277"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "보람쉬움": {
-    "count": 9,
-    "hash": "5spfc",
-    "matched": "보람쉬움",
-    "address": "경기도 부천시 원미구 역곡동 26-5"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "동일하이빌2단지": {
-    "count": 143,
-    "hash": "S5d0",
-    "matched": "동일하이빌2단지",
-    "address": "서울특별시 양천구 신정동 1311"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "현대파크빌(907-23)": {
-    "count": 13,
-    "hash": "c48dd",
-    "matched": "현대파크빌(오)",
-    "address": "서울특별시 양천구 목동 907-23"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "방주기픈샘": {
-    "count": 15,
-    "hash": "X34e",
-    "matched": "방주기픈샘",
-    "address": "서울특별시 양천구 신월동 1030"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "더트루엘마곡HQ": {
-    "count": 161,
-    "hash": "gAE7c",
-    "matched": "더트루엘마곡HQ",
-    "address": "서울특별시 강서구 공항동 1398"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "남광아파트": {
-    "count": 30,
-    "hash": "9ZX93",
-    "matched": "남광",
-    "address": "서울특별시 강서구 화곡동 917-5"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "문국": {
-    "count": 2,
-    "hash": "16U65",
-    "matched": "문국",
-    "address": "서울특별시 강서구 내발산동 708-1"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "은하센트리움": {
     "count": 0,
-    "hash": "13Tcd",
-    "matched": "은하센트리움",
-    "address": "서울특별시 강서구 화곡동 894-9"
+    "hash": null,
+    "matched": null
   },
   "롯데2": {
-    "count": 275,
-    "hash": "4v440",
-    "matched": "롯데",
-    "address": "대전광역시 서구 내동 220"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "방화4단지": {
-    "count": 195,
-    "hash": "18U3f",
-    "matched": "방화4단지",
-    "address": "서울특별시 강서구 방화동 831"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "우장산힐스테이트": {
-    "count": 937,
-    "hash": "17q0f",
-    "matched": "우장산힐스테이트",
-    "address": "서울특별시 강서구 내발산동 657"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "화곡보람": {
-    "count": 61,
-    "hash": "15e80",
-    "matched": "화곡보람2차",
-    "address": "서울특별시 강서구 화곡동 1149"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "가양강나루현대": {
-    "count": 96,
-    "hash": "16gb8",
-    "matched": "가양강나루2차현대",
-    "address": "서울특별시 강서구 가양동 448"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "GMValley": {
     "count": 0,
-    "hash": "eXube",
-    "matched": "GMValley(오)",
-    "address": "서울특별시 강서구 화곡동 899-27"
+    "hash": null,
+    "matched": null
   },
   "화곡6차보람쉬움": {
-    "count": 20,
-    "hash": "1556f",
-    "matched": "화곡6차보람쉬움더하임",
-    "address": "서울특별시 강서구 화곡동 1154"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "부영": {
-    "count": 660,
-    "hash": "11ide",
-    "matched": "부영",
-    "address": "서울특별시 강서구 등촌동 691-3"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "가양도시개발9-2단지": {
-    "count": 1,
-    "hash": "cKEe4",
-    "matched": "도시개발2단지",
-    "address": "부산광역시 영도구 동삼동 510"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "지엠벨리": {
-    "count": 22,
-    "hash": "eaf39",
-    "matched": "지엠벨리",
-    "address": "서울특별시 강서구 등촌동 656-17"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "등촌1,2단지주공아파트": {
-    "count": 493,
-    "hash": "10T0a",
-    "matched": "등촌2단지주공",
-    "address": "서울특별시 강서구 등촌동 687"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "강서힐스테이트": {
-    "count": 1424,
-    "hash": "9ZK3c",
-    "matched": "강서힐스테이트",
-    "address": "서울특별시 강서구 화곡동 1165"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "동성": {
-    "count": 48,
-    "hash": "6hk86",
-    "matched": "동성",
-    "address": "경기도 용인시 기흥구 고매동 359"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "삼성한아름": {
-    "count": 61,
-    "hash": "102c1",
-    "matched": "삼성한아름",
-    "address": "서울특별시 강서구 염창동 264-27"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "화곡푸르지오": {
-    "count": 789,
-    "hash": "15h04",
-    "matched": "화곡푸르지오",
-    "address": "서울특별시 강서구 화곡동 1091"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "세심": {
     "count": 0,
-    "hash": "11oc4",
-    "matched": "세심",
-    "address": "서울특별시 강서구 등촌동 526-5"
+    "hash": null,
+    "matched": null
   },
   "유림노르웨이숲(919-1)": {
-    "count": 127,
-    "hash": "13Od8",
-    "matched": "유림노르웨이숲",
-    "address": "서울특별시 강서구 화곡동 919-1"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "강변": {
     "count": 0,
-    "hash": "8wtcc",
-    "matched": "강변",
-    "address": "경상북도 경산시 사정동 3-14"
+    "hash": null,
+    "matched": null
   },
   "대동황토방": {
-    "count": 39,
-    "hash": "4Vp46",
-    "matched": "대동황토방",
-    "address": "울산광역시 북구 천곡동 940-10"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "가양2단지(성지)": {
-    "count": 1402,
-    "hash": "16a2b",
-    "matched": "가양2단지성지",
-    "address": "서울특별시 강서구 가양동 1461"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "가양6단지": {
-    "count": 1912,
-    "hash": "16b14",
-    "matched": "가양6단지",
-    "address": "서울특별시 강서구 가양동 1485"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "일성스카이빌": {
-    "count": 26,
-    "hash": "13Z76",
-    "matched": "일성스카이빌",
-    "address": "서울특별시 강서구 화곡동 914-3"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "빛고을우방": {
-    "count": 9,
-    "hash": "4aaf5",
-    "matched": "부건빛고을",
-    "address": "광주광역시 서구 쌍촌동 11"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "진로,미주아파트": {
     "count": 0,
@@ -3416,94 +2871,79 @@
     "matched": null
   },
   "마곡보타닉경남아너스빌": {
-    "count": 109,
-    "hash": "18A75",
-    "matched": "마곡보타닉경남아너스빌",
-    "address": "서울특별시 강서구 마곡동 1252"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "천우네오젠아파트": {
-    "count": 2,
-    "hash": "180b4",
-    "matched": "천우네오젠",
-    "address": "서울특별시 강서구 내발산동 665-17"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "마곡 한진해모로": {
-    "count": 320,
-    "hash": "18Lb8",
-    "matched": "마곡한진해모로",
-    "address": "서울특별시 강서구 방화동 579"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "태승훼미리2": {
-    "count": 21,
-    "hash": "17U7d",
-    "matched": "태승훼미리2차",
-    "address": "서울특별시 강서구 내발산동 685"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "방화5": {
-    "count": 1087,
-    "hash": "18Hb3",
-    "matched": "방화5단지",
-    "address": "서울특별시 강서구 방화동 814"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "우장산아이파크,이편한세상": {
-    "count": 1324,
-    "hash": "13Hba",
-    "matched": "우장산아이파크이편한세상",
-    "address": "서울특별시 강서구 화곡동 1159"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "마곡청구아파트": {
-    "count": 155,
-    "hash": "19p34",
-    "matched": "마곡청구",
-    "address": "서울특별시 강서구 마곡동 1181"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "마곡삼성아파트": {
-    "count": 134,
-    "hash": "18T9f",
-    "matched": "마곡삼성",
-    "address": "서울특별시 강서구 마곡동 1478"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "청솔숲속마을102동": {
-    "count": 27,
-    "hash": "17N6b",
-    "matched": "청솔숲속마을",
-    "address": "서울특별시 강서구 내발산동 673-11"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "마곡에이치밸리움": {
-    "count": 242,
-    "hash": "e9m87",
-    "matched": "마곡에이치밸리움",
-    "address": "서울특별시 강서구 내발산동 764"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "태진아름": {
-    "count": 91,
-    "hash": "11Ca2",
-    "matched": "태진아름",
-    "address": "서울특별시 강서구 등촌동 676"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "한숲마을대림": {
-    "count": 195,
-    "hash": "19ta7",
-    "matched": "마곡한숲대림",
-    "address": "서울특별시 강서구 방화동 862"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "태승훼미리아파트5차": {
-    "count": 7,
-    "hash": "186d4",
-    "matched": "태승훼미리5차",
-    "address": "서울특별시 강서구 내발산동 714-4"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "마곡엠밸리1단지": {
-    "count": 54,
-    "hash": "16Hbe",
-    "matched": "마곡엠밸리1단지",
-    "address": "서울특별시 강서구 마곡동 734"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "초록": {
-    "count": 327,
-    "hash": "14k74",
-    "matched": "초록",
-    "address": "서울특별시 강서구 화곡동 1139"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "중앙화곡하이츠": {
     "count": 0,
@@ -3516,112 +2956,94 @@
     "matched": null
   },
   "마곡수명산파크7단지": {
-    "count": 187,
-    "hash": "177c8",
-    "matched": "마곡수명산파크7단지",
-    "address": "서울특별시 강서구 내발산동 756"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "주공3": {
-    "count": 2,
-    "hash": "8Cg83",
-    "matched": "주공",
-    "address": "경상북도 예천군 예천읍 대심리 430"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "풍성애뜨란아파트": {
-    "count": 5,
-    "hash": "aXtb1",
-    "matched": "풍성애뜨란",
-    "address": "서울특별시 강서구 등촌동 654-79"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "가양우성": {
-    "count": 341,
-    "hash": "16ib3",
-    "matched": "가양우성",
-    "address": "서울특별시 강서구 가양동 14-3"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "태진한솔": {
-    "count": 360,
-    "hash": "10Cb4",
-    "matched": "태진한솔",
-    "address": "서울특별시 강서구 염창동 263"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "염창2차한화꿈에그린": {
-    "count": 88,
-    "hash": "10e0e",
-    "matched": "염창한화꿈에그린2차",
-    "address": "서울특별시 강서구 염창동 302"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "계명가동": {
-    "count": 1,
-    "hash": "11Y76",
-    "matched": "계명가동",
-    "address": "서울특별시 강서구 화곡동 56-28"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "마곡중앙하이츠아파트": {
-    "count": 812,
-    "hash": "18uc9",
-    "matched": "마곡중앙하이츠",
-    "address": "서울특별시 강서구 방화동 852"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "무학": {
-    "count": 51,
-    "hash": "1w585",
-    "matched": "무학",
-    "address": "서울특별시 관악구 봉천동 1531-39"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "서광등촌마을아파트": {
-    "count": 344,
-    "hash": "11nb3",
-    "matched": "서광등촌마을",
-    "address": "서울특별시 강서구 등촌동 638"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "마곡엠벨리(15단지)": {
-    "count": 391,
-    "hash": "16G86",
-    "matched": "마곡엠밸리15단지",
-    "address": "서울특별시 강서구 마곡동 751"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "방화메이빌": {
-    "count": 82,
-    "hash": "aWpf5",
-    "matched": "메이빌",
-    "address": "서울특별시 강서구 방화동 902"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "현대홈타운아파트": {
-    "count": 18,
-    "hash": "cXKc0",
-    "matched": "현대홈타운",
-    "address": "인천광역시 남동구 구월동 1133"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "럭키": {
-    "count": 303,
-    "hash": "1aF03",
-    "matched": "럭키",
-    "address": "서울특별시 구로구 구로동 1257"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "온수힐스테이트": {
-    "count": 727,
-    "hash": "1l1b3",
-    "matched": "온수힐스테이트",
-    "address": "서울특별시 구로구 온수동 155"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "구로두산": {
-    "count": 1478,
-    "hash": "1a857",
-    "matched": "구로두산",
-    "address": "서울특별시 구로구 구로동 1265"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "현대연예인": {
-    "count": 349,
-    "hash": "1bB86",
-    "matched": "현대연예인",
-    "address": "서울특별시 구로구 구로동 685-70"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "구로두산위브": {
-    "count": 629,
-    "hash": "1aab8",
-    "matched": "구로두산위브",
-    "address": "서울특별시 구로구 구로동 1278"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "한일유앤아이": {
     "count": 101,
@@ -3630,40 +3052,34 @@
     "address": "대구광역시 수성구 매호동 979-4"
   },
   "신개봉삼환": {
-    "count": 119,
-    "hash": "1jDd8",
-    "matched": "신개봉삼환",
-    "address": "서울특별시 구로구 개봉동 170-30"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "쌍용플래티넘노블": {
-    "count": 116,
-    "hash": "1aX7e",
-    "matched": "신도림쌍용플래티넘노블",
-    "address": "서울특별시 구로구 구로동 46"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "삼성래미안": {
-    "count": 479,
-    "hash": "4uZb3",
-    "matched": "삼성래미안",
-    "address": "대전광역시 서구 가장동 55"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "비즈트위트레인보우": {
-    "count": 167,
-    "hash": "bVJaa",
-    "matched": "비즈트위트레인보우(오)",
-    "address": "서울특별시 구로구 구로동 44-5"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "현대홈타운스위트": {
-    "count": 40,
-    "hash": "22g98",
-    "matched": "현대홈타운스위트",
-    "address": "서울특별시 송파구 방이동 197-4"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "동아3": {
-    "count": 1,
-    "hash": "a3R0f",
-    "matched": "동아3차",
-    "address": "서울특별시 강동구 성내동 419-26"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "한진": {
     "count": 2,
@@ -3672,28 +3088,24 @@
     "address": "대구광역시 동구 효목동 390"
   },
   "한신휴플러스(1280-0)": {
-    "count": 297,
-    "hash": "1bv2a",
-    "matched": "한신휴플러스",
-    "address": "서울특별시 구로구 구로동 1280"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "삼환": {
-    "count": 70,
-    "hash": "1Pn15",
-    "matched": "삼환",
-    "address": "서울특별시 강남구 청담동 10"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "고척파크푸르지오": {
-    "count": 310,
-    "hash": "1iK9a",
-    "matched": "고척파크푸르지오",
-    "address": "서울특별시 구로구 고척동 339"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "한마을": {
-    "count": 1171,
-    "hash": "1jR0d",
-    "matched": "한마을",
-    "address": "서울특별시 구로구 개봉동 476"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "금강(343)": {
     "count": 0,
@@ -3701,142 +3113,119 @@
     "matched": null
   },
   "구로오네뜨시티": {
-    "count": 97,
-    "hash": "feHdd",
-    "matched": "구로오네뜨시티",
-    "address": "서울특별시 구로구 구로동 103-6"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "보광": {
-    "count": 106,
-    "hash": "1aJc5",
-    "matched": "보광",
-    "address": "서울특별시 구로구 구로동 440"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "구로현대": {
-    "count": 448,
-    "hash": "1bz0d",
-    "matched": "구로현대",
-    "address": "서울특별시 구로구 구로동 1256"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "항동제일풍경채포레스트": {
-    "count": 157,
-    "hash": "b5i2d",
-    "matched": "항동제일풍경채포레스트",
-    "address": "서울특별시 구로구 항동 246"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "유한수목원": {
-    "count": 11,
-    "hash": "1kp83",
-    "matched": "유한수목원",
-    "address": "서울특별시 구로구 오류동 108-76"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "한일퍼스트빌(415-37)": {
-    "count": 3,
-    "hash": "1bx31",
-    "matched": "한일퍼스트빌",
-    "address": "서울특별시 구로구 구로동 415-37"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "하버라인2단지": {
-    "count": 384,
-    "hash": "dpZ94",
-    "matched": "항동하버라인2단지",
-    "address": "서울특별시 구로구 항동 237"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "금강": {
-    "count": 114,
-    "hash": "1k0ca",
-    "matched": "금강",
-    "address": "서울특별시 구로구 오류동 335"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "천왕이펜하우스5단지": {
-    "count": 68,
-    "hash": "1l55d",
-    "matched": "천왕이펜하우스5단지",
-    "address": "서울특별시 구로구 천왕동 277"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "삼천리": {
-    "count": 139,
-    "hash": "1kga2",
-    "matched": "삼천리",
-    "address": "서울특별시 구로구 오류동 340"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "현대파크빌": {
-    "count": 39,
-    "hash": "1bD61",
-    "matched": "현대파크빌",
-    "address": "서울특별시 구로구 구로동 108"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "대상": {
-    "count": 23,
-    "hash": "2549a",
-    "matched": "대상",
-    "address": "서울특별시 강동구 길동 344-5"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "현대홈타운": {
-    "count": 18,
-    "hash": "cXKc0",
-    "matched": "현대홈타운",
-    "address": "인천광역시 남동구 구월동 1133"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "고척월드메르디앙": {
-    "count": 67,
-    "hash": "1iEf4",
-    "matched": "고척월드메르디앙",
-    "address": "서울특별시 구로구 고척동 343"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "서울가든": {
-    "count": 236,
-    "hash": "1iT9d",
-    "matched": "서울가든",
-    "address": "서울특별시 구로구 고척동 141-1"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "우성,현대아파트": {
-    "count": 4,
-    "hash": "4Ro97",
-    "matched": "우성현대",
-    "address": "울산광역시 동구 방어동 281-1"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "비즈트위트그린": {
-    "count": 19,
-    "hash": "bVHeb",
-    "matched": "비즈트위트그린(오)",
-    "address": "서울특별시 구로구 구로동 98-10"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "대림우성2": {
-    "count": 242,
-    "hash": "a1f66",
-    "matched": "대림우성",
-    "address": "서울특별시 영등포구 대림동 696"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "삼익(1단지)": {
-    "count": 3,
-    "hash": "4HUf3",
-    "matched": "삼익세라믹1단지",
-    "address": "울산광역시 중구 남외동 7-1"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "개봉푸르지오": {
-    "count": 629,
-    "hash": "1jkde",
-    "matched": "개봉푸르지오",
-    "address": "서울특별시 구로구 개봉동 492"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "한신플러스타운": {
-    "count": 104,
-    "hash": "1ky36",
-    "matched": "한신플러스타운",
-    "address": "서울특별시 구로구 오류동 341"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "항동중흥에스클래스베르데카운티": {
-    "count": 305,
-    "hash": "ctfb1",
-    "matched": "중흥S클래스베르데카운티",
-    "address": "서울특별시 구로구 항동 236"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "신도림태영타운": {
-    "count": 1237,
-    "hash": "1aYc1",
-    "matched": "신도림태영타운",
-    "address": "서울특별시 구로구 구로동 1267"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "현대로얄": {
     "count": 0,
@@ -3844,28 +3233,24 @@
     "matched": null
   },
   "금천롯데캐슬골드파크1차": {
-    "count": 727,
-    "hash": "aCu11",
-    "matched": "금천롯데캐슬골드파크1차",
-    "address": "서울특별시 금천구 독산동 1147"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "독산주공14단지": {
-    "count": 445,
-    "hash": "1mh24",
-    "matched": "주공14단지",
-    "address": "서울특별시 금천구 독산동 1088"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "금천현대": {
-    "count": 705,
-    "hash": "1lA31",
-    "matched": "금천현대",
-    "address": "서울특별시 금천구 독산동 711-2"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "시흥목련": {
-    "count": 60,
-    "hash": "1npaf",
-    "matched": "시흥목련",
-    "address": "서울특별시 금천구 시흥동 1009"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "관악산벽산타운5": {
     "count": 0,
@@ -3873,40 +3258,34 @@
     "matched": null
   },
   "남서울건영2": {
-    "count": 131,
-    "hash": "1mW14",
-    "matched": "건영2차",
-    "address": "서울특별시 금천구 시흥동 384-12"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "독산현대": {
-    "count": 99,
-    "hash": "1lI6b",
-    "matched": "독산현대",
-    "address": "서울특별시 금천구 독산동 293-10"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "무지개": {
-    "count": 232,
-    "hash": "1n94c",
-    "matched": "무지개",
-    "address": "서울특별시 금천구 시흥동 109-1"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "벽산3": {
-    "count": 75,
-    "hash": "64le9",
-    "matched": "벽산3차",
-    "address": "경기도 시흥시 은행동 547-1"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "시흥베르빌": {
-    "count": 106,
-    "hash": "1nqe3",
-    "matched": "시흥베르빌",
-    "address": "서울특별시 금천구 시흥동 1015"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "이랜드해가든": {
-    "count": 84,
-    "hash": "1twa6",
-    "matched": "이랜드해가든",
-    "address": "서울특별시 동작구 흑석동 332"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "한아(987-21)": {
     "count": 0,
@@ -3914,82 +3293,69 @@
     "matched": null
   },
   "덕산": {
-    "count": 8,
-    "hash": "45J66",
-    "matched": "덕산",
-    "address": "인천광역시 서구 가좌동 158-12"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "남서울힐스테이트": {
-    "count": 618,
-    "hash": "1n53c",
-    "matched": "남서울힐스테이트",
-    "address": "서울특별시 금천구 시흥동 1026"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "e편한세상독산더타워": {
-    "count": 452,
-    "hash": "aYYc0",
-    "matched": "e편한세상독산더타워",
-    "address": "서울특별시 금천구 독산동 1007-13"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "금천롯데캐슬골드파크2차201동202동": {
-    "count": 193,
-    "hash": "aFlc2",
-    "matched": "금천롯데캐슬골드파크2차",
-    "address": "서울특별시 금천구 독산동 1150"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "와이즈플레이스": {
-    "count": 115,
-    "hash": "c5l76",
-    "matched": "강남역와이즈플레이스",
-    "address": "서울특별시 강남구 역삼동 837-13"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "현대1차": {
-    "count": 292,
-    "hash": "1rG89",
-    "matched": "현대1차",
-    "address": "서울특별시 영등포구 대림동 785-1"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "문래힐스테이트": {
-    "count": 405,
-    "hash": "1pOc9",
-    "matched": "문래힐스테이트",
-    "address": "서울특별시 영등포구 문래동3가 94"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "진주": {
-    "count": 4,
-    "hash": "8XT2e",
-    "matched": "진주그린",
-    "address": "경상남도 진주시 이현동 236-5"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "한솔": {
-    "count": 292,
-    "hash": "1qCba",
-    "matched": "한솔",
-    "address": "서울특별시 영등포구 양평동6가 99"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "영등포아트자이": {
-    "count": 656,
-    "hash": "a1991",
-    "matched": "영등포아트자이",
-    "address": "서울특별시 영등포구 도림동 821"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "도림청구": {
-    "count": 224,
-    "hash": "1pAe6",
-    "matched": "도림청구",
-    "address": "서울특별시 영등포구 도림동 221-1"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "영등포푸르지오": {
-    "count": 2272,
-    "hash": "1nV0b",
-    "matched": "영등포푸르지오",
-    "address": "서울특별시 영등포구 영등포동 647"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "더샵파크프레스티지": {
-    "count": 563,
-    "hash": "dBUbc",
-    "matched": "더샵파크프레스티지",
-    "address": "서울특별시 영등포구 신길동 4974"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "성원(650)": {
     "count": 0,
@@ -3997,40 +3363,34 @@
     "matched": null
   },
   "당산2가현대홈타운": {
-    "count": 1,
-    "hash": "15033",
-    "matched": "현대홈타운",
-    "address": "서울특별시 강서구 화곡동 923-2"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "삼두": {
-    "count": 121,
-    "hash": "1qN13",
-    "matched": "삼두",
-    "address": "서울특별시 영등포구 신길동 2-3"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "보라매경남아너스빌": {
-    "count": 513,
-    "hash": "1qLf1",
-    "matched": "보라매경남아너스빌",
-    "address": "서울특별시 영등포구 신길동 4780"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "대림현대": {
-    "count": 72,
-    "hash": "1rs99",
-    "matched": "대림현대",
-    "address": "서울특별시 영등포구 대림동 946-1"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "여의도이튼브라운": {
-    "count": 281,
-    "hash": "1otb4",
-    "matched": "여의도자이",
-    "address": "서울특별시 영등포구 여의도동 47"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "영등포그랑그루": {
-    "count": 28,
-    "hash": "bnf33",
-    "matched": "영등포대성그랑그루(오)",
-    "address": "서울특별시 영등포구 영등포동4가 103"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "한강아파트": {
     "count": 0,
@@ -4038,142 +3398,119 @@
     "matched": null
   },
   "공작": {
-    "count": 187,
-    "hash": "1oAa4",
-    "matched": "공작",
-    "address": "서울특별시 영등포구 여의도동 21-2"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "현대3차": {
-    "count": 1268,
-    "hash": "1rFa0",
-    "matched": "현대3차",
-    "address": "서울특별시 영등포구 대림동 608-1"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "문래건영": {
-    "count": 107,
-    "hash": "1pGf0",
-    "matched": "문래건영",
-    "address": "서울특별시 영등포구 문래동3가 93-1"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "브라운스톤영등포": {
-    "count": 160,
-    "hash": "1of02",
-    "matched": "영등포브라운스톤",
-    "address": "서울특별시 영등포구 영등포동7가 202"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "영등포자이르네": {
-    "count": 16,
-    "hash": "e7Sbe",
-    "matched": "개포자이르네",
-    "address": "서울특별시 강남구 개포동 656-3"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "동양": {
-    "count": 389,
-    "hash": "1qA97",
-    "matched": "동양",
-    "address": "서울특별시 영등포구 양평동6가 100"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "여의도더리브스타일": {
-    "count": 238,
-    "hash": "dZS2d",
-    "matched": "여의도더리브스타일(오)",
-    "address": "서울특별시 영등포구 영등포동1가 94-2"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "삼익플라주101동": {
-    "count": 20,
-    "hash": "1qj20",
-    "matched": "삼익플라주105",
-    "address": "서울특별시 영등포구 양평동3가 105"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "양평한신": {
-    "count": 129,
-    "hash": "1q792",
-    "matched": "양평한신",
-    "address": "서울특별시 영등포구 양평동1가 14-1"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "당산대우": {
-    "count": 600,
-    "hash": "1oNa1",
-    "matched": "대우",
-    "address": "서울특별시 영등포구 당산동2가 16-1"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "신길파크자이": {
-    "count": 705,
-    "hash": "drgca",
-    "matched": "신길파크자이",
-    "address": "서울특별시 영등포구 신길동 4967"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "문영칸타빌레": {
-    "count": 27,
-    "hash": "1rq4e",
-    "matched": "대림동문영칸타빌레",
-    "address": "서울특별시 영등포구 대림동 1061"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "당산현대3차": {
-    "count": 913,
-    "hash": "1p24d",
-    "matched": "당산현대5차",
-    "address": "서울특별시 영등포구 당산동4가 30-1"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "힐스테이트클래시안": {
-    "count": 832,
-    "hash": "b5Ecf",
-    "matched": "힐스테이트클래시안",
-    "address": "서울특별시 영등포구 신길동 4969"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "르메이에르": {
-    "count": 139,
-    "hash": "1tTa0",
-    "matched": "르메이에르",
-    "address": "서울특별시 동작구 사당동 1141"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "보라매우성": {
-    "count": 117,
-    "hash": "1vedd",
-    "matched": "보라매우성",
-    "address": "서울특별시 동작구 신대방동 706"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "이수푸르지오더프레티움": {
-    "count": 802,
-    "hash": "drj27",
-    "matched": "이수푸르지오더프레티움",
-    "address": "서울특별시 동작구 사당동 1161"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "보라매코오롱하늘채": {
-    "count": 75,
-    "hash": "1v182",
-    "matched": "보라매코오롱하늘채",
-    "address": "서울특별시 동작구 대방동 509"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "신동아리버파크": {
-    "count": 1810,
-    "hash": "1rPe9",
-    "matched": "신동아리버파크",
-    "address": "서울특별시 동작구 노량진동 325"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "상도휴엔하임": {
-    "count": 153,
-    "hash": "aXBc7",
-    "matched": "상도휴엔하임(도시형)",
-    "address": "서울특별시 동작구 상도동 363-164"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "해태보라매타워": {
-    "count": 92,
-    "hash": "1vpf4",
-    "matched": "해태보라매타워",
-    "address": "서울특별시 동작구 신대방동 708"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "레디앙스": {
-    "count": 7,
-    "hash": "1tR7f",
-    "matched": "레디앙스",
-    "address": "서울특별시 동작구 사당동 238-6"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "동작협성휴포레시그니처": {
-    "count": 460,
-    "hash": "b5D59",
-    "matched": "동작협성휴포레시그니처",
-    "address": "서울특별시 동작구 신대방동 686-48"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "건영(103동-106동)": {
     "count": 0,
@@ -4186,94 +3523,79 @@
     "matched": null
   },
   "힐스테이트 상도 센트럴파크": {
-    "count": 1210,
-    "hash": "1sd0e",
-    "matched": "힐스테이트상도센트럴파크",
-    "address": "서울특별시 동작구 상도동 531"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "e편한세상상도노빌리티": {
-    "count": 614,
-    "hash": "aWA48",
-    "matched": "e편한세상상도노빌리티",
-    "address": "서울특별시 동작구 상도동 903"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "포스코더샵": {
-    "count": 444,
-    "hash": "4fyd6",
-    "matched": "포스코더샵",
-    "address": "광주광역시 남구 봉선동 1076"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "씨티아모리움": {
-    "count": 56,
-    "hash": "1sAa3",
-    "matched": "씨티아모리움",
-    "address": "서울특별시 동작구 상도동 532"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "현진베스트빌": {
-    "count": 11,
-    "hash": "1t8bc",
-    "matched": "현진베스트빌",
-    "address": "서울특별시 동작구 상도1동 501-3"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "사당롯데캐슬2차": {
-    "count": 149,
-    "hash": "1tW98",
-    "matched": "사당롯데캐슬2차",
-    "address": "서울특별시 동작구 사당동 1149"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "대방1차e-편한세상": {
-    "count": 266,
-    "hash": "1uAe4",
-    "matched": "대방1차e편한세상",
-    "address": "서울특별시 동작구 대방동 508"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "아데나339": {
-    "count": 82,
-    "hash": "1uJ73",
-    "matched": "대방아데나339",
-    "address": "서울특별시 동작구 대방동 515"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "흑석리버파크자이": {
-    "count": 1391,
-    "hash": "dCU9d",
-    "matched": "흑석자이",
-    "address": "서울특별시 동작구 흑석동 343"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "사당휴먼시아": {
-    "count": 362,
-    "hash": "1u05e",
-    "matched": "사당휴먼시아",
-    "address": "서울특별시 동작구 사당동 1154"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "상도두산위브": {
-    "count": 181,
-    "hash": "1scda",
-    "matched": "상도두산위브1차",
-    "address": "서울특별시 동작구 상도동 529"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "대방동현대": {
-    "count": 362,
-    "hash": "1uIa2",
-    "matched": "대방현대1차",
-    "address": "서울특별시 동작구 대방동 502"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "경남아너스빌1차": {
-    "count": 50,
-    "hash": "4ze33",
-    "matched": "경남아너스빌1차",
-    "address": "대전광역시 유성구 지족동 840-2"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "중앙하이츠빌": {
-    "count": 170,
-    "hash": "i326",
-    "matched": "중앙하이츠빌",
-    "address": "서울특별시 동대문구 이문동 84"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "남해오네뜨": {
-    "count": 56,
-    "hash": "1ux11",
-    "matched": "남해오네뜨",
-    "address": "서울특별시 동작구 사당동 1143"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "대림아파트": {
     "count": 0,
@@ -4281,94 +3603,79 @@
     "matched": null
   },
   "현대(관악)": {
-    "count": 82,
-    "hash": "1sObe",
-    "matched": "현대관악",
-    "address": "서울특별시 동작구 상도동 407"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "흑석동양아파트": {
-    "count": 267,
-    "hash": "1ts2a",
-    "matched": "흑석동양",
-    "address": "서울특별시 동작구 흑석동 328"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "보라매파크빌": {
-    "count": 261,
-    "hash": "1vf9c",
-    "matched": "보라매파크빌",
-    "address": "서울특별시 동작구 신대방동 711"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "래미안상도3차": {
-    "count": 1060,
-    "hash": "1s433",
-    "matched": "래미안상도3차",
-    "address": "서울특별시 동작구 상도동 431"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "우성1차": {
-    "count": 194,
-    "hash": "4ucd3",
-    "matched": "우성1차",
-    "address": "대전광역시 서구 정림동 584"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "한성아파트": {
-    "count": 135,
-    "hash": "1vob8",
-    "matched": "한성",
-    "address": "서울특별시 동작구 신대방동 470-8"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "보라매아카데미타워": {
-    "count": 104,
-    "hash": "1vd3b",
-    "matched": "보라매아카데미타워",
-    "address": "서울특별시 동작구 신대방동 395-69"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "사당롯데캐슬골든포레": {
-    "count": 1292,
-    "hash": "b3F15",
-    "matched": "사당롯데캐슬골든포레",
-    "address": "서울특별시 동작구 사당동 1160"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "보라매e편한세상": {
-    "count": 233,
-    "hash": "1vae3",
-    "matched": "보라매e편한세상",
-    "address": "서울특별시 동작구 신대방동 720"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "관악푸르지오": {
-    "count": 1810,
-    "hash": "1vIcb",
-    "matched": "관악푸르지오",
-    "address": "서울특별시 관악구 봉천동 1717"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "신림푸르지오": {
-    "count": 648,
-    "hash": "1yMa0",
-    "matched": "신림푸르지오1차",
-    "address": "서울특별시 관악구 신림동 1730"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "금강아미움(106동)": {
-    "count": 104,
-    "hash": "1wQda",
-    "matched": "청룡금강아미움",
-    "address": "서울특별시 관악구 봉천동 1522-28"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "관악산휴먼시아2단지": {
-    "count": 1178,
-    "hash": "1y3f1",
-    "matched": "관악산휴먼시아2단지",
-    "address": "서울특별시 관악구 신림동 1735"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "태흥": {
-    "count": 1,
-    "hash": "25Zeb",
-    "matched": "태흥",
-    "address": "서울특별시 강동구 길동 350-9"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "벽산블루밍3차": {
-    "count": 209,
-    "hash": "1wjad",
-    "matched": "봉천벽산블루밍3차",
-    "address": "서울특별시 관악구 봉천동 1720"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "우정하이비전": {
     "count": 0,
@@ -4376,64 +3683,54 @@
     "matched": null
   },
   "벽산블루밍": {
-    "count": 27,
-    "hash": "1ylba",
-    "matched": "벽산블루밍",
-    "address": "서울특별시 관악구 신림동 1733"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "신림현대": {
-    "count": 1007,
-    "hash": "1yNfb",
-    "matched": "신림현대",
-    "address": "서울특별시 관악구 신림동 1694"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "현대이즈빌": {
-    "count": 14,
-    "hash": "1A7dc",
-    "matched": "현대이즈빌",
-    "address": "서울특별시 관악구 남현동 1058-7"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "관악드림(동아)": {
-    "count": 2374,
-    "hash": "1vC9b",
-    "matched": "관악드림타운",
-    "address": "서울특별시 관악구 봉천동 1712"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "태영": {
-    "count": 77,
-    "hash": "1yw35",
-    "matched": "태영",
-    "address": "서울특별시 관악구 신림동 1424-28"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "봉천동아": {
-    "count": 3,
-    "hash": "1whec",
-    "matched": "봉천동로마아트빌",
-    "address": "서울특별시 관악구 봉천동 635-457"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "삼성산주공(주공3단지)": {
-    "count": 594,
-    "hash": "1yr90",
-    "matched": "삼성산주공",
-    "address": "서울특별시 관악구 신림동 1714"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "네스코뮤즈빌": {
-    "count": 3,
-    "hash": "1zFef",
-    "matched": "네스코뮤즈빌",
-    "address": "서울특별시 관악구 남현동 602-216"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "라이프": {
-    "count": 45,
-    "hash": "1ygc3",
-    "matched": "라이프",
-    "address": "서울특별시 관악구 신림동 1700"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "낙성대현대아파트": {
-    "count": 135,
-    "hash": "1vO4f",
-    "matched": "낙성대현대2차",
-    "address": "서울특별시 관악구 봉천동 296"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "그대家": {
     "count": 0,
@@ -4441,10 +3738,9 @@
     "matched": null
   },
   "힐스테이트뉴포레": {
-    "count": 1349,
-    "hash": "ds9a6",
-    "matched": "힐스테이트뉴포레",
-    "address": "서울특별시 관악구 신림동 1746"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "신림동쌍용아파트": {
     "count": 0,
@@ -4452,16 +3748,14 @@
     "matched": null
   },
   "동부": {
-    "count": 123,
-    "hash": "3G4e7",
-    "matched": "동부",
-    "address": "인천광역시 동구 송현동 66-26"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "우림루미아트": {
-    "count": 14,
-    "hash": "25I71",
-    "matched": "우림루미아트",
-    "address": "서울특별시 강동구 길동 45"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "CLOUDAPT": {
     "count": 0,
@@ -4469,10 +3763,9 @@
     "matched": null
   },
   "봉천우성": {
-    "count": 24,
-    "hash": "cc5aa",
-    "matched": "봉천",
-    "address": "서울특별시 관악구 봉천동 1686-19"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "LIG대학마을(건영아파트3차)": {
     "count": 0,
@@ -4480,16 +3773,14 @@
     "matched": null
   },
   "대우디오슈페리움2단지": {
-    "count": 68,
-    "hash": "1vWe5",
-    "matched": "대우디오슈페리움2단지",
-    "address": "서울특별시 관악구 봉천동 856-1"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "남현현대아이빌라": {
-    "count": 9,
-    "hash": "1zB9b",
-    "matched": "남현현대아이빌라",
-    "address": "서울특별시 관악구 남현동 1054-42"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "일두(1021)": {
     "count": 0,
@@ -4497,130 +3788,109 @@
     "matched": null
   },
   "보라매삼성": {
-    "count": 372,
-    "hash": "1wc96",
-    "matched": "보라매삼성",
-    "address": "서울특별시 관악구 봉천동 1698-1"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "더샵서초": {
-    "count": 179,
-    "hash": "1Jp90",
-    "matched": "더샵서초",
-    "address": "서울특별시 서초구 서초동 1445-14"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "엠브이아파트": {
-    "count": 192,
-    "hash": "1Iu3e",
-    "matched": "엠브이",
-    "address": "서울특별시 서초구 반포동 46"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "방배임광3차": {
-    "count": 242,
-    "hash": "a26c2",
-    "matched": "임광3차",
-    "address": "서울특별시 서초구 방배동 1011-1"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "한신트리플": {
-    "count": 81,
-    "hash": "1Cj5c",
-    "matched": "한신트리플",
-    "address": "서울특별시 서초구 방배동 816-1"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "방배씨티(보성)": {
-    "count": 45,
-    "hash": "1C3be",
-    "matched": "방배씨티보성",
-    "address": "서울특별시 서초구 방배동 836-1"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "반포자이": {
-    "count": 1723,
-    "hash": "1HUe4",
-    "matched": "반포자이",
-    "address": "서울특별시 서초구 반포동 20-43"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "신반포16": {
-    "count": 238,
-    "hash": "1Gx01",
-    "matched": "신반포16차",
-    "address": "서울특별시 서초구 잠원동 55-12"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "서리풀e편한세상": {
-    "count": 344,
-    "hash": "1E9f0",
-    "matched": "방배서리풀e편한세상",
-    "address": "서울특별시 서초구 방배동 906-13"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "방배CJ나인빌1차": {
-    "count": 5,
-    "hash": "1Bu74",
-    "matched": "방배CJ나인빌1차",
-    "address": "서울특별시 서초구 방배동 889-5"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "몽마르뜨빌(577-3)": {
-    "count": 6,
-    "hash": "1Hvf0",
-    "matched": "몽마르뜨빌",
-    "address": "서울특별시 서초구 반포동 577-3"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "서초5차e편한세상": {
-    "count": 33,
-    "hash": "1Mc8f",
-    "matched": "서초5차이편한세상",
-    "address": "서울특별시 서초구 서초동 1467-62"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "서초동삼성쉐르빌2": {
-    "count": 59,
-    "hash": "Sxee",
-    "matched": "삼성쉐르빌2",
-    "address": "서울특별시 양천구 신정동 318-12"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "대우아이빌": {
-    "count": 129,
-    "hash": "1GLdb",
-    "matched": "대우아이빌",
-    "address": "서울특별시 서초구 잠원동 42-13"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "방배1차현대홈타운": {
-    "count": 445,
-    "hash": "1Bj50",
-    "matched": "방배1차현대",
-    "address": "서울특별시 서초구 방배동 1344"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "양재테크노2차": {
-    "count": 5,
-    "hash": "1F0f8",
-    "matched": "양재테크노2차",
-    "address": "서울특별시 서초구 양재동 6-13"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "아크로리버파크": {
-    "count": 826,
-    "hash": "aBP2b",
-    "matched": "아크로리버파크",
-    "address": "서울특별시 서초구 반포동 2-12"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "반포래미안아이파크": {
-    "count": 293,
-    "hash": "aQ3a9",
-    "matched": "반포래미안아이파크",
-    "address": "서울특별시 서초구 반포동 1341"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "힐스테이트서초젠트리스": {
-    "count": 97,
-    "hash": "1Mu93",
-    "matched": "힐스테이트서초젠트리스",
-    "address": "서울특별시 서초구 신원동 557"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "강남한양수자인(4단지)": {
-    "count": 572,
-    "hash": "1VC57",
-    "matched": "강남한양수자인",
-    "address": "서울특별시 강남구 자곡동 686"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "대우디오빌": {
-    "count": 127,
-    "hash": "1Wde9",
-    "matched": "대우양재디오빌",
-    "address": "서울특별시 강남구 도곡동 952"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "동현아파트1~6": {
     "count": 0,
@@ -4628,124 +3898,104 @@
     "matched": null
   },
   "삼성동신영지웰": {
-    "count": 11,
-    "hash": "1Rq75",
-    "matched": "삼성동신영지웰",
-    "address": "서울특별시 강남구 삼성동 114-11"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "리치타운": {
-    "count": 3,
-    "hash": "1OD2c",
-    "matched": "리치타운",
-    "address": "서울특별시 강남구 개포동 1204-5"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "개포주공7단지": {
-    "count": 344,
-    "hash": "1Ovac",
-    "matched": "개포주공7단지",
-    "address": "서울특별시 강남구 개포동 185"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "래미안 개포 루체하임": {
-    "count": 506,
-    "hash": "aWNee",
-    "matched": "래미안개포루체하임",
-    "address": "서울특별시 강남구 일원동 741"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "청담자이": {
-    "count": 507,
-    "hash": "1Qi0e",
-    "matched": "청담자이",
-    "address": "서울특별시 강남구 청담동 134-38"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "한보미도맨션2": {
-    "count": 802,
-    "hash": "1SL2f",
-    "matched": "한보미도맨션1,2차",
-    "address": "서울특별시 강남구 대치동 511"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "삼성동한솔아파트": {
-    "count": 56,
-    "hash": "1Rs0d",
-    "matched": "삼성동한일",
-    "address": "서울특별시 강남구 삼성동 48"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "삼성동힐스테이트 1단지": {
-    "count": 502,
-    "hash": "1Rga5",
-    "matched": "삼성힐스테이트1단지",
-    "address": "서울특별시 강남구 삼성동 16-2"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "개포자이프레지던스": {
-    "count": 1094,
-    "hash": "ds61e",
-    "matched": "개포자이프레지던스",
-    "address": "서울특별시 강남구 개포동 1284"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "샘터마을": {
-    "count": 240,
-    "hash": "1VLdd",
-    "matched": "샘터마을",
-    "address": "서울특별시 강남구 일원동 718"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "래미안대치팰리스": {
-    "count": 480,
-    "hash": "axv7f",
-    "matched": "래미안대치팰리스1단지",
-    "address": "서울특별시 강남구 대치동 1027"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "비쥬힐": {
-    "count": 3,
-    "hash": "1Upe7",
-    "matched": "비쥬힐",
-    "address": "서울특별시 강남구 논현동 39-10"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "LG선릉에클라트(B)": {
-    "count": 54,
-    "hash": "bHDa3",
-    "matched": "선릉LG에클라트B(오)",
-    "address": "서울특별시 강남구 삼성동 142-3"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "디에이치아너힐즈": {
-    "count": 557,
-    "hash": "aYV55",
-    "matched": "디에이치아너힐즈",
-    "address": "서울특별시 강남구 개포동 1281"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "우성사원5": {
-    "count": 48,
-    "hash": "1VS27",
-    "matched": "삼성사원",
-    "address": "서울특별시 강남구 일원동 626"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "역삼푸르지오": {
-    "count": 335,
-    "hash": "1NL73",
-    "matched": "역삼푸르지오",
-    "address": "서울특별시 강남구 역삼동 754-1"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "브라운스톤역삼": {
-    "count": 47,
-    "hash": "1MZ67",
-    "matched": "역삼브라운스톤",
-    "address": "서울특별시 강남구 역삼동 747-5"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "대우멤버스카운티201": {
     "count": 0,
-    "hash": "1Pc81",
-    "matched": "대우멤버스카운티2",
-    "address": "서울특별시 강남구 청담동 59-2"
+    "hash": null,
+    "matched": null
   },
   "대치SKVIEW": {
-    "count": 65,
-    "hash": "aDUe1",
-    "matched": "대치SK뷰",
-    "address": "서울특별시 강남구 대치동 1029"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "삼성풍림2차아파트": {
-    "count": 71,
-    "hash": "1RB44",
-    "matched": "삼성풍림2차",
-    "address": "서울특별시 강남구 삼성동 104"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "삼익대청아파트": {
     "count": 0,
@@ -4753,118 +4003,99 @@
     "matched": null
   },
   "성원대치2단지아파트": {
-    "count": 2566,
-    "hash": "1OBe7",
-    "matched": "대치2단지",
-    "address": "서울특별시 강남구 개포동 12"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "역삼I'PARK": {
-    "count": 233,
-    "hash": "1Nm9e",
-    "matched": "역삼I′PARK1차",
-    "address": "서울특별시 강남구 역삼동 713-11"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "청담4차이-편한세상": {
-    "count": 37,
-    "hash": "1PW06",
-    "matched": "청담4차e편한세상",
-    "address": "서울특별시 강남구 청담동 28-20"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "삼성청담아파트": {
-    "count": 148,
-    "hash": "1Pjfa",
-    "matched": "삼성청담",
-    "address": "서울특별시 강남구 청담동 42"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "까치마을": {
-    "count": 2169,
-    "hash": "1VW6c",
-    "matched": "까치마을",
-    "address": "서울특별시 강남구 수서동 746"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "한양수자인어반게이트": {
-    "count": 52,
-    "hash": "1UN8f",
-    "matched": "한양수자인어반게이트",
-    "address": "서울특별시 강남구 논현동 221-7"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "디에이치포레센트": {
-    "count": 94,
-    "hash": "dsF31",
-    "matched": "디에이치포레센트",
-    "address": "서울특별시 강남구 일원동 742"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "강남팰리스": {
     "count": 0,
-    "hash": "91O88",
-    "matched": "영남팰리스",
-    "address": "경상남도 사천시 동금동 57-28"
+    "hash": null,
+    "matched": null
   },
   "리센츠": {
-    "count": 2631,
-    "hash": "1Xa59",
-    "matched": "리센츠",
-    "address": "서울특별시 송파구 잠실동 22"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "트리지움": {
-    "count": 1303,
-    "hash": "1Xiec",
-    "matched": "트리지움",
-    "address": "서울특별시 송파구 잠실동 35"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "잠실엘스": {
-    "count": 3184,
-    "hash": "1Xe5f",
-    "matched": "잠실엘스",
-    "address": "서울특별시 송파구 잠실동 19"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "송파파크데일1단지": {
-    "count": 189,
-    "hash": "23Cdc",
-    "matched": "송파파크데일1단지",
-    "address": "서울특별시 송파구 마천동 582"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "송파파인타운5단지": {
-    "count": 219,
-    "hash": "21f7c",
-    "matched": "송파파인타운5단지",
-    "address": "서울특별시 송파구 장지동 845"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "파크리오": {
-    "count": 3802,
-    "hash": "1Xyb5",
-    "matched": "파크리오",
-    "address": "서울특별시 송파구 신천동 17"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "동궁리치웰(102동)": {
-    "count": 2,
-    "hash": "1ZCfb",
-    "matched": "동궁리치웰1",
-    "address": "서울특별시 송파구 가락동 173-6"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "위례24단지(꿈에그린)": {
-    "count": 1753,
-    "hash": "21k9c",
-    "matched": "송파꿈에그린위례24단지",
-    "address": "서울특별시 송파구 장지동 901"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "한신잠실코아": {
-    "count": 86,
-    "hash": "bJMc3",
-    "matched": "한신잠실코아(오)",
-    "address": "서울특별시 송파구 신천동 11-9"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "거여4단지": {
-    "count": 600,
-    "hash": "23588",
-    "matched": "거여4단지",
-    "address": "서울특별시 송파구 거여동 293"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "금강캐스빌": {
-    "count": 19,
-    "hash": "1XFb2",
-    "matched": "금강캐스빌",
-    "address": "서울특별시 송파구 풍납동 513"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "우성아파트": {
     "count": 0,
@@ -4872,46 +4103,39 @@
     "matched": null
   },
   "힐스테이트e편한세상문정": {
-    "count": 2620,
-    "hash": "dQw05",
-    "matched": "힐스테이트e편한세상문정",
-    "address": "서울특별시 송파구 문정동 656"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "헬리오시티": {
-    "count": 7386,
-    "hash": "aAh37",
-    "matched": "헬리오시티",
-    "address": "서울특별시 송파구 가락동 913"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "e편한세상송파파크센트럴": {
-    "count": 1155,
-    "hash": "cNdd7",
-    "matched": "e편한세상송파파크센트럴",
-    "address": "서울특별시 송파구 거여동 696"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "거여1단지": {
-    "count": 951,
-    "hash": "23128",
-    "matched": "거여1단지",
-    "address": "서울특별시 송파구 거여동 290"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "문정시영": {
-    "count": 1322,
-    "hash": "20C39",
-    "matched": "문정시영",
-    "address": "서울특별시 송파구 문정동 145"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "문정래미안": {
-    "count": 1148,
-    "hash": "20B1c",
-    "matched": "문정래미안",
-    "address": "서울특별시 송파구 문정동 1"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "상아2차아파트": {
-    "count": 865,
-    "hash": "22H9f",
-    "matched": "상아2차",
-    "address": "서울특별시 송파구 오금동 165"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "가락(1차)쌍용아파트": {
     "count": 0,
@@ -4919,46 +4143,39 @@
     "matched": null
   },
   "가락미륭아파트": {
-    "count": 4,
-    "hash": "gOB50",
-    "matched": "가락미륭재건축",
-    "address": "서울특별시 송파구 가락동 138"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "올림픽선수기자촌2단지": {
-    "count": 2646,
-    "hash": "21J8e",
-    "matched": "올림픽선수기자촌",
-    "address": "서울특별시 송파구 방이동 89"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "레이크팰리스": {
-    "count": 1466,
-    "hash": "1X92a",
-    "matched": "레이크팰리스",
-    "address": "서울특별시 송파구 잠실동 44"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "올림픽훼밀리타운": {
-    "count": 2290,
-    "hash": "20P29",
-    "matched": "올림픽훼밀리타운",
-    "address": "서울특별시 송파구 문정동 150"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "파크하비오": {
-    "count": 1511,
-    "hash": "aC08a",
-    "matched": "송파파크하비오푸르지오",
-    "address": "서울특별시 송파구 문정동 618"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "동아한가람1": {
-    "count": 477,
-    "hash": "1XI85",
-    "matched": "동아한가람",
-    "address": "서울특별시 송파구 풍납동 506"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "올림픽파크리움": {
-    "count": 24,
-    "hash": "bSb42",
-    "matched": "올림픽파크리움(오)",
-    "address": "서울특별시 송파구 방이동 51"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "광명아파트": {
     "count": 0,
@@ -4966,70 +4183,59 @@
     "matched": null
   },
   "송파레미니스": {
-    "count": 247,
-    "hash": "csPca",
-    "matched": "송파레미니스2단지",
-    "address": "서울특별시 송파구 오금동 617"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "현대리버빌2지구": {
-    "count": 241,
-    "hash": "1XXbe",
-    "matched": "현대리버빌2차",
-    "address": "서울특별시 송파구 풍납동 261"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "토성현대": {
-    "count": 153,
-    "hash": "1XY3f",
-    "matched": "토성현대",
-    "address": "서울특별시 송파구 풍납동 251-2"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "현대백조": {
-    "count": 193,
-    "hash": "22Ua5",
-    "matched": "현대백조",
-    "address": "서울특별시 송파구 오금동 11"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "올림픽베어스타운1": {
-    "count": 121,
-    "hash": "21I70",
-    "matched": "올림픽베어스타운",
-    "address": "서울특별시 송파구 방이동 171"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "올림픽선수기자촌1단지": {
-    "count": 2646,
-    "hash": "21J8e",
-    "matched": "올림픽선수기자촌",
-    "address": "서울특별시 송파구 방이동 89"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "엘리시움아파트": {
-    "count": 7,
-    "hash": "diL5d",
-    "matched": "엘리시움",
-    "address": "서울특별시 송파구 오금동 26-2"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "주성파크뷰": {
-    "count": 20,
-    "hash": "20Xcc",
-    "matched": "주성파크뷰",
-    "address": "서울특별시 송파구 문정동 56-6"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "현대리버빌1지구": {
-    "count": 359,
-    "hash": "1XWac",
-    "matched": "현대리버빌1차",
-    "address": "서울특별시 송파구 풍납동 260"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "올림픽선수기자촌3단지": {
-    "count": 2646,
-    "hash": "21J8e",
-    "matched": "올림픽선수기자촌",
-    "address": "서울특별시 송파구 방이동 89"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "올림픽카운티": {
-    "count": 128,
-    "hash": "22bd5",
-    "matched": "효성올림픽카운티",
-    "address": "서울특별시 송파구 방이동 51-4"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "그린아파트": {
     "count": 0,
@@ -5037,112 +4243,94 @@
     "matched": null
   },
   "코오롱아파트": {
-    "count": 612,
-    "hash": "2212b",
-    "matched": "코오롱",
-    "address": "서울특별시 송파구 방이동 212-8"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "강일리버파크4단지": {
-    "count": 173,
-    "hash": "2bG53",
-    "matched": "강일리버파크4단지",
-    "address": "서울특별시 강동구 강일동 673"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "라움": {
-    "count": 3,
-    "hash": "28s67",
-    "matched": "라움",
-    "address": "서울특별시 강동구 성내동 439-2"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "삼보힐아파트": {
-    "count": 2,
-    "hash": "24530",
-    "matched": "삼보힐",
-    "address": "서울특별시 강동구 명일동 312-256"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "강동큐브": {
-    "count": 15,
-    "hash": "bmx93",
-    "matched": "강동큐브2차(오)",
-    "address": "서울특별시 강동구 길동 415-13"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "태천해오름": {
-    "count": 3,
-    "hash": "272b7",
-    "matched": "태천해오름",
-    "address": "서울특별시 강동구 둔촌동 425-3"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "고덕그라시움": {
-    "count": 3804,
-    "hash": "aYO6d",
-    "matched": "고덕그라시움",
-    "address": "서울특별시 강동구 고덕동 693"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "천호네스빌": {
-    "count": 25,
-    "hash": "2bjda",
-    "matched": "천호네스빌",
-    "address": "서울특별시 강동구 천호동 170-2"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "강일리버파크2단지": {
-    "count": 190,
-    "hash": "2bF0a",
-    "matched": "강일리버파크2단지",
-    "address": "서울특별시 강동구 강일동 668"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "원다빌2": {
-    "count": 25,
-    "hash": "29980",
-    "matched": "원다빌2",
-    "address": "서울특별시 강동구 성내동 592"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "동아2": {
-    "count": 13,
-    "hash": "28l2d",
-    "matched": "동아2차",
-    "address": "서울특별시 강동구 성내동 424-12"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "다성이즈빌": {
-    "count": 5,
-    "hash": "27de7",
-    "matched": "다성이즈빌",
-    "address": "서울특별시 강동구 암사동 488-10"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "신동아파밀리에": {
-    "count": 32,
-    "hash": "7pkf4",
-    "matched": "신동아파밀리에",
-    "address": "충청남도 홍성군 홍성읍 고암리 1077"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "율전에버그린아파트": {
-    "count": 4,
-    "hash": "dlXa6",
-    "matched": "율전에버그린",
-    "address": "서울특별시 강동구 길동 394-17"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "이편한세상강동에코포레": {
-    "count": 205,
-    "hash": "cNe2b",
-    "matched": "e편한세상강동에코포레",
-    "address": "서울특별시 강동구 길동 477"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "강일리버파크5단지": {
-    "count": 191,
-    "hash": "2bI4c",
-    "matched": "강일리버파크5단지",
-    "address": "서울특별시 강동구 강일동 670"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "우성101동": {
     "count": 0,
-    "hash": "x7d7",
-    "matched": "우성101동",
-    "address": "서울특별시 노원구 공릉동 569-26"
+    "hash": null,
+    "matched": null
   },
   "고덕아르테온": {
-    "count": 3081,
-    "hash": "b5y9a",
-    "matched": "고덕아르테온",
-    "address": "서울특별시 강동구 상일동 519"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "삼익아파트": {
     "count": 0,
@@ -5150,34 +4338,29 @@
     "matched": null
   },
   "코오롱(1차)": {
-    "count": 171,
-    "hash": "29i0b",
-    "matched": "코오롱1차",
-    "address": "서울특별시 강동구 성내동 196-8"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "고덕센트럴IPARK": {
-    "count": 671,
-    "hash": "ctEc3",
-    "matched": "당산센트럴IPARK",
-    "address": "서울특별시 영등포구 당산동5가 43"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "래미안힐스테이트고덕": {
-    "count": 1890,
-    "hash": "aD44a",
-    "matched": "래미안힐스테이트고덕",
-    "address": "서울특별시 강동구 고덕동 688"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "고덕주공9": {
-    "count": 659,
-    "hash": "23T7d",
-    "matched": "고덕주공9단지",
-    "address": "서울특별시 강동구 명일동 257"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "명일지에스아파트": {
-    "count": 684,
-    "hash": "2440e",
-    "matched": "명일지에스",
-    "address": "서울특별시 강동구 명일동 332"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "현대아파트": {
     "count": 0,
@@ -5185,100 +4368,84 @@
     "matched": null
   },
   "강동헤리티지자이": {
-    "count": 1022,
-    "hash": "elXe0",
-    "matched": "강동헤리티지자이",
-    "address": "서울특별시 강동구 길동 483"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "삼익그린11차": {
-    "count": 63,
-    "hash": "246a5",
-    "matched": "삼익그린11차",
-    "address": "서울특별시 강동구 명일동 38"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "고덕롯데캐슬베네루체": {
-    "count": 1657,
-    "hash": "b5je6",
-    "matched": "고덕롯데캐슬베네루체",
-    "address": "서울특별시 강동구 상일동 514"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "현진리버파크": {
-    "count": 88,
-    "hash": "dtw26",
-    "matched": "현진리버파크",
-    "address": "서울특별시 강동구 천호동 467-11"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "강동리엔파크14단지": {
-    "count": 417,
-    "hash": "dL625",
-    "matched": "강동리엔파크14단지",
-    "address": "서울특별시 강동구 상일동 28"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "강일리버파크3단지": {
-    "count": 289,
-    "hash": "2bBf3",
-    "matched": "강일리버파크3단지",
-    "address": "서울특별시 강동구 강일동 674"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "성내동삼성아파트": {
-    "count": 1008,
-    "hash": "28L62",
-    "matched": "성내삼성",
-    "address": "서울특별시 강동구 성내동 590"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "올림픽파크포레온": {
-    "count": 12578,
-    "hash": "dC7df",
-    "matched": "올림픽파크포레온",
-    "address": "서울특별시 강동구 둔촌동 174-1"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "프라자": {
-    "count": 234,
-    "hash": "26X29",
-    "matched": "프라자",
-    "address": "서울특별시 강동구 둔촌동 603"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "신성둔촌미소지움1": {
-    "count": 339,
-    "hash": "26Mcf",
-    "matched": "신성둔촌미소지움",
-    "address": "서울특별시 강동구 둔촌동 546"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "유원아파트": {
-    "count": 96,
-    "hash": "2aL70",
-    "matched": "유원",
-    "address": "서울특별시 강동구 천호동 287-9"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "래미안솔베뉴": {
-    "count": 1354,
-    "hash": "aYWdc",
-    "matched": "래미안솔베뉴",
-    "address": "서울특별시 강동구 명일동 359"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "현대4": {
-    "count": 3,
-    "hash": "6Glc7",
-    "matched": "현대4",
-    "address": "강원특별자치도 춘천시 후평동 901"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "고덕센트럴푸르지오": {
-    "count": 907,
-    "hash": "csR5d",
-    "matched": "고덕센트럴푸르지오",
-    "address": "서울특별시 강동구 고덕동 210-1"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "한강현대": {
-    "count": 196,
-    "hash": "27Nf3",
-    "matched": "한강현대",
-    "address": "서울특별시 강동구 암사동 442-1"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "강일리버파크8단지": {
-    "count": 130,
-    "hash": "2bE46",
-    "matched": "강일리버파크8단지",
-    "address": "서울특별시 강동구 강일동 701"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "광남아파트102동": {
     "count": 0,
@@ -5286,34 +4453,29 @@
     "matched": null
   },
   "에스케이허브진": {
-    "count": 250,
-    "hash": "28We1",
-    "matched": "SK허브진",
-    "address": "서울특별시 강동구 성내동 194"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "프라이어팰리스": {
-    "count": 1028,
-    "hash": "27K4c",
-    "matched": "프라이어팰리스",
-    "address": "서울특별시 강동구 암사동 413"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "천호태영아파트": {
-    "count": 235,
-    "hash": "2b3e2",
-    "matched": "천호태영",
-    "address": "서울특별시 강동구 천호동 566"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "청원파크빌3": {
-    "count": 8,
-    "hash": "25Tbb",
-    "matched": "청원파크빌3",
-    "address": "서울특별시 강동구 길동 103-5"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "강동역신동아파밀리에": {
-    "count": 177,
-    "hash": "a3V2c",
-    "matched": "강동역신동아파밀리에",
-    "address": "서울특별시 강동구 천호동 447-17"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "극동스타클래스남산": {
     "count": 509,
@@ -5752,10 +4914,9 @@
     "address": "대구광역시 동구 용계동 437-2"
   },
   "문화": {
-    "count": 49,
-    "hash": "5EKd8",
-    "matched": "문화",
-    "address": "경기도 평택시 비전동 887"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "영조퀸덤": {
     "count": 0,
@@ -6074,9 +5235,8 @@
   },
   "코스모스": {
     "count": 0,
-    "hash": "ggVbe",
-    "matched": "코스모스",
-    "address": "경상북도 포항시 남구 송도동 513-1"
+    "hash": null,
+    "matched": null
   },
   "이천뜨란채3단지": {
     "count": 44,
@@ -6121,10 +5281,9 @@
     "address": "대구광역시 북구 사수동 833"
   },
   "청구타운": {
-    "count": 29,
-    "hash": "8WIb4",
-    "matched": "청구타운",
-    "address": "경상남도 진주시 초전동 1431-9"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "코스모스한양": {
     "count": 83,
@@ -6175,10 +5334,9 @@
     "address": "대구광역시 북구 침산동 117-3"
   },
   "현대맨션": {
-    "count": 6,
-    "hash": "are0a",
-    "matched": "현대맨션",
-    "address": "경상북도 포항시 남구 대도동 6-7"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "복현서한2": {
     "count": 45,
@@ -6241,10 +5399,9 @@
     "address": "대구광역시 북구 침산동 1761"
   },
   "한신중앙": {
-    "count": 2,
-    "hash": "7g411",
-    "matched": "신중앙",
-    "address": "충청남도 보령시 대천동 1234"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "산격청구맨션": {
     "count": 7,
@@ -6295,10 +5452,9 @@
     "address": "대구광역시 북구 산격동 500-1"
   },
   "미진타운": {
-    "count": 47,
-    "hash": "6Ak7b",
-    "matched": "미진",
-    "address": "경기도 광주시 태전동 667"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "복현3차서한이다음": {
     "count": 90,
@@ -6361,16 +5517,14 @@
     "address": "대구광역시 북구 태전동 1065-1"
   },
   "부영7차": {
-    "count": 34,
-    "hash": "7O891",
-    "matched": "여수부영7차",
-    "address": "전라남도 여수시 여서동 496-1"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "광명": {
-    "count": 3,
-    "hash": "5Bp87",
-    "matched": "광명",
-    "address": "경기도 광명시 광명동 308-2"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "침산1차푸르지오(2-2)": {
     "count": 0,
@@ -6498,10 +5652,9 @@
     "address": "대구광역시 북구 칠성동2가 715"
   },
   "주공그린빌8": {
-    "count": 137,
-    "hash": "5M97b",
-    "matched": "주공그린빌",
-    "address": "경기도 고양시 덕양구 관산동 996"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "침산2지구": {
     "count": 11,
@@ -6582,10 +5735,9 @@
     "address": "대구광역시 북구 태전동 442"
   },
   "연경대광로제비앙더퍼스트": {
-    "count": 608,
-    "hash": "cMV9b",
-    "matched": "대광로제비앙더퍼스트",
-    "address": "경기도 의정부시 산곡동 676"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "지산타운": {
     "count": 45,
@@ -6612,10 +5764,9 @@
     "address": "대구광역시 수성구 만촌동 1331-2"
   },
   "사월보성": {
-    "count": 5,
-    "hash": "Y412",
-    "matched": "신월보성",
-    "address": "서울특별시 양천구 신월동 465-5"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "청구전원타운": {
     "count": 134,
@@ -6636,10 +5787,9 @@
     "address": "대구광역시 수성구 상동 555"
   },
   "두산위브더제니스": {
-    "count": 732,
-    "hash": "899e2",
-    "matched": "두산위브더제니스",
-    "address": "경상북도 포항시 북구 장성동 1612"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "유림노르웨이숲": {
     "count": 142,
@@ -6707,10 +5857,9 @@
     "address": "대구광역시 수성구 사월동 510-2"
   },
   "쌍용화성": {
-    "count": 35,
-    "hash": "7apdc",
-    "matched": "쌍용신성",
-    "address": "충청남도 천안시 동남구 쌍용동 555-2"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "지산화성파크드림": {
     "count": 35,
@@ -6743,10 +5892,9 @@
     "address": "대구광역시 수성구 수성동1가 259-40"
   },
   "목련": {
-    "count": 409,
-    "hash": "4wba2",
-    "matched": "목련",
-    "address": "대전광역시 서구 둔산동 1510"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "만촌동월드메르디앙": {
     "count": 50,
@@ -7089,10 +6237,9 @@
     "address": "대구광역시 수성구 신매동 263"
   },
   "오성우방": {
-    "count": 3,
-    "hash": "4My66",
-    "matched": "오성",
-    "address": "울산광역시 남구 신정동 1622-1"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "캐슬골드파크5단지": {
     "count": 783,
@@ -7125,10 +6272,9 @@
     "address": "대구광역시 달서구 진천동 131"
   },
   "산새마을": {
-    "count": 1,
-    "hash": "6Te20",
-    "matched": "새마을",
-    "address": "강원특별자치도 삼척시 도계읍 흥전리 60-1"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "아람마을": {
     "count": 128,
@@ -7149,10 +6295,9 @@
     "address": "대구광역시 달서구 상인동 1501"
   },
   "코오롱하늘채": {
-    "count": 237,
-    "hash": "QG3b",
-    "matched": "코오롱하늘채",
-    "address": "서울특별시 마포구 연남동 573"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "진천역화성파크리젠시2단지": {
     "count": 36,
@@ -7178,10 +6323,9 @@
     "address": "대구광역시 달서구 월성동 1894"
   },
   "강산타운": {
-    "count": 4,
-    "hash": "asI7a",
-    "matched": "강산타운",
-    "address": "경상북도 구미시 신평동 150-10"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "성서청구타운": {
     "count": 127,
@@ -7255,10 +6399,9 @@
     "address": "대구광역시 달서구 진천동 560-13"
   },
   "시영장미4": {
-    "count": 7,
-    "hash": "89l7e",
-    "matched": "시영장미",
-    "address": "경상북도 포항시 북구 장성동 1369-1"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "대곡역화성파크드림": {
     "count": 135,
@@ -7381,10 +6524,9 @@
     "address": "대구광역시 달서구 상인동 1600"
   },
   "대구금강맨션2차": {
-    "count": 3,
-    "hash": "87375",
-    "matched": "대원금강맨션2차",
-    "address": "경상북도 포항시 북구 죽도동 625-1"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "상인동화아이위시": {
     "count": 485,
@@ -7549,10 +6691,9 @@
     "address": "대구광역시 달서구 감삼동 582-5"
   },
   "한샘": {
-    "count": 11,
-    "hash": "46ge3",
-    "matched": "한샘",
-    "address": "인천광역시 서구 가좌동 261-2"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "달서SKVIEW": {
     "count": 525,
@@ -7621,10 +6762,9 @@
     "address": "대구광역시 달서구 상인동 1598"
   },
   "청구제네스": {
-    "count": 23,
-    "hash": "8LX08",
-    "matched": "청구제네스",
-    "address": "경상남도 창원시 마산합포구 완월동 421"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "두류센트레빌더시티": {
     "count": 435,
@@ -7693,10 +6833,9 @@
     "address": "대구광역시 달성군 다사읍 매곡리 1538"
   },
   "호반베르디움": {
-    "count": 126,
-    "hash": "aeJ93",
-    "matched": "호반베르디움",
-    "address": "울산광역시 울주군 범서읍 구영리 211-1"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "강창하이츠": {
     "count": 122,
@@ -7765,10 +6904,9 @@
     "address": "대구광역시 달성군 화원읍 명곡리 130"
   },
   "예미지더센트럴": {
-    "count": 513,
-    "hash": "faD1a",
-    "matched": "예미지센트럴에듀",
-    "address": "경기도 화성시 효행구 비봉면 삼화리 1850"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "옥포지구서한이다음": {
     "count": 123,
@@ -7777,10 +6915,9 @@
     "address": "대구광역시 달성군 옥포읍 교항리 2984"
   },
   "진아리채": {
-    "count": 36,
-    "hash": "4em32",
-    "matched": "진아리채",
-    "address": "광주광역시 남구 진월동 30"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "제일풍경채센트럴": {
     "count": 208,
@@ -7849,10 +6986,9 @@
     "address": "대구광역시 수성구 신매동 162"
   },
   "힐데스하임아파트": {
-    "count": 189,
-    "hash": "aDT00",
-    "matched": "양산힐데스하임",
-    "address": "경상남도 양산시 물금읍 가촌리 1281"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "다사한일유앤아이": {
     "count": 119,
@@ -7903,10 +7039,9 @@
     "address": "대구광역시 달성군 구지면 화산리 1105"
   },
   "호반베르디움2차": {
-    "count": 126,
-    "hash": "aeJ93",
-    "matched": "호반베르디움",
-    "address": "울산광역시 울주군 범서읍 구영리 211-1"
+    "count": 0,
+    "hash": null,
+    "matched": null
   },
   "메가시티태왕아너스": {
     "count": 382,

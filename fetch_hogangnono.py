@@ -45,8 +45,8 @@ def load_apt_list():
 
 
 def search_apt(name, gugun="", dong=""):
-    """호갱노노 검색 API로 aptHash 획득"""
-    query = f"{name}"
+    """호갱노노 검색 API로 aptHash 획득 (대구광역시 단지만 허용)"""
+    query = f"{gugun} {name}" if gugun else name
     url = f"{BASE}/api/v2/searches/new"
     try:
         r = requests.get(url, params={"query": query, "limit": 10}, headers=HEADERS, timeout=10)
@@ -57,11 +57,14 @@ def search_apt(name, gugun="", dong=""):
         if not candidates:
             return None
 
-        # 이름 + 주소 유사도로 최적 매칭
+        # 대구광역시 항목만 허용 + 이름·주소 유사도로 최적 매칭
         best, best_score = None, 0
         for c in candidates:
+            addr = c.get("address", "")
+            if "대구광역시" not in addr and "대구" not in addr:
+                continue
             name_sim = SequenceMatcher(None, name, c.get("name", "")).ratio()
-            addr_sim = SequenceMatcher(None, gugun + dong, c.get("address", "")).ratio()
+            addr_sim = SequenceMatcher(None, f"{gugun} {dong}", addr).ratio()
             score = name_sim * 0.7 + addr_sim * 0.3
             if score > best_score:
                 best_score = score
