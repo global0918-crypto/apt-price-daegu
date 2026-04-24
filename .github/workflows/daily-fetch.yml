@@ -69,7 +69,7 @@ jobs:
       - name: Fetch 전월세 데이터
         if: steps.check_rent.outputs.done == 'false'
         env:
-          MOLIT_API_KEY: ${{ secrets.MOLIT_API_KEY }}
+          API_KEY: ${{ secrets.API_KEY }}
         run: python fetch_daegu_rent.py
 
       - name: Generate history JSON
