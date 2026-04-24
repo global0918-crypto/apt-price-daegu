@@ -205,11 +205,11 @@ def generate_html(excel_path, output_path):
 <meta property="og:type"               content="website">
 <meta property="og:title"              content="대구 아파트 실거래 현황">
 <meta property="og:description"        content="국토교통부 실거래가 기반 대구 아파트 실거래 카드뷰 · 7년 추이 · 유사 아파트 비교">
-<meta property="og:image"              content="apt_price_daegu_thumbnail.png">
+<meta property="og:image"              content="https://global0918-crypto.github.io/apt-price-daegu/apt_price_daegu_thumbnail.png">
 <meta property="og:image:width"        content="1200">
 <meta property="og:image:height"       content="630">
 <meta name="twitter:card"              content="summary_large_image">
-<meta name="twitter:image"             content="apt_price_daegu_thumbnail.png">
+<meta name="twitter:image"             content="https://global0918-crypto.github.io/apt-price-daegu/apt_price_daegu_thumbnail.png">
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <style>
