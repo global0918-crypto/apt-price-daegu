@@ -1289,7 +1289,7 @@ function cardHTML(t){
   const hgnn=HOGAN[t.apt_name];
   const hgnnUrl=hgnn?.hash
     ?`https://hogangnono.com/apt/${hgnn.hash}`
-    :`https://hogangnono.com/?searchTextKeyword=${encodeURIComponent([t.dong,t.apt_name].filter(Boolean).join(' '))}`;
+    :`https://hogangnono.com/?searchTextKeyword=${encodeURIComponent([t.gugun,t.dong,t.apt_name].filter(Boolean).join(' '))}`;
   const hgnnBadge=(hgnn&&hgnn.count>0)
     ?`<a class="hgnn-badge" href="${hgnnUrl}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" title="호갱노노에서 보기">💬 ${hgnn.count}</a>`
     :'';
@@ -1393,7 +1393,7 @@ function openDetail(aptName,ak,hlDate,hlAmt){
 }
 
 function openNaverLand(){
-  const q=encodeURIComponent(`대구 ${_detailDong} ${_detailApt}`);
+  const q=encodeURIComponent(`${_detailGugun} ${_detailDong} ${_detailApt}`.trim());
   window.open(`https://m.land.naver.com/search/result/${q}`,'_blank','noopener,noreferrer');
 }
 
