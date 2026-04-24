@@ -58,7 +58,7 @@ jobs:
       - name: Fetch 전월세 데이터
         if: steps.check.outputs.already_ran == 'false'
         env:
-          API_KEY: ${{ secrets.API_KEY }}
+          MOLIT_API_KEY: ${{ secrets.MOLIT_API_KEY }}
         run: python fetch_daegu_rent.py
 
       - name: Generate history JSON
