@@ -1,5 +1,6 @@
 """오늘 기준 국토부 신고 데이터 타겟일 계산"""
 from datetime import datetime, timedelta
+from zoneinfo import ZoneInfo
 
 
 def compute_actual_report_date(transactions, max_fallback=5):
@@ -11,7 +12,7 @@ def compute_actual_report_date(transactions, max_fallback=5):
     if not rgst_dates:
         return None
 
-    today = datetime.now().date()
+    today = datetime.now(ZoneInfo("Asia/Seoul")).date()
     tried, cur = 0, today
 
     while tried < max_fallback:
