@@ -1,11 +1,15 @@
 import requests
 import xml.etree.ElementTree as ET
 import openpyxl
+import sys
 from openpyxl.styles import Font, PatternFill, Alignment
 from datetime import datetime
 import os
 
-API_KEY = os.environ.get("API_KEY", "cad2afdb0f315b4ef965de57205ab4711e2b0ee7788caf4387c5edcd6820c430")
+API_KEY = os.environ.get("API_KEY", "")
+if not API_KEY:
+    print("오류: API_KEY 환경변수가 설정되지 않았습니다.", file=sys.stderr)
+    sys.exit(1)
 API_URL = "https://apis.data.go.kr/1613000/RTMSDataSvcAptTrade/getRTMSDataSvcAptTrade"
 EMAIL_TO = "global0918@gmail.com"
 MASTER_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data", "아파트실거래_마스터.xlsx")
@@ -25,7 +29,7 @@ REGIONS = {
     "대구": [
         ("중구", "27110"), ("동구", "27140"), ("서구", "27170"),
         ("남구", "27200"), ("북구", "27230"), ("수성구", "27260"),
-        ("달서구", "27290"), ("달성군", "27710"),
+        ("달서구", "27290"), ("달성군", "27710"), ("군위군", "27720"),
     ],
 }
 

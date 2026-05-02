@@ -133,6 +133,43 @@ def load_latest_snapshot():
         return None
     return files[0]
 
+def load_cards_from_json():
+    """transactions.json → make_cards 호환 튜플 리스트 변환 (항상 최신 CI 데이터)"""
+    path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data", "transactions.json")
+    if not os.path.exists(path):
+        return []
+    try:
+        with open(path, encoding="utf-8") as f:
+            data = json.load(f)
+        rows = []
+        for t in data.get("transactions", []):
+            if t.get("cdeal_day") or (t.get("cdeal_type", "").upper() == "O"):
+                continue
+            deal = t.get("deal_date", "")
+            parts = deal.split("-") if len(deal) == 10 else [deal[:4], deal[4:6], deal[6:]]
+            dy = parts[0] if len(parts) > 0 else ""
+            dm = parts[1] if len(parts) > 1 else ""
+            dd = parts[2] if len(parts) > 2 else ""
+            rows.append((
+                "대구광역시",
+                t.get("gugun", ""),
+                t.get("dong", ""),
+                t.get("apt_name", ""),
+                t.get("area", ""),
+                t.get("floor", ""),
+                t.get("build_year", ""),
+                dy, dm, dd,
+                t.get("amount", 0),
+                t.get("deal_type", "매매"),
+                "",
+                t.get("rgst_date", ""),
+            ))
+        print(f"카드용 JSON 로드: {len(rows)}건")
+        return rows
+    except Exception as e:
+        print(f"transactions.json 로드 실패: {e}")
+        return []
+
 def build_spark_map(all_rows):
     """7년 전체 이력 → {아파트명: [{d,v,ak,f,dt,g}]} (Python 미리 계산)
     g = gugun (구군) — 동명 아파트 구분용
@@ -170,20 +207,10 @@ def generate_html(excel_path, output_path):
     except Exception as e:
         print(f"마스터 파일 로드 실패 ({e}), 스냅샷으로 폴백")
 
-    # ── CARDS: 최신 스냅샷(당월)만 카드에 표시 ──
-    snap_path = load_latest_snapshot()
-    if snap_path:
-        try:
-            wb_snap = openpyxl.load_workbook(snap_path)
-            snap_rows = read_sheet(wb_snap, "대구")  # 대구만
-            print(f"카드용 스냅샷: {snap_path} ({len(snap_rows)}건)")
-            if not master_rows:
-                master_rows = snap_rows
-        except Exception as e:
-            print(f"스냅샷 로드 실패: {e}")
-            snap_rows = master_rows
-    else:
-        snap_rows = master_rows
+    # ── CARDS: transactions.json에서 로드 (CI가 매일 갱신) ──
+    snap_rows = load_cards_from_json()
+    if not snap_rows:
+        snap_rows = master_rows  # fallback: 마스터 전체
 
     spark_map = build_spark_map(master_rows)
     spark_json = json.dumps(spark_map, ensure_ascii=False, separators=(',', ':'))
@@ -191,7 +218,8 @@ def generate_html(excel_path, output_path):
     cards = make_cards(snap_rows, hgn, meta_idx)
 
     from datetime import datetime
-    date_label = datetime.now().strftime("%Y%m%d_%H%M")
+    from zoneinfo import ZoneInfo
+    date_label = datetime.now(ZoneInfo("Asia/Seoul")).strftime("%Y%m%d_%H%M")
     cards_json = render_cards_js(cards)
 
     html = f"""<!DOCTYPE html>

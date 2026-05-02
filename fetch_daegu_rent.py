@@ -6,7 +6,7 @@ import json
 import os
 import sys
 import time
-from datetime import datetime
+from datetime import datetime, timedelta
 from zoneinfo import ZoneInfo
 
 API_KEY = os.environ.get("MOLIT_API_KEY") or os.environ.get("API_KEY", "")
@@ -57,6 +57,37 @@ def _parse_rgst(raw):
     if len(raw) == 10 and raw[4] == "-":
         return raw
     return ""
+
+
+def _rent_tx_key(t):
+    return (
+        t.get("apt_name", ""),
+        t.get("deal_date", ""),
+        round(float(t.get("area", 0))),
+        int(t.get("floor", 0)),
+        int(t.get("deposit", 0)),
+        int(t.get("monthly_rent", 0)),
+    )
+
+
+def load_prev_rent_state(path):
+    prev_keys, prev_rgst = set(), {}
+    if not os.path.exists(path):
+        return prev_keys, prev_rgst
+    try:
+        with open(path, encoding="utf-8") as f:
+            prev = json.load(f)
+        mi = prev.get("month_items", {})
+        all_prev = mi.get("jeonse", []) + mi.get("wolse", [])
+        for t in all_prev:
+            k = _rent_tx_key(t)
+            prev_keys.add(k)
+            if t.get("rgst_date"):
+                prev_rgst[k] = t["rgst_date"]
+        print(f"  이전 데이터: {len(prev_keys)}건 (rgst_date 보유: {len(prev_rgst)}건)")
+    except Exception as e:
+        print(f"  이전 데이터 로드 실패: {e}")
+    return prev_keys, prev_rgst
 
 
 def fetch_rent_month(lawd_cd, ym, gu_name):
@@ -135,21 +166,56 @@ def fetch_rent_month(lawd_cd, ym, gu_name):
 def main():
     now_kst   = datetime.now(ZoneInfo("Asia/Seoul"))
     today_str = now_kst.strftime("%Y-%m-%d")
-    ym        = now_kst.strftime("%Y%m")
+
+    # 당월 + 전월 조회 (월초 전월 말일 신고분 포착)
+    months = []
+    cur = now_kst.replace(day=1)
+    for _ in range(2):
+        months.append(cur.strftime("%Y%m"))
+        cur = (cur - timedelta(days=1)).replace(day=1)
+    ym = months[0]
 
     print(f"=== 대구 전월세 실거래 수집 ({now_kst.strftime('%Y-%m-%d %H:%M KST')}) ===")
-    print(f"조회 년월: {ym}\n")
+    print(f"조회 년월: {', '.join(months)}\n")
+
+    print("[0] 이전 스냅샷 로드")
+    prev_keys, prev_rgst = load_prev_rent_state(OUTPUT)
+    is_first_run = len(prev_keys) == 0
 
     all_items = []
+    seen_keys = set()
 
     for name, code in DISTRICTS:
-        print(f"  [{name}] 조회...", end=" → ")
-        items = fetch_rent_month(code, ym, name)
-        jeonse_cnt = sum(1 for i in items if i["trade_type"] == "jeonse")
-        wolse_cnt  = sum(1 for i in items if i["trade_type"] == "wolse")
-        print(f"전세 {jeonse_cnt}건, 월세 {wolse_cnt}건")
-        all_items.extend(items)
-        time.sleep(0.3)
+        for m in months:
+            print(f"  [{name}] {m} 조회...", end=" → ")
+            items = fetch_rent_month(code, m, name)
+            new_items = []
+            for item in items:
+                k = _rent_tx_key(item)
+                if k not in seen_keys:
+                    seen_keys.add(k)
+                    new_items.append(item)
+            jeonse_cnt = sum(1 for i in new_items if i["trade_type"] == "jeonse")
+            wolse_cnt  = sum(1 for i in new_items if i["trade_type"] == "wolse")
+            print(f"전세 {jeonse_cnt}건, 월세 {wolse_cnt}건")
+            all_items.extend(new_items)
+            time.sleep(0.3)
+
+    # 신규 거래 감지 & rgst_date 자동 부여
+    new_today = 0
+    for t in all_items:
+        k = _rent_tx_key(t)
+        if t["rgst_date"]:
+            pass
+        elif k in prev_rgst:
+            t["rgst_date"] = prev_rgst[k]
+        elif not is_first_run and k not in prev_keys:
+            t["rgst_date"] = today_str
+            new_today += 1
+
+    print(f"\n[신규 거래 감지] {new_today}건 (rgst_date={today_str} 자동 부여)")
+    if is_first_run:
+        print("  ※ 최초 실행 — 신규 감지 스킵 (다음 실행부터 적용)")
 
     # 오늘 신고분 필터
     today_items  = [i for i in all_items if i["rgst_date"] == today_str]
@@ -160,7 +226,7 @@ def main():
 
     print(f"\n=== 결과 ===")
     print(f"신고일 {today_str} 기준: 전세 {len(today_jeonse)}건, 월세 {len(today_wolse)}건")
-    print(f"이번달 전체:           전세 {len(all_jeonse)}건, 월세 {len(all_wolse)}건")
+    print(f"전체:                  전세 {len(all_jeonse)}건, 월세 {len(all_wolse)}건")
 
     payload = {
         "generated_at": now_kst.isoformat(),

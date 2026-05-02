@@ -3,6 +3,7 @@
 import requests, xml.etree.ElementTree as ET, json, os, sys
 from datetime import datetime, timedelta
 from collections import Counter
+from zoneinfo import ZoneInfo
 from target_date import compute_actual_report_date
 
 API_KEY = os.environ.get("API_KEY", "")
@@ -200,7 +201,7 @@ def load_prev_state(path):
 
 
 def main():
-    now    = datetime.now()
+    now    = datetime.now(ZoneInfo("Asia/Seoul"))
     today_str = now.strftime("%Y-%m-%d")
 
     # 최근 6개월 수집 (이전 계약+최근 신고분 포착)
