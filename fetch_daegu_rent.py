@@ -215,7 +215,7 @@ def main():
 
     print(f"\n[신규 거래 감지] {new_today}건 (rgst_date={today_str} 자동 부여)")
     if is_first_run:
-        print("  ※ 최초 실행 — 신규 감지 스킵 (다음 실행부터 적용)")
+        print("  ※ 최초 실행 - 신규 감지 스킵 (다음 실행부터 적용)")
 
     # 오늘 신고분 필터
     today_items  = [i for i in all_items if i["rgst_date"] == today_str]
@@ -253,7 +253,7 @@ def main():
         json.dump(payload, f, ensure_ascii=False, separators=(",", ":"))
 
     kb = os.path.getsize(OUTPUT) / 1024
-    print(f"\n✅ 저장 완료: {OUTPUT} ({kb:.0f} KB)")
+    print(f"\n[완료] 저장: {OUTPUT} ({kb:.0f} KB)")
 
     if today_jeonse:
         print(f"\n[오늘 전세 샘플 3건]")
