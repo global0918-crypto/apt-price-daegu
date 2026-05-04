@@ -829,9 +829,9 @@ svg{display:block}
     <div class="detail-sub" id="detailSub">-</div>
     <button class="detail-close" onclick="closeDetail()">✕</button>
     <div class="detail-type-tabs">
-      <button class="dtt-btn active">매매</button>
-      <button class="dtt-btn" disabled>전세</button>
-      <button class="dtt-btn" disabled>월세</button>
+      <button class="dtt-btn active" data-dmode="sale"   onclick="switchDetailMode('sale')">매매</button>
+      <button class="dtt-btn"        data-dmode="jeonse" onclick="switchDetailMode('jeonse')">전세</button>
+      <button class="dtt-btn"        data-dmode="wolse"  onclick="switchDetailMode('wolse')">월세</button>
     </div>
     <button class="detail-area-toggle" id="detailAreaToggle" onclick="toggleDetailArea()">
       <span id="detailAreaLabel">전체</span>
@@ -1518,12 +1518,15 @@ function downloadCSV(){
 /* ══════════════════════════════════════════════════════════
    아파트 상세 패널
 ══════════════════════════════════════════════════════════ */
-let _detailApt='', _detailArea='', _detailGugun='', _detailDong='';
+let _detailApt='', _detailArea='', _detailGugun='', _detailDong='', _detailMode='sale';
 
 function openDetail(aptName,ak,hlDate,hlAmt){
   ak=ak||'전체';
   _hlDate=hlDate||''; _hlAmt=hlAmt||0;
   _detailApt=aptName; _detailArea=ak;
+  _detailMode='sale';
+  document.querySelectorAll('.dtt-btn').forEach(b=>b.classList.toggle('active',b.dataset.dmode==='sale'));
+  document.querySelector('.trade-tbl thead tr').innerHTML='<th>계약일</th><th>층</th><th>면적</th><th style="text-align:right">금액</th>';
   const card=DB?.transactions?.find(t=>t.apt_name===aptName)||{};
   _detailGugun=card.gugun||''; _detailDong=card.dong||'';
   document.getElementById('detailTitle').textContent=aptName;
@@ -1580,7 +1583,66 @@ function switchDetailArea(ak){
   renderDetailTrades(ak);
 }
 
+function switchDetailMode(mode){
+  _detailMode=mode;
+  document.querySelectorAll('.dtt-btn').forEach(b=>b.classList.toggle('active',b.dataset.dmode===mode));
+  renderDetailStats(_detailArea);
+  renderDetailTrades(_detailArea);
+}
+
+function renderDetailRentTrades(ak){
+  const src=_detailMode==='jeonse'?(RENT?.month_items?.jeonse||[]):(RENT?.month_items?.wolse||[]);
+  const trades=src
+    .filter(t=>t.apt_name===_detailApt&&(ak==='전체'||areaKey(t.area)===ak))
+    .sort((a,b)=>b.deal_date.localeCompare(a.deal_date));
+
+  const th=document.querySelector('.trade-tbl thead tr');
+  if(_detailMode==='wolse')
+    th.innerHTML='<th>계약일</th><th>층</th><th>면적</th><th style="text-align:right">보증금/월세</th>';
+  else
+    th.innerHTML='<th>계약일</th><th>층</th><th>면적</th><th style="text-align:right">보증금</th>';
+
+  document.getElementById('detailChartWrap').style.display='none';
+  if(!trades.length){
+    document.getElementById('detailTbody').innerHTML='<tr><td colspan="4" style="text-align:center;color:#aaa;padding:24px">해당 아파트 전월세 데이터 없음<br><span style="font-size:11px">4월~5월 계약분 기준</span></td></tr>';
+    return;
+  }
+  document.getElementById('detailTbody').innerHTML=trades.map(t=>{
+    const price=_detailMode==='wolse'
+      ?`${fmtAmt(t.deposit)} / ${fmtAmt(t.monthly_rent)}`
+      :fmtAmt(t.deposit);
+    return `<tr><td>${t.deal_date}</td><td>${t.floor}층</td><td>${fmtArea(t.area)}</td><td style="text-align:right">${price}</td></tr>`;
+  }).join('');
+}
+
+function renderDetailRentStats(ak){
+  const src=_detailMode==='jeonse'?(RENT?.month_items?.jeonse||[]):(RENT?.month_items?.wolse||[]);
+  const trades=src.filter(t=>t.apt_name===_detailApt&&(ak==='전체'||areaKey(t.area)===ak));
+  const el=document.getElementById('detailStats');
+  if(!trades.length){el.innerHTML='';return;}
+  const deps=trades.map(t=>t.deposit);
+  const maxD=Math.max(...deps), minD=Math.min(...deps);
+  const avgD=Math.round(deps.reduce((s,v)=>s+v,0)/deps.length);
+  if(_detailMode==='wolse'){
+    const rents=trades.map(t=>t.monthly_rent).filter(v=>v>0);
+    const avgR=rents.length?Math.round(rents.reduce((s,v)=>s+v,0)/rents.length):0;
+    el.innerHTML=`
+      <div class="ds-item"><div class="ds-label">평균 보증금</div><div class="ds-val">${fmtAmt(avgD)}</div><div class="ds-sub">${trades.length}건</div></div>
+      <div class="ds-item"><div class="ds-label">평균 월세</div><div class="ds-val">${fmtAmt(avgR)}</div><div class="ds-sub">월</div></div>
+      <div class="ds-item"><div class="ds-label">최고 보증금</div><div class="ds-val high">${fmtAmt(maxD)}</div><div class="ds-sub">&nbsp;</div></div>
+      <div class="ds-item"><div class="ds-label">총 계약</div><div class="ds-val">${trades.length}건</div><div class="ds-sub">&nbsp;</div></div>`;
+  } else {
+    el.innerHTML=`
+      <div class="ds-item"><div class="ds-label">최고 보증금</div><div class="ds-val high">${fmtAmt(maxD)}</div><div class="ds-sub">&nbsp;</div></div>
+      <div class="ds-item"><div class="ds-label">최저 보증금</div><div class="ds-val low">${fmtAmt(minD)}</div><div class="ds-sub">&nbsp;</div></div>
+      <div class="ds-item"><div class="ds-label">평균 보증금</div><div class="ds-val">${fmtAmt(avgD)}</div><div class="ds-sub">${trades.length}건</div></div>
+      <div class="ds-item"><div class="ds-label">총 계약</div><div class="ds-val">${trades.length}건</div><div class="ds-sub">&nbsp;</div></div>`;
+  }
+}
+
 function renderDetailTrades(ak){
+  if(_detailMode!=='sale'){ renderDetailRentTrades(ak); return; }
+  document.querySelector('.trade-tbl thead tr').innerHTML='<th>계약일</th><th>층</th><th>면적</th><th style="text-align:right">금액</th>';
   const histRaw=HIST[_detailApt]||[];
   let trades;
   if(histRaw.length){
@@ -1630,6 +1692,7 @@ function renderDetailTrades(ak){
 }
 
 function renderDetailStats(ak){
+  if(_detailMode!=='sale'){ renderDetailRentStats(ak); return; }
   const histRaw=HIST[_detailApt]||[];
   let trades;
   if(histRaw.length){
