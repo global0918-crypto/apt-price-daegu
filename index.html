@@ -447,6 +447,29 @@ svg{display:block}
   font-size:12px;font-weight:600;color:var(--b3);transition:all .15s;
 }
 .area-tab.active{background:var(--green);color:#fff;border-color:var(--green)}
+/* 단지 기본정보 블록 */
+.apt-info-block{
+  background:var(--bg2);border-radius:12px;padding:11px 14px 10px;
+  margin-bottom:12px;font-size:13px;
+}
+.aib-chips{display:flex;flex-wrap:wrap;gap:4px 14px;margin-bottom:6px;}
+.aib-chip{display:flex;align-items:baseline;gap:3px;}
+.aib-label{font-size:11px;color:var(--b4);}
+.aib-val{font-size:13px;font-weight:700;color:var(--b1);}
+.aib-constructor{font-size:12px;color:var(--b3);margin-bottom:4px;}
+.aib-more-btn{
+  background:none;border:none;font-size:12px;color:var(--green);
+  cursor:pointer;padding:2px 0;display:inline-flex;align-items:center;gap:2px;font-weight:600;
+}
+.aib-extra{display:none;margin-top:9px;border-top:1px solid var(--border);padding-top:9px;}
+.aib-extra.open{display:block;}
+.aib-row{
+  display:flex;justify-content:space-between;align-items:flex-start;
+  padding:3px 0;font-size:12px;gap:8px;
+}
+.aib-rl{color:var(--b4);flex-shrink:0;}
+.aib-rv{color:var(--b2);font-weight:500;text-align:right;word-break:break-all;}
+.aib-rv a{color:var(--green);text-decoration:none;}
 /* 스크롤 바디 */
 .detail-body{overflow-y:auto;padding:16px 16px 32px;flex:1;min-height:0}
 .detail-chart-wrap{height:130px;margin-bottom:12px;padding:4px 0}
@@ -840,6 +863,7 @@ svg{display:block}
     <div class="detail-area-chips" id="areaTabs" style="display:none"></div>
   </div>
   <div class="detail-body">
+    <div class="apt-info-block" id="aptInfoBlock" style="display:none"></div>
     <div class="detail-stats" id="detailStats"></div>
     <div class="detail-chart-wrap" id="detailChartWrap" style="display:none">
       <canvas id="detailChart"></canvas>
@@ -869,6 +893,8 @@ const PAGE      = 40;
 let DB         = null;
 let HOGAN      = {};   // 호갱노노 리뷰 수
 let RENT       = null; // rent_transactions.json
+let RENT_HIST  = null; // rent_history.json (7년 by_apt)
+let APT_INFO   = null; // apt_info.json (단지 기본정보)
 let _tab       = 'home';
 let _tradeMode = 'sale'; // 'sale'|'jeonse'|'wolse'
 let _rentSort  = 'date';
@@ -925,17 +951,21 @@ function showToast(msg){
 ══════════════════════════════════════════════════════════ */
 async function init(){
   try{
-    const [txRes, hgRes, histRes, rentRes] = await Promise.allSettled([
+    const [txRes, hgRes, histRes, rentRes, rentHistRes, aptInfoRes] = await Promise.allSettled([
       fetch('data/transactions.json'),
       fetch('data/hogangnono_reviews.json'),
       fetch('data/history.json'),
       fetch('data/rent_transactions.json'),
+      fetch('data/rent_history.json'),
+      fetch('data/apt_info.json'),
     ]);
     if(txRes.status==='rejected'||!txRes.value.ok) throw new Error('transactions.json 로드 실패');
     DB = await txRes.value.json();
     if(hgRes.status==='fulfilled'&&hgRes.value.ok) HOGAN = await hgRes.value.json();
     if(histRes.status==='fulfilled'&&histRes.value.ok) HIST = await histRes.value.json();
     if(rentRes.status==='fulfilled'&&rentRes.value.ok) RENT = await rentRes.value.json();
+    if(rentHistRes.status==='fulfilled'&&rentHistRes.value.ok) RENT_HIST = await rentHistRes.value.json();
+    if(aptInfoRes.status==='fulfilled'&&aptInfoRes.value.ok) APT_INFO = await aptInfoRes.value.json();
     _useRgst = DB.transactions.some(t=>t.rgst_date);
     onLoaded();
   }catch(e){
@@ -1553,6 +1583,7 @@ function openDetail(aptName,ak,hlDate,hlAmt){
   toggleBtn.classList.remove('expanded');
   document.getElementById('detailAreaLabel').textContent=ak==='전체'?'전체':fmtArea(parseFloat(ak));
 
+  renderAptInfo(aptName);
   renderDetailStats(ak);
   renderDetailTrades(ak);
   document.getElementById('detailOverlay').classList.add('open');
@@ -1562,6 +1593,69 @@ function openDetail(aptName,ak,hlDate,hlAmt){
 function openNaverLand(){
   const q=encodeURIComponent(`${_detailGugun} ${_detailDong} ${_detailApt}`.trim());
   window.open(`https://m.land.naver.com/search/result/${q}`,'_blank','noopener,noreferrer');
+}
+
+function renderAptInfo(aptName){
+  const el=document.getElementById('aptInfoBlock');
+
+  // 건축년도: 거래 데이터에서 추출
+  const sample=(DB?.transactions||[]).find(t=>t.apt_name===aptName);
+  const buildYear=sample?.build_year||'';
+
+  // 매매 거래 수 (7년 히스토리 기준)
+  const saleHist=HIST?.[aptName]||[];
+  const saleCnt=saleHist.length||(DB?.transactions||[]).filter(t=>t.apt_name===aptName).length;
+
+  // 전세·월세 거래 수 (7년 히스토리 기준)
+  const rentBucket=RENT_HIST?.by_apt?.[aptName];
+  const jeonseCnt=rentBucket?.jeonse?.length||0;
+  const wolseCnt =rentBucket?.wolse?.length||0;
+
+  // 아무것도 없으면 블록 숨김
+  if(!buildYear&&!saleCnt&&!jeonseCnt&&!wolseCnt){el.style.display='none';return;}
+  el.style.display='block';
+
+  const chip=(label,val)=>
+    `<span class="aib-chip"><span class="aib-label">${label}</span><span class="aib-val">${val}</span></span>`;
+
+  const chips=[
+    buildYear ? chip('준공',`${buildYear}년`) : '',
+    saleCnt   ? chip('매매',`${saleCnt.toLocaleString()}건`) : '',
+    jeonseCnt ? chip('전세',`${jeonseCnt.toLocaleString()}건`) : '',
+    wolseCnt  ? chip('월세',`${wolseCnt.toLocaleString()}건`) : '',
+  ].filter(Boolean).join('');
+
+  // 더보기: 면적별 거래 분포
+  const areaMap={};
+  saleHist.forEach(r=>{const k=r[1]+'㎡';areaMap[k]=(areaMap[k]||0)+1;});
+  const areaRows=Object.entries(areaMap)
+    .sort((a,b)=>parseFloat(a[0])-parseFloat(b[0]))
+    .map(([k,v])=>`<div class="aib-row"><span class="aib-rl">매매 ${k}</span><span class="aib-rv">${v}건</span></div>`)
+    .join('');
+
+  const rentAreaMap={};
+  (rentBucket?.jeonse||[]).forEach(r=>{const k=r[1]+'㎡';rentAreaMap[k]=(rentAreaMap[k]||{j:0,w:0});rentAreaMap[k].j++;});
+  (rentBucket?.wolse||[]).forEach(r=>{const k=r[1]+'㎡';rentAreaMap[k]=(rentAreaMap[k]||{j:0,w:0});rentAreaMap[k].w++;});
+  const rentAreaRows=Object.entries(rentAreaMap)
+    .sort((a,b)=>parseFloat(a[0])-parseFloat(b[0]))
+    .map(([k,v])=>{
+      const parts=[];
+      if(v.j) parts.push(`전세 ${v.j}건`);
+      if(v.w) parts.push(`월세 ${v.w}건`);
+      return `<div class="aib-row"><span class="aib-rl">전월세 ${k}</span><span class="aib-rv">${parts.join(' / ')}</span></div>`;
+    }).join('');
+
+  const hasExtra=!!(areaRows||rentAreaRows);
+  const extra=hasExtra?`<div class="aib-extra" id="aptInfoExtra">${areaRows}${rentAreaRows}</div>`:'';
+  const moreBtn=hasExtra?`<button class="aib-more-btn" onclick="toggleAptInfo(this)">면적별 거래현황 ▼</button>`:'';
+
+  el.innerHTML=`<div class="aib-chips">${chips}</div>${moreBtn}${extra}`;
+}
+
+function toggleAptInfo(btn){
+  const extra=document.getElementById('aptInfoExtra');
+  const open=extra.classList.toggle('open');
+  btn.textContent=open?'접기 ▲':'더보기 ▼';
 }
 
 function toggleDetailArea(){
@@ -1590,25 +1684,47 @@ function switchDetailMode(mode){
   renderDetailTrades(_detailArea);
 }
 
+function _getRentTrades(mode, aptName){
+  // Primary: 7년 히스토리 (by_apt 배열 형식)
+  // Supplement: 최근 월별 데이터 (신규 거래 보완)
+  let trades=[];
+  if(RENT_HIST?.by_apt?.[aptName]){
+    const arr=RENT_HIST.by_apt[aptName][mode]||[];
+    trades=arr.map(r=>mode==='wolse'
+      ?{deal_date:r[0],area:r[1],floor:r[2],deposit:r[3],monthly_rent:r[4]||0}
+      :{deal_date:r[0],area:r[1],floor:r[2],deposit:r[3],monthly_rent:0}
+    );
+    // RENT.month_items에서 히스토리에 없는 신규 거래 추가
+    const histKeys=new Set(trades.map(t=>`${t.deal_date}|${Math.round(t.area)}|${t.floor}|${t.deposit}`));
+    (RENT?.month_items?.[mode]||[])
+      .filter(t=>t.apt_name===aptName&&!histKeys.has(`${t.deal_date}|${Math.round(t.area)}|${t.floor}|${t.deposit}`))
+      .forEach(t=>trades.push(t));
+  } else {
+    // 히스토리 없으면 당월 데이터만
+    trades=(RENT?.month_items?.[mode]||[]).filter(t=>t.apt_name===aptName);
+  }
+  return trades;
+}
+
 function renderDetailRentTrades(ak){
-  const src=_detailMode==='jeonse'?(RENT?.month_items?.jeonse||[]):(RENT?.month_items?.wolse||[]);
-  const trades=src
-    .filter(t=>t.apt_name===_detailApt&&(ak==='전체'||areaKey(t.area)===ak))
+  const mode=_detailMode;
+  let trades=_getRentTrades(mode,_detailApt)
+    .filter(t=>ak==='전체'||areaKey(t.area)===ak)
     .sort((a,b)=>b.deal_date.localeCompare(a.deal_date));
 
   const th=document.querySelector('.trade-tbl thead tr');
-  if(_detailMode==='wolse')
+  if(mode==='wolse')
     th.innerHTML='<th>계약일</th><th>층</th><th>면적</th><th style="text-align:right">보증금/월세</th>';
   else
     th.innerHTML='<th>계약일</th><th>층</th><th>면적</th><th style="text-align:right">보증금</th>';
 
   document.getElementById('detailChartWrap').style.display='none';
   if(!trades.length){
-    document.getElementById('detailTbody').innerHTML='<tr><td colspan="4" style="text-align:center;color:#aaa;padding:24px">해당 아파트 전월세 데이터 없음<br><span style="font-size:11px">4월~5월 계약분 기준</span></td></tr>';
+    document.getElementById('detailTbody').innerHTML='<tr><td colspan="4" style="text-align:center;color:#aaa;padding:24px">해당 아파트 전월세 데이터 없음</td></tr>';
     return;
   }
   document.getElementById('detailTbody').innerHTML=trades.map(t=>{
-    const price=_detailMode==='wolse'
+    const price=mode==='wolse'
       ?`${fmtAmt(t.deposit)} / ${fmtAmt(t.monthly_rent)}`
       :fmtAmt(t.deposit);
     return `<tr><td>${t.deal_date}</td><td>${t.floor}층</td><td>${fmtArea(t.area)}</td><td style="text-align:right">${price}</td></tr>`;
@@ -1616,14 +1732,15 @@ function renderDetailRentTrades(ak){
 }
 
 function renderDetailRentStats(ak){
-  const src=_detailMode==='jeonse'?(RENT?.month_items?.jeonse||[]):(RENT?.month_items?.wolse||[]);
-  const trades=src.filter(t=>t.apt_name===_detailApt&&(ak==='전체'||areaKey(t.area)===ak));
+  const mode=_detailMode;
+  const trades=_getRentTrades(mode,_detailApt)
+    .filter(t=>ak==='전체'||areaKey(t.area)===ak);
   const el=document.getElementById('detailStats');
   if(!trades.length){el.innerHTML='';return;}
   const deps=trades.map(t=>t.deposit);
   const maxD=Math.max(...deps), minD=Math.min(...deps);
   const avgD=Math.round(deps.reduce((s,v)=>s+v,0)/deps.length);
-  if(_detailMode==='wolse'){
+  if(mode==='wolse'){
     const rents=trades.map(t=>t.monthly_rent).filter(v=>v>0);
     const avgR=rents.length?Math.round(rents.reduce((s,v)=>s+v,0)/rents.length):0;
     el.innerHTML=`
