@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """대구 아파트 실거래 수집 → data/transactions.json 저장"""
-import requests, xml.etree.ElementTree as ET, json, os, sys
+import requests, xml.etree.ElementTree as ET, json, os, sys, time
 from datetime import datetime, timedelta
 from collections import Counter
 from zoneinfo import ZoneInfo
@@ -237,6 +237,7 @@ def main():
                 xml   = api_call(STD_URL, code, ym)
                 items = parse_items(xml) if xml else []
 
+            time.sleep(0.3)
             cnt = 0
             cnt_cancel = 0
             for item in items:
